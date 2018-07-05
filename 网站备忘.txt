@@ -1,0 +1,69 @@
+改了
+./views/下内容
+web.php
+
+相关页面
+index    主页
+detailed 商品详情页
+evaluate 用户评价页
+list     商品列表页
+reg      注册页
+service  服务指南页
+来自10.zip的页面
+public 对应目录 /other
+orders.html 订单中心页
+cart.html 购物车页
+info.html 个人信息修改
+来自3.zip 的页面
+
+备用黑色仿小米
+
+1.页面做哪块 调哪块
+2.定义各控制器名
+
+前台现路由 
+
+    Route::get('/', function () {
+        return view('home.index');
+    });
+    
+    Route::get('/main', function () {
+        return view('layout.main');
+    });
+    //用户评价表
+    Route::get('/evaluate', function () {
+        return view('home.evaluate');
+    });
+    //商品详情表
+    Route::get('/list', function () {
+        return view('home.list');
+    });
+    //用户登录页
+    Route::get('/login', function () {
+        return view('home.login');
+    });
+    //用户注册页
+    Route::get('/reg', function () {
+        return view('home.reg');
+    });
+    //用户服务页
+    Route::get('/service', function () {
+        return view('home.service');
+    });
+    Route::get('/good', function () {
+        return view('home.good');
+    });
+
+
+    //个人信息
+    Route::get('/info', function () {
+        return view('home.info');
+    });
+    //购物车
+    Route::get('/cart', function () {
+        return view('home.cart');
+    });
+    //订单
+    Route::get('/orders', function () {
+        return view('home.orders');
+    });

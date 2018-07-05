@@ -1,0 +1,55 @@
+.shi{
+	height:10px;
+}
+
+.ershi{
+	height:20px;
+}
+.sanshi{
+	height:30px;
+}
+.shishi{
+	height:40px;
+}
+.wushi{
+	height:50px;
+}
+.liushi{
+	height:60px;
+}
+.qishi{
+	height:70px;
+}
+.bashi{
+	height:80px;
+}
+.jiushi{
+	height:90px;
+}
+.yibai{
+	height:100px;
+}
+
+.row i{
+	position: absolute;
+	margin-left: -300px;
+}
+
+.g{
+	font-size: 25px;
+	position: absolute;
+	margin-top: 5px;
+	margin-left: -250px;
+}
+
+.gg{
+	font-size: 20px;
+	position: absolute;
+	margin-top: 5px;
+	margin-left: -120px;
+}
+
+.gg img{
+	width: 25px;
+	height: 25px;
+}

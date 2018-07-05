@@ -1,0 +1,20 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+    Route::group([],function(){
+        // 后台首页
+        Route::any('/admin/index','admin\IndexController@index');
+        
+        // 后台 订单模块
+        Route::resource('/admin/orders','admin\OrdersController');
+    });
+ 
