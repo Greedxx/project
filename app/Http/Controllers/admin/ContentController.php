@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ContentRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Content;
 
@@ -68,7 +69,7 @@ class ContentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContentRequest $request)
     {
         $res = $request->except('_token');
         try {
@@ -129,7 +130,7 @@ class ContentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContentRequest $request, $id)
     {
         $res = $request->except('_token','_method');
 

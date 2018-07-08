@@ -99,13 +99,22 @@
                                 &nbsp;&nbsp;
                                 <form action="/admin/cate/{{$v->cate_id}} " style="display: inline" method="post">
                                     {{ csrf_field() }}
-                                    <button type="submit" class="btn btn-danger btn-small">删除</button>
+                                    <button type="submit" id="delete" class="btn btn-danger btn-small delete">删除</button>
                                     {{ method_field('DELETE') }}
+                                    
                                 </form>
                             </td>
                         </tr>
                         @endforeach
+
                     </tbody>
+                    <script type="text/javascript">
+                            $('.delete').click(function(){
+                                if(!confirm('确认要删除数据吗?')){
+                                    return false;
+                                }
+                            })
+                    </script>
                 </table>
                 
                  <div class="dataTables_paginate paging_full_numbers" id="paginate">

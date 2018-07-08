@@ -64,7 +64,7 @@
                 <div class="dataTables_filter" id="DataTables_Table_1_filter">
                     <label>
                         标题:
-                        <input type="text" name='zuozhe' value="{{$arr['title']}}" aria-controls="DataTables_Table_1">
+                        <input type="text" name='title' value="{{$arr['title']}}" aria-controls="DataTables_Table_1">
                     </label>
                     <label>
                         关键字:

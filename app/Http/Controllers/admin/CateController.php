@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cate;
-use App\Http\Requests\GoodsRequest;
+use App\Http\Requests\CateRequest;
 
 class CateController extends Controller
 {
@@ -49,7 +49,7 @@ class CateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GoodsRequest $request)
+    public function store(CateRequest $request)
     {
         // //表单验证
         // $this->validate($request, [ 
@@ -120,7 +120,7 @@ class CateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(GoodsRequest $request, $id)
+    public function update(CateRequest $request, $id)
     {
         //表单验证
         /*$this->validate($request, [

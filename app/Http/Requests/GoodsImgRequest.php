@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FormsRequest extends FormRequest
+class GoodsImgRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class FormsRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -25,15 +25,6 @@ class FormsRequest extends FormRequest
     {
         return [
             //
-            'cname' => 'required|regex:/^[\x{4e00}-\x{9fa5}]+$/u'
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'cname.required'=> '填写不能为空',
-            'cname.regex'=> '请填写中文'
         ];
     }
 }
