@@ -2,7 +2,6 @@
 ./views/下内容
 web.php
 
-相关页面
 index    主页
 detailed 商品详情页
 evaluate 用户评价页
