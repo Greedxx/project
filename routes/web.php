@@ -16,5 +16,22 @@
         
         // 后台 订单模块
         Route::resource('/admin/orders','admin\OrdersController');
+
+        //分类管理
+        Route::resource('/admin/cate','admin\CateController');
+
+        //添加子分类传参
+        Route::get('/admin/cate/{id}/create','admin\CateController@add' );
+
+        //商品管理
+        Route::resource('/admin/goods','admin\GoodsController');
+
+        //文章管理
+        Route::resource('/admin/content','admin\ContentController');
+
+        //图片组信息管理
+        Route::resource('/admin/goodsimg/{gid}/guan','admin\GoodsImgController');
+
+
     });
  

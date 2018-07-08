@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="/admins/css/fonts/icomoon/style.css" media="screen">
 
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/mypage.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol16.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol32.css" media="screen">
 
@@ -36,6 +37,13 @@
 
 <link rel="stylesheet" type="text/css" href="/admins/css/hang.css">
 <link rel="stylesheet" type="text/css" href="/admins/css/paginate.css">
+
+<!-- 百度编辑器 -->
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
 
 
 <title>@yield('title')</title>
@@ -174,6 +182,30 @@
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
+                
+                    <li>
+                        <a href="#"><i class="icon-align-justify"></i>类别管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/cate/create">添加类别</a></li>
+                            <li><a href="/admin/cate">浏览类别</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#"><i class="icon-mobile-phone"></i>商品管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/goods/create">添加商品</a></li>
+                            <li><a href="/admin/goods/">浏览商品</a></li>
+                        </ul>
+                    </li>
+                    
+                     <li>
+                        <a href="#"><i class="icon-newspaper"></i>文章管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/content/create">添加文章</a></li>
+                            <li><a href="/admin/content/">浏览文章</a></li>
+                        </ul>
+                    </li>
 
                     <li>
                         <a href="#"><i class="icon-list"></i>订单管理</a>
@@ -206,6 +238,7 @@
                             <li><a href="/admin/cate">管理接口</a></li>
                         </ul>
                     </li>
+                    
 
                 </ul>
             </div>         
