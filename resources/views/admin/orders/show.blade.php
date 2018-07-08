@@ -85,7 +85,7 @@
 			<span class="g">支付状态 :</span>
 			@if ($res[0]->status == 1)
 			<span class="gg">已支付</span>
-			@elseif ($res[0]->status === 0)
+			@elseif ($res[0]->status == 0)
 			<span class="gg">未支付</span>
 			@else
 			<span class="gg">支付出错</span>

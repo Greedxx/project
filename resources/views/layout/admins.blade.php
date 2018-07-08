@@ -184,18 +184,18 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="icon-pictures"></i>商品图片管理</a>
+                        <a href="#"><i class="icon-pictures"></i>商品评论管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/img/create">添加图片</a></li>
-                            <li><a href="/admin/ima">管理图片</a></li>
+                            <li><a href="/admin/ima">管理评论</a></li>
                         </ul>
                     </li>
 
                     <li>
                         <a href="#"><i class="icon-rocket"></i>物流管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/cate/create">物流信息</a></li>
-                            <li><a href="/admin/cate">添加物流</a></li>
+                            <li><a href="/admin/wuliu/create">添加厂商</a></li>
+                            <li><a href="/admin/wuliu/">物流厂商</a></li>
+                            <li><a href="/admin/wuliulist">物流列表</a></li>
                         </ul>
                     </li>
 
@@ -268,6 +268,7 @@
 
     <!-- Demo Scripts (remove if not needed) -->
     <script src="/admins/js/demo/demo.dashboard.js"></script>
+    
 
     @section('js')
 

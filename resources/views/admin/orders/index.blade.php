@@ -4,8 +4,8 @@
 
 <div class="wushi"></div>
 
-@if(session('success'))
-    <div class="mws-form-message warning" style="height: 30px;">{{session('success')}}
+@if(session('delete'))
+    <div class="mws-form-message warning" style="height: 30px;">{{session('delete')}}
     </div>
 @endif
 
@@ -115,33 +115,58 @@
 				
                 <tr class="odd">
                     <td class="  sorting_1">
+                        <center>
                         {{$v->id}}
+                        </center>
                     </td>
                     <td class=" ">
+                        <center>
                         {{$v->orders_id}}
+                        </center>
                     </td>
                     <td class=" ">
+                        <center>
                          {{$v['user']->username}}
+                        </center>
                     </td>
                     <td class=" ">
+                        <center>
                         {{$v['good']->goods_name}}
+                        </center>
                     </td>
                     <td class=" ">
+                        <center>
                         {{$v->addr}}
+                        </center>
                     </td>
                     <td class=" ">
+                        <center>
                        @if ($v->status == 1)
-                      		已支付
+                      		<span style="color:green;">已支付</span>
                        @else 
-                       		未支付
+                       		<span style="color:red;">未支付</span>
                        @endif
-
+                        </center>
+                        
                     </td>
                     <td class=" ">
-                         {{$v->wuliu_status}}
+                        <center>
+                       @if ($v->wuliu_status == 0)
+                            未发货
+                        @elseif ($v->wuliu_status == 1)
+                            运输中
+                        @elseif ($v->wuliu_status == 2)
+                            已签收
+                        @elseif ($v->wuliu_status == 3)
+                            未评论
+                        @elseif ($v->wuliu_status == 4)
+                            已评论
+                        @endif
+                        </center>
                     </td>
                     <td class="">
-                        
+                        <center>
+            
                         <a href="/admin/orders/{{$v->id}}" class="btn btn-info  btn-lg">详情</a>
                         
                         <div style="display: inline-block;">
@@ -153,6 +178,9 @@
                        
                         </form>
                         </div>
+
+                        </center>
+
                     </td>
                 </tr>
         		@endforeach
