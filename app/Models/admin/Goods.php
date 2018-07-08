@@ -14,5 +14,5 @@ class Goods extends Model
     *
     * @var 
     */ 
-    protected $fillable = ['goods_id','cate_id','brand_id','goods_name','keywords','desc','status','price','created_at','update_at','thumb','count','sum','gpic_id','goods_size'];
+    protected $fillable = ['id','cate_id','brand_id','goods_name','keywords','desc','status','price','created_at','update_at','thumb','count','sum','gpic_id','goods_size'];
 }
