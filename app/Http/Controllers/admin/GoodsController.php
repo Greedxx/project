@@ -144,42 +144,33 @@ class GoodsController extends Controller
                 $gimgsnew[] = $gc;
             }
 
-        }
-        // dd($gimgsnew);
 
+            //查找id 并将数组插入
+            $goods = Goods::find($gid);
 
+             //模型   出错
+            try{
+                $data = $goods->goodsimg()->createMany($gimgsnew);
+                // $data->toArray();
 
-        //查找id 并将数组插入
-        $goods = Goods::find($gid);
-
-         //模型   出错
-        try{
-            $data = $goods->goodsimg()->createMany($gimgsnew);
-            // $data->toArray();
-
-            $msg=[];
-            foreach($data as $k =>$v)
-            {
-                try {
-                   $msg[] = GoodsImg::where('id',$v->id)->update(['sort'=>$v->id]);
-                } catch (Exception $e) {
-                     return back();
+                $msg=[];
+                foreach($data as $k =>$v)
+                {
+                    try {
+                        $msg[] = GoodsImg::where('id',$v->id)->update(['sort'=>$v->id]);
+                    } catch (Exception $e) {
+                        
+                    }
                 }
-            }
-            
-            // die();
+            } catch(\Exception $e){   
 
-            //如果更新成功将成功信息返回 
-            if($msg){
-                return redirect('/admin/goods')->with('success','添加成功');
-            }
-
-        }catch(\Exception $e){
-
-            return back()->with('info','操作失败');
-
+            }         
         }
-        
+        if($gid){
+            //主表成功就跳转
+            //可 case  1,2,3 返回不同信息 如 主副表更新成功为1  主表成功副表失败 2 都失败3
+            return redirect('/admin/goods')->with('success','添加信息成功');
+        }
     }
 
     /**

@@ -80,6 +80,7 @@
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
+                    text-align: center;
                 }
             </style>
             <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
@@ -100,22 +101,22 @@
                             标题
                         </th>
 
-                        <th rowspan="1" colspan="1"  >
-                            状态
-                        </th>
-                        
-                        <th rowspan="1" colspan="1"  >
+                        <th rowspan="1" colspan="1"  class="txt">
                             点击数
                         </th>
                      
-                        <th rowspan="1" colspan="1"  >
+                        <th rowspan="1" colspan="1"  class="txt">
                             排序值
                         </th>
 
-                        <th rowspan="1" colspan="1"  >
+                        <th rowspan="1" colspan="1"  class="txt">
+                            状态
+                        </th>
+
+                        <th rowspan="1" colspan="1"  class="txt" width="90px">
                             添加时间
                         </th>
-                        <th rowspan="1" colspan="1"  >
+                        <th rowspan="1" colspan="1"  class="txt" width="90px">
                             更新时间
                         </th>
 
@@ -141,20 +142,20 @@
                         <td class=" ">
                             {{$v->title}}
                         </td>           
-                        <td class=" ">
-                            {{$v->status}}
-                        </td>
-                        <td class=" ">
+                        <td class="txt ">
                             {{$v->count}}
                         </td>
-                        <td class=" ">
+                        <td class="txt">
                             {{$v->sort}}
                         </td>
-                        <td class=" ">
-                            {{$v->created_at}}
+                        <td class="txt" >
+                            {{$v->status}}
                         </td>
-                        <td class=" ">
-                             {{$v->updated_at}}
+                        <td class=" "  >
+                            {{$v->created_at->format('y年m月n日 H时i分s秒') }}
+                        </td>
+                        <td class=" "  >
+                             {{$v->updated_at->format('y年m月n日 H时i分s秒') }}
                         </td>
                          <td class=" ">
                             <a href="/admin/content/{{$v->id}}/edit" class='btn btn-info'>修改</a>
@@ -169,49 +170,7 @@
                     @endforeach
                
                 </tbody>
-            </table>
-
-
-            <style>
-             .pagination {
-                clear: both;
-                color: #7d7d7d;
-                font-size: 12px;
-                overflow: hidden;
-                padding-top: 0px;
-                padding-bottom: 0px;
-                border-top: 1px #dfdfdf solid;
-                FONT-FAMILY: "Microsoft Yahei";
-                float: right;
-                list-style: none;
-                margin:0px;
-             }
-            .pagination li{
-                float: left;
-                color: #7d7d7d;
-                font-size: 12px;
-                font-weight: bold;
-                padding: 7px 12px;
-                margin-right: 8px;
-
-             }
-             .pagination li:hover{
-                cursor: pointer;
-             }
-            .pagination .active{
-                background-color: #88a9eb;
-                color: #323232;
-                border: none;
-                background-image: none;
-                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
-            }
-            .pagination .disabled{
-                    color: #666666;
-                    cursor: default;
-            }
-            </style>
-
-            
+            </table>          
             <div class="dataTables_paginate paging_full_numbers" style="" id="paginate">
                 {{ $data->appends($arr)->links() }}
                

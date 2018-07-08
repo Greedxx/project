@@ -1,17 +1,19 @@
-.pagination {
+<style>
+ .pagination {
     clear: both;
     color: #7d7d7d;
     font-size: 12px;
     overflow: hidden;
     padding-top: 0px;
     padding-bottom: 0px;
-    /*border-top: 1px #dfdfdf solid;*/
+    border-top: 1px #dfdfdf solid;
     FONT-FAMILY: "Microsoft Yahei";
     float: right;
     list-style: none;
     margin:0px;
  }
 .pagination li{
+    display: block;
     float: left;
     color: #7d7d7d;
     font-size: 12px;
@@ -22,9 +24,6 @@
  }
  .pagination li:hover{
     cursor: pointer;
- }
- .pagination li span{
-    display: block;
  }
 .pagination .active{
     background-color: #88a9eb;
@@ -37,3 +36,5 @@
         color: #666666;
         cursor: default;
 }
+
+</style>

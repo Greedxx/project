@@ -116,11 +116,9 @@
                             })
                     </script>
                 </table>
-                
+                 <!--  -->
                  <div class="dataTables_paginate paging_full_numbers" id="paginate">
-
                     {{ $cate->appends($data)->links() }}
-                   
                 </div>
             </div>
         </div>

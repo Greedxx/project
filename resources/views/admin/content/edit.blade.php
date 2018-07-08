@@ -64,8 +64,8 @@
                     <div class="mws-form-col-2-6 " class="small">
                         <label class="mws-form-label">是否发布</label>
                         <select name='status'>
-                            <option value="1" @if($data->status=="0") selected @endif value="0" >发布</option>
-                            <option value="0" @if($data->status=="1") selected @endif value="1" >不发布</option>
+                            <option value="1" @if($data->status=="1") selected @endif >发布</option>
+                            <option value="0" @if($data->status=="0") selected @endif >不发布</option>
                         </select>
                     </div>
                 </div>
