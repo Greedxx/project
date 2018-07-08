@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Goods extends Model
 {
     protected $table = 'goods';
-    protected $primaryKey = 'goods_id';
+    protected $primaryKey = 'id';
     public $timestamps = false;
     /**
     * 可被批量赋值的属性
