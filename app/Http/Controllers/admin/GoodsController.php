@@ -210,7 +210,14 @@ class GoodsController extends Controller
 
         $data=goods::find($id);
 
-        return view('admin.goods.edit',['title'=>'商品修改','data'=>$data,'cate'=>$cate,'id'=>$id]);
+        $gpic = goods::find($id)->with('goodsimg')->first();
+
+        //$arrgpic = $gpic['GoodsImg'];
+        // dd($gpic['GoodsImg']);
+        // die();
+
+
+        return view('admin.goods.edit',['title'=>'商品修改','data'=>$data,'arr'=>$gpic['GoodsImg'],'cate'=>$cate,'id'=>$id]);
     }
 
     /**
