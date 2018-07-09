@@ -58,9 +58,9 @@
                     </div>
                 </div>
             </div>
-            <div class="mws-button-row">
-                <input type="submit" class="btn btn-danger">
-                <a href="/admin/cate" class="btn btn-success" style="float:right;">返回</a>
+            <div class="mws-button-row">          
+                <a href="/admin/cate" class="btn btn-danger" >返回</a>
+                <input type="submit" class="btn btn-success" style="float:right;">
             </div>
             {{method_field('PUT')}}
         </form>

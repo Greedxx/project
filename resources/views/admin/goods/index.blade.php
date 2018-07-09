@@ -132,7 +132,7 @@
                     </tr>
                 </thead>
                 <tbody role="alert" aria-live="polite" aria-relevant="all">
-
+                        {{--dd($data)--}}
                     @foreach($data as $k => $v)
 
                     <tr class="@if($k % 2 == 1)  odd   @else even  @endif">
@@ -142,7 +142,7 @@
                         </td>
 
                         <td class=" ">
-                            {{$v->cate_id}}
+                            {{$v['cate']['cate_name'] OR "未分类"}}
                         </td>
 
                         <td class=" ">
@@ -221,9 +221,9 @@
             </table>
 
 
-
+            <!-- 暂不与其他人样式冲突 -->
             <style>
-             .pagination {
+            .pagination {
                 clear: both;
                 color: #7d7d7d;
                 font-size: 12px;
@@ -245,7 +245,7 @@
                 margin-right: 8px;
 
              }
-             .pagination li:hover{
+            .pagination li:hover{
                 cursor: pointer;
              }
             .pagination .active{
@@ -259,7 +259,6 @@
                     color: #666666;
                     cursor: default;
             }
-
             </style>
 
             

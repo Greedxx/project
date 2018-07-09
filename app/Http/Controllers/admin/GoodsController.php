@@ -19,6 +19,10 @@ class GoodsController extends Controller
      */
     public function index(Request $request)
     {   
+
+        //
+            
+
         //按条件搜索并分页
 
         $data = Goods::where(function($query) use($request){
@@ -45,8 +49,9 @@ class GoodsController extends Controller
                 $query->where('id',$id);
             }
         })
-        ->paginate($request->input('num', '10'));
+        ->with('cate')->paginate($request->input('num', '10'));
 
+         // dd($data); //检测数据是否查询出
          
         //生成参数数组返还给appends
         $arr=[];

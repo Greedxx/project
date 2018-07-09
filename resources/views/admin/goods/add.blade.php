@@ -153,8 +153,8 @@
             </div>
             <div class="mws-button-row">
                 {{csrf_field()}}
-                <a href="/admin/goods" class="btn btn-success" >返回</a>
-                <input type="submit" class="btn btn-danger" value="提交" style="float: right">
+                <a href="/admin/goods" class="btn btn-danger" >返回</a>
+                <input type="submit" class="btn  btn-success" value="提交" style="float: right">
             </div>
         </form>
     </div>      
