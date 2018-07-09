@@ -68,4 +68,8 @@ class Goods extends Model
     {
         return $this->hasMany('App\Models\GoodsImg','gid','id');
     }
+    public function cate()
+    {
+        return $this->belongsTo('App\Models\Cate','cate_id','cate_id');
+    }
 }

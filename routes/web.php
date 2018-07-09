@@ -41,5 +41,8 @@
         //图片组信息管理
         Route::resource('/admin/goodsimg/{gid}/guan','admin\GoodsImgController');
 
+        //图片组信息管理
+        Route::any('/admin/goodsajax','admin\AjaxtaoController@gstatus');
+
     });
  
