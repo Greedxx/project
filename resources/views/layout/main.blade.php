@@ -11,6 +11,7 @@
 <link href="/home/css/pro-detailed.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/home/js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="/home/js/Public.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script> -->
 </head>
 
 <body>
@@ -22,7 +23,7 @@
                 <a href="javascript:;" class="wechat">微信</a>
             </div>
             <div class="top-right">
-                <p>嗨，欢迎来到XXX商城</p>
+                <p>嗨，欢迎来到仙女商城</p>
                 <p><a href="login.html">请登录</a> | <a href="register.html">免费注册</a></p>
                 <p><a href="javascript:;">我的订单</a> | <a href="javascript:;">服务中心</a></p>
             </div>
@@ -71,16 +72,20 @@
     </div>
     
     <!------------header-wrap---------------->
+    <?php 
+        $data = App\Models\Cate::where('pid',0)->limit(5)->get(); 
+        //dump($data);
+    ?>
     <div class="header-wrap">
         <div class="navwrap">
             <div id="nav">
                 <div class="navbar clearfix">
+
                     <a class="current" href="index.html">首页</a>
-                    <a href="products-list.html">环境控制</a>
-                    <a href="products-list.html">视听娱乐</a>
-                    <a href="products-list.html">安全防护</a>
-                    <a href="products-list.html">信息通讯</a>
-                    <a href="products-list.html">智能设备</a>
+                    @foreach ($data as $k =>$v)
+                    <a href="products-list.html">{{$v['cate_name']}}</a>
+                    @endforeach
+                    <a href="products-list.html">品牌一览</a>
                     <a href="#">品牌一览</a>
                     <a href="#">折扣区<em class="sale"></em></a>
                 </div>

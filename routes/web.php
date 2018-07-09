@@ -9,7 +9,10 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
+    Route::any('/','home\IndexController@index');
+
+    
     Route::group([],function(){
         // 后台首页
         Route::any('/admin/index','admin\IndexController@index');
