@@ -161,7 +161,7 @@
                             <form action="/admin/content/{{$v->id}}" method='post' style='display:inline'>
                                 {{csrf_field()}}
                                 {{method_field('DELETE')}}
-                                <button href="" class='btn btn-warning'>删除</button>
+                                <button onclick="if(confirm('确定删除?')==false)return false;" class='btn btn-warning'>删除</button>
                             </form>
                             
                         </td>
