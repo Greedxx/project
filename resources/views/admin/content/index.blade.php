@@ -5,6 +5,15 @@
 @section('content')
 
 <div class="mws-panel grid_8">
+     <style>
+        .text{
+            border:1px solid #ddd;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-align: center;
+        }
+    </style>
 
     <!-- 信息提醒 stat-->
     @if(session('success'))
@@ -38,6 +47,7 @@
             {{$title}}
         </span>
     </div>
+
     <div class="mws-panel-body no-padding">
         <div role="grid" class="dataTables_wrapper" id="DataTables_Table_1_wrapper">
             <form action="/admin/content" method='get'>
@@ -74,15 +84,7 @@
                     <a href="/admin/content/create" class='btn btn-success'>添加文章</a>
                 </div>
             </form>
-            <style>
-                .txt{
-                    border:1px solid #ddd;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    text-align: center;
-                }
-            </style>
+           
             <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
             aria-describedby="DataTables_Table_1_info">
                 <thead>
@@ -91,7 +93,7 @@
                         rowspan="1" colspan="1" class=".txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                             ID
                         </th>
-                        <th role="columnheader" rowspan="1" colspan="1" class=".txt" style="width: 58px;" aria-label="Browser: activate to sort column ascending">
+                        <th role="columnheader" rowspan="1" colspan="1" class="text" style="width: 58px;" aria-label="Browser: activate to sort column ascending">
                             文章类型
                         </th>
                         <th rowspan="1" colspan="1" class=".txt" style="width: 45px;">
@@ -130,13 +132,13 @@
                     @foreach($data as $k => $v)
 
                     <tr class="@if($k % 2 == 1)  odd   @else even  @endif">
-                        <td class="">
+                        <td class="text">
                             {{$v->id}}
                         </td>
-                        <td class=" ">
+                        <td class="text">
                             {{$v->type}}
                         </td>
-                        <td class=" ">
+                        <td class="text">
                             {{$v->keywords}}
                         </td>
                         <td class=" ">

@@ -4,6 +4,16 @@
 
 @section('content')
 
+<style>
+    .txt{
+        border:1px solid #ddd;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: center;
+    }
+</style>
+
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span>
@@ -59,38 +69,23 @@
 
                 </div>
             </form>
-
-
-            <style>
-                .txt{
-                    border:1px solid #ddd;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    text-align: center;
-                }
-            </style>
             <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
             aria-describedby="DataTables_Table_1_info">
                 <thead>
                     <tr role="row">
-                        <th rowspan="1" colspan="1" class=".txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                        <th rowspan="1" colspan="1" class="txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                             ID
                         </th>
 
-                        <th class=""  rowspan="1" colspan="1" class=".txt" style="width: 60px;" >
+                        <th class=""  rowspan="1" colspan="1" class="txt" style="width: 60px;" >
                             分类
                         </th>
 
-                        <th class=""  rowspan="1" colspan="1" class=".txt" style="width: 60px;" >
-                            品牌
-                        </th>
-
-                        <th rowspan="1" colspan="1" class=".txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                        <th rowspan="1" colspan="1" class="txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                             商品编号
                         </th>
 
-                        <th rowspan="1" colspan="1" class=".txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                        <th rowspan="1" colspan="1" class="txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                             厂商型号
                         </th>
 
@@ -102,7 +97,7 @@
                             图片
                         </th>
                        
-                        <th   class = ".txt" rowspan="1" colspan="1" width="120px">
+                        <th   class = ".txt" rowspan="1" colspan="1" >
                             定价
                         </th>
                        
@@ -118,7 +113,7 @@
                             状态
                         </th>
                         <th 
-                        rowspan="1" colspan="1"  >
+                        rowspan="1" colspan="1" width="px" >
                            操作
                         </th>
                         <!--  <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
@@ -145,15 +140,11 @@
                             {{$v['cate']['cate_name'] OR "未分类"}}
                         </td>
 
-                        <td class=" ">
-                            {{$v->brand_id}}
-                        </td>
-
-                        <td class=" ">
+                        <td class="txt">
                             {{$v->goods_no}}
                         </td>
 
-                        <td class=" ">
+                        <td class="txt">
                             {{$v->type}}
                         </td>
 
@@ -162,7 +153,7 @@
                         </td>
                             
                         <td class=" ">
-                            <center><img src="{{$v['thumb']}}" alt="" width='120px'></center>
+                            <center><img src="{{$v['thumb']}}" alt="{{$v['thumb']}}"></center>
                         </td>
 
                         <td class="txt">

@@ -296,6 +296,7 @@ class GoodsController extends Controller
             //查找id 将新数据加入 end
 
             if ($data){
+
                 $statu = 1;
 
                 //如果有图片信息 图片信息加入到数组
@@ -378,6 +379,8 @@ class GoodsController extends Controller
         try {
             
             $goods->goodsimg()->delete();
+
+            // dd($goods)
 
             $res = $goods->delete();
             
