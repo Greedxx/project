@@ -177,7 +177,7 @@
                             {{$v['sum']}}
                         </td>
 
-                        <td class="txt">
+                        <td class="txt cc" >
                             @if($v['status']==0)
                                 未上架
                             @else
@@ -187,10 +187,10 @@
 
                          <td class="txt">
                             
-                             @if($v['status']==0)
-                            <a href="/admin/goods/{{$v->id}}/edit" class='btn btn-success'  statu='0' va="{{$v['status']}}">上架</a>
+                            @if($v['status'] == 1 )
+                            <a href="javascript:void(0)" class='btn btn-danger kai' " gid="{{$v->id}}"  value="0">下架</a>
                             @else
-                            <a href="/admin/goods/{{$v->id}}/edit" class='btn btn-danger'  statu='1' va="{{$v['status']}}">下架</a>
+                            <a href="javascript:void(0)" class='btn btn-success kai'  gid="{{$v->id}}"  value="1">上架</a>
                             @endif
 
                             <a href="/admin/goods/{{$v->id}}/edit" class='btn btn-info'>信息修改</a>
@@ -202,7 +202,7 @@
                                 {{csrf_field()}}
 
                                 {{method_field('DELETE')}}
-                                <button href="" class='btn btn-warning'>删除</button>
+                                <button onclick="if(confirm('确定删除?')==false)return false;" class='btn btn-warning'>删除</button>
 
                             </form>               
                         </td>
@@ -218,8 +218,50 @@
                     @endforeach
                
                 </tbody>
-            </table>
-
+            </table> 
+            <!-- ajax -->
+            <script src="/js/jquery-3.2.1.min.js" ></script>
+            <script type="text/javascript">
+            // alert($);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+           
+             $('.kai').click(function(){
+                aa = $(this);
+                st =  $(this).attr('value');
+                gid =  $(this).attr('gid');
+                console.log(typeof(st));
+                console.log(st);
+                console.log(typeof(gid));
+                console.log(gid);
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.post('/admin/ajaxtao/gstatus',{gid:gid,status:st},function(data){
+                    console.log(typeof(data));
+                    console.log(data);
+                    if(data === '1' ){
+                        aa.attr('value',0);
+                        aa.attr('class',"btn btn-danger kai");
+                        aa.text('下架');
+                        aa.parents('tr').find('.cc').text('已上架');
+                    } else if(data === '0'){
+                        aa.attr('value',1);
+                        aa.attr('class',"btn btn-success kai");
+                        aa.text('上架');
+                        aa.parents('tr').find('.cc').text('已下架');
+                    } else {
+                        alert('操作失败');
+                    }
+                });
+             });
+            </script>
+            <!-- AJAX e -->
 
             <!-- 暂不与其他人样式冲突 -->
             <style>

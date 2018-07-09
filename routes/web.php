@@ -43,8 +43,11 @@
         //图片组信息管理
         Route::resource('/admin/goodsimg/{gid}/guan','admin\GoodsImgController');
 
-        //图片组信息管理
-        Route::any('/admin/goodsajax','admin\AjaxtaoController@gstatus');
+        //ajax goods - status 上下架
+        Route::any('/admin/ajaxtao/gstatus','admin\AjaxtaoController@gstatus');
+
+        //ajax gpic - 图片开关
+        Route::any('/admin/ajaxtao/gpicstatus','admin\AjaxtaoController@gpicstatus');
 
     });
  
