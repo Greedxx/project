@@ -21,7 +21,7 @@ class Orders extends Model
 
     public function good()
     {
-        return $this->hasOne('App\Models\admin\Goods','id','good_id');
+        return $this->belongsTo('App\Models\admin\Goods','good_id','id');
     }
 
     public function wuliulist()

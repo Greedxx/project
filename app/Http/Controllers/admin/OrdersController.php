@@ -15,7 +15,7 @@ class OrdersController extends Controller
      */
     public function index(request $request)
     {   
-        
+
         $num = $request->input('num',10);
         $kw = $request->input('keywords');
 
@@ -23,8 +23,8 @@ class OrdersController extends Controller
        
         // 查询相关数据
         $res = Orders::orderBy('id','asc')->with('user','good')->where('orders_id','like','%'.$kw.'%')->paginate($num);
-
-        // dump($re);
+        
+        
         return view('admin.orders.index',['res'=>$res,'arr'=>$arr]);
 
     }

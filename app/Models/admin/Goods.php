@@ -14,5 +14,11 @@ class Goods extends Model
     *
     * @var 
     */ 
-    protected $fillable = ['id','cate_id','brand_id','goods_name','keywords','desc','status','price','created_at','update_at','thumb','count','sum','gpic_id','goods_size'];
+   protected $guarded = [];
+
+    public function order()
+    {
+    	return $this->hasMany('App\Models\admin\Orders', 'good_id','id');
+    }
+
 }
