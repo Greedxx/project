@@ -210,7 +210,14 @@ class GoodsController extends Controller
 
         $data=goods::find($id);
 
-        return view('admin.goods.edit',['title'=>'商品修改','data'=>$data,'cate'=>$cate,'id'=>$id]);
+        $gpic = goods::find($id)->with('goodsimg')->first();
+
+        //$arrgpic = $gpic['GoodsImg'];
+        // dd($gpic['GoodsImg']);
+        // die();
+
+
+        return view('admin.goods.edit',['title'=>'商品修改','data'=>$data,'arr'=>$gpic['GoodsImg'],'cate'=>$cate,'id'=>$id]);
     }
 
     /**
@@ -289,6 +296,7 @@ class GoodsController extends Controller
             //查找id 将新数据加入 end
 
             if ($data){
+
                 $statu = 1;
 
                 //如果有图片信息 图片信息加入到数组
@@ -371,6 +379,8 @@ class GoodsController extends Controller
         try {
             
             $goods->goodsimg()->delete();
+
+            // dd($goods)
 
             $res = $goods->delete();
             
