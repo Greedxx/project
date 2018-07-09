@@ -39,7 +39,7 @@
                         </select>
                     </div>
                 </div>
-
+                
                 <div class="mws-form-row ">
                     <label class="mws-form-label">商品名称</label>
                     <div class="mws-form-item">

@@ -89,10 +89,8 @@ class GoodsController extends Controller
      */
     public function store(GoodsRequest $request)
     {
-        // dd($request->input());
-        //表单验证
-        
-        
+        $statu = 0;
+               
         // 接收表单数据到数组 抛出图片和验证信息 
         $res = $request->except(['_token','thumb','img']);
         //dd($res);
@@ -114,10 +112,13 @@ class GoodsController extends Controller
         }
         //dd($res);
 
-        //更新数据并获取id
+        //更新数据
         $data = Goods::create($res);
         $gid = $data->id;
-        // dd($data);
+
+        if($gid){
+            $statu = 1;
+        }
 
 
         //接收关联表数据 和id
@@ -148,42 +149,43 @@ class GoodsController extends Controller
                 $gc['updated_at'] = time();
                 $gimgsnew[] = $gc;
             }
+              //查找id 并将数组插入
+                $goods = Goods::find($gid);
 
+                 //模型   出错
+                try{
+                    $data = $goods->goodsimg()->createMany($gimgsnew);
+                    // $data->toArray();
+
+                    $msg=[];
+                    foreach($data as $k =>$v)
+                    {
+                        $msg[] = GoodsImg::where('id',$v->id)->update(['sort'=>$v->id]);
+                    }
+
+                }catch(\Exception $e){
+
+                }
+                if($msg){
+                    $statu = 2;
+                }else{
+                    $statu = 0;
+                }
         }
         // dd($gimgsnew);
 
 
 
-        //查找id 并将数组插入
-        $goods = Goods::find($gid);
+      
 
-         //模型   出错
-        try{
-            $data = $goods->goodsimg()->createMany($gimgsnew);
-            // $data->toArray();
 
-            $msg=[];
-            foreach($data as $k =>$v)
-            {
-                try {
-                   $msg[] = GoodsImg::where('id',$v->id)->update(['sort'=>$v->id]);
-                } catch (Exception $e) {
-                     return back();
-                }
-            }
-            
-            // die();
-
-            //如果更新成功将成功信息返回 
-            if($msg){
-                return redirect('/admin/goods')->with('success','添加成功');
-            }
-
-        }catch(\Exception $e){
-
-            return back()->with('info','操作失败');
-
+        //如果更新成功将成功信息返回 
+        if($statu=1||$statu =2){
+            return redirect('/admin/goods')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
         }
+
         
     }
 
