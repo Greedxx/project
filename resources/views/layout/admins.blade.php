@@ -218,7 +218,7 @@
                     <li>
                         <a href="#"><i class="icon-pictures"></i>商品评论管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/ima">管理评论</a></li>
+                            <li><a href="/admin/message">管理评论</a></li>
                         </ul>
                     </li>
 

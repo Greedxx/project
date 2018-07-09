@@ -17,7 +17,6 @@
         // 后台 订单模块
         Route::resource('/admin/orders','admin\OrdersController');
 
-
         // 后台 物流模块
         Route::resource('/admin/wuliu','admin\WuliuController');
 
@@ -26,6 +25,9 @@
 
         Route::post('/admin/wuliulist/fahuo','admin\WuliuListController@fahuo');
 
+        Route::resource('admin/message','admin\MessageController');
+
+        
         //分类管理
         Route::resource('/admin/cate','admin\CateController');
 
