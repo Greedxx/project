@@ -194,8 +194,9 @@
                     <li>
                         <a href="#"><i class="icon-mobile-phone"></i>商品管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/goods/">浏览商品</a></li>
                             <li><a href="/admin/goods/create">添加商品</a></li>
+                            <li><a href="/admin/goods/">浏览商品</a></li>
+                            
                         </ul>
                     </li>
                     
