@@ -22,9 +22,12 @@ class OrdersController extends Controller
         $arr = ['num'=>$num,'kw'=>$kw];    
        
         // 查询相关数据
-        $res = Orders::orderBy('id','asc')->with('user','good')->where('orders_id','like','%'.$kw.'%')->paginate($num);
+        $res = Orders::orderBy('id','asc')
+        ->with('user','good','wuliulist')
+        ->where('orders_id','like','%'.$kw.'%')
+        ->paginate($num);
         
-        
+        // dd($res[0]['wuliulist']->status);
         return view('admin.orders.index',['res'=>$res,'arr'=>$arr]);
 
     }
@@ -59,9 +62,9 @@ class OrdersController extends Controller
     public function show($id)
     {
         //
-        $res = Orders::where('id',$id)->with('user','good')->get();
+        $res = Orders::where('id',$id)->with('user','good','wuliulist')->get();
 
-        // dump($res);
+        // dd($res);
 
         return view('admin.orders.show',['res'=>$res]);
 

@@ -5,14 +5,27 @@
 <div class="wushi"></div>
 
 @if(session('delete'))
-    <div class="mws-form-message warning" style="height: 30px;">{{session('delete')}}
+    <div class="mws-form-message warning" style="height: 30px;">
+        {{session('delete')}}
     </div>
 @endif
 
 @if(session('success'))
-    <div class="mws-form-message success" style="height: 30px;">{{session('success')}}
+    <div class="mws-form-message success" style="height: 30px;">
+        {{session('success')}}
     </div>
 @endif
+
+@if (count($errors) > 0)
+    <div class="mws-form-message danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 
 <div class="mws-panel-body no-padding">
 

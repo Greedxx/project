@@ -26,7 +26,7 @@ class Orders extends Model
 
     public function wuliulist()
     {
-        return $this->belongsTo('App\Models\admin\wuliulist','wuliu_status','id');
+        return $this->belongsTo('App\Models\admin\WuliuList','wuliu_status','id');
     }
 
 	protected $fillable = ['orders_id','user_id','good_id','price','num','addr','msg','create_time','status','wuliu_status'];
