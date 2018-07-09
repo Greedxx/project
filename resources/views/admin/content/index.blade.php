@@ -80,6 +80,7 @@
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
+                    text-align: center;
                 }
             </style>
             <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
@@ -90,13 +91,13 @@
                         rowspan="1" colspan="1" class=".txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                             ID
                         </th>
-                        <th role="columnheader" rowspan="1" colspan="1" class=".txt" style="width: 30px;" aria-label="Browser: activate to sort column ascending">
+                        <th role="columnheader" rowspan="1" colspan="1" class=".txt" style="width: 58px;" aria-label="Browser: activate to sort column ascending">
                             文章类型
                         </th>
-                        <th rowspan="1" colspan="1" class=".txt" style="width: 50px;">
+                        <th rowspan="1" colspan="1" class=".txt" style="width: 45px;">
                             关键字
                         </th>
-                         <th owspan="1" colspan="1" class=".txt" style="width: 300px;">
+                         <th owspan="1" colspan="1" class=".txt" style="width:180px;">
                             标题
                         </th>
 
@@ -112,10 +113,10 @@
                             排序值
                         </th>
 
-                        <th rowspan="1" colspan="1"  >
+                        <th rowspan="1" colspan="1"  style="width:90px">
                             添加时间
                         </th>
-                        <th rowspan="1" colspan="1"  >
+                        <th rowspan="1" colspan="1"  style="width:90px">
                             更新时间
                         </th>
 
@@ -141,22 +142,25 @@
                         <td class=" ">
                             {{$v->title}}
                         </td>           
-                        <td class=" ">
-                            {{$v->status}}
+                        <td class="text">
+
+                            @if($v->status ==1) 已展现
+                            @else  未展现
+                            @endif
                         </td>
-                        <td class=" ">
+                        <td class="text">
                             {{$v->count}}
                         </td>
-                        <td class=" ">
+                        <td class="text">
                             {{$v->sort}}
                         </td>
-                        <td class=" ">
-                            {{$v->created_at}}
+                        <td class="text" style="width:90px" >
+                            {{$v->created_at->format('y年m月n日 H时i分s秒')}}
                         </td>
-                        <td class=" ">
-                             {{$v->updated_at}}
+                        <td class="text" style="width:90px">
+                             {{$v->updated_at->format('y年m月n日 H时i分s秒')}}
                         </td>
-                         <td class=" ">
+                         <td class="text">
                             <a href="/admin/content/{{$v->id}}/edit" class='btn btn-info'>修改</a>
                             <form action="/admin/content/{{$v->id}}" method='post' style='display:inline'>
                                 {{csrf_field()}}
