@@ -12,7 +12,7 @@
 */ 
     Route::any('/','home\IndexController@index');
 
-    
+    // 后台组 admin
     Route::group([],function(){
         // 后台首页
         Route::any('/admin/index','admin\IndexController@index');
@@ -29,6 +29,7 @@
         Route::post('/admin/wuliulist/fahuo','admin\WuliuListController@fahuo');
         Route::post('/admin/wuliulist/status/','admin\WuliuListController@status');
 
+        // 后台 商品评论模块
         Route::resource('admin/message','admin\MessageController');
 
         

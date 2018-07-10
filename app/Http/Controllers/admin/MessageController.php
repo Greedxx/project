@@ -59,6 +59,7 @@ class MessageController extends Controller
     public function show($id)
     {
         //
+        return view('');
     }
 
     /**
@@ -93,5 +94,16 @@ class MessageController extends Controller
     public function destroy($id)
     {
         //
+        try{
+            $res = Message::find($id)->delete();
+
+            if ($res) {
+                return redirect('/admin/message')->with('delete','删除成功');
+            }else{
+                echo '删除失败';die;
+            }
+        }catch(\Exception $e){
+            return back();
+        }
     }
 }

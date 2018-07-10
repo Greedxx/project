@@ -126,7 +126,7 @@
                         <center>
                         
                         <a href="/admin/message/chakan" class="btn btn-primary btn-lg">查看</a>
-                        <button class="btn btn-info  btn-lg">回复</button>
+                       
                         
                         <div style="display: inline-block;">
                         <form action="/admin/message/{{$v->id}}"  method='post'>
