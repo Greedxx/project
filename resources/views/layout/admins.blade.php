@@ -19,7 +19,7 @@
 <link rel="stylesheet" type="text/css" href="/admins/css/fonts/icomoon/style.css" media="screen">
 
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-style.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/admins/css/mypage.css" media="screen">
+
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol16.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol32.css" media="screen">
 
@@ -219,7 +219,7 @@
                     <li>
                         <a href="#"><i class="icon-pictures"></i>商品评论管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/message">管理评论</a></li>
+                            <li><a href="/admin/message">评论列表</a></li>
                         </ul>
                     </li>
 
