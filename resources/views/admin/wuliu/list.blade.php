@@ -17,7 +17,7 @@
 @endif
 
 @if (count($errors) > 0)
-    <div class="mws-form-message danger">
+    <div class="mws-form-message error">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -234,7 +234,7 @@
                                             <label class="mws-form-label">物流厂商</label>
                                             <div class="mws-form-item">
                                                 <select class="required" name="cangshang">
-                                                    <option>请选择厂商</option>
+                                                    <option disabled="disabled" >请选择厂商</option>
                                                 @foreach ($list as $k=>$v)
                                                     <option>{{$v->cname}}</option>
                                                 @endforeach    
