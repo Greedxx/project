@@ -54,6 +54,23 @@ class WuliuListController extends Controller
 
     		return back();
     	}
-    }
+	}
+	
+	public function status(Request $request)
+	{
+		$res = $request->all();
+		$id = $res['id'];
+		
+		try{
+			$data = Orders::where('id',$id)->update(['wuliu_status'=>0]);
+			
+			if($data){
+				echo '1';
+			}
+
+		}catch(\Exception $e){
+			return back();
+		}
+	}
 
 }

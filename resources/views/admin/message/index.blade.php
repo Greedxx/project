@@ -50,7 +50,7 @@
         </div>
         <div class="dataTables_filter" id="DataTables_Table_1_filter">
             <label>
-                搜索厂商名:
+                搜索用户名:
                 <input type="text" name='keywords' aria-controls="DataTables_Table_1">
                 
             </label>
@@ -74,9 +74,22 @@
 
                     <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                     rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"
-                    style="width: 300px;">
-                        厂商名
+                    style="width: 100px;">
+                        用户名
                     </th>
+
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"
+                    style="width: 100px;">
+                        商品名
+                    </th>
+
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"
+                    style="width: 250px;">
+                        留言信息
+                    </th>
+
 
                     <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                     rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"
@@ -101,11 +114,22 @@
                         {{$v->cname}}
                         </center>
                     </td>
+                    <td class=" ">
+                        <center>
+                        {{$v->cname}}
+                        </center>
+                    </td>
+                    <td class=" ">
+                        <center>
+                        {{$v->cname}}
+                        </center>
+                    </td>
+
                     <td class="">
                         
                         <center>
                         
-                        <a href="/admin/wuliu/{{$v->id}}/edit" class="btn btn-info  btn-lg">修改</a>
+                        <a href="/admin/message/huifu" class="btn btn-info  btn-lg">回复</a>
                         
                         <div style="display: inline-block;">
                         <form action="/admin/wuliu/{{$v->id}}"  method='post'>
@@ -134,12 +158,6 @@
 @section('js')
 <script type="text/javascript">
     
-    /*setTimeout(function(){
-
-        $('.mws-form-message').remove();
-
-    },3000)*/
-
     $('.mws-form-message').fadeOut(3000);
 
     

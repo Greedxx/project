@@ -125,7 +125,7 @@
                 @foreach ($res as $k=>$v)
                 
                 <tr class="odd">
-                    <td class="  sorting_1">
+                    <td class="sorting_1">
                         <center>
                         {{$v->id}}
                         </center>
@@ -189,7 +189,7 @@
                         @if ($v->wuliu_status == 0)
                         <a  vid="{{$v->id}}"  vod="{{$v->orders_id}}"  class="btn btn-info  btn-lg mws-form-dialog-mdl-btn">发货</a>
                         @else
-                        <button class="btn btn-warning  btn-lg mws-form-dialog-mdl-btn" disabled="disabled">退货</button>
+                        <button  class="btn btn-danger btn-lg tuihuo">退货</button>
                         @endif
                         </center>
 
@@ -204,7 +204,7 @@
     </div>
 </div>
 
-                <div class="mws-panel grid_4">
+                <div class="mws-panel grid_4" style="display:none" >
               
                     
                         <div class="mws-panel-content">
@@ -263,6 +263,23 @@
 @section('js')
 <script type="text/javascript">
 
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('.tuihuo').click(function(){
+            var id = $(this).parents('tr').find('td').eq(0).text().trim();
+            $.post('/admin/wuliulist/status',{id:id},function(data){
+                if(data == 1){
+                    alert('退货成功');
+                    window.location.reload();
+                }
+            });
+            
+        });
+
          if( $.fn.dialog ) {
             $("#mws-jui-dialog").dialog({
                 autoOpen: false,
@@ -279,7 +296,7 @@
             });
 
             $(".mws-form-dialog-mdl-btn").bind("click", function (event) {
-
+                
                 var vid = $(this).attr('vid');
                 var vod = $(this).attr('vod');
 
@@ -305,15 +322,10 @@
                         
                         $(this).find('form#mws-validate').submit();
                     }
-
                 }]
-
             });
-
         }
     
-
-
 
     $('.mws-form-message').fadeOut(3000);
 

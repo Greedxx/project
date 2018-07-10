@@ -24,6 +24,7 @@
         Route::any('/admin/wuliulist','admin\WuliuListController@index');
 
         Route::post('/admin/wuliulist/fahuo','admin\WuliuListController@fahuo');
+        Route::post('/admin/wuliulist/status/','admin\WuliuListController@status');
 
         Route::resource('admin/message','admin\MessageController');
 
