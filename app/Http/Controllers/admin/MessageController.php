@@ -4,32 +4,28 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\admin\Orders;
+use App\Models\admin\Message;
 
-class OrdersController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(request $request)
-    {   
-
+    public function index(Request $request)
+    {
+        // 
         $num = $request->input('num',10);
-        $kw = $request->input('keywords');
+       
 
-        $arr = ['num'=>$num,'kw'=>$kw];    
+        $arr = ['num'=>$num,];    
        
         // 查询相关数据
-        $res = Orders::orderBy('id','asc')
-        ->with('user','good','wuliulist')
-        ->where('orders_id','like','%'.$kw.'%')
-        ->paginate($num);
+        $res = Message::orderBy('id','asc')->paginate($num);
         
-        // dd($res[0]['wuliulist']->status);
-        return view('admin.orders.index',['res'=>$res,'arr'=>$arr]);
-
+        return view('admin.message.index',['res'=>$res,'arr'=>$arr]);
+        
     }
 
     /**
@@ -43,7 +39,7 @@ class OrdersController extends Controller
     }
 
     /**
-     * Store aum newly created resource in storage.
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -62,12 +58,6 @@ class OrdersController extends Controller
     public function show($id)
     {
         //
-        $res = Orders::where('id',$id)->with('user','good','wuliulist')->get();
-
-        // dd($res);
-
-        return view('admin.orders.show',['res'=>$res]);
-
     }
 
     /**
@@ -102,12 +92,5 @@ class OrdersController extends Controller
     public function destroy($id)
     {
         //
-        $res = Orders::find($id)->delete();
-
-        if ($res) {
-            return redirect('/admin/orders')->with('delete','删除成功');
-        }else{
-            echo '删除失败';die;
-        }
     }
 }

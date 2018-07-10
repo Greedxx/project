@@ -20,7 +20,6 @@
         // 后台 订单模块
         Route::resource('/admin/orders','admin\OrdersController');
 
-
         // 后台 物流模块
         Route::resource('/admin/wuliu','admin\WuliuController');
 
@@ -28,7 +27,11 @@
         Route::any('/admin/wuliulist','admin\WuliuListController@index');
 
         Route::post('/admin/wuliulist/fahuo','admin\WuliuListController@fahuo');
+        Route::post('/admin/wuliulist/status/','admin\WuliuListController@status');
 
+        Route::resource('admin/message','admin\MessageController');
+
+        
         //分类管理
         Route::resource('/admin/cate','admin\CateController');
 

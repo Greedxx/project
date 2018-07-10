@@ -153,13 +153,13 @@
                         <center>
                        @if ($v->wuliu_status == 0)
                             未发货
-                        @elseif ($v->wuliu_status == 1)
+                        @elseif ($v['wuliulist']->status == 1)
                             运输中
-                        @elseif ($v->wuliu_status == 2)
+                        @elseif ($v['wuliulist']->status == 2)
                             已签收
-                        @elseif ($v->wuliu_status == 3)
+                        @elseif ($v['wuliulist']->status == 3)
                             未评论
-                        @elseif ($v->wuliu_status == 4)
+                        @elseif ($v['wuliulist']->status == 4)
                             已评论
                         @endif
                         </center>
