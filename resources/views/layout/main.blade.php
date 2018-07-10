@@ -11,6 +11,7 @@
 <link href="/home/css/pro-detailed.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/home/js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="/home/js/Public.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script> -->
 </head>
 
 <body>
@@ -22,7 +23,7 @@
                 <a href="javascript:;" class="wechat">微信</a>
             </div>
             <div class="top-right">
-                <p>嗨，欢迎来到XXX商城</p>
+                <p>嗨，欢迎来到仙女商城</p>
                 <p><a href="login.html">请登录</a> | <a href="register.html">免费注册</a></p>
                 <p><a href="javascript:;">我的订单</a> | <a href="javascript:;">服务中心</a></p>
             </div>
@@ -71,16 +72,20 @@
     </div>
     
     <!------------header-wrap---------------->
+    <?php 
+        $data = App\Models\Cate::where('pid',0)->limit(5)->get(); 
+        $cate = App\Models\Cate::getCates();
+        // dump($cate);
+    ?>
     <div class="header-wrap">
         <div class="navwrap">
             <div id="nav">
                 <div class="navbar clearfix">
+
                     <a class="current" href="index.html">首页</a>
-                    <a href="products-list.html">环境控制</a>
-                    <a href="products-list.html">视听娱乐</a>
-                    <a href="products-list.html">安全防护</a>
-                    <a href="products-list.html">信息通讯</a>
-                    <a href="products-list.html">智能设备</a>
+                    @foreach ($data as $k =>$v)
+                    <a href="products-list.html">{{$v['cate_name']}}</a>
+                    @endforeach
                     <a href="#">品牌一览</a>
                     <a href="#">折扣区<em class="sale"></em></a>
                 </div>
@@ -88,68 +93,24 @@
                 <div class="pros subpage">
                     <h2>全部商品分类</h2>
                     <ul class="prosul clearfix" id="proinfo" style="display:block">
+                        @foreach ($cate as $k =>$v)
                         <li>
-                            <h3>环境控制</h3>
-                            <a href="#">中控主机</a>
-                            <a href="#">智能照明</a>
-                            <a href="#">电器控制</a>
+
+                            <h3>{{$v['cate_name']}} </h3>
+
+                            @foreach ($v['sub'] as $k2 =>$v2)
+                            <a href="#">{{$v2['cate_name']}}</a>
                             <div class="prosmore hide">
-                                <span><em><a href="#">中控主机</a></em></span>
-                                <span><em class="morehot"><a class="morehot" href="#">智能照明</a></em></span>
-                                <span><em class="morehot"><a class="morehot" href="#">电器控制</a></em></span>
-                                <span><em><a href="#">电动窗帘</a></em></span>
-                                <span><em><a href="#">暖通空调</a></em></span>
-                                <span><em><a href="#">太阳能与节能设备</a></em></span>
-                                <span><em><a href="#">花草自动浇灌</a></em></span>
+                                 @foreach ($v2['sub'] as $k3 =>$v3)
+                                <!-- <span><em><a href="#"></a></em></span> -->
+                                <span><em class="morehot"><a class="morehot" href="#">{{$v3['cate_name']}}</a></em></span>
+                                <!-- <span><em><a href="#">花草自动浇灌</a></em></span> -->
+                                @endforeach
                             </div>
+                             @endforeach
+
                         </li>
-                        <li>
-                            <h3>视听娱乐</h3>
-                            <a href="#">家庭背景音乐</a>
-                            <a href="#">家庭影院</a>
-                            <div class="prosmore hide">
-                                <span><em><a href="#">家庭背景音乐</a></em></span>
-                                <span><em class="morehot"><a class="morehot" href="#">家庭影院</a></em></span>
-                                <span><em class="morehot"><a class="morehot" href="#">厨卫电视系统</a></em></span>
-                                <span><em><a href="#">智能视频共享</a></em></span>
-                            </div>
-                        </li>
-                        <li>
-                            <h3>安全防护</h3>
-                            <a href="#">视频监控</a>
-                            <a href="#">防盗报警</a>
-                            <a href="#">电锁门禁</a>
-                            <div class="prosmore hide">
-                                <span><em><a href="#">视频监控</a></em></span>
-                                <span><em class="morehot"><a class="morehot" href="#">防盗报警</a></em></span>
-                                <span><em class="morehot"><a class="morehot" href="#">电锁门禁</a></em></span>
-                                <span><em><a href="#">宠物照看与动物管制</a></em></span>
-                                <span><em><a href="#">追踪定位</a></em></span>
-                            </div>
-                        </li>
-                        <li>
-                            <h3>信息通讯</h3>
-                            <a href="#">可视对讲</a>
-                            <a href="#">家居布线</a>
-                            <a href="#">智能软件</a>
-                            <div class="prosmore hide">
-                                <span><em><a href="#">可视对讲</a></em></span>
-                                <span><em><a href="#">家居布线</a></em></span>
-                                <span><em class="morehot"><a class="morehot" href="#">智能软件</a></em></span>
-                                <span><em><a href="#">手机、网络远程控制</a></em></span>
-                                <span><em><a href="#">家庭网络</a></em></span>
-                            </div>
-                        </li>
-                        <li>
-                            <h3>智能设备</h3>
-                            <a href="#">智能穿戴</a>
-                            <a href="#">运动器材与健康监测</a>
-                            <div class="prosmore hide">
-                                <span><em><a href="#">智能穿戴</a></em></span>
-                                <span><em class="morehot"><a class="morehot" href="#">运动器材与健康监测</a></em></span>
-                                <span><em><a href="#">智能手机与外设</a></em></span>
-                            </div>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -160,12 +121,14 @@
     <!------------main---------------->
     @section('content')
 
-                        123456464545
+                    
 
     @show
      <!------底部-------->
     <div class="footer">
         <div class="footer-c">
+            
+
             <dl>
                 <dt>购买指南</dt>
                 <dd><a href="#">第一次购物体验</a></dd>

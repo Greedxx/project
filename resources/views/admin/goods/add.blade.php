@@ -29,9 +29,6 @@
     @endif
     <script src="/js/jquery.js"></script>
     <script>
-        // setTimeout(function(){
-        //     $('.mws-form-message').remove();
-        // },3000)
         $('.mws-form-message').fadeOut(3000);
     </script>
     <!-- 信息提醒 end -->

@@ -7,9 +7,9 @@
         <div class="fullSlide">
             <div class="bd">
                 <ul>
-                    <li _src="url(/home/images/banner.jpg)" style="background:#000 center 0 no-repeat;"><a href="https://shop116998991.taobao.com/"></a></li>
-                    <li _src="url(/home/images/2.jpg)" style="background:#DED5A1 center 0 no-repeat;"><a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w5003-11903850250.1.YOZUX7&id=521221929103&scene=taobao_shop"></a></li>
-                    <li _src="url(/home/images/5.jpg)" style="background:#FEFF19 center 0 no-repeat;"><a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-11895250131.3.YOZUX7&id=521741523734"></a></li>
+                    <li _src="url(/home/images/banner.jpg)" style="background:#000 center 0 no-repeat;"><a href=""></a></li>
+                    <li _src="url(/home/images/2.jpg)" style="background:#DED5A1 center 0 no-repeat;"><a href=""></a></li>
+                    <li _src="url(/home/images/5.jpg)" style="background:#FEFF19 center 0 no-repeat;"><a href=""></a></li>
                 </ul>
             </div>
             <div class="hd"><ul></ul></div>
@@ -65,11 +65,15 @@
         	<div class="title"><img src="home/images/rt.png" /><p>热门商品</p></div>
         	<div class="clr20"></div>
             <div class="left">
+                <!-- 广告位置1 start-->
             	<div class="img"><a href="#"><img src="home/images/501.gif" width="619" height="309" /></a></div>
+                <!-- 广告位置1 end -->
+                <!-- 商品填充处 -->
                 <div class="img img_309"><p><strong><a href="#">小米平板冰淇淋软胶保护套</a></strong><span>59元</span></p><a href="#"><img src="home/images/502.jpg" width="220" height="220"/></a></div>
                 <div class="img img_309"><p><strong><a href="#">小米平板冰淇淋软胶保护套</a></strong><span>59元</span></p><a href="#"><img src="home/images/502.jpg" width="220" height="220"/></a></div>
                 <div class="img img_309"><p><strong><a href="#">小米平板冰淇淋软胶保护套</a></strong><span>59元</span></p><a href="#"><img src="home/images/502.jpg" width="220" height="220"/></a></div>
                 <div class="img img_309"><p><strong><a href="#">小米平板冰淇淋软胶保护套</a></strong><span>59元</span></p><a href="#"><img src="home/images/502.jpg" width="220" height="220"/></a></div>
+                <!-- 商品填充处 -->
             </div>
             <div class="right">
             	<h2><span>TOP 5</span>热销商品</h2>
