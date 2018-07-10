@@ -20,6 +20,8 @@
 
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-style.css" media="screen">
 
+<link rel="stylesheet" type="text/css" href="/admins/css/messages.css" media="screen">
+
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol16.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol32.css" media="screen">
 

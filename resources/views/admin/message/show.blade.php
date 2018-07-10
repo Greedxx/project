@@ -9,26 +9,26 @@
     <div class="mws-panel-header">
         <span>消息内容</span>
     </div>
-    <div class="mws-panel-body no-padding" style="">
+    <div class="mws-panel-body no-padding" >
     <div class="shi"></div>
-        <ul>
-            <li title=".icon-user">
+    <center>
+        <ul class="messagess">
+            <li title=".icon-user" class="message-left">
                 <i class="icon-user"></i>
-                <h3>xx说: xxx</h3>
+
+                <span class="message-tou-user">用户 xx 说:</span>
+
+                <span claass="message-mesg" >12312311113</span>
             </li>
-            <li title=".icon-user">
+            <hr>
+            <li title=".icon-user" class="message-right" >
+                <span claass="message-mesg" >12312311113</span>
+                <span  class="message-tou-admin"> :管理员回复</span>
+
                 <i class="icon-user"></i>
-                <h3>xx说: xxx</h3>
-            </li>
-            <li title=".icon-user">
-                <i class="icon-user"></i>
-                <h3>xx说: xxx</h3>
-            </li>
-            <li title=".icon-user">
-                <i class="icon-user"></i>
-                <h3>xx说: xxx</h3>
             </li>
         </ul>
+        </center>
     </div>      
 </div>
 <div class="yibai"></div>
