@@ -125,7 +125,7 @@
                         
                         <center>
                         
-                        <a href="/admin/message/chakan" class="btn btn-primary btn-lg">查看</a>
+                        <a href="/admin/message/{{$v->id}}" class="btn btn-primary btn-lg">查看</a>
                        
                         
                         <div style="display: inline-block;">
