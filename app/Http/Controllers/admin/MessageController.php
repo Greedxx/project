@@ -17,13 +17,14 @@ class MessageController extends Controller
     {
         // 
         $num = $request->input('num',10);
-       
-
-        $arr = ['num'=>$num,];    
-       
-        // 查询相关数据
-        $res = Message::orderBy('id','asc')->paginate($num);
         
+
+        $arr = ['num'=>$num];
+        // 查询相关数据
+        $res = Message::orderBy('id','asc')
+        ->with('good','user')
+        ->paginate($num);
+    
         return view('admin.message.index',['res'=>$res,'arr'=>$arr]);
         
     }

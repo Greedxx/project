@@ -13,7 +13,7 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(request $request)
+    public function index(Request $request)
     {   
 
         $num = $request->input('num',10);
