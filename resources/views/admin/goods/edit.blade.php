@@ -39,7 +39,7 @@
                         </select>
                     </div>
                 </div>
-
+                
                 <div class="mws-form-row ">
                     <label class="mws-form-label">商品名称</label>
                     <div class="mws-form-item">
@@ -117,7 +117,13 @@
                     <label class="mws-form-label">商品轮播用组图</label>
                     <div class="mws-form-item">
                         <!-- <input type="file" class="small" name='profile'> -->
-
+                        <div>
+                        <?php 
+                            foreach($arr as $k =>$v){
+                                echo '<img src="'.$v['src'].'" width="100px">'  ;  
+                            }
+                        ?>
+                        </div>
                         <input type="file" name='img[]' class="fileinput-preview" style=" width:400px; padding-right: 84px;"   multiple placeholder="无文件">
                     </div>
                 </div>

@@ -19,6 +19,10 @@ class GoodsController extends Controller
      */
     public function index(Request $request)
     {   
+
+        //
+            
+
         //按条件搜索并分页
 
         $data = Goods::where(function($query) use($request){
@@ -45,8 +49,9 @@ class GoodsController extends Controller
                 $query->where('id',$id);
             }
         })
-        ->paginate($request->input('num', '10'));
+        ->with('cate')->paginate($request->input('num', '10'));
 
+         // dd($data); //检测数据是否查询出
          
         //生成参数数组返还给appends
         $arr=[];
@@ -84,10 +89,8 @@ class GoodsController extends Controller
      */
     public function store(GoodsRequest $request)
     {
-        // dd($request->input());
-        //表单验证
-        
-        
+        $statu = 0;
+               
         // 接收表单数据到数组 抛出图片和验证信息 
         $res = $request->except(['_token','thumb','img']);
         //dd($res);
@@ -109,10 +112,13 @@ class GoodsController extends Controller
         }
         //dd($res);
 
-        //更新数据并获取id
+        //更新数据
         $data = Goods::create($res);
         $gid = $data->id;
-        // dd($data);
+
+        if($gid){
+            $statu = 1;
+        }
 
 
         //接收关联表数据 和id
@@ -143,34 +149,40 @@ class GoodsController extends Controller
                 $gc['updated_at'] = time();
                 $gimgsnew[] = $gc;
             }
+              //查找id 并将数组插入
+                $goods = Goods::find($gid);
 
 
-            //查找id 并将数组插入
-            $goods = Goods::find($gid);
+                 //模型   出错
+                try{
+                    $data = $goods->goodsimg()->createMany($gimgsnew);
+                    // $data->toArray();
 
-             //模型   出错
-            try{
-                $data = $goods->goodsimg()->createMany($gimgsnew);
-                // $data->toArray();
-
-                $msg=[];
-                foreach($data as $k =>$v)
-                {
-                    try {
+                    $msg=[];
+                    foreach($data as $k =>$v)
+                    {
                         $msg[] = GoodsImg::where('id',$v->id)->update(['sort'=>$v->id]);
-                    } catch (Exception $e) {
-                        
                     }
-                }
-            } catch(\Exception $e){   
 
-            }         
+                }catch(\Exception $e){
+
+                }
+                if($msg){
+                    $statu = 2;
+                }else{
+                    $statu = 0;
+                }
         }
-        if($gid){
-            //主表成功就跳转
-            //可 case  1,2,3 返回不同信息 如 主副表更新成功为1  主表成功副表失败 2 都失败3
-            return redirect('/admin/goods')->with('success','添加信息成功');
+        // dd($gimgsnew);
+
+
+        //如果更新成功将成功信息返回 
+        if($statu=1||$statu =2){
+            return redirect('/admin/goods')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
         }
+
     }
 
     /**
@@ -196,7 +208,14 @@ class GoodsController extends Controller
 
         $data=goods::find($id);
 
-        return view('admin.goods.edit',['title'=>'商品修改','data'=>$data,'cate'=>$cate,'id'=>$id]);
+        $gpic = goods::find($id)->with('goodsimg')->first();
+
+        //$arrgpic = $gpic['GoodsImg'];
+        // dd($gpic['GoodsImg']);
+        // die();
+
+
+        return view('admin.goods.edit',['title'=>'商品修改','data'=>$data,'arr'=>$gpic['GoodsImg'],'cate'=>$cate,'id'=>$id]);
     }
 
     /**
@@ -275,6 +294,7 @@ class GoodsController extends Controller
             //查找id 将新数据加入 end
 
             if ($data){
+
                 $statu = 1;
 
                 //如果有图片信息 图片信息加入到数组
@@ -357,6 +377,8 @@ class GoodsController extends Controller
         try {
             
             $goods->goodsimg()->delete();
+
+            // dd($goods)
 
             $res = $goods->delete();
             

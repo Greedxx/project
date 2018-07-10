@@ -213,7 +213,12 @@ class GoodsImgController extends Controller
     public function destroy($gid,$id)
     {
         try {
+            $aa = GoodsImg::where('id',$id)->first();
+            // dd($aa);
 
+               // dd($aa['src']);
+            @unlink('.'.$aa['src']);
+            // die();
             $data= GoodsImg::where('id',$id)->delete();
 
             if($data){

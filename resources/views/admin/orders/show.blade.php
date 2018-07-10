@@ -96,7 +96,19 @@
 		<div class="row">
 			<i class="icol32-lorry"></i>&nbsp;
 			<span class="g">物流状态 :</span>
-			<span class="gg">{{$res[0]->wuliu_status}}</span>
+			<span class="gg">
+				@if ($res[0]->wuliu_status == 0)
+					未发货
+				@elseif ($res[0]['wuliulist']->status == 1)
+					运输中
+				@elseif ($res[0]['wuliulist']->status == 2)
+					已签收
+				@elseif ($res[0]['wuliulist']->status == 3)
+					未评论
+				@elseif ($res[0]['wuliulist']->status == 4)
+					已评论
+				@endif
+			</span>
 		</div>
 		<hr>
 

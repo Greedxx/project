@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\Orders;
 use App\Models\admin\Wuliu;
 use App\Models\admin\WuliuList;
+use App\Http\Requests\WuliuListRequest;
 
 class WuliuListController extends Controller
 {
@@ -30,7 +31,7 @@ class WuliuListController extends Controller
     	return view('admin.wuliu.list',['arr'=>$arr,'res'=>$res,'list'=>$list]);
     }
 
-    public function fahuo(Request $request)
+    public function fahuo(WuliuListRequest $request)
     {
     	$res = $request->except('_token');
     	// dd($res);
@@ -53,6 +54,23 @@ class WuliuListController extends Controller
 
     		return back();
     	}
-    }
+	}
+	
+	public function status(Request $request)
+	{
+		$res = $request->all();
+		$id = $res['id'];
+		
+		try{
+			$data = Orders::where('id',$id)->update(['wuliu_status'=>0]);
+			
+			if($data){
+				echo '1';
+			}
+
+		}catch(\Exception $e){
+			return back();
+		}
+	}
 
 }

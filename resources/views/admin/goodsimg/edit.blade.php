@@ -28,9 +28,6 @@
             @endif
             <script src="/js/jquery.js"></script>
             <script>
-                // setTimeout(function(){
-                //     $('.mws-form-message').remove();
-                // },3000)
                 $('.mws-form-message').fadeOut(3000);
             </script>
             <!-- 信息提醒 end -->
@@ -50,6 +47,13 @@
                 <input type="hidden" value="{{$gid}}" name ="gid">
 
                 <div class="mws-panel-body"><h2><label>所属图组  </label>{{App\Models\Goods::select('goods_name')->where('id',$gid)->first()->goods_name }}</h2></div>
+
+                <div class="mws-form-row ">
+                    <label class="mws-form-label">图片排序号</label>
+                    <div class="mws-form-item">
+                        <input type="txt" name="sort" value="{{$data->sort}}">
+                    </div>
+                </div>
                 
                 <div class="mws-form-row ">
                     <label class="mws-form-label">原图</label>

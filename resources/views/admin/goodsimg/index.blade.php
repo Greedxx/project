@@ -91,7 +91,7 @@
 
                     <tr class="@if($k % 2 == 1)  odd   @else even  @endif" align="center" valign="middle" >
 
-                        <td class=".texts">
+                        <td class="texts">
                             {{$v->id}}
                         </td>
 
@@ -99,25 +99,25 @@
                             <center><img src="{{$v->src}}" alt="" width='240px'></center>
                         </td>
 
-                        <td class=".texts">
+                        <td class="texts">
                             <!-- ajax 修改排序值 -->
                             {{$v->sort}}
                         </td>
 
-                        <td class=".aa">
+                        <td class=" cc">
                             @if($v->statu==1)
-                            已展示
+                            已呈现
                             @else
-                            未展示
+                            未呈现
                             @endif
                         </td>  
 
-                         <td class=".texts" colspan="2">
+                         <td class="texts" colspan="2">
 
                              @if($v->statu==1)
-                            <a href="/admin/goodsimg/{{$gid}}/guan/{{$v->id}}/edit" va="{{$v->statu}}" class='btn btn-warning'>关闭</a>
+                            <a href="#" gpicid="{{$v->id}}" value="0" class='btn btn-warning kai'>关闭</a>
                             @else
-                            <a href="/admin/goodsimg/{{$gid}}/guan/{{$v->id}}/edit" va="{{$v->statu}}" class='btn btn-success'>开启</a>
+                            <a href="#" gpicid="{{$v->id}}" value="1" class='btn btn-success kai'>开启</a>
                             @endif
 
                             <a href="/admin/goodsimg/{{$gid}}/guan/{{$v->id}}/edit" class='btn btn-info'>修改</a>
@@ -127,7 +127,7 @@
                                 {{csrf_field()}}
 
                                 {{method_field('DELETE')}}
-                                <button href="" class='btn btn-danger'>删除</button>
+                                <button onclick="if(confirm('确定删除?')==false)return false;" class='btn btn-danger'>删除</button>
 
                             </form>
                             
@@ -138,7 +138,51 @@
                
                 </tbody>
             </table>
+            
+            <!-- AJAX -->
+            <script src="/js/jquery-3.2.1.min.js" ></script>
+            <script type="text/javascript">
+            // alert($);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+           
+             $('.kai').click(function(){
+                aa = $(this);
+                st =  $(this).attr('value');
+                gpicid =  $(this).attr('gpicid');
+                console.log(typeof(st));
+                console.log(st);
+                console.log(typeof(gpicid));
+                console.log(gpicid);
 
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.post('/admin/ajaxtao/gpicstatus',{gpicid:gpicid,status:st},function(data){
+                    console.log(typeof(data));
+                    console.log(data);
+                    if(data === '1' ){
+                        aa.attr('value',0);
+                        aa.attr('class',"btn btn-warning kai");
+                        aa.text('关闭');
+                        aa.parents('tr').find('.cc').text('已呈现');
+                    } else if(data === '0'){
+                        aa.attr('value',1);
+                        aa.attr('class',"btn btn-success kai");
+                        aa.text('开启');
+                        aa.parents('tr').find('.cc').text('未呈现');
+                    } else {
+                        alert('操作失败');
+                    }
+                });
+             });
+            </script>
+            <!-- AJAX end -->
 
 
             <style>

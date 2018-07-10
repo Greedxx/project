@@ -5,14 +5,27 @@
 <div class="wushi"></div>
 
 @if(session('delete'))
-    <div class="mws-form-message warning" style="height: 30px;">{{session('delete')}}
+    <div class="mws-form-message warning" style="height: 30px;">
+        {{session('delete')}}
     </div>
 @endif
 
 @if(session('success'))
-    <div class="mws-form-message success" style="height: 30px;">{{session('success')}}
+    <div class="mws-form-message success" style="height: 30px;">
+        {{session('success')}}
     </div>
 @endif
+
+@if (count($errors) > 0)
+    <div class="mws-form-message error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 
 <div class="mws-panel-body no-padding">
 
@@ -112,7 +125,7 @@
                 @foreach ($res as $k=>$v)
                 
                 <tr class="odd">
-                    <td class="  sorting_1">
+                    <td class="sorting_1">
                         <center>
                         {{$v->id}}
                         </center>
@@ -176,7 +189,7 @@
                         @if ($v->wuliu_status == 0)
                         <a  vid="{{$v->id}}"  vod="{{$v->orders_id}}"  class="btn btn-info  btn-lg mws-form-dialog-mdl-btn">发货</a>
                         @else
-                        <button class="btn btn-warning  btn-lg mws-form-dialog-mdl-btn" disabled="disabled">退货</button>
+                        <button  class="btn btn-danger btn-lg tuihuo">退货</button>
                         @endif
                         </center>
 
@@ -191,7 +204,7 @@
     </div>
 </div>
 
-                <div class="mws-panel grid_4">
+                <div class="mws-panel grid_4" style="display:none" >
               
                     
                         <div class="mws-panel-content">
@@ -221,7 +234,7 @@
                                             <label class="mws-form-label">物流厂商</label>
                                             <div class="mws-form-item">
                                                 <select class="required" name="cangshang">
-                                                    <option>请选择厂商</option>
+                                                    <option disabled="disabled" >请选择厂商</option>
                                                 @foreach ($list as $k=>$v)
                                                     <option>{{$v->cname}}</option>
                                                 @endforeach    
@@ -250,6 +263,23 @@
 @section('js')
 <script type="text/javascript">
 
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('.tuihuo').click(function(){
+            var id = $(this).parents('tr').find('td').eq(0).text().trim();
+            $.post('/admin/wuliulist/status',{id:id},function(data){
+                if(data == 1){
+                    alert('退货成功');
+                    window.location.reload();
+                }
+            });
+            
+        });
+
          if( $.fn.dialog ) {
             $("#mws-jui-dialog").dialog({
                 autoOpen: false,
@@ -266,7 +296,7 @@
             });
 
             $(".mws-form-dialog-mdl-btn").bind("click", function (event) {
-
+                
                 var vid = $(this).attr('vid');
                 var vod = $(this).attr('vod');
 
@@ -292,15 +322,10 @@
                         
                         $(this).find('form#mws-validate').submit();
                     }
-
                 }]
-
             });
-
         }
     
-
-
 
     $('.mws-form-message').fadeOut(3000);
 

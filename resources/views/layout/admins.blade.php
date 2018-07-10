@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Viewport Metatag -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
@@ -47,7 +47,7 @@
 <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
 <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
 
-
+@yield('method')
 <title>@yield('title')</title>
 
 </head>
@@ -198,6 +198,7 @@
                         <ul class='closed'>
                             <li><a href="/admin/goods/create">添加商品</a></li>
                             <li><a href="/admin/goods/">浏览商品</a></li>
+                            
                         </ul>
                     </li>
                     
@@ -220,7 +221,7 @@
                     <li>
                         <a href="#"><i class="icon-pictures"></i>商品评论管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/ima">管理评论</a></li>
+                            <li><a href="/admin/message">管理评论</a></li>
                         </ul>
                     </li>
 
@@ -306,7 +307,7 @@
     
 
     @section('js')
-
+    
 
     @show
     

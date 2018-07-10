@@ -9,14 +9,16 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
+    Route::any('/','home\IndexController@index');
+
+    
     Route::group([],function(){
         // 后台首页
         Route::any('/admin/index','admin\IndexController@index');
         
         // 后台 订单模块
         Route::resource('/admin/orders','admin\OrdersController');
-
 
         // 后台 物流模块
         Route::resource('/admin/wuliu','admin\WuliuController');
@@ -25,7 +27,11 @@
         Route::any('/admin/wuliulist','admin\WuliuListController@index');
 
         Route::post('/admin/wuliulist/fahuo','admin\WuliuListController@fahuo');
+        Route::post('/admin/wuliulist/status/','admin\WuliuListController@status');
 
+        Route::resource('admin/message','admin\MessageController');
+
+        
         //分类管理
         Route::resource('/admin/cate','admin\CateController');
 
@@ -40,6 +46,12 @@
 
         //图片组信息管理
         Route::resource('/admin/goodsimg/{gid}/guan','admin\GoodsImgController');
+
+        //ajax goods - status 上下架
+        Route::any('/admin/ajaxtao/gstatus','admin\AjaxtaoController@gstatus');
+
+        //ajax gpic - 图片开关
+        Route::any('/admin/ajaxtao/gpicstatus','admin\AjaxtaoController@gpicstatus');
 
     });
  
