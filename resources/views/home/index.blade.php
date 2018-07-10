@@ -69,6 +69,7 @@
             	<div class="img"><a href="#"><img src="home/images/501.gif" width="619" height="309" /></a></div>
                 <!-- 广告位置1 end -->
                 <!-- 商品填充处 -->
+                {{App\}}
                 <div class="img img_309"><p><strong><a href="#">小米平板冰淇淋软胶保护套</a></strong><span>59元</span></p><a href="#"><img src="home/images/502.jpg" width="220" height="220"/></a></div>
                 <div class="img img_309"><p><strong><a href="#">小米平板冰淇淋软胶保护套</a></strong><span>59元</span></p><a href="#"><img src="home/images/502.jpg" width="220" height="220"/></a></div>
                 <div class="img img_309"><p><strong><a href="#">小米平板冰淇淋软胶保护套</a></strong><span>59元</span></p><a href="#"><img src="home/images/502.jpg" width="220" height="220"/></a></div>
