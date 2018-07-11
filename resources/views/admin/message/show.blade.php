@@ -14,22 +14,26 @@
     <center>
         <ul class="messagess">
             @foreach ($res as $k=>$v)
-            
-            <li title=".icon-user" class="message-left">
-                <i class="icon-user"></i>
+                @if( $v->msg )
+                <li title=".icon-user" class="message-left">
+                    <i class="icon-user"></i>
 
-                <span class="message-tou-user">用户 {{$v['user']->username}} 说:</span>
-                
-                <span claass="message-mesg" >12312311113</span>
-            </li>
-            <hr>
-            <li title=".icon-user" class="message-right" >
-                <span claass="message-mesg" >12312311113</span>
-                <span  class="message-tou-admin"> :管理员回复</span>
+                    <span class="message-tou-user">用户 {{$v['user']->username}} 说:</span>
+                    
+                    <span claass="message-mesg" >{{$v->msg }}</span>
+                </li>
+                @endif
 
-                <i class="icon-user"></i>
-            </li>
-
+                <hr>
+                @if( $v->tomsg )
+                <li title=".icon-user" class="message-right" >
+                   
+                    <span claass="message-mesg" >{{$v->tomsg }}</span>
+                    <span  class="message-tou-admin"> :管理员回复</span>
+                   
+                    <i class="icon-user"></i>
+                </li>
+                @endif
             @endforeach
         </ul>
         </center>
@@ -41,35 +45,38 @@
 <div class="mws-panel grid_8" style="width:60%;margin-left:280px;">
     
 
-
+    @if(!$res[0]->tomsg)
     <div class="mws-panel-header">
         <span>消息回复</span>
     </div>
+    
     <div class="mws-panel-body no-padding" style="">
-        <form action="/admin/content" method="post" class="mws-form" enctype="multipart/form-data" style="">
+        <form action="/admin/message/{{$id}}" method="post" class="mws-form" enctype="multipart/form-data" style="">
 
                 <div class="mws-form-row ">
-                    <label class="mws-form-label">用户</label>
+                    <label class="mws-form-label"><span style="font-weight:blod;">回复</span> 用户:</label>
                     <div class="mws-form-item">
-                        <input type="text" class="small" name="name" style="width:120px;" disabled="disabled">
+                        <input type="text" class="small" value="{{$res[0]['user']->username}}" style="width:120px;" disabled="disabled">
                     </div>
                 </div>
-
-
+               
+    
                 <div class="mws-form-row ">
                     <label class="mws-form-label">消息回复 :</label>
                     <div class="mws-form-item">
-                        <textarea name="desc" rows="5" cols="60"></textarea> 
+                        <textarea name="tomsg" rows="5" cols="60"></textarea> 
                     </div>
                 </div>
-            
+                {{csrf_field()}}
+                {{method_field('PUT')}}
             <div class="mws-button-row">
                 
                 <a href="/admin/message" class="btn btn-danger">返回</a>
                 <input type="submit" class="btn btn-success" value="提交" style="float: right">
             </div>
         </form>
-    </div>      
+    </div>  
+    @endif
 </div>
 
 

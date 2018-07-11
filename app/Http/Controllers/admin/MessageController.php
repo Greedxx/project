@@ -60,9 +60,10 @@ class MessageController extends Controller
     {
         //
         $res = Message::orderBy('id','asc')
+        ->where('id',$id)
         ->with('good','user')->get();
         // dd($res);
-        return view('admin.message.show',['res'=>$res]);
+        return view('admin.message.show',['res'=>$res,'id'=>$id]);
     }
 
     /**
@@ -86,6 +87,18 @@ class MessageController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $res = $request->only('tomsg');
+        
+        try{
+            $res = Message::find($id)->update($res);
+            if ($res) {
+                return redirect('/admin/message/'.$id);
+            }else{
+                echo '回复失败';die;
+            }
+        }catch(\Exception $e){
+            return back();
+        }
     }
 
     /**
