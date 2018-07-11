@@ -27,7 +27,7 @@ class Cate extends Model
 
     /**
      * 
-     *
+     * 第一个参数 填cates数组 第二个单数 通过父id
      * 无限极分类
      */ 
     static public function getCates($cates=[],$pid=0)

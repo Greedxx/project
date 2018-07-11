@@ -5,7 +5,7 @@
     overflow: hidden;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-top: 1px #dfdfdf solid;
+    /*border-top: 1px #dfdfdf solid;*/
     FONT-FAMILY: "Microsoft Yahei";
     float: right;
     list-style: none;
@@ -22,6 +22,9 @@
  }
  .pagination li:hover{
     cursor: pointer;
+ }
+ .pagination li span{
+    display: block;
  }
 .pagination .active{
     background-color: #88a9eb;

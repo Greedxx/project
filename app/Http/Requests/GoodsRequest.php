@@ -68,6 +68,7 @@ class GoodsRequest extends FormRequest
              'price.required'=>'@商品价格 不能为空',
              'price.max'=>'@商品价格 输入内容过多', 
              'price.regex'=>'@商品价格 必须数值',
+
              'thumb.required'=>'@缩略图 必须上传', 
              'thumb.filled'=>'@缩略图 必须上传', 
              'thumb.image'=>'@缩略图上传缩略图必须是图片格式', 

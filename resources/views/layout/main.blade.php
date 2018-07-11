@@ -4,14 +4,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="author" content="order by dede58.com"/>
 <title>@yield('title')</title>
+
+<link href="/bs/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/bs/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/home/js/jquery-1.7.1.min.js"></script>
+<script> var $jq = jQuery.noConflict(true); </script>
+<!-- <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>  -->
+
+<script type="text/javascript" src="/bs/js/bootstrap.min.js"></script>
+
+
+
+
+
 <link href="/home/css/base.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/index.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/pro-list.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/user.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/pro-detailed.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/home/js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="/home/js/Public.js"></script>
-<!-- <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script> -->
+ 
+
+
+
 </head>
 
 <body>
@@ -30,14 +47,14 @@
         </div>
     </div>
 
-    <!------------header---------------->
-    <div class="header">
-        <div class="logo"><a href="index.html"><img src="home/images/logo.png" width="190" /></a></div>
+    <!------------myheader---------------->
+    <div class="myheader">
+        <div class="logo"><a href="index.html"><img src="/home/images/logo.png" width="190" /></a></div>
 
-        <div class="header-right">
+        <div class="myheader-right">
             <div class="search-section">
                 <div class="keyword"><input name="keyword"  type="text"  value="请输入关键字" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}"/></div>
-                <div class="btn"></div>
+                <div class="mybtn"></div>
             </div>
             
             <div class="cart-section">
@@ -60,7 +77,7 @@
                             <ins>x</ins>
                         </li>
                     </ul>
-                    <div class="cart-btn">
+                    <div class="cart-mybtn">
                         <p>共计 2 件商品<span>合计：<strong>928.90元</strong></span></p>
                         <input type="button" value="去结算" />
                     </div>
@@ -71,16 +88,18 @@
         </div>
     </div>
     
-    <!------------header-wrap---------------->
+    <script type="text/javascript" src="/home/js/Public.js"></script>
+    
+    <!------------myheader-wrap---------------->
     <?php 
         $data = App\Models\Cate::where('pid',0)->limit(5)->get(); 
         $cate = App\Models\Cate::getCates();
         // dump($cate);
     ?>
-    <div class="header-wrap">
-        <div class="navwrap">
-            <div id="nav">
-                <div class="navbar clearfix">
+    <div class="myheader-wrap">
+        <div class="mynavwrap">
+            <div id="mynav">
+                <div class="mynavbar myclearfix">
 
                     <a class="current" href="index.html">首页</a>
                     @foreach ($data as $k =>$v)
@@ -92,21 +111,25 @@
                                                             
                 <div class="pros subpage">
                     <h2>全部商品分类</h2>
-                    <ul class="prosul clearfix" id="proinfo" style="display:block">
-                        @foreach ($cate as $k =>$v)
+                    <ul class="prosul myclearfix" id="proinfo" style="display:none">
+                       @foreach ($cate as $k =>$v)
                         <li>
-
+                              
                             <h3>{{$v['cate_name']}} </h3>
-                            @if(!empty($v['sub']) )
+
+                                
                                 @foreach ($v['sub'] as $k2 =>$v2)
                                 <a href="#">{{$v2['cate_name']}}</a>
-                                   
-                                    
+ 
+                                    <div class="prosmore hide">
+                                        @foreach ($v['sub'] as $kk =>$vv)
+                                        <span><em><a href="#">{{$vv['cate_name']}}</a></em></span>
+                                        <!-- <span><em class="morehot"><a class="morehot" href="#">电锁门禁</a></em></span> -->
+                                        @endforeach
+                                    </div>
 
-                                    
-                                   
                                  @endforeach
-                            @endif
+
                         </li>
                         @endforeach
                     </ul>
@@ -162,6 +185,12 @@
             </div>
         </div>
     </div>
+
+    @section('js')
+
+                    
+
+    @show
 
 
 </body>

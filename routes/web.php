@@ -9,10 +9,39 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/ 
-    Route::any('/home/index','home\IndexController@index');
+*/  
+    Route::group([],function(){
+        //前台首页
+        Route::any('/','home\IndexController@index');
 
-    // 后台组 admin
+        //列表页
+        Route::any('/list/{id?}','home\GoodsListController@index');
+
+        //详情页
+        Route::any('/good/{id}','home\GoodsInfoController@index');
+
+        //服务帮助页及其他
+        Route::any('/service/{id}','home\ServiceController@index');
+
+    });
+
+
+    //前台
+    Route::group([],function(){
+        //用户中心
+        Route::any('home/user','home\UserController@index');
+        //收货地址
+        Route::resource('home/receive','home\ReceiveController');
+        //用户信息修改
+        Route::resource('home/users','home\UsersController');
+        //密码修改
+        Route::any('home/xiu','home\PassController@xiu');
+        Route::any('home/gai','home\PassController@gai');
+    }); 
+
+    //购物车
+    // Route::any('/good','home\CartController@index');
+    
     Route::group([],function(){
         // 后台首页
         Route::any('/admin/index','admin\IndexController@index');
@@ -103,17 +132,5 @@
     Route::get('home/captcha/','home\ZhuceController@captcha');
 
 
-    //前台
-    Route::group([],function(){
-        Route::any('/home/index','home\HomeController@index');
-        //用户中心
-        Route::any('home/user','home\UserController@index');
-        //收货地址
-        Route::resource('home/receive','home\ReceiveController');
-        //用户信息修改
-        Route::resource('home/users','home\UsersController');
-        //密码修改
-        Route::any('home/xiu','home\PassController@xiu');
-        Route::any('home/gai','home\PassController@gai');
-    }); 
+    
  

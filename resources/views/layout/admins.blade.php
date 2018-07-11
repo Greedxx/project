@@ -20,7 +20,9 @@
 
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-style.css" media="screen">
 
+
 <link rel="stylesheet" type="text/css" href="/admins/css/messages.css" media="screen">
+
 
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol16.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol32.css" media="screen">
@@ -39,6 +41,8 @@
 
 <link rel="stylesheet" type="text/css" href="/admins/css/hang.css">
 <link rel="stylesheet" type="text/css" href="/admins/css/paginate.css">
+<link rel="stylesheet" type="text/css" href="/admins/css/mypage.css" media="screen">
+
 
 <!-- 百度编辑器 -->
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->

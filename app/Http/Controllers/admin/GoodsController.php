@@ -152,6 +152,7 @@ class GoodsController extends Controller
               //查找id 并将数组插入
                 $goods = Goods::find($gid);
 
+
                  //模型   出错
                 try{
                     $data = $goods->goodsimg()->createMany($gimgsnew);
@@ -175,10 +176,6 @@ class GoodsController extends Controller
         // dd($gimgsnew);
 
 
-
-      
-
-
         //如果更新成功将成功信息返回 
         if($statu=1||$statu =2){
             return redirect('/admin/goods')->with('success','添加成功');
@@ -186,7 +183,6 @@ class GoodsController extends Controller
             return back()->with('error','添加失败');
         }
 
-        
     }
 
     /**

@@ -73,47 +73,57 @@
             aria-describedby="DataTables_Table_1_info">
                 <thead>
                     <tr role="row">
-                        <th rowspan="1" colspan="1" class="txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"   style="width:50px">
                             ID
                         </th>
 
-                        <th class=""  rowspan="1" colspan="1" class="txt" style="width: 60px;" >
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:50px">
                             分类
                         </th>
 
-                        <th rowspan="1" colspan="1" class="txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width:50px">
                             商品编号
                         </th>
 
-                        <th rowspan="1" colspan="1" class="txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width:50px">
                             厂商型号
                         </th>
 
-                        <th  class = "" rowspan="1" colspan="1"   aria-label="Platform(s): activate to sort column ascending">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width:50px">
                             品名
                         </th>
 
-                         <th  class = ".txt" rowspan="1" colspan="1"  >
+
+                         <th  class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:50px">
+
                             图片
                         </th>
                        
-                        <th   class = ".txt" rowspan="1" colspan="1" >
+                        <th   class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:50px">
                             定价
                         </th>
                        
-                        <th class="sorting txt" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1"  aria-label="Platform(s): activate to sort column ascending" width="50px">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width:50px">
                             库存
                         </th>
-                        <th class="sorting txt" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1"  aria-label="Platform(s): activate to sort column ascending" width="50px">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width:50px">
                             销量
                         </th>
-                         <th rowspan="1" colspan="1"  aria-label="Platform(s): activate to sort column ascending" width="50px">
+                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width:50px">
                             状态
                         </th>
-                        <th 
-                        rowspan="1" colspan="1" width="px" >
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:50px">
                            操作
                         </th>
                         <!--  <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
@@ -130,9 +140,9 @@
                         {{--dd($data)--}}
                     @foreach($data as $k => $v)
 
-                    <tr class="@if($k % 2 == 1)  odd   @else even  @endif">
+                    <tr class="odd">
 
-                        <td class="">
+                        <td class="  sorting_1">
                             {{$v->id}}
                         </td>
 
@@ -178,15 +188,16 @@
 
                          <td class="txt">
                             
+
                             @if($v['status'] == 1 )
                             <a href="javascript:void(0)" class='btn btn-danger kai' " gid="{{$v->id}}"  value="0">下架</a>
                             @else
                             <a href="javascript:void(0)" class='btn btn-success kai'  gid="{{$v->id}}"  value="1">上架</a>
                             @endif
 
-                            <a href="/admin/goods/{{$v->id}}/edit" class='btn btn-info'>信息修改</a>
+                            <a href="/admin/goods/{{$v->id}}/edit" class='btn btn-info'>修改</a>
 
-                            <a href="/admin/goodsimg/{{$v->id}}/guan" class='btn btn-info'>组图修改</a>
+                            <a href="/admin/goodsimg/{{$v->id}}/guan" class='btn btn-info'>组图</a>
 
                             <form action="/admin/goods/{{$v->id}}" method='post' style='display:inline'>
                                 
@@ -209,6 +220,7 @@
                     @endforeach
                
                 </tbody>
+
             </table> 
             <!-- ajax -->
             <script src="/js/jquery-3.2.1.min.js" ></script>
@@ -296,11 +308,37 @@
 
             
             <div class="dataTables_paginate paging_full_numbers" style="" id="paginate">
+                <nav aria-label="Page navigation">
                 {{ $data->appends($arr)->links() }}
-               
+                </nav>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+
+    // alert('$');
+                               
+     $('#kai').click(function(){
+        va =  $('#kai').attr('value');
+        aid =  $('#kai').attr('aid');
+        console.log(va);
+
+        $.post('/admin/taoajax',{vname:va,aid:aid},function(data){
+            console.log(data);
+            if(data==1){
+                $('#kai').attr('value',"0");
+                $('#kai').attr('class',"btn btn-success");
+                $('#kai').html('开启');
+                alert('开启成功');
+            }else if(data == 0){
+                $('#kai').attr('value',"1");
+                $('#kai').attr('class',"btn btn-danger");
+                $('#kai').html('禁用');
+                alert('禁用成功');
+            }
+        });
+     });
+   </script>
 
 @endsection
