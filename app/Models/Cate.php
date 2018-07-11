@@ -21,13 +21,13 @@ class Cate extends Model
      *
      * 一对多 关联
      */ 
-    public function Goods(){
-     return $this->hasMany('Goods','cate_id','cate_id');
+    public function goods(){
+     return $this->hasMany('App\Models\Goods','cate_id','cate_id');
     }
 
     /**
      * 
-     *
+     * 第一个参数 填cates数组 第二个单数 通过父id
      * 无限极分类
      */ 
     static public function getCates($cates=[],$pid=0)

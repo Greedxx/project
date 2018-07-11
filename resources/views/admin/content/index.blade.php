@@ -5,6 +5,7 @@
 @section('content')
 
 <div class="mws-panel grid_8">
+
      <style>
         .text{
             border:1px solid #ddd;
@@ -97,42 +98,50 @@
             aria-describedby="DataTables_Table_1_info">
                 <thead>
                     <tr role="row">
-                        <th  role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" class=".txt" style="width: 10px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                        <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                             ID
                         </th>
-                        <th role="columnheader" rowspan="1" colspan="1" class="text" style="width: 58px;" aria-label="Browser: activate to sort column ascending">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" class="text" style="width: 58px;" >
                             文章类型
                         </th>
-                        <th rowspan="1" colspan="1" class=".txt" style="width: 45px;">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" class=".txt" style="width: 45px;">
                             关键字
                         </th>
                          <th owspan="1" colspan="1" class=".txt" style="width:180px;">
                             标题
                         </th>
 
-                        <th rowspan="1" colspan="1"  class="txt">
+
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending"  >
+                            状态
+                        </th>
+                        
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending"  >
                             点击数
                         </th>
                      
-                        <th rowspan="1" colspan="1"  class="txt">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending"  >
                             排序值
                         </th>
 
-
-                        <th rowspan="1" colspan="1"  class="txt">
-                            状态
-                        </th>
-
-                        <th rowspan="1" colspan="1"  class="txt" width="90px">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:40px">
                             添加时间
                         </th>
-                        <th rowspan="1" colspan="1"  class="txt" width="90px">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:40px">
 
                             更新时间
                         </th>
 
-                        <th rowspan="1" colspan="1" style="width: 120px;" aria-label="CSS grade: activate to sort column ascending">
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">
                            操作
                         </th>
                     </tr>
@@ -141,7 +150,7 @@
 
                     @foreach($data as $k => $v)
 
-                    <tr class="@if($k % 2 == 1)  odd   @else even  @endif">
+                    <tr class="odd">
                         <td class="text">
                             {{$v->id}}
                         </td>
@@ -151,12 +160,11 @@
                         <td class="text">
                             {{$v->keywords}}
                         </td>
-                        <td class=" ">
+                        <td class="text">
                             {{$v->title}}
                         </td>           
 
                         <td class="text">
-
                             @if($v->status ==1) 已展现
                             @else  未展现
                             @endif
@@ -167,10 +175,10 @@
                         <td class="text">
                             {{$v->sort}}
                         </td>
-                        <td class="text" style="width:90px" >
+                        <td  >
                             {{$v->created_at->format('y年m月n日 H时i分s秒')}}
                         </td>
-                        <td class="text" style="width:90px">
+                        <td >
                              {{$v->updated_at->format('y年m月n日 H时i分s秒')}}
 
                         </td>
@@ -187,7 +195,49 @@
                     @endforeach
                
                 </tbody>
-            </table>          
+
+            </table>
+
+
+            <!-- <style>
+             .pagination {
+                clear: both;
+                color: #7d7d7d;
+                font-size: 12px;
+                overflow: hidden;
+                padding-top: 0px;
+                padding-bottom: 0px;
+                border-top: 1px #dfdfdf solid;
+                FONT-FAMILY: "Microsoft Yahei";
+                float: right;
+                list-style: none;
+                margin:0px;
+             }
+            .pagination li{
+                float: left;
+                color: #7d7d7d;
+                font-size: 12px;
+                font-weight: bold;
+                padding: 7px 12px;
+                margin-right: 8px;
+
+             }
+             .pagination li:hover{
+                cursor: pointer;
+             }
+            .pagination .active{
+                background-color: #88a9eb;
+                color: #323232;
+                border: none;
+                background-image: none;
+                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+            }
+            .pagination .disabled{
+                    color: #666666;
+                    cursor: default;
+            }
+            </style> -->
+
             <div class="dataTables_paginate paging_full_numbers" style="" id="paginate">
                 {{ $data->appends($arr)->links() }}
                

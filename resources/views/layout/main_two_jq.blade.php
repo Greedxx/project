@@ -5,19 +5,13 @@
 <meta name="author" content="order by dede58.com"/>
 <title>@yield('title')</title>
 
-<!-- <link href="/bs/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="/bs/css/bootstrap-theme.css" rel="stylesheet" type="text/css" /> -->
-
-
-<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="/home/js/jquery-1.7.1.min.js"></script>
 <script> var $jq = jQuery.noConflict(true); </script>
-<!-- <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>  -->
-
+<!-- <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script> -->
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="/bs/js/bootstrap.min.js"></script>
-
-
-
+<link href="/bs/js/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/bs/js/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
 
 
 <link href="/home/css/base.css" rel="stylesheet" type="text/css" />
@@ -25,7 +19,7 @@
 <link href="/home/css/pro-list.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/user.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/pro-detailed.css" rel="stylesheet" type="text/css" />
- 
+
 
 
 
@@ -49,7 +43,7 @@
 
     <!------------header---------------->
     <div class="header">
-        <div class="logo"><a href="index.html"><img src="home/images/logo.png" width="190" /></a></div>
+        <div class="logo"><a href="index.html"><img src="/home/images/logo.png" width="190" /></a></div>
 
         <div class="header-right">
             <div class="search-section">
@@ -105,14 +99,14 @@
                     @foreach ($data as $k =>$v)
                     <a href="products-list.html">{{$v['cate_name']}}</a>
                     @endforeach
-                    <a href="#">品牌一览</a>
-                    <a href="#">折扣区<em class="sale"></em></a>
+                    <a href="#">商品推荐</a>
+                    <a href="#">服务指南</a>
                 </div>
                                                             
                 <div class="pros subpage">
                     <h2>全部商品分类</h2>
                     <ul class="prosul clearfix" id="proinfo" style="display:none">
-                       @foreach ($cate as $k =>$v)
+                        @foreach ($cate as $k =>$v)
                         <li>
                               
                             <h3>{{$v['cate_name']}} </h3>
@@ -131,6 +125,8 @@
 
                         </li>
                         @endforeach
+    
+
                     </ul>
                 </div>
             </div>
@@ -184,12 +180,6 @@
             </div>
         </div>
     </div>
-
-    @section('js')
-
-                    
-
-    @show
 
 
 </body>

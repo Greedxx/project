@@ -1,51 +1,54 @@
-$(function(){
+//alert($.fn.jquery);    $代表 jquery3.2.1 版本 
+// alert($jq.fn.jquery); //$jq代表 jquery1.7.1 版本 tao add
+$jq(function(){
 	/*------------------------------购物车效果-----------------------------------*/	   
-	$(".cart-section").hover(function(){
-		$(".hidden-cart").css("display","block");
-		$(".hidden-cart-c").css("display","block");
+	$jq(".cart-section").hover(function(){
+		$jq(".hidden-cart").css("display","block");
+		$jq(".hidden-cart-c").css("display","block");
 	},function(){
-		$(".hidden-cart").css("display","none");
-		$(".hidden-cart-c").css("display","none");
+		$jq(".hidden-cart").css("display","none");
+		$jq(".hidden-cart-c").css("display","none");
 		})	
 	
-	$(".hidden-cart-c ul li ins").click(function(){
-		$(this).parents('li').remove();
+	$jq(".hidden-cart-c ul li ins").click(function(){
+		$jq(this).parents('li').remove();
 	})
 	
 
 
-	var $subblock = $(".subpage"), $head=$subblock.find('h2'), $ul = $("#proinfo"), $lis = $ul.find("li"), inter=false;
+	var $jqsubblock = $jq(".subpage"), $jqhead=$jqsubblock.find('h2'), $jqul = $jq("#proinfo"), $jqlis = $jqul.find("li"), inter=false;
 	
-	$head.click(function(e){
+	$jqhead.click(function(e){
 		e.stopPropagation();
 		if(!inter){
-			$ul.show();
+			$jqul.show();
 		}else{
-			$ul.hide();
+			$jqul.hide();
 		}
 		inter=!inter;
 	});
 	
-	$ul.click(function(event){
+	$jqul.click(function(event){
 		event.stopPropagation();
 	});
 	
-	$(document).click(function(){
-		$ul.hide();
+	$jq(document).click(function(){
+		$jqul.hide();
 		inter=!inter;
 	});
 
-	$lis.hover(function(){
-		if(!$(this).hasClass('nochild')){
-			$(this).addClass("prosahover");
-			$(this).find(".prosmore").removeClass('hide');
+	$jqlis.hover(function(){
+		if(!$jq(this).hasClass('nochild')){
+			$jq(this).addClass("prosahover");
+			$jq(this).find(".prosmore").removeClass('hide');
 		}
 	},function(){
-		if(!$(this).hasClass('nochild')){
-			if($(this).hasClass("prosahover")){
-				$(this).removeClass("prosahover");
+		if(!$jq(this).hasClass('nochild')){
+			if($jq(this).hasClass("prosahover")){
+				$jq(this).removeClass("prosahover");
 			}
-			$(this).find(".prosmore").addClass('hide');
+			$jq(this).find(".prosmore").addClass('hide');
 		}
 	});
 })
+

@@ -9,9 +9,23 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/ 
-    Route::any('/','home\IndexController@index');
+*/  Route::group([],function(){
+        //前台首页
+        Route::any('/','home\IndexController@index');
 
+        //列表页
+        Route::any('/list/{id?}','home\GoodsListController@index');
+
+        //详情页
+        Route::any('/good/{id}','home\GoodsInfoController@index');
+
+        //服务帮助页及其他
+        Route::any('/service/{id}','home\ServiceController@index');
+
+    });
+
+    //购物车
+    // Route::any('/good','home\CartController@index');
     
     Route::group([],function(){
         // 后台首页
