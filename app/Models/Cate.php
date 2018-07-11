@@ -21,7 +21,7 @@ class Cate extends Model
      *
      * 一对多 关联
      */ 
-    public function GoodsRequest(){
+    public function goods(){
      return $this->hasMany('App\Models\Goods','cate_id','cate_id');
     }
 

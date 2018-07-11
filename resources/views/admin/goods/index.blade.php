@@ -93,7 +93,7 @@
                             品名
                         </th>
 
-                         <th  class = ".txt" rowspan="1" colspan="1" width="120px" >
+                         <th  class = ".txt" rowspan="1" colspan="1"  >
                             图片
                         </th>
                        
@@ -153,7 +153,7 @@
                         </td>
                             
                         <td class=" ">
-                            <center><img src="{{$v['thumb']}}" alt="{{$v['thumb']}}"></center>
+                            <center><img src="{{$v['thumb']}}" alt="{{$v['thumb']}}" width="90px"></center>
                         </td>
 
                         <td class="txt">

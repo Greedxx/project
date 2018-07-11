@@ -24,19 +24,24 @@ class IndexController extends Controller
         $goodsale = Goods::orderBy('sum','id')->limit(5)->get();
         // dd($data);
         //按照顶级分类查询出所有顶级分类的ID
-        $cate = Cate::where('pid',0)->orderBy('cate_id')->get();
+        // $cate = Cate::where('pid',0)->orderBy('cate_id')->get();
         $cate = Cate::where('pid',0)->orderBy('cate_id')->get();
 
-        // foreach($cate as $k =>$v)
-        // {
-        //     where('cate_id',$v->cateid)
-        // }
+        foreach ($cate as $k => $v) {
+            $goods =Cate::find($v['cate_id'])->with('goods')->get();
+        }
 
+        /*// dd($cate);  非关联查询
+        $goods=[];
+        foreach($cate as $k =>$v)
+        {
+            dump($v['cate_id']);
+            $goods[] = Goods::where('cate_id',$v['cate_id'])->get();
+        }
+        // dd($goods);*/
 
         
-        
 
-
-        return view('home.index');
+        return view('home.index',['goods']);
     }
 }
