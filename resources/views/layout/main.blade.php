@@ -5,8 +5,8 @@
 <meta name="author" content="order by dede58.com"/>
 <title>@yield('title')</title>
 
-<!-- <link href="/bs/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="/bs/css/bootstrap-theme.css" rel="stylesheet" type="text/css" /> -->
+<link href="/bs/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/bs/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
 
 
 <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
@@ -47,14 +47,14 @@
         </div>
     </div>
 
-    <!------------header---------------->
-    <div class="header">
-        <div class="logo"><a href="index.html"><img src="home/images/logo.png" width="190" /></a></div>
+    <!------------myheader---------------->
+    <div class="myheader">
+        <div class="logo"><a href="index.html"><img src="/home/images/logo.png" width="190" /></a></div>
 
-        <div class="header-right">
+        <div class="myheader-right">
             <div class="search-section">
                 <div class="keyword"><input name="keyword"  type="text"  value="请输入关键字" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}"/></div>
-                <div class="btn"></div>
+                <div class="mybtn"></div>
             </div>
             
             <div class="cart-section">
@@ -77,7 +77,7 @@
                             <ins>x</ins>
                         </li>
                     </ul>
-                    <div class="cart-btn">
+                    <div class="cart-mybtn">
                         <p>共计 2 件商品<span>合计：<strong>928.90元</strong></span></p>
                         <input type="button" value="去结算" />
                     </div>
@@ -90,16 +90,16 @@
     
     <script type="text/javascript" src="/home/js/Public.js"></script>
     
-    <!------------header-wrap---------------->
+    <!------------myheader-wrap---------------->
     <?php 
         $data = App\Models\Cate::where('pid',0)->limit(5)->get(); 
         $cate = App\Models\Cate::getCates();
         // dump($cate);
     ?>
-    <div class="header-wrap">
-        <div class="navwrap">
-            <div id="nav">
-                <div class="navbar clearfix">
+    <div class="myheader-wrap">
+        <div class="mynavwrap">
+            <div id="mynav">
+                <div class="mynavbar myclearfix">
 
                     <a class="current" href="index.html">首页</a>
                     @foreach ($data as $k =>$v)
@@ -111,7 +111,7 @@
                                                             
                 <div class="pros subpage">
                     <h2>全部商品分类</h2>
-                    <ul class="prosul clearfix" id="proinfo" style="display:none">
+                    <ul class="prosul myclearfix" id="proinfo" style="display:none">
                        @foreach ($cate as $k =>$v)
                         <li>
                               
