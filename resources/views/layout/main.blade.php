@@ -116,6 +116,7 @@
                         <li>
                               
                             <h3>{{$v['cate_name']}} </h3>
+
                                 
                                 @foreach ($v['sub'] as $k2 =>$v2)
                                 <a href="#">{{$v2['cate_name']}}</a>

@@ -20,6 +20,10 @@
 
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-style.css" media="screen">
 
+
+<link rel="stylesheet" type="text/css" href="/admins/css/messages.css" media="screen">
+
+
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol16.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol32.css" media="screen">
 
@@ -153,8 +157,8 @@
                     </div>
                     <ul>
                     	
-                        <li><a href="#">修改密码</a></li>
-                        <li><a href="index.html">退出</a></li>
+                        <li><a href="/admin/xian">修改密码</a></li>
+                        <li><a href="/admin/logout">退出</a></li>
                     </ul>
                 </div>
             </div>
@@ -184,6 +188,20 @@
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
+                    <li>
+                        <a href="#"><i class="icon-pacman"></i>管理员管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/admin/create">添加管理员</a></li>
+                            <li><a href="/admin/admin">浏览管理员</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-users"></i>用户管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/user/create">添加用户</a></li>
+                            <li><a href="/admin/user">浏览用户</a></li>
+                        </ul>
+                    </li>
                 
                     <li>
                         <a href="#"><i class="icon-align-justify"></i>类别管理</a>
@@ -221,7 +239,7 @@
                     <li>
                         <a href="#"><i class="icon-pictures"></i>商品评论管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/message">管理评论</a></li>
+                            <li><a href="/admin/message">评论列表</a></li>
                         </ul>
                     </li>
 
@@ -241,7 +259,27 @@
                             <li><a href="/admin/cate">管理接口</a></li>
                         </ul>
                     </li>
-                    
+                    <li>
+                        <a href="#"><i class="icon-IE"></i>友情链接</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/links/create">添加链接</a></li>
+                            <li><a href="/admin/links">浏览链接</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-forward"></i>广告管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/ad/create">添加广告</a></li>
+                            <li><a href="/admin/ad">浏览广告</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-forward"></i>轮播管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/lunbo/create">添加轮播</a></li>
+                            <li><a href="/admin/lunbo">浏览轮播</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
             </div>         

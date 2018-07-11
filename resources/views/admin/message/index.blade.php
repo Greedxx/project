@@ -22,11 +22,11 @@
 
     <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
 
-	<form action="/admin/wuliu" method="get">
+	<form action="/admin/message" method="get">
         <div id="DataTables_Table_1_length" class="dataTables_length">
             <label>
                 显示
-                <select size="1" name="num" aria-controls="DataTables_Table_1">
+                <select size="1" name="num" aria-controls="DataTables_Table_1" id="sel">
                   
                     <option value="10" @if($arr['num'] == 10)  selected="selected" @endif>
                         10
@@ -49,11 +49,7 @@
             </label>
         </div>
         <div class="dataTables_filter" id="DataTables_Table_1_filter">
-            <label>
-                搜索用户名:
-                <input type="text" name='keywords' aria-controls="DataTables_Table_1">
-                
-            </label>
+       
             <input type="submit" class="btn btn-info" value="提交">
         </div>
 		
@@ -111,17 +107,17 @@
                     </td>
                     <td class=" ">
                         <center>
-                        {{$v->cname}}
+                        {{$v['user']->username}}
                         </center>
                     </td>
                     <td class=" ">
                         <center>
-                        {{$v->cname}}
+                        {{$v['good']->goods_name}}
                         </center>
                     </td>
                     <td class=" ">
                         <center>
-                        {{$v->cname}}
+                        {{$v->msg}}
                         </center>
                     </td>
 
@@ -129,10 +125,11 @@
                         
                         <center>
                         
-                        <a href="/admin/message/huifu" class="btn btn-info  btn-lg">回复</a>
+                        <a href="/admin/message/{{$v->id}}" class="btn btn-primary btn-lg">查看</a>
+                       
                         
                         <div style="display: inline-block;">
-                        <form action="/admin/wuliu/{{$v->id}}"  method='post'>
+                        <form action="/admin/message/{{$v->id}}"  method='post'>
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
 
@@ -157,7 +154,7 @@
 
 @section('js')
 <script type="text/javascript">
-    
+  
     $('.mws-form-message').fadeOut(3000);
 
     

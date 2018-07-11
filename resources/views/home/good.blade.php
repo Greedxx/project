@@ -8,42 +8,28 @@
 
         <div class="goods-detail-info">
             <div class="left">
-                <div class="row" >
-                <div id="myCarousel" class="carousel slide" style="width:500px">
-                        <!-- 轮播（Carousel）指标 -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                        </ol>   
-                        <!-- 轮播（Carousel）项目 -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img src="/wp-content/uploads/2014/07/slide1.png" alt="First slide">
-                                <div class="carousel-caption">标题 1</div>
-                            </div>
-                            <div class="item">
-                                <img src="/wp-content/uploads/2014/07/slide2.png" alt="Second slide">
-                                <div class="carousel-caption">标题 2</div>
-                            </div>
-                            <div class="item">
-                                <img src="/wp-content/uploads/2014/07/slide3.png" alt="Third slide">
-                                <div class="carousel-caption">标题 3</div>
-                            </div>
-                        </div>
-                        <!-- 轮播（Carousel）导航 -->
-                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                    </div>
-               
-            </div>
+                <div id="play">
+                    <ul class="img_ul">
+                        <!-- <li style="display:block;"><a class="img_a"><img src="/home/images/big-pro1.jpg" width="430px" height="430px"></a></li> -->
+                        @foreach ($data['GoodsImg'] as $k => $v)
+                        <li><a class="img_a"><img src="{{$v->src}}" width="430px" height="430px"></a></li>
+                        @endforeach
+                    </ul>
+                      <a href="javascript:void(0)" class="prev_a change_a" title="上一张"><span></span></a>
+                    <a href="javascript:void(0)" class="next_a change_a" title="下一张"><span style="display:block;"></span></a>
+                </div>
+                
+                <div class="img_hd">
+                    <ul class="clearfix">
+                        <!-- <li class="on"><a class="img_a"><div class="pro-small-pic" style="background:url(/home/images/pro-small-pic.jpg)"></div></a></li> -->
+                         @foreach ($data['GoodsImg'] as $k2 => $v2)
+                        <li><a class="img_a"><div class="pro-small-pic" style="background:url({{$v2->src}})"></div></a></li>
+                        @endforeach
+                        <!-- <li><a class="img_a"><div class="pro-small-pic" style="background:url(/home/images/pro-small-pic.jpg)"></div></a></li>
+                        <li><a class="img_a"><div class="pro-small-pic" style="background:url(/home/images/pro-small-pic.jpg)"></div></a></li> -->
+                  </ul>
+              </div>
+          </div>
             <div class="right">
                 <!-- 商品名 -->
                 <h1>{{$data->goods_name}}</h1>
