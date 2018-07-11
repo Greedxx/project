@@ -17,13 +17,14 @@ class MessageController extends Controller
     {
         // 
         $num = $request->input('num',10);
-       
-
-        $arr = ['num'=>$num,];    
-       
-        // 查询相关数据
-        $res = Message::orderBy('id','asc')->paginate($num);
         
+
+        $arr = ['num'=>$num];
+        // 查询相关数据
+        $res = Message::orderBy('id','asc')
+        ->with('good','user')
+        ->paginate($num);
+    
         return view('admin.message.index',['res'=>$res,'arr'=>$arr]);
         
     }
@@ -58,6 +59,11 @@ class MessageController extends Controller
     public function show($id)
     {
         //
+        $res = Message::orderBy('id','asc')
+        ->where('id',$id)
+        ->with('good','user')->get();
+        // dd($res);
+        return view('admin.message.show',['res'=>$res,'id'=>$id]);
     }
 
     /**
@@ -81,6 +87,18 @@ class MessageController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $res = $request->only('tomsg');
+        
+        try{
+            $res = Message::find($id)->update($res);
+            if ($res) {
+                return redirect('/admin/message/'.$id);
+            }else{
+                echo '回复失败';die;
+            }
+        }catch(\Exception $e){
+            return back();
+        }
     }
 
     /**
@@ -92,5 +110,16 @@ class MessageController extends Controller
     public function destroy($id)
     {
         //
+        try{
+            $res = Message::find($id)->delete();
+
+            if ($res) {
+                return redirect('/admin/message')->with('delete','删除成功');
+            }else{
+                echo '删除失败';die;
+            }
+        }catch(\Exception $e){
+            return back();
+        }
     }
 }

@@ -12,7 +12,7 @@
 */ 
     Route::any('/home/index','home\IndexController@index');
 
-    
+    // 后台组 admin
     Route::group([],function(){
         // 后台首页
         Route::any('/admin/index','admin\IndexController@index');
@@ -29,6 +29,7 @@
         Route::post('/admin/wuliulist/fahuo','admin\WuliuListController@fahuo');
         Route::post('/admin/wuliulist/status/','admin\WuliuListController@status');
 
+        // 后台 商品评论模块
         Route::resource('admin/message','admin\MessageController');
 
         
@@ -54,6 +55,7 @@
         Route::any('/admin/ajaxtao/gpicstatus','admin\AjaxtaoController@gpicstatus');
 
 
+
         //用户管理
         Route::resource('/admin/user','admin\UserController');
 
@@ -68,6 +70,14 @@
         Route::any('/admin/gai','admin\PassController@gai');
         //登陆
         Route::any('admin/login','Admin\LoginController@login');
+
+
+          //广告管理
+        Route::resource('admin/ad','admin\AdController');
+        //links 友情链接
+        Route::resource('admin/links','admin\LinksController');
+        //轮播管理
+        Route::resource('admin/lunbo','admin\LunboController');
 
     });
 

@@ -97,18 +97,16 @@
                         <li>
 
                             <h3>{{$v['cate_name']}} </h3>
+                            @if(!empty($v['sub']) )
+                                @foreach ($v['sub'] as $k2 =>$v2)
+                                <a href="#">{{$v2['cate_name']}}</a>
+                                   
+                                    
 
-                            @foreach ($v['sub'] as $k2 =>$v2)
-                            <a href="#">{{$v2['cate_name']}}</a>
-                            <div class="prosmore hide">
-                                 @foreach ($v2['sub'] as $k3 =>$v3)
-                                <!-- <span><em><a href="#"></a></em></span> -->
-                                <span><em class="morehot"><a class="morehot" href="#">{{$v3['cate_name']}}</a></em></span>
-                                <!-- <span><em><a href="#">花草自动浇灌</a></em></span> -->
-                                @endforeach
-                            </div>
-                             @endforeach
-
+                                    
+                                   
+                                 @endforeach
+                            @endif
                         </li>
                         @endforeach
                     </ul>
