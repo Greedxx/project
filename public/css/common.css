@@ -52,7 +52,7 @@ li:after{
 	line-height: 0;
 }
 
-.top,.header, #mian ,#user,.Menu_style,.index_style,.Inside_pages,.user_style,.footerbox{ width:1200px; margin:0 auto;}
+.header, #mian ,#user,.Menu_style,.index_style,.Inside_pages,.user_style,.footerbox{ width:1200px; margin:0 auto;}
 .left_style{ width:220px; margin-right:10px; float:left}
 .right_style{ width:960px; float:right;_display: inline;_overflow: hidden;}
 .Slide_style{ height:645px; position:relative;}
@@ -143,8 +143,8 @@ li:after{
 #top .clearfix .hd_menu_tit a:hover{color:#FF6600;}
 /******/
 /**************************************************/
-.header{ font-family:"新宋体"; margin-bottom:20px; height:120px;}
-.header .logo{ width:250px;float:left; padding-top:20px}
+
+
 .header .Search{ float:left; margin-top:20px; position:relative; margin-left:80px;}
 .search_list .current {color: #FFF;background-color: #90b830;}
 .search_list ul li {
