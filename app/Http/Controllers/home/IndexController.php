@@ -17,14 +17,14 @@ class IndexController extends Controller
         // dump($cate);
          
         //商品的查询1 热门商品 5
-        $data = Goods::orderBy('count','id')->limit(5)->get();
-        // dd($data);
+        // $data = Goods::orderBy('count','id')->limit(5)->get();
+        // // dd($data);
         
-        //商品查询2  热销商品 top5
-        $data = Goods::orderBy('sum','id')->limit(5)->get();
-        dd($data);
-        //按照顶级分类查询出所有顶级分类的ID
-        $data = Cate::where('pid',0)->orderBy('id')->get();
+        // //商品查询2  热销商品 top5
+        // $data = Goods::orderBy('sum','id')->limit(5)->get();
+        // dd($data);
+        // //按照顶级分类查询出所有顶级分类的ID
+        // $data = Cate::where('pid',0)->orderBy('id')->get();
         
         
 

@@ -151,8 +151,8 @@
                     </div>
                     <ul>
                     	
-                        <li><a href="#">修改密码</a></li>
-                        <li><a href="index.html">退出</a></li>
+                        <li><a href="/admin/xian">修改密码</a></li>
+                        <li><a href="/admin/logout">退出</a></li>
                     </ul>
                 </div>
             </div>
@@ -182,6 +182,20 @@
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
+                    <li>
+                        <a href="#"><i class="icon-pacman"></i>管理员管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/admin/create">添加管理员</a></li>
+                            <li><a href="/admin/admin">浏览管理员</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-users"></i>用户管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/user/create">添加用户</a></li>
+                            <li><a href="/admin/user">浏览用户</a></li>
+                        </ul>
+                    </li>
                 
                     <li>
                         <a href="#"><i class="icon-align-justify"></i>类别管理</a>

@@ -14,11 +14,7 @@ class User extends Model
     *
     * @var 
     */ 
-    public function order()
-    {
-    	return $this->hasOne('App\Models\admin\Orders', 'id');
-    }
+    
 
-
-    protected $fillable = ['username','password','email','phone','profile','status'];
+    protected $fillable = ['username','password','email','phone','sex','profile','status']; 
 }
