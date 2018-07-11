@@ -241,7 +241,27 @@
                             <li><a href="/admin/cate">管理接口</a></li>
                         </ul>
                     </li>
-                    
+                    <li>
+                        <a href="#"><i class="icon-IE"></i>友情链接</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/links/create">添加链接</a></li>
+                            <li><a href="/admin/links">浏览链接</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-forward"></i>广告管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/ad/create">添加广告</a></li>
+                            <li><a href="/admin/ad">浏览广告</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-forward"></i>轮播管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/lunbo/create">添加轮播</a></li>
+                            <li><a href="/admin/lunbo">浏览轮播</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
             </div>         

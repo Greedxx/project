@@ -32,7 +32,6 @@ class IndexController extends Controller
         //     where('cate_id',$v->cateid)
         // }
 
-        dd($cate);
 
         
         

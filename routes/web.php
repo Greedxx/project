@@ -53,6 +53,11 @@
 
         //ajax gpic - 图片开关
         Route::any('/admin/ajaxtao/gpicstatus','admin\AjaxtaoController@gpicstatus');
-
+          //广告管理
+        Route::resource('admin/ad','admin\AdController');
+        //links 友情链接
+        Route::resource('admin/links','admin\LinksController');
+        //轮播管理
+        Route::resource('admin/lunbo','admin\LunboController');
     });
  
