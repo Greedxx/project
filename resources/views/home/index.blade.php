@@ -3,7 +3,48 @@
 @section('content')
     <style type="text/css">
         *{-webkit-box-sizing: content-box;
-    box-sizing: content-box;}
+        box-sizing: content-box;}
+
+        #all{
+            width:430px;height:410px;border:solid 1px blue;position:absolute;left:130px;top:30px;list-style:none;
+        }
+
+        #uls li{
+            position:absolute;
+        }
+
+        #ids{
+            
+
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            bottom: 15px;
+            font-size: 0;
+            height: 13px;
+            left: 50%;
+            margin-left: -39px;
+            position: absolute;
+            text-align: center;
+            padding:0px;
+        }
+
+        #ids li{
+            background: #fff none repeat scroll 0 0;
+            border-radius: 50%;
+            height: 0;
+            padding-top: 8px;
+            width: 8px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 3px;
+        }
+
+        #ids .cur{
+
+            background: #ff5000 none repeat scroll 0 0;
+        }
+
+
     </style>
     <?php // $data = App\Models\admin\Lunbo::where('status',1)->limit(3)->get() ?>   
    <!------------banner---------------->

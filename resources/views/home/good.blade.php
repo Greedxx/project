@@ -2,6 +2,45 @@
 @section('title', 'new Title')
 @section('content')
     <!------------main---------------->
+    <style type="text/css">
+        *{-webkit-box-sizing: content-box;
+        box-sizing: content-box;}
+
+        .aa{
+            position: absolute;
+        }
+
+        #ids{
+            background-color: rgba(128, 128, 128, 0.3);
+            border-radius: 10px;
+            bottom: 15px;
+            font-size: 0;
+            height: 13px;
+            left: 50%;
+            margin-left: -39px;
+            position: absolute;
+            text-align: center;
+            padding:0px;
+        }
+
+        #ids li{
+
+            background: #aaa none repeat scroll 0 0;
+            border-radius: 50%;
+            height: 0;
+            padding-top: 8px;
+            width: 8px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 3px;
+        }
+
+        #ids .cur{
+
+            background: #ff5000 none repeat scroll 0 0;
+        }
+
+    </style>
 
     <div class="main">
         <div class="current-position"><h2><a href="#">首页</a> > <a href="/list/{{$data['cate']['cate_id']}}">{{$data['cate']['cate_name']}}</a></h2></div>
@@ -9,27 +48,38 @@
         <div class="goods-detail-info">
             <div class="left">
                 <div id="play">
-                    <ul class="img_ul">
-                        <!-- <li style="display:block;"><a class="img_a"><img src="/home/images/big-pro1.jpg" width="430px" height="430px"></a></li> -->
-                        @foreach ($data['GoodsImg'] as $k => $v)
-                        <li><a class="img_a"><img src="{{$v->src}}" width="430px" height="430px"></a></li>
+                    <ul  class="img_ul aa">
+                        @foreach($data['GoodsImg'] as $k =>$v)
+                        <li ><a class="img_a"><img src="{{$v->src}}" width="430px" height="430px"></a></li>
                         @endforeach
+                        <ul id="ids">
+                            @foreach($data['GoodsImg'] as $k =>$v)
+                            <li></li>
+                            @endforeach
+                        </ul>
                     </ul>
-                      <a href="javascript:void(0)" class="prev_a change_a" title="上一张"><span></span></a>
-                    <a href="javascript:void(0)" class="next_a change_a" title="下一张"><span style="display:block;"></span></a>
+                    
+                   
+                    <!-- <a href="javascript:void(0)" class="prev_a change_a" title="上一张"><span></span></a>
+                    <a href="javascript:void(0)" class="next_a change_a" title="下一张"><span style="display:block;"></span></a> -->
                 </div>
+
                 
-                <div class="img_hd">
-                    <ul class="clearfix">
-                        <!-- <li class="on"><a class="img_a"><div class="pro-small-pic" style="background:url(/home/images/pro-small-pic.jpg)"></div></a></li> -->
-                         @foreach ($data['GoodsImg'] as $k2 => $v2)
-                        <li><a class="img_a"><div class="pro-small-pic" style="background:url({{$v2->src}})"></div></a></li>
+                <div class="img_hd" style="width: 328px; overflow:hidden;">
+                    <ul class="clearfix" style="width: 328px; overflow:hidden;">
+           
+                        @foreach($data['GoodsImg'] as $k =>$v)
+                        <li class="on"><a class="img_a"><div class="pro-small-pic" style="background:url({{$v->src}});background-size:100% 100%;"></div></a></li>
                         @endforeach
-                        <!-- <li><a class="img_a"><div class="pro-small-pic" style="background:url(/home/images/pro-small-pic.jpg)"></div></a></li>
-                        <li><a class="img_a"><div class="pro-small-pic" style="background:url(/home/images/pro-small-pic.jpg)"></div></a></li> -->
                   </ul>
               </div>
-          </div>
+            </div>
+            <script type="text/javascript">
+
+              
+        
+
+            </script>
             <div class="right">
                 <!-- 商品名 -->
                 <h1>{{$data->goods_name}}</h1>
@@ -273,10 +323,9 @@
             <div class="pro-detailed-right-title"><h3>最近浏览</h3></div>
             <div class="pro-detailed-right-c">
                 <ul class="browse-list">
-                    <li><a href="#"><img src="/home/images/g01.jpg" width="80" height="80" /></a></li>
-                    <li><a href="#"><img src="/home/images/01.jpg" width="80" height="80" /></a></li>
-                    <li><a href="#"><img src="/home/images/00.jpg" width="80" height="80" /></a></li>
-                    <li><a href="#"><img src="/home/images/4li.jpg" width="80" height="80" /></a></li>
+                    @foreach($data['GoodsImg'] as $k =>$v)
+                    <li><a href="#"><img src="{{$v->src}}" width="80" height="80" /></a></li>
+                    @endforeach
                 </ul>
                 <h3>买过的人还买了</h3>
                 <ul class="buy-list">
@@ -297,7 +346,62 @@
 
     <script type="text/javascript">
         
-        //alert($.fn.jquery);
+         var i = 1;
+
+                var into = null;
+
+                function moves(){
+                    into = setInterval(function(){
+
+                        shows(i++);
+                        if(i > 5){
+
+                            i=0;
+                        }
+
+                    },3000)
+
+                }
+
+                    
+                moves();
+
+
+                //函数的作用是 让第一张图片显示出来 其他的进行隐藏
+                function shows(m){
+                    $('.img_ul li').eq(m).find('img').fadeIn(600);
+                    $('.img_ul li').eq(m).siblings().find('img').fadeOut(800);
+
+                    $('#ids li').eq(m).addClass('cur');
+                    $('#ids li').eq(m).siblings().removeClass('cur');
+                }
+                    shows(0);
+
+                    //点击小圆点换图片
+                    $('#ids li').hover(function(){
+
+                        //移动到小圆点上
+
+                        //1.让定时器停止
+                        clearInterval(into);
+
+                        //2.让图片显示出来
+                        i = $(this).index();
+
+                        shows(i++);
+
+
+                    },function(){
+
+                        //再让图片接着走
+                        moves();
+                        if(i > 5){
+
+                            i=0;
+                        }
+                    })
+
+
     </script>
 
 @endsection

@@ -37,7 +37,7 @@ class LoginController extends Controller
 
           $request->session()->put('userinfo', $userinfo);
            
-           return redirect('/home/index');
+           return redirect('/home/user');
    }
    
    public function lologin()

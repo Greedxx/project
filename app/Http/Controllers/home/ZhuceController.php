@@ -21,7 +21,7 @@ class ZhuceController extends Controller
     {	
 
     	$this->validate($request, [
-            'username' => 'required|regex:/^([\x{4e00}-\x{9fa5}A-Za-z0-9_\.]+,)*([\x{4e00}-\x{9fa5}A-Za-z0-9_\.]+)$/u',
+            'username' => 'required|regex:/^\w{6,12}$/',
             'password' => 'required|regex:/^\S{6,12}$/',
             'repass'=>'same:password',
             'email'=>'email',
