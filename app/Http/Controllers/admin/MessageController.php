@@ -59,7 +59,10 @@ class MessageController extends Controller
     public function show($id)
     {
         //
-        return view('admin.message.show');
+        $res = Message::orderBy('id','asc')
+        ->with('good','user')->get();
+        // dd($res);
+        return view('admin.message.show',['res'=>$res]);
     }
 
     /**

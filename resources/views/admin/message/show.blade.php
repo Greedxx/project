@@ -13,11 +13,13 @@
     <div class="shi"></div>
     <center>
         <ul class="messagess">
+            @foreach ($res as $k=>$v)
+            
             <li title=".icon-user" class="message-left">
                 <i class="icon-user"></i>
 
-                <span class="message-tou-user">用户 xx 说:</span>
-
+                <span class="message-tou-user">用户 {{$v['user']->username}} 说:</span>
+                
                 <span claass="message-mesg" >12312311113</span>
             </li>
             <hr>
@@ -27,6 +29,8 @@
 
                 <i class="icon-user"></i>
             </li>
+
+            @endforeach
         </ul>
         </center>
     </div>      
@@ -55,7 +59,7 @@
                 <div class="mws-form-row ">
                     <label class="mws-form-label">消息回复 :</label>
                     <div class="mws-form-item">
-                        <textarea name="desc" rows="5" cols="90"></textarea> 
+                        <textarea name="desc" rows="5" cols="60"></textarea> 
                     </div>
                 </div>
             
