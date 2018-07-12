@@ -35,7 +35,6 @@ class IndexController extends Controller
         $goodsale = Goods::orderBy('sum','id')->limit(5)->get();
         // dd($data);
         //按照顶级分类查询出所有顶级分类的ID
-        // $cate = Cate::where('pid',0)->orderBy('cate_id')->get();
         $cate = Cate::where('pid',0)->orderBy('cate_id')->get();
 
 
@@ -53,8 +52,9 @@ class IndexController extends Controller
 
         // dd($goods);*/
 
-    
-        return view('home.index',['goods'=>$goods,'goodsale'=>$goodsale]);
+        
+
+        return view('home.index',['title'=>'仙女商城','goods'=>$goods,'goodsale'=>$goodsale]);
 
     }
 }

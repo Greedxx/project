@@ -2,35 +2,45 @@
 @section('title', 'new Title')
 @section('content')
 	<div class="main">
-    	<div class="current-position"><h2><a href="#">首页</a> > <a href="#">环境控制</a></h2></div>
-        <div class="big-class"><h1>环境控制</h1></div>
+    	
+        <div class="big-class" style="margin-top: 20px "><h1>{{$cateinfo['cate_name']}}</h1></div>
+        
+        <div class="current-position" style="font-size:20px; line-height: 20px">
+            <h2><a href="/">当前路径: 首页</a>            
+                @foreach($arrpath as $k => $v)
+                    |<a href="/list/{{$v['cate_id']}}">{{$v['cate_name']}}</a>
+                @endforeach
+            </h2>
+        </div>
         <div class="small-class">
-        	<p>分类：  <a href="#" class="active">全部</a>|<a href="#">中控主机</a>|<a href="#">智能照明</a>|<a href="#">电器控制</a>|<a href="#">电动窗帘</a>|<a href="#">暖通空调</a>|<a href="#">太阳能与节能设备</a>|<a href="#">花草自动浇灌</a></p>
-            <p>分类：  <a href="#" class="active">全部</a>|<a href="#">中控主机</a>|<a href="#">智能照明</a>|<a href="#">电器控制</a>|<a href="#">电动窗帘</a>|<a href="#">暖通空调</a>|<a href="#">太阳能与节能设备</a>|<a href="#">花草自动浇灌</a></p>
+        	<p>分类：  <a href="#" class="active">全部</a>
+                    @foreach ($cate as $k => $v)
+                        |<a href="/list/{{$v['cate_id']}}">{{$v['cate_name']}}</a>
+                    @endforeach
+            </p>
         </div>
         <div class="box-hd">
             <div class="filter-lists">
                 <ul>
-                    <li class="current"><a href="#" rel="nofollow">推荐</a>|</li>
-                    <li ><a href="#" rel="nofollow">最新</a>|</li>
-                    <li ><a href="#" rel="nofollow">价格从高到低</a>|</li>
-                    <li ><a href="#" rel="nofollow">价格从低到高</a>|</li>
-                    <li ><a href="#" rel="nofollow">关注度</a></li>
+                    <li class="current"><a href="/list" rel="nofollow">推荐</a>|</li>
+                    <li ><a href="/list?sort='new'" rel="nofollow">最新</a>|</li>
+                    <li ><a href="/list?sort='price desc' rel="nofollow">价格从高到低</a>|</li>
+                    <li ><a href="/list?sort='price asc" rel="nofollow">价格从低到高</a>|</li>
                 </ul>
             </div>
             
             <div class="more">
-                <a href="javascript:;"><i class="icon-check"></i><p>仅显示特惠商品</p></a>
-                <a href="javascript:;"><i class="icon-check"></i><p>仅显示有货商品</p></a>
+                <!-- <a href="javascript:;"><i class="icon-check"></i><p>仅显示有货商品</p></a> -->
             </div>
         </div>
         
         <div class="products-list" id="products-list">
         	<ul>
-            	<li>
-                	<div class="img" style="background:url(/home/images/4-2li.jpg) no-repeat center center"><a href="products-detailed.html"></a></div>
+                @foreach($good as $k =>$v)
+                <li>
+                    <div class="img" style="background:url({{$v->thumb}}) no-repeat center center ; background-size:100% 100%;"><a href="/good/{{$v->id}}"></a></div>
                     <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
+                    	<div class="left"><p><a href="/good/{{$v->id}}">{{$v->goods_name}}</a></p><span>{{$v->price}}元</span></div>
                         <div class="right"><i class="star5"></i><p>22264人评价</p></div>
                     </div>
                     <div class="btn">
@@ -38,146 +48,64 @@
                         <a href="products-detailed.html" class="btn2">加入购物车</a>
                     </div>
                 </li>
-                <li>
-                	<div class="img" style="background:url(/home/images/4-2li.jpg) no-repeat center center"><a href="products-detailed.html"></a></div>
-                    <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
-                        <div class="right"><i class="star4"></i><p>22264人评价</p></div>
-                    </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
-                    </div>
-                </li>
-                <li>
-                	<div class="img" style="background:url(/home/images/4-2li.jpg) no-repeat center center"><a href="products-detailed.html"></a></div>
-                    <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
-                        <div class="right"><i class="star3"></i><p>22264人评价</p></div>
-                    </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
-                    </div>
-                </li>
-                <li>
-                	<div class="img" style="background:url(/home/images/4-2li.jpg) no-repeat center center"><a href="products-detailed.html"></a></div>
-                    <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
-                        <div class="right"><i class="star2"></i><p>22264人评价</p></div>
-                    </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
-                    </div>
-                </li>
-                <li>
-                	<div class="img"><a href="products-detailed.html"><img src="/home/images//4li.jpg" width="220" height="220" /></a></div>
-                    <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
-                        <div class="right"><i class="star1"></i><p>22264人评价</p></div>
-                    </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
-                    </div>
-                </li>
-                <li>
-                	<div class="img"><a href="products-detailed.html"><img src="/home/images//4-2li.jpg" width="220" height="220" /></a></div>
-                    <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
-                        <div class="right"><i class="star5"></i><p>22264人评价</p></div>
-                    </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
-                    </div>
-                </li>
-                <li>
-                	<div class="img"><a href="products-detailed.html"><img src="/home/images//4li.jpg" width="220" height="220" /></a></div>
-                    <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
-                        <div class="right"><i class="star5"></i><p>22264人评价</p></div>
-                    </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
-                    </div>
-                </li>
-                <li>
-                	<div class="img"><a href="products-detailed.html"><img src="/home/images//4-2li.jpg" width="220" height="220" /></a></div>
-                    <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
-                        <div class="right"><i class="star5"></i><p>22264人评价</p></div>
-                    </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
-                    </div>
-                </li>
-                <li>
-                	<div class="img"><a href="products-detailed.html"><img src="/home/images//4li.jpg" width="220" height="220" /></a></div>
-                    <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
-                        <div class="right"><i class="star5"></i><p>22264人评价</p></div>
-                    </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
-                    </div>
-                </li>
-                <li>
-                	<div class="img"><a href="products-detailed.html"><img src="/home/images//4-2li.jpg" width="220" height="220" /></a></div>
-                    <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
-                        <div class="right"><i class="star5"></i><p>22264人评价</p></div>
-                    </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
-                    </div>
-                </li>
-                <li>
-                	<div class="img"><a href="products-detailed.html"><img src="/home/images//4li.jpg" width="220" height="220" /></a></div>
-                    <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
-                        <div class="right"><i class="star5"></i><p>22264人评价</p></div>
-                    </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
-                    </div>
-                </li>
-                <li>
-                	<div class="img"><a href="products-detailed.html"><img src="/home/images//4-2li.jpg" width="220" height="220" /></a></div>
-                    <div class="w">
-                    	<div class="left"><p><a href="products-detailed.html">小米手环 石墨黑石墨黑石墨黑石墨黑石墨黑</a></p><span>79元</span></div>
-                        <div class="right"><i class="star5"></i><p>22264人评价</p></div>
-                    </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
-                    </div>
-                </li>
+                @endforeach
             </ul>
             <div class="clr10"></div>
-            <div class="fy">
-            	<div class="fy-c">
-                	<a href="#" class="active">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <span>...</span>
-                    <a href="#">94</a>
-                    <a href="#">></a>
-                    <span>共94页</span>
-                    <span>到第</span>
-                    <input type="text" value="1" />
-                    <span>页</span>
-                    <a href="#">确定</a>
+
+             
+            <style type="text/css">
+                .pagination {
+                    height:50px;
+                    width:640px;
+                }
+                .pagination li {
+                    width:20px;
+                    height:20px;
+                }
+                
+            </style>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                            
+   
+                    </div>
                 </div>
+            </div>
+            
+        </div>
+        <div class="fy">
+            <div class="fy-c">
+               
+                {{$good->links()}}
             </div>
         </div>
         
     </div>
+@endsection
+
+@section('js')
+    <script type="text/javascript">
+        // alert($);
+    $(function(){
+        /*------------------------------排列互选框-----------------------------------*/  
+        $(".box-hd .more a").click(function(){
+            if($(this).find("i").attr("class")=="icon-check"){
+                $(this).find("i").attr("class","icon-check-active");
+            }
+            else{
+                $(this).find("i").attr("class","icon-check");
+            }
+        })
+        
+        $("#products-list").find("li").hover(function(){
+            $(this).addClass("active");
+        },function(){
+            $(this).removeClass("active");
+        })
+    })
+
+</script>
 @endsection
  
