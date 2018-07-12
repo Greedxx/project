@@ -49,11 +49,12 @@
         <div class="logo"><a href="index.html"><img src="/home/images/logo.png" width="190" /></a></div>
 
         <div class="myheader-right">
-            <div class="search-section">
-                <div class="keyword"><input name="keyword"  type="text"  value="请输入关键字" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}"/></div>
-                <div class="mybtn"></div>
-            </div>
-            
+            <form action="/cate" method="get">
+                <div class="search-section">
+                    <div class="keywords"><input name="keywords"  type="text"  value="请输入关键字" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}"/></div>
+                    <div class="mybtn"></div>
+                </div>
+            </form>
             <div class="cart-section">
                 <p>购物车(1)</p>
                 <div class="hidden-cart">
@@ -112,15 +113,15 @@
                        @foreach ($cate as $k =>$v)
                         <li>
 
-                            <h3>{{$v['cate_name']}} </h3>
+                            <h3><a href="/list?id={{$v['cate_id']}}">{{$v['cate_name']}}</a> </h3>
 
                                 
                                 @foreach ($v['sub'] as $k2 =>$v2)
-                                <a href="/list/{{$v2['cate_id']}}">{{--$v2['cate_name']--}}</a>
+                                <a href="/list?id={{$v2['cate_id']}}">{{--$v2['cate_name']--}}</a>
  
                                     <div class="prosmore hide">
                                         @foreach ($v['sub'] as $kk =>$vv)
-                                        <span><em><a href="/list/{{$vv['cate_id']}}">{{$vv['cate_name']}}</a></em></span>
+                                        <span><em><a href="/list?id={{$vv['cate_id']}}">{{$vv['cate_name']}}</a></em></span>
                                         <!-- <span><em class="morehot"><a class="morehot" href="#">电锁门禁</a></em></span> -->
                                         @endforeach
                                     </div>

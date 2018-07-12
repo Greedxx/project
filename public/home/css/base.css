@@ -606,10 +606,9 @@ body{
 	margin-right:5px;
 	border:solid 1px #cececf;
 }
-
+/************** ÌÕ¸ü¸Ä È¥µôborder **************/
 .fy .active{
 	color:#FFF;
-	border:solid 1px #999;
 	background-color:#999999;
 	}
 

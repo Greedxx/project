@@ -15,10 +15,10 @@
         Route::any('/','home\IndexController@index');
 
         //列表页
-        Route::any('/list/{id?}','home\GoodsListController@index');
+        Route::any('/list','home\GoodsListController@index');
 
         //详情页
-        Route::any('/good/{id}','home\GoodsInfoController@index');
+        Route::any('/good/{id?}','home\GoodsInfoController@index');
 
         //服务帮助页及其他
         Route::any('/service/{id}','home\ServiceController@index');
