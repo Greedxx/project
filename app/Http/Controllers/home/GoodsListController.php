@@ -52,6 +52,7 @@ class GoodsListController extends Controller
             }
 
         }
+
            
             $num = $request->input('sort','4');
             $num = (int)$num;
@@ -76,14 +77,13 @@ class GoodsListController extends Controller
             };
 
             
-        /**
-        * 
-        *查询获取数据
-        */ 
+
+
        if(!empty($id)){
             //查询子分类
            $cate=Cate::select('cate_id','cate_name')->where('path','like','%,'.$id.',%')->get()->toArray();
             //dd($cate_id);
+
             // 子分类空直接查询期分类商品 不为查询子分类的商品一并查询
             if(empty($cate)){
                     $good=Goods::where('cate_id',$id)->paginate(12);
@@ -110,6 +110,7 @@ class GoodsListController extends Controller
 
                 })->orderBy($sort,$asc)->paginate(12)->appends($request->all()); 
             } 
+
 
        }else{
 

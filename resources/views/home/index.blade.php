@@ -6,19 +6,22 @@
         box-sizing: content-box;}
 
     </style>
-    <?php // $data = App\Models\admin\Lunbo::where('status',1)->limit(3)->get() ?>   
+    <?php $data = App\Models\admin\Lunbo::where('status',1)->limit(3)->get() ?>
+     
    <!------------banner---------------->
     <div id="banner">
         <div class="fullSlide">
             <div class="bd">
                 <ul>
-                   
-                    <!-- <li _src="url({{--$v->url--}})" style="background:#000 center 0 no-repeat width:1240px height:200px;"><a href="https://shop116998991.taobao.com/"></a></li> -->
+                    @foreach ($data as $k =>$v)
+                    <li _src="url({{$v->url}})" style="background:#000 center 0 no-repeat width:1240px height:200px;"><a href="https://shop116998991.taobao.com/"></a></li>
+                     @endforeach
 
-                  <li _src="url(/home/images/banner.jpg)" style="background:#000 center 0 no-repeat;"><a href="#">
-                  <li _src="url(/home/images/banner.jpg)" style="background:#000 center 0 no-repeat;"><a href="#">
-                  <li _src="url(/home/images/banner.jpg)" style="background:#000 center 0 no-repeat;"><a href="#">
 
+                     <!-- <li _src="url(/home/images/banner.jpg)" style="background:#000 center 0 no-repeat;"><a href="https://shop116998991.taobao.com/"> -->
+
+                    <!-- <li _src="url(/home/images/2.jpg)" style="background:#DED5A1 center 0 no-repeat;"><a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w5003-11903850250.1.YOZUX7&id=521221929103&scene=taobao_shop"></a></li>
+                    <li _src="url(/home/images/5.jpg)" style="background:#FEFF19 center 0 no-repeat;"><a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-11895250131.3.YOZUX7&id=521741523734"></a></li> -->
                 </ul>
             </div>
             <div class="hd"><ul></ul></div>
@@ -96,9 +99,16 @@
             </div>
         </div>
         <!-- 第一个广告 -->
-        <div class="list-ad1" style="background: yellow;margin-top:20px " >
-            
+        <?php $data = App\Models\admin\Ad::limit(3)->get()->toArray() ?>
+        @foreach($data as $k=>$v)
+         @if($k==0)
+        <div class="list-ad1">
+           
+            <a href=""><img src="{{$v['url']}}"></a>
+           
         </div>
+        @endif
+        @endforeach
         <!------热门推荐-------->
         <div class="list-title">
             <p><strong style="border-bottom:solid 2px #00c3d5;">环境控制</strong></p><a href="#">More</a>
@@ -156,10 +166,15 @@
                 </li>
             </ul>
         </div>
-        <!-- 第一个广告 -->
-        <div class="list-ad1" style="background: yellow;margin-top:20px " >
+        <!-- 第二个广告 -->
+        @foreach($data as $k=>$v)
+        @if($k==1)
+        <div class="list-ad1" >
             
+            <a href=""><img src="{{$v['url']}}"></a>
         </div>
+        @endif
+        @endforeach
         <!------安全防护-------->
         <div class="list-title">
             <p><strong style="border-bottom:solid 2px #1d7ad9;">安全防护</strong></p><a href="#">More</a>
@@ -218,9 +233,15 @@
             </ul>
         </div>
         <!-- 第一个广告 -->
-        <div class="list-ad1" style="background: yellow;margin-top:20px " >
+        @foreach($data as $k=>$v)
+        @if($k == 2)
+        <div class="list-ad1">
             
+            <a href=""><img src="{{$v['url']}}"></a>
+           
         </div>
+        @endif
+        @endforeach
         <!------智能设备-------->
         <div class="list-title">
             <p><strong style="border-bottom:solid 2px #f9ee30;">智能设备</strong></p><a href="#">More</a>

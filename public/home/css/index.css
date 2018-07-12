@@ -169,7 +169,16 @@
 	width:70px;
 	padding-top:10px;
 }
-
+.list-ad1{
+	background: yellow;
+	margin-top: 20px;
+	width: 1240px;
+	height: 130px;
+}
+.list-ad1 img{
+	width: 1240px;
+	height: 130px;
+}
 .list-title{
 	clear:both;
 	width:1240px;
