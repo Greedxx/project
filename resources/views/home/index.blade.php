@@ -1,49 +1,9 @@
 @extends('layout.main')
-@section('title', 'new Title')
+@section('title', '仙女商城')
 @section('content')
     <style type="text/css">
         *{-webkit-box-sizing: content-box;
         box-sizing: content-box;}
-
-        #all{
-            width:430px;height:410px;border:solid 1px blue;position:absolute;left:130px;top:30px;list-style:none;
-        }
-
-        #uls li{
-            position:absolute;
-        }
-
-        #ids{
-            
-
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            bottom: 15px;
-            font-size: 0;
-            height: 13px;
-            left: 50%;
-            margin-left: -39px;
-            position: absolute;
-            text-align: center;
-            padding:0px;
-        }
-
-        #ids li{
-            background: #fff none repeat scroll 0 0;
-            border-radius: 50%;
-            height: 0;
-            padding-top: 8px;
-            width: 8px;
-            cursor: pointer;
-            display: inline-block;
-            margin: 3px;
-        }
-
-        #ids .cur{
-
-            background: #ff5000 none repeat scroll 0 0;
-        }
-
 
     </style>
     <?php // $data = App\Models\admin\Lunbo::where('status',1)->limit(3)->get() ?>   
@@ -66,8 +26,7 @@
             <span class="next"></span>
         </div>
     </div>   
-<!--------banner特效--------------->
-<!-- <script type="text/javascript" src="/home/js/index.js"></script> -->
+
 
 </html>
 
@@ -329,49 +288,6 @@
 @endsection
 
 @section('js')
-
-<!-- <script type="text/javascript" src="home/js/index.js"></script>
-<script type="text/javascript">
-$jq(function(){
-    /*------------------------------购物车效果-----------------------------------*/     
-    $jq(".cart-section").hover(function(){
-        $jq(".hidden-cart").css("display","block");
-        $jq(".hidden-cart-c").css("display","block");
-    },function(){
-        $jq(".hidden-cart").css("display","none");
-        $jq(".hidden-cart-c").css("display","none");
-        })  
-    
-    $jq(".hidden-cart-c ul li ins").click(function(){
-        $jq(this).parents('li').remove();
-    })
-
-})
-
-/*------------------------------banner特效-----------------------------------*/
-    $jq(".fullSlide").hover(function(){
-        $jq(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.5)
-    },
-    function(){
-        $jq(this).find(".prev,.next").fadeOut()
-    });
-    $jq(".fullSlide").slide({
-        titCell: ".hd ul",
-        mainCell: ".bd ul",
-        effect: "fold",
-        autoPlay: true,
-        autoPage: true,
-        trigger: "click",
-        startFun: function(i) {
-            var curLi = jQuery(".fullSlide .bd li").eq(i);
-            if ( !! curLi.attr("_src")) {
-                curLi.css("background-image", curLi.attr("_src")).removeAttr("_src")
-            }
-        }
-});
-</script> -->
-
-
 
 <script type="text/javascript" src="/home/js/index.js"></script>
 <script type="text/javascript">

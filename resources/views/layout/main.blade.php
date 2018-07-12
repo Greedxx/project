@@ -17,9 +17,6 @@
 <script type="text/javascript" src="/bs/js/bootstrap.min.js"></script>
 
 
-
-
-
 <link href="/home/css/base.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/index.css" rel="stylesheet" type="text/css" />
 
@@ -28,9 +25,6 @@
 <link href="/home/css/user.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/pro-detailed.css" rel="stylesheet" type="text/css" />             
 @show
-
-
-
 
 </head>
 
@@ -106,10 +100,10 @@
 
                     <a class="current" href="index.html">首页</a>
                     @foreach ($data as $k =>$v)
-                    <a href="products-list.html">{{$v['cate_name']}}</a>
+                    <a href="/list/{{$v['cate_id']}}">{{$v['cate_name']}}</a>
                     @endforeach
-                    <a href="#">品牌一览</a>
-                    <a href="#">折扣区<em class="sale"></em></a>
+                    <a href="/service">服务帮助</a>
+                    <a href="/content">评测推荐<em class="sale"></em></a>
                 </div>
                                                             
                 <div class="pros subpage">
@@ -117,16 +111,16 @@
                     <ul class="prosul myclearfix" id="proinfo" style="display:none">
                        @foreach ($cate as $k =>$v)
                         <li>
-                              
+
                             <h3>{{$v['cate_name']}} </h3>
 
                                 
                                 @foreach ($v['sub'] as $k2 =>$v2)
-                                <a href="#">{{$v2['cate_name']}}</a>
+                                <a href="/list/{{$v2['cate_id']}}">{{--$v2['cate_name']--}}</a>
  
                                     <div class="prosmore hide">
                                         @foreach ($v['sub'] as $kk =>$vv)
-                                        <span><em><a href="#">{{$vv['cate_name']}}</a></em></span>
+                                        <span><em><a href="/list/{{$vv['cate_id']}}">{{$vv['cate_name']}}</a></em></span>
                                         <!-- <span><em class="morehot"><a class="morehot" href="#">电锁门禁</a></em></span> -->
                                         @endforeach
                                     </div>

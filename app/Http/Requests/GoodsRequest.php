@@ -34,7 +34,7 @@ class GoodsRequest extends FormRequest
             'count' =>'required|max:11|regex:/^([0-9]+)$/u',
             'price' =>'required|max:11|regex:/^([0-9]+)(\.([0-9]{1,2}))?$/u',
             'desc' =>'required|max:100|string',
-            'thumb'=>'required|filled|image|file',
+            'thumb'=>'filled|image|file',
 
         ];
         
@@ -69,7 +69,6 @@ class GoodsRequest extends FormRequest
              'price.max'=>'@商品价格 输入内容过多', 
              'price.regex'=>'@商品价格 必须数值',
 
-             'thumb.required'=>'@缩略图 必须上传', 
              'thumb.filled'=>'@缩略图 必须上传', 
              'thumb.image'=>'@缩略图上传缩略图必须是图片格式', 
              'thumb.file'=>'@缩略图 必须是完整文件',
