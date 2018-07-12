@@ -1,6 +1,16 @@
 @extends('layout.main')
 @section('title', 'new Title')
 @section('content')
+ <style type="text/css">
+    .pagination {
+        height:50px;
+        width:640px;
+    }
+    .pagination li {
+        width:20px;
+        height:20px;
+    }
+</style>
 	<div class="main">
     	
         <div class="big-class" style="margin-top: 20px "><h1>{{$cateinfo['cate_name']}}</h1></div>
@@ -37,47 +47,23 @@
         <div class="products-list" id="products-list">
         	<ul>
                 @foreach($good as $k =>$v)
-                <li class="active">
+                <li >
                     <div class="img" style="background:url({{$v->thumb}}) no-repeat center center ; background-size:100% 100%;"><a href="/good/{{$v->id}}"></a></div>
                     <div class="w">
                     	<div class="left"><p><a href="/good/{{$v->id}}">{{$v->goods_name}}</a></p><span>{{$v->price}}元</span></div>
-                        <div class="right"><i class="star5"></i><p>22264人评价</p></div>
+                        <div class="right"><i class="star5"></i><p>18评价</p></div>
                     </div>
-                    <div class="btn">
-                    	<a href="products-detailed.html" class="btn1">立即购买</a>
-                        <a href="products-detailed.html" class="btn2">加入购物车</a>
+                    <div class="mybtn">
+                    	<!-- <a href="products-detailed.html" class="btn1">立即购买</a> -->
+                        <a href="/good/{{$v->id}}" class="mybtn1">立即购买</a>
                     </div>
                 </li>
                 @endforeach
             </ul>
             <div class="clr10"></div>
-
-             
-            <style type="text/css">
-                .pagination {
-                    height:50px;
-                    width:640px;
-                }
-                .pagination li {
-                    width:20px;
-                    height:20px;
-                }
-                
-            </style>
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4">
-                            
-   
-                    </div>
-                </div>
-            </div>
-            
         </div>
         <div class="fy">
             <div class="fy-c">
-               
                 {{$good->links()}}
             </div>
         </div>

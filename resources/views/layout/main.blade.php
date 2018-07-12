@@ -143,45 +143,52 @@
 
     @show
      <!------底部-------->
-    <div class="footer">
-        <div class="footer-c">
-            
-
-            <dl>
-                <dt>购买指南</dt>
-                <dd><a href="#">第一次购物体验</a></dd>
-                <dd><a href="#">品质保证原则</a></dd>
-                <dd><a href="#">会员申请条件</a></dd>
-            </dl>
-            <dl>
-                <dt>支付方式</dt>
-                <dd><a href="#">网银在线支付</a></dd>
-                <dd><a href="#">支付宝支付</a></dd>
-                <dd><a href="#">银联在线支付</a></dd>
-            </dl>
-            <dl>
-                <dt>配送方式</dt>
-                <dd><a href="#">配送方式</a></dd>
-            </dl>
-            <dl>
-                <dt>售后服务</dt>
-                <dd><a href="#">联系客服</a></dd>
-                <dd><a href="#">订单查询</a></dd>
-                <dd><a href="#">退换货流程及原则</a></dd>
-            </dl>
-            
-            <div class="col-contact">
-                <p class="phone">400-100-5678</p>
-                <p>周一至周日 8:00-18:00<br />（仅收市话费）</p>
-                <input type="button" value="在线客户" />
+    <div class="a1">
+        <div class="a01">
+            <div class="a001">
+                <div class="a0001"><img src="/home/images/footer/01.png"><p>顺丰包邮</p></div>
+                <div class="a0001"><img src="/home/images/footer/02.png"><p>100+ 城市次日到</p></div>
+                <div class="a0001"><img src="/home/images/footer/03.png"><p>7天无理由退货</p></div>
+                <div class="a0001"><img src="/home/images/footer/04.png"><p>15天换货保障</p></div>
+                <div class="a0001"><img src="/home/images/footer/08.png"><p>上门快修</p></div>
+                <div class="a0001"><img src="/home/images/footer/06.png"><p>230+ 线下体验店</p></div>
+                <div class="a0001"><img src="/home/images/footer/07.png"><p>远程支持服务</p></div>
+                <div class="a0001"><img src="/home/images/footer/05.png"><p>1年免费保修</p></div>
             </div>
-            <div class="clr20"></div>
-            <div class="footer-b">
-                <p><a href="#">关于我们</a>  |  <a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-11895250131.3.YOZUX7&id=521741523734">手机商城</a>  |  <a href="#">联系我们</a></p>
-                <p>2013 © DEHUA.com,All Rights Reserver. cz科技 版权所有　　网站备案号：闽ICP备0000号-1</p>
+            <div class="a002">
+                <p class="riqi">周一至周日 7：30-24：00</p>
+                <a href="" class="dianhua">400-788-3333</a>
+                <div class="zaixiankefu"><img src="/home/images/footer/09.png"><p class="kefu1">在线客服</p></div>
+            </div>  
+            
+        </div>
+        <?php $data = App\Models\admin\Links::limit(9)->get()->toArray() ?>
+        <div class="b02">
+            <div class="b001">
+
+
+                @foreach($data as $k=>$v)
+
+                    @if($k==0)
+                        <a href="{{$v['url']}}" class="b0001">{{$v['lname']}}</a>
+                    @else
+                        <a href="{{$v['url']}}" class="b0001">|&nbsp;{{$v['lname']}}</a>
+                    @endif
+
+                @endforeach 
+            </div>
+            
+            <div class="b002">
+                <a href="" class="b0002">©2018 Meizu Telecom Equipment Co.</a>
+                <a href="" class="b0002">粤ICP备13003602号-2</a>
+                <a href="" class="b0002">合字B2-20170010</a>
+                <a href="" class="b0002">营业执照</a>
+                <a href="" class="b0002">法律声明</a>
+                <a href="" class="b00002">粤公网安备 44049102496009</a>
             </div>
         </div>
     </div>
+
 
     @section('js')
 

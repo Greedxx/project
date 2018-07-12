@@ -5,7 +5,15 @@
 @section('title',$title)
 
 @section('content')
+@if(session('success'))
+    <div class="mws-form-message success" style="height: 30px;">{{session('success')}}
+    </div>
+@endif
 
+@if(session('error'))
+    <div class="mws-form-message warning" style="height: 30px;">{{session('error')}}
+    </div>
+@endif
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span>
@@ -109,9 +117,9 @@
                         </td>
                      
                          <td class=" ">
-                            <a href="/admin/links/{{$v->lid}}/edit" class='btn btn-info'>修改</a>
+                            <a href="/admin/links/{{$v->lid}}" class='btn btn-info'>修改</a>
 
-                            <form action="/admin/links/{{$v->id}}" method='post' style='display:inline'>
+                            <form action="/admin/links/{{$v->lid}}" method='post' style='display:inline'>
                                 
                                 {{csrf_field()}}
 

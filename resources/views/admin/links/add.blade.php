@@ -3,6 +3,8 @@
 @section('title',$title)
 
 
+
+
 @section('content')
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
@@ -66,11 +68,11 @@
 @section('js')
 <script type="text/javascript">
     
-    /*setTimeout(function(){
+    setTimeout(function(){
 
         $('.mws-form-message').remove();
 
-    },3000)*/
+    },3000)
 
     $('.mws-form-message').fadeOut(5000);
 

@@ -30,7 +30,7 @@ class GoodsRequest extends FormRequest
             'size' =>'required|max:60|regex:/^([\x{4e00}-\x{9fa5}A-Za-z0-9_\.]+,)*([\x{4e00}-\x{9fa5}A-Za-z0-9_\.]+)$/u',
             'color' =>'required|max:60|regex:/^([\x{4e00}-\x{9fa5}A-Za-z0-9_]+,)*([\x{4e00}-\x{9fa5}A-Za-z0-9_]+)$/u',
             'type' =>'required|max:32|regex:/^([\x{4e00}-\x{9fa5}A-Za-z0-9_\-]+,?)*([\x{4e00}-\x{9fa5}A-Za-z0-9_\-]+)$/u',
-            'memory' =>'required|max:32|regex:/^([\x{4e00}-\x{9fa5}A-Za-z0-9_]+,?)*([\x{4e00}-\x{9fa5}A-Za-z0-9_]+)$/u',
+            'memory' =>'required|max:32|regex:/^([\x{4e00}-\x{9fa5}A-Za-z0-9_\+]+,?)*([\x{4e00}-\x{9fa5}A-Za-z0-9_\+]+)$/u',
             'count' =>'required|max:11|regex:/^([0-9]+)$/u',
             'price' =>'required|max:11|regex:/^([0-9]+)(\.([0-9]{1,2}))?$/u',
             'desc' =>'required|max:100|string',

@@ -74,7 +74,7 @@ class LinksController extends Controller
             'lorder.required'=>'链接排序不能为空',
             'lorder.regex'=>'链接排序格式不正确','lorder' => 'unique:links,lorder'
         ]);
-
+            $res = $request->except(['_token']);
 
         //url
             if ($request->hasFile('url')){
@@ -173,13 +173,13 @@ class LinksController extends Controller
         //模型 出错
         try{
             $data  =  Links::where('lid',$id)->update($res);
-                
+            if($data){
+            return redirect('/admin/links')->with('success','修改成功');
+        }    
         }catch(\Exception $e){
            return back()->width('error');
         }
-        if($data){
-            return redirect('/admin/links')->with('success','修改成功');
-        }
+        
     }
 
     /**

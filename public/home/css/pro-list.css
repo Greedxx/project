@@ -36,7 +36,7 @@
 
 .products-list ul li .w .left{
 	float:left;
-	color:#000;
+	color:#e02b41;
 	width:172px;
 	font-size:14px;
 	line-height:24px;
@@ -62,7 +62,8 @@
 
 .products-list ul li .w .right{
 	float:right;
-	width:80px;
+	width:72px;
+	height:55px;
 	padding-top:5px;
 	font-size:12px;
 	overflow:hidden;
@@ -75,7 +76,7 @@
 	_padding-top:5px;
 }
 
-.products-list ul li .btn{
+.products-list ul li .mybtn{
 	clear:both;
 	width:260px;
 	margin:auto;
@@ -86,18 +87,18 @@
 	border-top: #dfdfdf solid 1px;
 }
 
-.products-list ul .active .btn{
+.products-list ul .active .mybtn{
 	visibility:visible;
 }
 
-.products-list ul li .btn1{
+.products-list ul li .mybtn1{
 	float:left;
 	width:120px;
 	height:30px;
 	color:#1d7ad9;
 	display:block;
 	font-size:12px;
-	margin-right:10px;
+	margin-left:56px;
 	font-weight:bold;
 	line-height:30px;
 	text-align:center;
@@ -106,13 +107,13 @@
 	border:solid 1px #60a2e4;
 }
 
-.products-list ul li .btn1:hover{
+.products-list ul li .mybtn1:hover{
 	background-color:#b9d8f9;
 }
 
-.products-list ul li .btn2{
+.products-list ul li .mybtn2{
 	float:left;
-	width:80px;
+	width:120px;
 	height:30px;
 	color:#ffffff;
 	display:block;
@@ -128,7 +129,7 @@
 	background-position: 18px center;
 }
 
-.products-list ul li .btn2:hover{
+.products-list ul li .mybtn2:hover{
 	background-color:#1167c0;
 }
 
