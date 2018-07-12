@@ -37,7 +37,7 @@
         <div class="products-list" id="products-list">
         	<ul>
                 @foreach($good as $k =>$v)
-                <li>
+                <li class="active">
                     <div class="img" style="background:url({{$v->thumb}}) no-repeat center center ; background-size:100% 100%;"><a href="/good/{{$v->id}}"></a></div>
                     <div class="w">
                     	<div class="left"><p><a href="/good/{{$v->id}}">{{$v->goods_name}}</a></p><span>{{$v->price}}元</span></div>
@@ -101,13 +101,10 @@
 
         $("#products-list").find("li").hover(function(){
             $(this).addClass("active");
-        }
+        },function(){
+            $(this).removeClass("active");
+        })
         
-        // $("#products-list").find("li").hover(function(){
-        //     $(this).addClass("active");
-        // },function(){
-        //     $(this).removeClass("active");
-        // })
     })
 
 </script>
