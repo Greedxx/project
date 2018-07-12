@@ -20,6 +20,7 @@ class PassController extends Controller
 
     public function gai(Request $request)
     {		
+		
     		
 			$oldpassword = $request->input('password_o');
     		$password = $request->input('password');
