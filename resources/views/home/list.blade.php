@@ -98,12 +98,16 @@
                 $(this).find("i").attr("class","icon-check");
             }
         })
-        
+
         $("#products-list").find("li").hover(function(){
             $(this).addClass("active");
-        },function(){
-            $(this).removeClass("active");
-        })
+        }
+        
+        // $("#products-list").find("li").hover(function(){
+        //     $(this).addClass("active");
+        // },function(){
+        //     $(this).removeClass("active");
+        // })
     })
 
 </script>
