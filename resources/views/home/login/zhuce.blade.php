@@ -10,10 +10,10 @@
 	<body>
 		<form  method="post" action="/home/dozhuce">
 		<div class="regist">
-			<div class="regist_center">
+			<div class="regist_center"> 
 				<div class="regist_top">
 					<div class="left fl">会员注册</div>
-					<div class="right fr"><a href="/home/index" target="_self">首页</a></div>
+					<div class="right fr"><a href="/home/login" target="_self">登陆</a>&nbsp;&nbsp;<a href="/" target="_self">首页</a></div>
 					<div class="clear"></div>
 					<div class="xian center"></div>
 				</div>
