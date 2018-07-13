@@ -56,7 +56,7 @@
 
     <!------------myheader---------------->
     <div class="myheader">
-        <div class="logo"><a href="index.html"><img src="/home/images/logo.png" width="190" /></a></div>
+        <div class="logo"><a href="/"><img src="/home/images/logo.png" width="190" /></a></div>
 
         <div class="myheader-right">
 
