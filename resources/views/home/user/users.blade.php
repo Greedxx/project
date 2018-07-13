@@ -133,10 +133,10 @@
                         会员：
                     </label>
                     <span>
-                       <input type="radio" name="status" value="0"   disabled="disabled" @if($res->status == '0') checked='checked' @endif >
-                        普通会员&nbsp;&nbsp;
-                        <input type="radio" name="status" value="1"  disabled="disabled" @if($res->status == '1') checked='checked' @endif >
-                        高级会员&nbsp;&nbsp;
+                      @if($res->status == '0') 普通会员&nbsp;&nbsp; @endif 
+                        
+                      @if($res->status == '1') 高级会员&nbsp;&nbsp; @endif 
+                        
                     </span>
                 </li>  
 
