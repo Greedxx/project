@@ -50,7 +50,6 @@
 .accountSideOption1 dt {
 	margin: 0;
 	padding: 0 0 0 45px;
-	width: 153px;
 	height: 35px;
 	line-height: 35px;
 	background-color: #ededed;
@@ -106,11 +105,11 @@
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
-	background: #90b830;
+	background: #ffffcc;
 	color: #fff;
 	font-size: 18px;
 }
-.menu_style .user_title a{ color:#FFF}
+.menu_style .user_title a{ color:#0099cc}
 /****右侧样式属性****/
 .user_center .Notice{ height:30px; padding:5px 0px; line-height:30px; background:#fffbeb; border:1px solid  #ffd800; color: #333333; font-family:"新宋体"; margin-bottom:10px;}
 .user_center .Notice span{ font-weight:bold; color:#090; padding-left:5px;}
@@ -543,7 +542,7 @@
 .Exp_record_style .record_list td .cz{ color:#363}
 /*********************************个人信息样式属性**************************/
 .Personal_info ul.xinxi{ width:500px; margin-top:30px; float:left; border-right:1px solid #ddd;}
-.Personal_info ul.xinxi li{ height:40px; line-height:40px; padding:5px 0px;font-size:14px;border-bottom:1px dashed #ddd;}
+.Personal_info ul.xinxi li{ height:40px;  padding:5px 0px;font-size:14px;border-bottom:1px dashed #ddd;}
 .Personal_info ul.xinxi li label{ width:80px; float:left; text-align:right;}
 .Personal_info ul.xinxi li .text{ height:30px; padding:3px; background-color:#FFF; border:0px;}
 .Personal_info ul.xinxi li .text.add{ border:1px solid #ddd;}

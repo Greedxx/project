@@ -15,8 +15,14 @@
 <!-- <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>  -->
 
 <script type="text/javascript" src="/bs/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/home/js/Public.js"></script>
+<script src="/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
+<script src="/js/footer.js" type="text/javascript"></script>
+<script src="/layer/layer.js" type="text/javascript"></script>
 
-
+<link href="/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/css/user_style.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/base.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/index.css" rel="stylesheet" type="text/css" />
 
@@ -38,7 +44,11 @@
             </div>
             <div class="top-right">
                 <p>嗨，欢迎来到仙女商城</p>
-                <p><a href="login.html">请登录</a> | <a href="register.html">免费注册</a></p>
+                @if(session('userinfo'))
+                    <p><a href="/home/users/{{session('userinfo.id')}}/edit"><?php echo session('userinfo.username')   ?></a> | <a href="/home/lologin">退出</a></p>
+                @else
+                    <p><a href="/home/login">请登录</a> | <a href="/home/zhuce">免费注册</a></p>
+                @endif
                 <p><a href="javascript:;">我的订单</a> | <a href="javascript:;">服务中心</a></p>
             </div>
         </div>

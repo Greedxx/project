@@ -130,7 +130,13 @@
     Route::any('home/lologin','home\LoginController@lologin');
     //验证码
     Route::get('home/captcha/','home\ZhuceController@captcha');
-
+     //前台忘记密码验证
+    Route::any('home/nopass','home\NopassController@nopass');
+    Route::any('home/pass','home\NopassController@pass');
+    //前台忘记密码修改
+    Route::any('home/modifypass','home\ModifypassController@index');
+    Route::any('home/passedit','home\ModifypassController@passedit');
+    
 
     
  
