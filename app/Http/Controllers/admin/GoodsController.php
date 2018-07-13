@@ -75,7 +75,7 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        $arr = Cate::get();
+        $arr =  cate::select(\DB::raw('*,concat(path,cate_id) as paths '))->orderBy('paths')->get();
         //生成商品no
         $goods_no = date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
         return view('admin.goods.add',['title'=>'商品添加','goods_no'=>$goods_no,'arr'=>$arr]);
@@ -204,7 +204,7 @@ class GoodsController extends Controller
      */
     public function edit($id)
     {
-        $cate = Cate::get();
+        $cate = cate::select(\DB::raw('*,concat(path,cate_id) as paths '))->orderBy('paths')->get();
 
         $data=goods::find($id);
 

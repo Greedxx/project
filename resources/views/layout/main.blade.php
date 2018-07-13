@@ -49,10 +49,17 @@
         <div class="logo"><a href="index.html"><img src="/home/images/logo.png" width="190" /></a></div>
 
         <div class="myheader-right">
-            <form action="/cate" method="get">
+
+            <?php  
+                if (empty($arr)){ $arr['id']=0;$arr['sort']=4; $arr['keyword']=" ";}   
+                if (isset($arr['keyword']) || array_key_exists('keyword', $arr))
+                { }
+                else {$arr['keyword']=""; }  
+            ?>
+            <form action="/list?id={{$arr['id']}}&sort={{$arr['sort']}}" method="get">
                 <div class="search-section">
-                    <div class="keywords"><input name="keywords"  type="text"  value="请输入关键字" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}"/></div>
-                    <div class="mybtn"></div>
+                    <div class="keyword"><input name="keyword"  type="text"  value="<?php $arr['keyword'] ?>" placeholder="请输入商品名称" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}"/></div>
+                    <input type="submit" class="mybtn"  value="">
                 </div>
             </form>
             <div class="cart-section">
@@ -99,9 +106,9 @@
             <div id="mynav">
                 <div class="mynavbar myclearfix">
 
-                    <a class="current" href="index.html">首页</a>
+                    <a class="current" href="/">首页</a>
                     @foreach ($data as $k =>$v)
-                    <a href="/list/{{$v['cate_id']}}">{{$v['cate_name']}}</a>
+                    <a href="/list?id={{$v['cate_id']}}">{{$v['cate_name']}}</a>
                     @endforeach
                     <a href="/service">服务帮助</a>
                     <a href="/content">评测推荐<em class="sale"></em></a>
@@ -166,8 +173,6 @@
         <?php $data = App\Models\admin\Links::limit(9)->get()->toArray() ?>
         <div class="b02">
             <div class="b001">
-
-
                 @foreach($data as $k=>$v)
 
                     @if($k==0)

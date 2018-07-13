@@ -12,30 +12,34 @@
     }
 </style>
 	<div class="main">
-    	
-        <div class="big-class" style="margin-top: 20px "><h1><a href="/list/?id={{$cateinfo['cate_id']}}">{{$cateinfo['cate_name']}}</a></h1></div>
+
+
+        <div class="big-class" style="margin-top: 20px "><h1><a href="/list/?id={{$cateinfo['cate_id']}}&sort={{$arr['sort']}}&keyword={{$arr['keyword']}}">{{$cateinfo['cate_name']}}</a></h1></div>
         
         <div class="current-position" style="font-size:20px; line-height: 20px">
-            <h2><a href="/">当前路径: 首页</a>            
-                @foreach($arrpath as $k => $v)
-                    |<a href="/list/{{$v['cate_id']}}">{{$v['cate_name']}}</a>
-                @endforeach
+            <h2>路径:<a href="/">首页</a>    
+                {{--dd($arrpath)--}}  
+                @if(empty($arrpath))     
+                    @foreach($arrpath as $k => $v)
+                        |<a href="/list?id={{$v['cate_id']}}&sort={{$arr['sort']}}">{{$v['cate_name']}}</a>
+                    @endforeach
+                @endif
             </h2>
         </div>
         <div class="small-class">
         	<p>分类：  <a href="/list" class="active">全部</a>
                     @foreach ($cate as $k => $v)
-                        |<a href="/list/{{$v['cate_id']}}">{{$v['cate_name']}}</a>
+                        |<a href="/list?id={{$v['cate_id']}}&sort={{$arr['sort']}}">{{$v['cate_name']}}</a>
                     @endforeach
             </p>
         </div>
         <div class="box-hd">
             <div class="filter-lists">
                 <ul>
-                    <li class="current"><a href="/list/?id={{$cateinfo['cate_id']}}&sort=1" rel="nofollow">推荐</a>|</li>
-                    <li ><a href="/list/?id={{$cateinfo['cate_id']}}&sort=2" rel="nofollow">最新</a>|</li>
-                    <li ><a href="/list/?id={{$cateinfo['cate_id']}}&sort=3"nofollow">价格从低到高</a>|</li>
-                    <li ><a href="/list/?id={{$cateinfo['cate_id']}}&sort=4"nofollow">价格从高到低</a></li>
+                    <li class="current"><a href="/list/?id={{$cateinfo['cate_id']}}&sort=1&keyword={{$arr['keyword']}}" rel="nofollow">推荐</a>|</li>
+                    <li ><a href="/list?id={{$cateinfo['cate_id']}}&sort=2&keyword={{$arr['keyword']}}" rel="nofollow">最新</a>|</li>
+                    <li ><a href="/list?id={{$cateinfo['cate_id']}}&sort=3&keyword={{$arr['keyword']}}"nofollow">价格从低到高</a>|</li>
+                    <li ><a href="/list?id={{$cateinfo['cate_id']}}&sort=4&keyword={{$arr['keyword']}}"nofollow">价格从高到低</a></li>
                 </ul>
             </div>
             
@@ -63,7 +67,7 @@
         </div>
         <div class="fy">
             <div class="fy-c">
-                {{$good->links()}}
+                {{$good->appends($arr)->links()}}
             </div>
         </div>
         

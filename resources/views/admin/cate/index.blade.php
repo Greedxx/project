@@ -89,7 +89,7 @@
                         @foreach($cate as $k=>$v)
                         <tr  class="@if($k % 2 == 1)  odd   @else even  @endif">
                             <td style="width: 50px;text-align: center;">{{ $v->cate_id}}</td>
-                            <td style="width: 50px;">{{str_repeat('&nbsp;',substr_count($v->path,',')*5)}}|-- {{ $v->cate_name}}</td>
+                            <td style="width: 50px;">{{str_repeat('&nbsp;',(substr_count($v->path,',')-1)*5)}}|-- {{ $v->cate_name}}</td>
                             <td style="width: 50px;text-align: center;">{{ $v->pid}}</td>
                             <td style="width: 50px;text-align: center;">{{ $v->path}}</td>
                             <td style="width: 50px;text-align: center;">

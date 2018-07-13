@@ -33,8 +33,7 @@
                         <label class="mws-form-label">选择类别</label>
                         <select name='cate_id'>
                             @foreach($cate as $k=>$v)
-                            {{ $n=substr_count($v->path,',') }}
-                            <option @if( $data->cate_id == $v->cate_id) checked @endif value = "{{$v->cate_id}}">{{str_repeat('&nbsp;',$n*5)}}|-- {{ $v->cate_name}}</option>
+                            <option @if( $data->cate_id == $v->cate_id) checked @endif value = "{{$v->cate_id}}">{{str_repeat('&nbsp;',(substr_count($v->path,',')-1)*5)}}|-- {{ $v->cate_name}}</option>
                             @endforeach
                         </select>
                     </div>

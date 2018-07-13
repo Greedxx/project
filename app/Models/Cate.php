@@ -35,6 +35,7 @@ class Cate extends Model
         if(empty($cates)){
             $cates = self::get()->toArray();
         }
+
         $arr=[];
         foreach($cates as $k=>$v){
             if($v['pid']==$pid){

@@ -15,7 +15,6 @@ class GoodsListController extends Controller
         *用于接收查询条件的数组
         */ 
         $arr=[];
-        $arr['keyword']='';
 
         /**
         *用于接收查询条件的数组
@@ -35,10 +34,12 @@ class GoodsListController extends Controller
         $cateinfo=[];
 
 
-
-        $id = $request->input('id',0);
-        $arr['id'] = $id;
-
+        if(!empty($request->input('id'))){
+            $id = $request->input('id');
+            $arr = ['id',$id];
+        }else{
+            cate_id= '0';
+        }
 
 
         //查询分类的父路径
@@ -54,7 +55,7 @@ class GoodsListController extends Controller
             $path = rtrim($path,',');
 
            
-            //排除只有0,
+            //排除首页
             if(!empty($path)){
 
                 $path=  explode(',',$path);
@@ -69,58 +70,43 @@ class GoodsListController extends Controller
                 }
             }
 
-        }else{
-            $cateinfo['cate_id']=0;
-            $cateinfo['cate_name']='已在顶级';
-            $arrpath[]=[];
         }
 
-        //用于排序
-        $num = $request->input('sort','4');
-        $arr['sort'] =$num;
-        $num = (int)$num;
+           
+            $num = $request->input('sort','4');
+            $arr['sort'] =$num;
+            $num = (int)$num;
 
-        switch ($num) {
-            case 1:
-                $sort = 'count';
-                $asc = 'asc';
-                break;
-            case 2:
-                $sort = 'created_at';
-                $asc  = 'desc' ;
-                break;
-            case 3:
-                $sort = 'price';
-                $asc = 'asc';
-                break;
-            case 4:
-                $sort = 'price';
-                $asc = 'desc';
-                break;
-        };
+            switch ($num) {
+                case 1:
+                    $sort = 'count';
+                    $asc = 'asc';
+                    break;
+                case 2:
+                    $sort = 'created_at';
+                    $asc  = 'desc' ;
+                    break;
+                case 3:
+                    $sort = 'price';
+                    $asc = 'asc';
+                    break;
+                case 4:
+                    $sort = 'price';
+                    $asc = 'desc';
+                    break;
+            };
 
             
+   <?php if (empty($arr)){$arr=[]; $arr['id']=0;$arr['sort']=4; $arr['keyword']="";} ?>
 
-
-       // if(!empty($id)){
+       if(!empty($id)){
             //查询子分类
-           $cate=Cate::select('cate_id','cate_name')->where('path','like','%'.$id.',%')->get()->toArray();
-            // dd($cate);
+           $cate=Cate::select('cate_id','cate_name')->where('path','like','%,'.$id.',%')->get()->toArray();
+            //dd($cate_id);
 
             // 子分类空直接查询期分类商品 不为查询子分类的商品一并查询
             if(empty($cate)){
-                $good=Goods::where('cate_id',$id)->where(function($query) use($request){
-
-                    $keyword=$request->input('keyword','');
-
-                    if(!empty($keyword)){
-
-                        $query->where('goods_name','like','%'.$keyword.'%');
-                        $arr['keyword'] = $keyword;
-
-                    }
-
-                })->paginate(12);
+                    $good=Goods::where('cate_id',$id)->paginate(12);
                     // dump($goods);
             }else{
                 $category_id[]=$id;
@@ -134,14 +120,38 @@ class GoodsListController extends Controller
                 // dd($category_id);
                 $good=Goods::whereIn('cate_id',$category_id)->where(function($query) use($request){
 
-                    $keyword=$request->input('keyword','');
+                    $keyword=$request->input('keyword');
+
+                    if(!empty($keyword)){
 
                         $query->where('goods_name','like','%'.$keyword.'%');
                         $arr['keyword'] = $keyword;
 
+                    }
 
                 })->orderBy($sort,$asc)->paginate(12)->appends($request->all()); 
             } 
+
+
+       }else{
+
+            $good=Goods::where(function($query) use($request){
+
+                    $keyword=$request->input('keyword');
+
+                    if(!empty($keyword)){
+
+                        $query->where('goods_name','like','%'.$keyword.'%');
+
+                        $arr['keyword']=$keyword;
+
+                    }
+
+            })->paginate(12); 
+       }
+
+
+       // dd($arrpath);
 
         return view('home.list',['title'=>'仙女商城','good'=>$good,'cate'=>$cate,'arrpath'=>$arrpath,'cateinfo'=>$cateinfo,'arr'=>$arr]);
     }
