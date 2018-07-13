@@ -6,9 +6,8 @@
         height:50px;
         width:640px;
     }
-    .pagination li {
-        width:20px;
-        height:20px;
+    .pagination li{
+        float: left
     }
 </style>
 	<div class="main">
