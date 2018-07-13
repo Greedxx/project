@@ -4,6 +4,8 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\admin\Orders;
+
 
 class UserController extends Controller
 {
@@ -13,8 +15,15 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home.user.user',['title'=>'用户中心']);
+    {   
+
+        $id = session('userinfo.id');
+
+        $res = Orders::Where('user_id',$id)->With('user','good')->get();
+
+        
+
+        return view('home.user.user',['title'=>'用户中心','res'=>$res]);
     }
 
     /**
