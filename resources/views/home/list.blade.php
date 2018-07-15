@@ -2,6 +2,8 @@
 @section('title', '仙女商城')
 @section('content')
  <style type="text/css">
+     *{-webkit-box-sizing: content-box;
+        box-sizing: content-box;}
     .pagination {
         height:50px;
         width:640px;

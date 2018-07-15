@@ -57,7 +57,7 @@
                             <span class="item-title"><a href="#">{{$v->goods_name}}</a></span>
                             <span class="item-price">{{$v->price}}元 </span>
                         </span>
-                        <span class="item-thumb"><a href="/goods/{{$v->id}}"><img src="{{$v->thumb}}" width="70" height="70" /></a></span>
+                        <span class="item-thumb"><a href="/good/{{$v->id}}"><img src="{{$v->thumb}}" width="70" height="70" /></a></span>
                     </li>
                      @endforeach
                 </ul>
