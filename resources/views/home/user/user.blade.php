@@ -92,6 +92,7 @@
                         <table>
                             <thead>
                                 <tr>
+                                    <th>订单编号</th>
                                     <th>产品名称</th>
                                     <th>数量</th>
                                     <th>状态</th>
@@ -99,24 +100,39 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $count = 0;
+                                @endphp
+
+                                @foreach($res as $k => $v)
+
+                                @php $count = $k+1;
+                                @endphp
+
                                 <tr>
+                                    <td>{{$v['orders_id']}}</td>
                                     <td class="img_link">
                                         <a href="#" class="img">
                                             <img src="/products/p_58.jpg" width="80" height="80">
                                         </a>
-                                        <a href="#" class="title">雅诗兰黛（Estee Lauder）弹性紧实柔肤眼霜15ml(又名弹性紧实眼霜)（提拉紧致 保湿补水 淡化细纹）</a>
+                                        <a href="#" class="title">{{$v['good']->goods_name}}</a>
                                     </td>
-                                    <td>2</td>
-                                    <td>完成</td>
+                                    <td>{{$v['num']}}</td>
+                                    
+                                    @if($v['status'] == 0)
+                                    <td>未支付</td>
+                                    @else
+                                    <td>已支付</td>
+                                    @endif
+
                                     <td>
                                         <a href="#" class="View">查看</a>
                                     </td>
                                 </tr>
-                                
+                                @endforeach
                               
                             </tbody>
                         </table>
-                        <div class="us_jls">共2条记录</div>
+                        <div class="us_jls">共{{$count}}条记录</div>
                     </div>
                 </div>
 
