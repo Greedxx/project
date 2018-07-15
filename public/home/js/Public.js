@@ -1,5 +1,5 @@
 //alert($.fn.jquery);    $代表 jquery3.2.1 版本 
-// alert($jq.fn.jquery); //$jq代表 jquery1.7.1 版本 tao add
+//alert($jq.fn.jquery); //$jq代表 jquery1.7.1 版本 tao add
 $jq(function(){
 	/*------------------------------购物车效果-----------------------------------*/	   
 	$jq(".cart-section").hover(function(){

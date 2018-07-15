@@ -708,6 +708,9 @@ li:after{
 	background:-moz-linear-gradient(top,#A4CA4A,#90b830);/*火狐*/ 
 	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#A4CA4A), to(#90b830));/*谷歌*/ 
 }
+.img_hd li{
+    box-sizing: border-box;
+}
 .add_yfmb_style .bc_btn:hover,
 .shop_tixian .btn_style a.tixian_btn:hover,
 .Freight_template .AddTemplate_btn:hover,

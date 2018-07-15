@@ -1,9 +1,14 @@
 @extends('layout.main')
-@section('title', 'new Title')
+@section('title', '仙女商城')
 @section('content')
     <!------------main---------------->
 	<div class="main">
-    	<div class="current-position"><h2><a href="#">首页</a> > <a href="#">购买指南</a></h2></div>
+
+    	 <div class="current-position " style="margin-top: 20px;font-size: 14px;" >
+            <h2 style="font-size: 14px">路径  <a href="/" >首页</a>    
+                |<a href="/service">"服务指南"</a>
+            </h2>
+        </div>
         
         <div class="service_k">
         	<div class="service_k_left_menu">

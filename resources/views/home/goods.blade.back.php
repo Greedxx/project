@@ -87,25 +87,30 @@
            
                         @foreach($data['GoodsImg'] as $k =>$v)
                             @if($k<=3)
-                            <li class="on" ><a class="img_a"><div class="pro-small-pic" style="background:url({{$v->src}});background-size:100% 100%;"></div></a></li>
+                            <li class="on"><a class="img_a"><div class="pro-small-pic" style="background:url({{$v->src}});background-size:100% 100%;"></div></a></li>
                             @endif
                         @endforeach
                   </ul>
               </div>
             </div>
+            <script type="text/javascript">
 
+              
+        
+
+            </script>
             <div class="right">
                 <!-- 商品名 -->
-                <h1 gid="{{$data->id}}" gsrc="{{$data->thumb}}" >{{$data->goods_name}}</h1>
+                <h1 class="gname" gid={{$data->id}} >{{$data->goods_name}}</h1>
                 <p class="money">¥<span>{{$data->price}}</span></p>
-                <p class="comment"><img src="/home/images/x5.gif" /><span>3266人评价<ins>|</ins>0个提问</span></p>
+                <p class="comment"><img src="/home/images/x5.gif" /><span>条评价<ins>|</ins>0个提问</span></p>
                 <p class="fit"><strong>适配</strong><span>{{$data->desc}}</span></p>
                 <div class="styles">
                     <h2>颜色：</h2>
                     
                     
-                    
-                    <ul class="style-simg" id="gcolor">
+
+                    <ul class="style-simg " id="gsize">
                         <!-- <li class="active"><a href="#"><div class="style-img" style="background:url(/home/images/pro-minsmall-pic.jpg)"></div><i></i></a></li>
                         <li ><a href="#"><div class="style-img" style="background:url(/home/images/pro-minsmall-pic.jpg)"></div><i></i></a></li> -->
                         @foreach($color as $k=>$v)
@@ -113,7 +118,7 @@
                         @endforeach
                     </ul>
                     <h2>尺寸：</h2>
-                    <ul class="style-simg " id="gsize">
+                    <ul class="style-simg " id="gcolor">
                         <!-- <li class="active"><a href="#"><div class="style-title">165/M</div></a><i></i></li>
                         <li><a href="#"><div class="style-title">170/L</div></a><i></i></li> -->
                         @foreach($size as $kk=>$vv)
@@ -123,17 +128,17 @@
                     
                     
                     <h2>数量：</h2>
-                    <div class="tb-amount-widget " id="gum">
-                        <input type="text"  value="1" readonly class="input-count"/>
+                    <div class="tb-amount-widget">
+                        <input type="text"  value="1" class="input-count"/>
                         <div class="tb-amount-btn">
                             <a href="javascript:;" class="add_btn"></a>
                             <a href="javascript:;" class="min_btn"></a>
                         </div>
-                        <span id="kucun">件 库存<b>{{$data->count}}</b>件</span>
+                        <span>件 库存{{$data->count}}件</span>
                     </div>
                 </div>
                 <div class="pro-detai-cart">
-                    <a href="/gooods/cartadd" class="cart"><p>加入购物车</p></a>
+                    <a href="#" class="cart"><p>加入购物车</p></a>
                     <a href="#" class="collection"></a>
                 </div>
                 <div class="service">
@@ -160,23 +165,23 @@
             </ul>
             <div class="pro-detailed-left-c">
                 <!--------详细信息---------->
-                <div id="goodsDesc" class="show" >
+                <div id="goodsDesc">
                     {!!$data->content!!}
                 </div>
                 <!--------规格参数---------->
-                <div id="goodsParam" class="hidden">
+                <div id="goodsParam" style="display:none;">
                     <div class="title">规格参数</div>
                     <ul>
-                        <li><p><span>型号 ： </span>{{$data->type}}</p></li>
-                        <li><p><span>内存 ： </span>@foreach($memory as $k=>$v) {{ $v }} @endforeach</p></li>
-                        <li><p><span>尺寸 ： </span>@foreach($size as $k=>$v) {{ $v }} @endforeach</p></li>
+                        <li><p><span>品牌 ： </span>MIUI/小米</p></li>
+                        <li><p><span>型号 ： </span>国产</p></li>
+                        <li><p><span>尺寸 ： </span>20厘米-29厘米</p></li>
                         <li><p><span>编号 ： </span>{{$data->goods_no}}</p></li>
-                        <li><p><span>颜色分类 ： </span>@foreach($color as $k=>$v) {{ $v }} @endforeach</p></li>
-                        <li><p style="white-space:normal;"><span>适用对象 ： </span>通用</p></li>
+                        <li><p><span>颜色分类 ： </span>红色</p></li>
+                        <li><p style="white-space:normal;"><span>适用对象 ： </span>仅适配偏震式屏幕</p></li>
                     </ul>
                 </div>
                 <!--------评价晒单---------->
-                <div id="goodsComment" class = "hidden">
+                <div id="goodsComment" style="display:none;">
                     <div class="title"><strong>用户评价</strong><p><a href="#" class="active">很有用</a>|<a href="#">最新</a></p></div>
                     <div class="goodsComment-zj">
                         <div class="left"><p>96.1<span>%</span></p><pre>五星评价率</pre></div>
@@ -199,7 +204,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="goodsComment-c" >
+                    <div class="goodsComment-c" style="display:none;">
                         <ul>
                             <li>
                                 <div class="tou-x"><img src="/home/images/hy.gif" width="78" height="78" /><p>行云流水SAGA</p></div>
@@ -257,7 +262,7 @@
                     <div class="goodsComment-more"><a href="goodsComment-more.html">查看全部评价 ></a></div>
                 </div>
                 <!--------商品提问---------->
-                <div id="goodsFaq" class = "hidden">
+                <div id="goodsFaq" style="display:none;">
                     <div class="title"><strong>产品提问</strong><p><a href="#">查看全部 ></a></p></div>
                     <div class="goodsFaq-c">
                         <ul>
@@ -290,7 +295,7 @@
                     </div>
                 </div>
                 <!--------售后服务---------->
-                <div id="serQue" class = "hidden">
+                <div id="serQue" style="display:none;">
                     <div class="nTab3">
                         <!-- 标题开始 -->
                         <div class="TabTitle">
@@ -316,7 +321,7 @@
                                     <p>您可拨打小米客服中心400-100-5678与客服人员沟通，或登录小米网“我的订单” ->“订单详情”下方点击“申请售后服务”并填写相应信息，小米看到您的申请，会安排工作人员与您进行退换货质量确认并办理相关事宜.</p>
                               </div>
                               <!--售后服务-->
-                              <div id="myTab0_Content1" class="intro" >
+                              <div id="myTab0_Content1" class="intro" style="display:none;">
                                     <p>1.自签收之日起，如商品及包装保持小米出售时原状且配件齐全，七天退货，十五天换货。</p>
                                     <p> 2.退换凭证：用户提供相关订单号。</p>
                                     <p>3.非质量问题的退换，需要产品包装完好、不影响二次销售，且需用户承担退换运费；非质量问题退换次数仅限一次。</p>
@@ -360,305 +365,64 @@
 
     <script type="text/javascript">
         
-    var i = 1;
+         var i = 1;
 
-    var into = null;
+                var into = null;
 
-    function moves(){
-        into = setInterval(function(){
+                function moves(){
+                    into = setInterval(function(){
 
-            shows(i++);
-            if(i > 4){
-                i=0;
-            }
+                        shows(i++);
+                        if(i > 5){
 
-        },2000)
-    }
+                            i=0;
+                        }
 
-        
-    moves();
+                    },3000)
 
+                }
 
-    //函数的作用是 让第一张图片显示出来 其他的进行隐藏
-    function shows(m){
-        $('.img_ul li').eq(m).find('img').fadeIn(600);
-        $('.img_ul li').eq(m).siblings().find('img').fadeOut(800);
-        $('#ids li').eq(m).addClass('cur');
-        $('#ids li').eq(m).siblings().removeClass('cur');
-    }
-    
-    shows(0);
-
-        //点击小圆点换图片
-    $('#ids li').hover(function(){
-
-        //移动到小圆点上
-
-        //1.让定时器停止
-        clearInterval(into);
-
-        //2.让图片显示出来
-        i = $(this).index();
-
-        shows(i++);
+                    
+                moves();
 
 
-    },function(){
+                //函数的作用是 让第一张图片显示出来 其他的进行隐藏
+                function shows(m){
+                    $('.img_ul li').eq(m).find('img').fadeIn(600);
+                    $('.img_ul li').eq(m).siblings().find('img').fadeOut(800);
 
-        //再让图片接着走
-        moves();
-        if(i > 4){
-            i=0;
-        }
-    });
+                    $('#ids li').eq(m).addClass('cur');
+                    $('#ids li').eq(m).siblings().removeClass('cur');
+                }
+                    shows(0);
 
-    $('.on').click(function(){
+                    //点击小圆点换图片
+                    $('#ids li').hover(function(){
 
-        //2.让图片显示出来
-        i = $(this).index();
-        shows(i);
-    })
+                        //移动到小圆点上
+
+                        //1.让定时器停止
+                        clearInterval(into);
+
+                        //2.让图片显示出来
+                        i = $(this).index();
+
+                        shows(i++);
+
+
+                    },function(){
+
+                        //再让图片接着走
+                        moves();
+                        if(i > 5){
+
+                            i=0;
+                        }
+                    })
 
 
     </script>
-    <!-- 点击换图片 -->
-    <script type="text/javascript">
-        $(".pro-detailed-left-title").find('li').click(function(){
-            $(this).attr('class',"active");
-            $(this).siblings().removeAttr('class');
-            var d = $(this).index();
 
-            $(".pro-detailed-left-c").find('>div').eq(d).attr('class',"show");
-            $(".pro-detailed-left-c").find('>div').eq(d).siblings().attr('class',"hidden");
-        })
-    </script>
-
-    <!-- 购物车css -->
-    <script type="text/javascript">
-        // alert($.fn.jquery);
-        /*.add_btn+
-        .min_btn -*/
-        color =  $('#gcolor');
-        size = $('#gsize');
-        statu1 = 0;
-        statu2 = 0;
-        gscolor = '';
-        gssize = '';
-        num = 1;
-
-        $('#gcolor').find('li').click(function(){
-            $(this).attr('class','active');
-            $(this).siblings().attr('class','');
-            gscolor = $(this).find('div').text();
-            statu1 = 1;
-        });
-
-        $('#gsize').find('li').click(function(){
-            console.log('111');
-            $(this).attr('class','active');
-            $(this).siblings().attr('class','');
-            gssize = $(this).find('div').text();
-            statu2 = 1;
-        });
-
-        /*添加 减少数子 add_btn min_btn input-count #kucun*/
-
-        $('.add_btn').click(function(){
-            num =  parseInt($('.input-count').val());
-            kucun = parseInt($('#kucun').find('b').text());
-            // console.log(kucun);
-            if(num<kucun){  
-                num ++;
-            }
-            $('.input-count').val(num);
-            // console.log(num);
-        });
-
-        $('.min_btn').click(function(){
-            num = parseInt($('.input-count').val());
-            // console.log(typeof(num));
-            if(num > 1){
-                num --;
-            } else {
-                num = 1;
-            }
-            $('.input-count').val(num);
-            // console.log(num);
-        });
-
-        $('.cart').click(function(){
-                     
-            if(statu1 && statu2){
-
-                goodsid = $('.right').find('h1').attr('gid');
-
-                goodsrc = $('.right').find('h1').attr('gsrc');
-
-                goodsname = $('.right').find('h1').text();
-
-                price = $('.money').find('span').text();
-
-
-                //判断cookie 是否存在
-                 // a=getCookie("cart");
-                 // status=document.cookie.indexOf("cart=");
-                 // if(status == -1){               
-                 // }
-                 // else{
-                 // }
-
-                AddToShoppingCar(goodsid,num,color)
-
-               
-
-
-            }
-        })
-
-
-    /**
-     * 添加商品及数量到购物车cookie中,返回当前商品在cookie中的总数
-     */
-    function AddToShoppingCar(id, num, type) {
-        var _num = 1;
-        if (num != undefined){
-            _num = num;
-        }
-        if (type == undefined){
-            alert("请设置产品种类");
-            return false;
-        }
-        var totalNum = _num; //总数默认为传入参数
-        var cookieSet = { expires: 7, path: '/' }; //设置cookie路径的
-        // $.cookie(cookieProductID, null, cookieSet);//清除Cookie
-        // var jsonStr = "[{'ProductID':'" + id + "','Num':'" + _num + "'}]"; //构造json字符串,id是商品id  num是这个商品的数量
-        var jsonStr = "[{'ProductID':'" + id + "','Num':'" + _num + "','Type':'" + type + "'}]"; //构造json字符串,id是商品id  num是这个商品的数量
-        console.log(jsonStr);
-        console.log($.cookie(cookieProductID));
-        if ($.cookie(cookieProductID) == null) {
-            $.cookie(cookieProductID, jsonStr, cookieSet); //如果没有这个cookie就设置他
-            
-            // ============
-            var jsonObj = eval('(' + $.cookie(cookieProductID) + ')'); //如果有，把json字符串转换成对象
-            var findProduct = false;//是否找到产品ID,找到则为TRUE,否则为FALSH
-            for(var obj in jsonObj) {
-                if(jsonObj[obj].ProductID == id) {
-                    console.log("数量:" + parseInt(jsonObj[obj].Num));
-                    jsonObj[obj].Num = parseInt(jsonObj[obj].Num);
-                    totalNum = jsonObj[obj].Num;
-                    findProduct = true;
-                    break;
-                }
-            }
-            if(findProduct == false){ //没找到,则添加
-                jsonObj[jsonObj.length] = new Object();
-                jsonObj[jsonObj.length - 1].ProductID = id;
-                jsonObj[jsonObj.length - 1].Num = num;
-                jsonObj[jsonObj.length - 1].Type = type;
-            }
-            $.cookie(cookieProductID, JSON.stringify(jsonObj), cookieSet); //写入coockie  JSON需要json2.js支持
-            // ============
-        }else{
-            var jsonObj = eval("(" + $.cookie(cookieProductID) + ")"); //如果有，把json字符串转换成对象
-            var findProduct = false;//是否找到产品ID,找到则为TRUE,否则为FALSH
-            for(var obj in jsonObj) {
-                if(jsonObj[obj].ProductID == id) {
-                    console.log("数量:" + parseInt(jsonObj[obj].Num));
-                    jsonObj[obj].Num = parseInt(jsonObj[obj].Num) + _num;
-                    totalNum = jsonObj[obj].Num;
-                    findProduct = true;
-                    break;
-                }
-            }
-            if(findProduct == false){ //没找到,则添加
-                jsonObj[jsonObj.length] = new Object();
-                jsonObj[jsonObj.length - 1].ProductID = id;
-                jsonObj[jsonObj.length - 1].Num = num;
-                jsonObj[jsonObj.length - 1].Type = type;
-            }
-            $.cookie(cookieProductID, JSON.stringify(jsonObj), cookieSet); //写入coockie  JSON需要json2.js支持
-        }
-        return totalNum;
-        //  alert($.cookie(cookieProductID));
-    }
-
-
-
-
-
-
-
-
-
-    /**
-     * 添加商品及数量到购物车cookie中,返回当前商品在cookie中的总数
-     * @id 商品id @num @color @price @size @goodsrc商品缩略图
-     * 
-     */
-    
-    /*function AddToShoppingCar(id, num, color,price,size,goodsrc) {
-        var _num = 1;
-        if (num != undefined){
-            _num = num;
-        }
-        if (color == undefined){
-            alert("请设置产品种类");
-            return false;
-        }
-        var totalNum = _num; //总数默认为传入参数
-        // var cookieSet = { expires: 7, path: '/' }; //设置cookie路径的
-        $.cookie(cart, null, cookieSet);//清除Cookie
-        // var jsonStr = "[{'id':'" + id + "','Num':'" + _num + "'}]"; //构造json字符串,id是商品id  num是这个商品的数量
-        var jsonStr = "[{'id':'" + id + "','Num':'" + _num + "','color':'" + color + "'}]"; //构造json字符串,id是商品id  num是这个商品的数量
-        console.log(jsonStr);
-        console.log($.cookie(cart));
-        if ($.cookie(cart) == null) {
-            $.cookie(cart, jsonStr, cookieSet); //如果没有这个cookie就设置他
-            
-            // ============
-            var jsonObj = eval('(' + $.cookie(cart) + ')'); //如果有，把json字符串转换成对象
-            var findProduct = false;//是否找到产品ID,找到则为TRUE,否则为FALSH
-            for(var obj in jsonObj) {
-                if(jsonObj[obj].id == id) {
-                    console.log("数量:" + parseInt(jsonObj[obj].Num));
-                    jsonObj[obj].Num = parseInt(jsonObj[obj].Num);
-                    totalNum = jsonObj[obj].Num;
-                    findProduct = true;
-                    break;
-                }
-            }
-            if(findProduct == false){ //没找到,则添加
-                jsonObj[jsonObj.length] = new Object();
-                jsonObj[jsonObj.length - 1].id = id;
-                jsonObj[jsonObj.length - 1].Num = num;
-                jsonObj[jsonObj.length - 1].color = color;
-            }
-            $.cookie(cart, JSON.stringify(jsonObj), cookieSet); //写入coockie  JSON需要json2.js支持
-            // ============
-        }else{
-            var jsonObj = eval("(" + $.cookie(cart) + ")"); //如果有，把json字符串转换成对象
-            var findProduct = false;//是否找到产品ID,找到则为TRUE,否则为FALSH
-            for(var obj in jsonObj) {
-                if(jsonObj[obj].id == id) {
-                    console.log("数量:" + parseInt(jsonObj[obj].Num));
-                    jsonObj[obj].Num = parseInt(jsonObj[obj].Num) + _num;
-                    totalNum = jsonObj[obj].Num;
-                    findProduct = true;
-                    break;
-                }
-            }
-            if(findProduct == false){ //没找到,则添加
-                jsonObj[jsonObj.length] = new Object();
-                jsonObj[jsonObj.length - 1].id = id;
-                jsonObj[jsonObj.length - 1].Num = num;
-                jsonObj[jsonObj.length - 1].color = color;
-            }
-            $.cookie(cart, JSON.stringify(jsonObj), cookieSet); //写入coockie  JSON需要json2.js支持
-        }
-        return totalNum;
-        //  alert($.cookie(cart));
-    }*/
-    </script>
 @endsection
     
     

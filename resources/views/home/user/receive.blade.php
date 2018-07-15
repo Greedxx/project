@@ -178,31 +178,29 @@
                 </tr>
             </thead>
             <tbody>
-
              @foreach($res as $k => $v)
                 <tr>
-                     
                     <td>
-                        <?php echo $v['sname'] ?>                       
+                        {{$v->sname}}
                     </td>
                     <td>
-                        {{$v['area']}}
+                        {{$v->area}}
                     </td>
                     <td>
-                        {{$v['address']}}
+                        {{$v->address}}
                     </td>
                     <td>
-                        {{$v['code']}}
+                        {{$v->code}}
                     </td>
                     <td>
-                        {{$v['phone']}}
+                        {{$v->phone}}
                     </td>
                     <td>
-                        <a href="/home/receive/{{$v['sid']}}/edit">
+                        <a href="/home/receive/{{$v->sid}}/edit">
                              <button href="" class='"btn btn-warning btn-xs' height="10px">修改</button>
                         </a>
                       
-                        <form action="/home/receive/{{$v['sid']}}" method='post' >
+                        <form action="/home/receive/{{$v->sid}}" method='post' >
                                 
                                 {{csrf_field()}}
 

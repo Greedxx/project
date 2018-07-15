@@ -315,7 +315,7 @@
 
 .img_hd {height:80px;margin-top:15px;margin:auto;position:relative; width:auto;}
 .img_hd ul{position:absolute;z-index:1; margin:auto;}
-.img_hd ul li{float:left;width:70px;height:70px;border:1px solid #f3f3f3;cursor:pointer;overflow:hidden;*display:inline; margin-right:10px; margin-top:10px;}
+.img_hd ul li{float:left;width:70px;height:70px;border:1px solid #f3f3f3;cursor:pointer;overflow:hidden;*display:inline; margin-right:10px; margin-top:10px;box-sizing: border-box;}
 .img_hd ul li.on{border-color:rgb(45, 150, 233);}
 
 .pro-detailed{

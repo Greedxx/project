@@ -14,16 +14,8 @@ class ReceiveController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $uid = session('userinfo.id');
-        $q = Receive::where('uid',$uid)->get();
-        if(!$q){
-            $res = Receive::where('uid','0')->get()->toArray();
-            // dump($res);die;
-        }else{
-            $res = Receive::where('uid',$uid)->get()->toArray();
-        }
-
-        // dd($res);
+    {
+       $res = Receive::paginate(10);
        return view('home.user.receive',[
         'title'=>'收货地址',
         'res'=>$res
@@ -70,13 +62,9 @@ class ReceiveController extends Controller
         ]);
 
         $res = $request->except(['_token']);
-       
-
-       $res['uid']= session('userinfo.id');
-        // dd($res);
+      
+      
         
-        
-          
         try{
             $data = Receive::create($res);
             // dump($date);
@@ -110,7 +98,6 @@ class ReceiveController extends Controller
     public function edit($id)
     {   
         $res = Receive::find($id);
-        // dd($res);
         return view('home.user.Ereceive',['title'=>'收货地址修改','res'=>$res]);
     }
 

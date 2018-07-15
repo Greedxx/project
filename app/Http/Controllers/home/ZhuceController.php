@@ -45,7 +45,6 @@ class ZhuceController extends Controller
     	
 		 //验证码
 		    	
-          
       	if(session('code') != $res['code']){
 
         	return back()->with('error','验证码不正确');

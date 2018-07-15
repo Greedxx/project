@@ -19,9 +19,10 @@
 
         //详情页
         Route::any('/good/{id?}','home\GoodsInfoController@index');
+        Route::any('/good/cart/add','home\GoodsInfoController@add');
 
         //服务帮助页及其他
-        Route::any('/service/{id}','home\ServiceController@index');
+        Route::any('/service','home\ServiceController@index');
 
     });
 
