@@ -52,7 +52,7 @@
 
  <div class="right_style">
     
-    <div class="Notice"><span>系统最新公告:</span>为了更好地服务于【每日鲜】的会员朋友及读者 发表意见。</div>
+    
    <!--样式-->
      <div class="user_info_p_s  clearfix">
        <!--订单记录-->
@@ -100,8 +100,7 @@
                         街道地址：
                     </td>
                     <td>
-                        <textarea name="address"  style=" width:500px; height:100px; margin:5px 0px">
-                        </textarea>
+                        <textarea name="address"  style=" width:500px; height:100px; margin:5px 0px"></textarea>
                         <i>
                             *@foreach ($errors->get('address') as $message) 
                                 {{$message}}    
@@ -178,29 +177,30 @@
                 </tr>
             </thead>
             <tbody>
-             @foreach($res as $k => $v)
+            @foreach($res as $k => $v)
                 <tr>
+                     
                     <td>
-                        {{$v->sname}}
+                        <?php echo $v['sname'] ?>                       
                     </td>
                     <td>
-                        {{$v->area}}
+                        {{$v['area']}}
                     </td>
                     <td>
-                        {{$v->address}}
+                        {{$v['address']}}
                     </td>
                     <td>
-                        {{$v->code}}
+                        {{$v['code']}}
                     </td>
                     <td>
-                        {{$v->phone}}
+                        {{$v['phone']}}
                     </td>
                     <td>
-                        <a href="/home/receive/{{$v->sid}}/edit">
+                        <a href="/home/receive/{{$v['sid']}}/edit">
                              <button href="" class='"btn btn-warning btn-xs' height="10px">修改</button>
                         </a>
                       
-                        <form action="/home/receive/{{$v->sid}}" method='post' >
+                        <form action="/home/receive/{{$v['sid']}}" method='post' >
                                 
                                 {{csrf_field()}}
 

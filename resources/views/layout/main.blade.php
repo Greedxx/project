@@ -50,7 +50,7 @@
                 @else
                     <p><a href="/home/login">请登录</a> | <a href="/home/zhuce">免费注册</a></p>
                 @endif
-                <p><a href="javascript:;">我的订单</a> | <a href="javascript:;">服务中心</a></p>
+                <p><a href="/home/user">我的订单</a> | <a href="javascript:;">服务中心</a></p>
             </div>
         </div>
     </div>
