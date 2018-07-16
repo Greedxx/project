@@ -81,29 +81,37 @@
                 </div>
                 <div class="hidden-cart-c">
                     <ul>
-                        @if(isset($_COOKIE["cart"]))
-                        <?php 
-                            $cart = json_decode($_COOKIE['cart']);
-                        ?> 
+                        @if( Session::has('cart'))
+                            <?php 
+                                $cart=Session::get('cart');
+                                // dump($cart);
+                                $money = 0;
+                                $geshu = 0;
+                                $n     = 0; //统计商品种类
+                            ?>
 
                             @foreach($cart as $k=>$v)
+                            <?php $money+=(int)$v['sum']; $geshu +=(int)$v['num'];$n=$n+1 ?>
                             <li>
-                                <a href="#"><img src="{{--$v['src']--}}" width="60" height="60" /></a>
-                                <p><a vid="{{$v['id']}}" href="/good/{{$v['id']}}">{{$v['goodsname']}} {{$v['color']}}</a></p>
+                                <a href="#"><img src="{{$v['thumb']}}" width="60" height="60" /></a>
+                                <p><a vid="{{$v['gid']}}" href="/good/{{$v['gid']}}">{{$v['goods_name']}} {{$v['color']}}</a></p>
                                 <pre>{{$v['price']}} x {{$v['num']}}</pre>
-                                <ins>x</ins>
+                                <ins va={{$k}} >x</ins>
+
                             </li>
                             @endforeach
                         @endif
                     </ul>
-                    @if(isset($_COOKIE["cart"]))
-                    <div class="cart-mybtn">
-                        <p>共计 2 件商品<span>合计：<strong>928.90元</strong></span></p>
-                        <input type="button" value="去结算" />
-                    </div>
-                    @else 
-                    <!--------购物车暂无产品--------------->
-                    <div class="cart-mybtn">购物车中还没有商品，赶紧选购吧！</div>
+                    @if(Session::has('cart'))
+                        @if(Session::get('cart')!==[])
+                        <div class="cart-mybtn">
+                            <p>共计 {{$geshu}} 件商品<span>合计：<strong>{{$money}}元</strong></span></p>
+                            <input type="button" value="去结算" />
+                        </div>
+                        @else 
+                        <!--------购物车暂无产品--------------->
+                        <div class="cart-mybtn">购物车中还没有商品，赶紧选购吧！</div>
+                        @endif
                     @endif
                 </div>
             </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 use Illuminate\Support\Facades\Cookie;
 use App\Http\Controllers\Controller;
 use App\Models\Goods;
@@ -63,23 +65,20 @@ class GoodsInfoController extends Controller
 
     public function index($id ,Request $request){
 
-        $aa = 0 ;
+        $values = null ;
         $cart = [];
         if(isset($_COOKIE["cart"])){
 
-            $tt=$_COOKIE['cart'];
+            $tt=$_COOKIE["cart"];
 
             $values =  json_decode($tt);
 
-            $aa=$values; 
         }
 
         // //调用对象变数组
-        if(!empty($aa)){
-
-            $cart=$this->object_to_array($aa);
+        if(!empty($values)){
+            $cart=$this->object_to_array($values);
             dump($cart);
-
         }
        
         
@@ -103,6 +102,77 @@ class GoodsInfoController extends Controller
 
     public function cartadd(Request $request){
 
+
+        $id = $request->input('gid');
+        //保存单条信息
+        $data  = Goods::select('goods_no','goods_name','thumb','price')->where('id',$id)->first()->toArray();
+        $data["gid"]   = (int)$request->input('gid');
+        $data["num"]   = (int)$request->input('num');
+        $data["color"] = $request->input('color');
+        $data["size"]  = $request->input('size');
+        $data["sum"]  =  (int)intval($request->input('num')) * (float)$data['price'];
+        //定义数据变化状态
+        $status = 0;
+
+        //检测session是否存在
+        if(!($request->session()->has('cart'))){    
+            //完成整条保存
+            $cart =[];
+            $cart[] = $data;
+            //保存session
+            session(['cart' => $cart ]);
+            $status = 1;
+
+        } else{
+            //若session 存在 读取session 
+            $cart = session('cart');
+            foreach($cart as $k =>$v){
+                //如果有相同值 数量自动 相加
+                if( ($v['gid']== $data['gid']) && ($v['color'] == $data['color']) && ($v['size']== $data['size'])){
+                    $data['num']   = (int)$v['num']+(int)$data['num'];
+                    $data['sum'] =  (int)$data['num']*(int)$data['price'];
+                    unset($cart[$k]);
+                    $cart[$k]=$data;
+                    //只变更数量不添加
+                    $status =2;
+                }
+            }
+            //否侧数据直接添加
+            if($status != 2 ){
+                array_push($cart,$data);
+                $status = 3;
+            }
+            //将数组重新存入session
+            session(['cart'=>$cart]);
+
+        }
+
+        if($status){
+            echo 1;
+        }else{
+            echo 2;
+        }
+
+    }
+
+    public function cartdel(Request $request){
+
+        $i = $request->input('i');
+        //获取cookie中信息 
+        if(\Session::has('cart')){
+           $cart = session('cart');
+        }
+        // dd($cart);
+        unset($cart[$i]); 
+
+        session(['cart'=>$cart]);
+
+        if(count($cart)>0)
+        {
+            echo 1;
+        } else {
+            echo 2;
+        }
 
     }
 
