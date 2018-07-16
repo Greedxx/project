@@ -4,7 +4,6 @@
     <style type="text/css">
         *{-webkit-box-sizing: content-box;
         box-sizing: content-box;}
-
     </style>
     <?php $data = App\Models\admin\Lunbo::where('status',1)->limit(10)->get() ?>
      

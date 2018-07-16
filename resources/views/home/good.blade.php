@@ -1,49 +1,53 @@
 @extends('layout.main')
 @section('title', 'new Title')
 @section('content')
-    <!------------main---------------->
-    <style type="text/css">
-        *{-webkit-box-sizing: content-box;
-        box-sizing: content-box;}
-        img_a{
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-        .aa{
-            position: absolute;
-        }
 
-        #ids{
-            background-color: rgba(128, 128, 128, 0.3);
-            border-radius: 10px;
-            bottom: 15px;
-            font-size: 0;
-            height: 13px;
-            left: 50%;
-            margin-left: -39px;
-            position: absolute;
-            text-align: center;
-            padding:0px;
-        }
+<style type="text/css">
 
-        #ids li{
+    *{-webkit-box-sizing: content-box;
+    box-sizing: content-box;}
 
-            background: #aaa none repeat scroll 0 0;
-            border-radius: 50%;
-            height: 0;
-            padding-top: 8px;
-            width: 8px;
-            cursor: pointer;
-            display: inline-block;
-            margin: 3px;
-        }
+    img_a{
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .aa{
+        position: absolute;
+    }
 
-        #ids .cur{
+    #ids{
+        background-color: rgba(128, 128, 128, 0.3);
+        border-radius: 10px;
+        bottom: 15px;
+        font-size: 0;
+        height: 13px;
+        left: 50%;
+        margin-left: -39px;
+        position: absolute;
+        text-align: center;
+        padding:0px;
+    }
 
-            background: #ff5000 none repeat scroll 0 0;
-        }
+    #ids li{
 
-    </style>
+        background: #aaa none repeat scroll 0 0;
+        border-radius: 50%;
+        height: 0;
+        padding-top: 8px;
+        width: 8px;
+        cursor: pointer;
+        display: inline-block;
+        margin: 3px;
+    }
+
+    #ids .cur{
+
+        background: #ff5000 none repeat scroll 0 0;
+    }
+
+</style>
+
+
 
     <div class="main">
        
@@ -106,45 +110,45 @@
                     
                     
                     <ul class="style-simg" id="gcolor">
-                        <!-- <li class="active"><a href="#"><div class="style-img" style="background:url(/home/images/pro-minsmall-pic.jpg)"></div><i></i></a></li>
+                        <!-- <li class="active"><a href="javascript:void(0);"><div class="style-img" style="background:url(/home/images/pro-minsmall-pic.jpg)"></div><i></i></a></li>
                         <li ><a href="#"><div class="style-img" style="background:url(/home/images/pro-minsmall-pic.jpg)"></div><i></i></a></li> -->
                         @foreach($color as $k=>$v)
-                        <li ><a href="#"><div class="style-title">{{$v}}</div></a><i></i></li>
+                        <li ><a href="javascript:void(0);"><div class="style-title">{{$v}}</div></a><i></i></li>
                         @endforeach
                     </ul>
                     <h2>尺寸：</h2>
                     <ul class="style-simg " id="gsize">
-                        <!-- <li class="active"><a href="#"><div class="style-title">165/M</div></a><i></i></li>
-                        <li><a href="#"><div class="style-title">170/L</div></a><i></i></li> -->
+                        <!-- <li class="active"><a href="javascript:void(0);"><div class="style-title">165/M</div></a><i></i></li>
+                        <li><a href="javascript:void(0);"><div class="style-title">170/L</div></a><i></i></li> -->
                         @foreach($size as $kk=>$vv)
-                        <li ><a href="#"><div class="style-title">{{$vv}}</div></a><i></i></li>
+                        <li ><a href="javascript:void(0);"><div class="style-title">{{$vv}}</div></a><i></i></li>
                         @endforeach
                     </ul>
                     
                     
                     <h2>数量：</h2>
-                    <div class="tb-amount-widget " id="gum">
-                        <input type="text"  value="1" readonly class="input-count"/>
+                    <div class="tb-amount-widget" >
+                        <input type="text"  id="gnum" value="1" readonly  class="input-count"/>
                         <div class="tb-amount-btn">
-                            <a href="javascript:;" class="add_btn"></a>
-                            <a href="javascript:;" class="min_btn"></a>
+                            <a href="javascript:void(0)" class="add_btn"></a>
+                            <a href="javascript:void(0)" class="min_btn"></a>
                         </div>
                         <span id="kucun">件 库存<b>{{$data->count}}</b>件</span>
                     </div>
                 </div>
                 <div class="pro-detai-cart">
-                    <a href="/gooods/cartadd" class="cart"><p>加入购物车</p></a>
-                    <a href="#" class="collection"></a>
+                    <a href="javascript:void(0);" class="cart"><p>加入购物车</p></a>
+                    <a href="javascript:void(0);" class="collection"></a>
                 </div>
                 <div class="service">
                     <dl>
                         <dt>享受服务</dt>
-                        <dd class="fqfk"><a href="#">分期付款</a></dd>
+                        <dd class="fqfk"><a href="javascript:void(0);">分期付款</a></dd>
                     </dl>
                     <dl style="margin-left:50px">
                         <dt>享受保障</dt>
-                        <dd class="th"><a href="#">15天退货</a></dd>
-                        <dd class="bx"><a href="#">一年保修</a></dd>
+                        <dd class="th"><a href="javascript:void(0);">15天退货</a></dd>
+                        <dd class="bx"><a href="javascript:void(0);">一年保修</a></dd>
                     </dl>
                 </div>
             </div>
@@ -177,7 +181,7 @@
                 </div>
                 <!--------评价晒单---------->
                 <div id="goodsComment" class = "hidden">
-                    <div class="title"><strong>用户评价</strong><p><a href="#" class="active">很有用</a>|<a href="#">最新</a></p></div>
+                    <div class="title"><strong>用户评价</strong><p><a href="javascript:void(0);" class="active">很有用</a>|<a href="javascript:void(0);">最新</a></p></div>
                     <div class="goodsComment-zj">
                         <div class="left"><p>96.1<span>%</span></p><pre>五星评价率</pre></div>
                         <div class="right">
@@ -208,7 +212,7 @@
                                     <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
                                     <div class="pl-c-3">
                                         <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="#">回复 (2)</a></strong>
+                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
                                     </div>
                                 </div>
                             </li>
@@ -220,7 +224,7 @@
                                     <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
                                     <div class="pl-c-3">
                                         <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="#">回复 (2)</a></strong>
+                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
                                     </div>
                                 </div>
                             </li>
@@ -232,7 +236,7 @@
                                     <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
                                     <div class="pl-c-3">
                                         <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="#">回复 (2)</a></strong>
+                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
                                     </div>
                                     <div class="pl-c-4">
                                         <p><span>官方回复：</span>亲~ 内存卡的换算和计算机上的换算方式是不同的呢 计算机上是按1G=1024M进制算的 而厂家在做的时候是按1G＝1000M做的 所以此类容量的一个大约的计算公式为：标称容量×0.931(单位为G)，得出的数值为一个大约量，只要差的不多均为正常。</p>
@@ -247,7 +251,7 @@
                                     <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
                                     <div class="pl-c-3">
                                         <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="#">回复 (2)</a></strong>
+                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
                                     </div>
                                 </div>
                             </li>
@@ -258,7 +262,7 @@
                 </div>
                 <!--------商品提问---------->
                 <div id="goodsFaq" class = "hidden">
-                    <div class="title"><strong>产品提问</strong><p><a href="#">查看全部 ></a></p></div>
+                    <div class="title"><strong>产品提问</strong><p><a href="javascript:void(0);">查看全部 ></a></p></div>
                     <div class="goodsFaq-c">
                         <ul>
                             <li>
@@ -338,16 +342,16 @@
             <div class="pro-detailed-right-c">
                 <ul class="browse-list">
                     @foreach($data['GoodsImg'] as $k =>$v)
-                    <li><a href="#"><img src="{{$v->src}}" width="80" height="80" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="{{$v->src}}" width="80" height="80" /></a></li>
                     @endforeach
                 </ul>
                 <h3>买过的人还买了</h3>
                 <ul class="buy-list">
-                    <li><a href="#"><img src="/home/images/g01.jpg" width="80" height="80" /></a><p><strong><a href="#">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="#"><img src="/home/images/01.jpg" width="80" height="80" /></a><p><strong><a href="#">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="#"><img src="/home/images/00.jpg" width="80" height="80" /></a><p><strong><a href="#">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="#"><img src="/home/images/big-pro2.jpg" width="80" height="80" /></a><p><strong><a href="#">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="#"><img src="/home/images/4li.jpg" width="80" height="80" /></a><p><strong><a href="#">小米120cm USB数据线</a></strong><i>15元</i></p></li>
+                    <li><a href="javascript:void(0);"><img src="/home/images/g01.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
+                    <li><a href="javascript:void(0);"><img src="/home/images/01.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
+                    <li><a href="javascript:void(0);"><img src="/home/images/00.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
+                    <li><a href="javascript:void(0);"><img src="/home/images/big-pro2.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
+                    <li><a href="javascript:void(0);"><img src="/home/images/4li.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
                 </ul>
             </div>
           </div>
@@ -438,13 +442,16 @@
         // alert($.fn.jquery);
         /*.add_btn+
         .min_btn -*/
+
+        //页面数据获取
         color =  $('#gcolor');
         size = $('#gsize');
         statu1 = 0;
         statu2 = 0;
         gscolor = '';
         gssize = '';
-        num = 1;
+
+        num = parseInt($('#gnum').val());
 
         $('#gcolor').find('li').click(function(){
             $(this).attr('class','active');
@@ -454,7 +461,6 @@
         });
 
         $('#gsize').find('li').click(function(){
-            console.log('111');
             $(this).attr('class','active');
             $(this).siblings().attr('class','');
             gssize = $(this).find('div').text();
@@ -464,201 +470,68 @@
         /*添加 减少数子 add_btn min_btn input-count #kucun*/
 
         $('.add_btn').click(function(){
-            num =  parseInt($('.input-count').val());
+            num = parseInt($('#gnum').val());
+            // 通过库存约束最大数量 
             kucun = parseInt($('#kucun').find('b').text());
             // console.log(kucun);
             if(num<kucun){  
                 num ++;
             }
-            $('.input-count').val(num);
-            // console.log(num);
+            $('#gnum').val(num);
+            console.log(num);
         });
 
         $('.min_btn').click(function(){
-            num = parseInt($('.input-count').val());
-            // console.log(typeof(num));
+            num = parseInt($('#gnum').val());
+            console.log(num);
+            console.log(typeof(num));
             if(num > 1){
                 num --;
             } else {
                 num = 1;
             }
-            $('.input-count').val(num);
+            $('#gnum').val(num);
             // console.log(num);
         });
 
+
+        //购物车商品的添加
         $('.cart').click(function(){
                      
             if(statu1 && statu2){
 
                 goodsid = $('.right').find('h1').attr('gid');
 
-                goodsrc = $('.right').find('h1').attr('gsrc');
+                console.log(goodsid);
+                console.log(gssize);
+                console.log(num);
+                console.log(gscolor);
+                
+                // $.ajaxSetup({
+                //     headers: {
+                //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                //     }
+                // });
 
-                goodsname = $('.right').find('h1').text();
-
-                price = $('.money').find('span').text();
-
-
-                //判断cookie 是否存在
-                 // a=getCookie("cart");
-                 // status=document.cookie.indexOf("cart=");
-                 // if(status == -1){               
-                 // }
-                 // else{
-                 // }
-
-                AddToShoppingCar(goodsid,num,color)
-
-               
+                //将数据发送给php处理
+                $.get('/cartadd',{gid:goodsid,num:num,color:gscolor,size:gssize},function(data){
+                   
+                    console.log(data);
+                    if(data == 1){
+                        alert('已加入购物车');
+                        window.location.reload();
+                    }else{
+                        alert('加入失败');
+                        location.reload();
+                    }
+                });
 
 
             }
         })
 
 
-    /**
-     * 添加商品及数量到购物车cookie中,返回当前商品在cookie中的总数
-     */
-    function AddToShoppingCar(id, num, type) {
-        var _num = 1;
-        if (num != undefined){
-            _num = num;
-        }
-        if (type == undefined){
-            alert("请设置产品种类");
-            return false;
-        }
-        var totalNum = _num; //总数默认为传入参数
-        var cookieSet = { expires: 7, path: '/' }; //设置cookie路径的
-        // $.cookie(cookieProductID, null, cookieSet);//清除Cookie
-        // var jsonStr = "[{'ProductID':'" + id + "','Num':'" + _num + "'}]"; //构造json字符串,id是商品id  num是这个商品的数量
-        var jsonStr = "[{'ProductID':'" + id + "','Num':'" + _num + "','Type':'" + type + "'}]"; //构造json字符串,id是商品id  num是这个商品的数量
-        console.log(jsonStr);
-        console.log($.cookie(cookieProductID));
-        if ($.cookie(cookieProductID) == null) {
-            $.cookie(cookieProductID, jsonStr, cookieSet); //如果没有这个cookie就设置他
-            
-            // ============
-            var jsonObj = eval('(' + $.cookie(cookieProductID) + ')'); //如果有，把json字符串转换成对象
-            var findProduct = false;//是否找到产品ID,找到则为TRUE,否则为FALSH
-            for(var obj in jsonObj) {
-                if(jsonObj[obj].ProductID == id) {
-                    console.log("数量:" + parseInt(jsonObj[obj].Num));
-                    jsonObj[obj].Num = parseInt(jsonObj[obj].Num);
-                    totalNum = jsonObj[obj].Num;
-                    findProduct = true;
-                    break;
-                }
-            }
-            if(findProduct == false){ //没找到,则添加
-                jsonObj[jsonObj.length] = new Object();
-                jsonObj[jsonObj.length - 1].ProductID = id;
-                jsonObj[jsonObj.length - 1].Num = num;
-                jsonObj[jsonObj.length - 1].Type = type;
-            }
-            $.cookie(cookieProductID, JSON.stringify(jsonObj), cookieSet); //写入coockie  JSON需要json2.js支持
-            // ============
-        }else{
-            var jsonObj = eval("(" + $.cookie(cookieProductID) + ")"); //如果有，把json字符串转换成对象
-            var findProduct = false;//是否找到产品ID,找到则为TRUE,否则为FALSH
-            for(var obj in jsonObj) {
-                if(jsonObj[obj].ProductID == id) {
-                    console.log("数量:" + parseInt(jsonObj[obj].Num));
-                    jsonObj[obj].Num = parseInt(jsonObj[obj].Num) + _num;
-                    totalNum = jsonObj[obj].Num;
-                    findProduct = true;
-                    break;
-                }
-            }
-            if(findProduct == false){ //没找到,则添加
-                jsonObj[jsonObj.length] = new Object();
-                jsonObj[jsonObj.length - 1].ProductID = id;
-                jsonObj[jsonObj.length - 1].Num = num;
-                jsonObj[jsonObj.length - 1].Type = type;
-            }
-            $.cookie(cookieProductID, JSON.stringify(jsonObj), cookieSet); //写入coockie  JSON需要json2.js支持
-        }
-        return totalNum;
-        //  alert($.cookie(cookieProductID));
-    }
-
-
-
-
-
-
-
-
-
-    /**
-     * 添加商品及数量到购物车cookie中,返回当前商品在cookie中的总数
-     * @id 商品id @num @color @price @size @goodsrc商品缩略图
-     * 
-     */
-    
-    /*function AddToShoppingCar(id, num, color,price,size,goodsrc) {
-        var _num = 1;
-        if (num != undefined){
-            _num = num;
-        }
-        if (color == undefined){
-            alert("请设置产品种类");
-            return false;
-        }
-        var totalNum = _num; //总数默认为传入参数
-        // var cookieSet = { expires: 7, path: '/' }; //设置cookie路径的
-        $.cookie(cart, null, cookieSet);//清除Cookie
-        // var jsonStr = "[{'id':'" + id + "','Num':'" + _num + "'}]"; //构造json字符串,id是商品id  num是这个商品的数量
-        var jsonStr = "[{'id':'" + id + "','Num':'" + _num + "','color':'" + color + "'}]"; //构造json字符串,id是商品id  num是这个商品的数量
-        console.log(jsonStr);
-        console.log($.cookie(cart));
-        if ($.cookie(cart) == null) {
-            $.cookie(cart, jsonStr, cookieSet); //如果没有这个cookie就设置他
-            
-            // ============
-            var jsonObj = eval('(' + $.cookie(cart) + ')'); //如果有，把json字符串转换成对象
-            var findProduct = false;//是否找到产品ID,找到则为TRUE,否则为FALSH
-            for(var obj in jsonObj) {
-                if(jsonObj[obj].id == id) {
-                    console.log("数量:" + parseInt(jsonObj[obj].Num));
-                    jsonObj[obj].Num = parseInt(jsonObj[obj].Num);
-                    totalNum = jsonObj[obj].Num;
-                    findProduct = true;
-                    break;
-                }
-            }
-            if(findProduct == false){ //没找到,则添加
-                jsonObj[jsonObj.length] = new Object();
-                jsonObj[jsonObj.length - 1].id = id;
-                jsonObj[jsonObj.length - 1].Num = num;
-                jsonObj[jsonObj.length - 1].color = color;
-            }
-            $.cookie(cart, JSON.stringify(jsonObj), cookieSet); //写入coockie  JSON需要json2.js支持
-            // ============
-        }else{
-            var jsonObj = eval("(" + $.cookie(cart) + ")"); //如果有，把json字符串转换成对象
-            var findProduct = false;//是否找到产品ID,找到则为TRUE,否则为FALSH
-            for(var obj in jsonObj) {
-                if(jsonObj[obj].id == id) {
-                    console.log("数量:" + parseInt(jsonObj[obj].Num));
-                    jsonObj[obj].Num = parseInt(jsonObj[obj].Num) + _num;
-                    totalNum = jsonObj[obj].Num;
-                    findProduct = true;
-                    break;
-                }
-            }
-            if(findProduct == false){ //没找到,则添加
-                jsonObj[jsonObj.length] = new Object();
-                jsonObj[jsonObj.length - 1].id = id;
-                jsonObj[jsonObj.length - 1].Num = num;
-                jsonObj[jsonObj.length - 1].color = color;
-            }
-            $.cookie(cart, JSON.stringify(jsonObj), cookieSet); //写入coockie  JSON需要json2.js支持
-        }
-        return totalNum;
-        //  alert($.cookie(cart));
-    }*/
-    </script>
+  </script>
 @endsection
     
     

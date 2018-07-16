@@ -13,6 +13,6 @@ class ServiceController extends Controller
         $content=Content::where('status','1')->orderBy('sort')->get();
 
         // dd($content);
-        return view('home.service');
+        return view('home.service',['content'=>$content]);
     }
 }

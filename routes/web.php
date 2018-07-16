@@ -13,13 +13,19 @@
     Route::group([],function(){
         //前台首页
         Route::any('/','home\IndexController@index');
+        Route::any('/test','home\TestController@test');
 
         //列表页
         Route::any('/list','home\GoodsListController@index');
 
         //详情页
         Route::any('/good/{id?}','home\GoodsInfoController@index');
-        Route::any('/good/cart/add','home\GoodsInfoController@add');
+        
+        //购物车添加
+        Route::any('/cartadd','home\GoodsInfoController@cartadd');
+        
+        //购物车删除
+        Route::any('/cartdel','home\GoodsInfoController@cartdel');
 
         //服务帮助页及其他
         Route::any('/service','home\ServiceController@index');
