@@ -16,8 +16,9 @@
 
 <script type="text/javascript" src="/bs/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/home/js/Public.js"></script>
-<script src="/js/jquery-1.8.3.min.js" type="text/javascript"></script>
-<script src="/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
+<script src="/js/jquery.cookie.js" type="text/javascript"></script>
+<!-- <script src="/js/jquery-1.8.3.min.js" type="text/javascript"></script> -->
+<!-- <script src="/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script> -->
 <script src="/js/footer.js" type="text/javascript"></script>
 <script src="/layer/layer.js" type="text/javascript"></script>
 
@@ -66,6 +67,7 @@
                 { }
                 else {$arr['keyword']=""; }  
             ?>
+
             <form action="/list?id={{$arr['id']}}&sort={{$arr['sort']}}" method="get">
                 <div class="search-section">
                     <div class="keyword"><input name="keyword"  type="text"  value="<?php $arr['keyword'] ?>" placeholder="请输入商品名称" onFocus="this.value=''" onBlur="if(!value){value=defaultValue;}"/></div>
@@ -73,31 +75,44 @@
                 </div>
             </form>
             <div class="cart-section">
-                <p>购物车(1)</p>
+                <p>购物车</p>
                 <div class="hidden-cart">
-                    <p>购物车(1)</p>
+                    <p>购物车</p>
                 </div>
                 <div class="hidden-cart-c">
                     <ul>
-                        <li>
-                            <a href="#"><img src="home/images/00.jpg" width="60" height="60" /></a>
-                            <p><a href="#">小米盒子增强版 1G 黑色</a></p>
-                            <pre>299元 x 1</pre>
-                            <ins>x</ins>
-                        </li>
-                        <li>
-                            <a href="#"><img src="home/images/00.jpg" width="60" height="60" /></a>
-                            <p><a href="#">小米盒子增强版 1G 黑色</a></p>
-                            <pre>299元 x 1</pre>
-                            <ins>x</ins>
-                        </li>
+                        @if( Session::has('cart'))
+                            <?php 
+                                $cart=Session::get('cart');
+                                // dump($cart);
+                                $money = 0;
+                                $geshu = 0;
+                                $n     = 0; //统计商品种类
+                            ?>
+
+                            @foreach($cart as $k=>$v)
+                            <?php $money+=(int)$v['sum']; $geshu +=(int)$v['num'];$n=$n+1 ?>
+                            <li>
+                                <a href="#"><img src="{{$v['thumb']}}" width="60" height="60" /></a>
+                                <p><a vid="{{$v['gid']}}" href="/good/{{$v['gid']}}">{{$v['goods_name']}} {{$v['color']}}</a></p>
+                                <pre>{{$v['price']}} x {{$v['num']}}</pre>
+                                <ins va={{$k}} >x</ins>
+
+                            </li>
+                            @endforeach
+                        @endif
                     </ul>
-                    <div class="cart-mybtn">
-                        <p>共计 2 件商品<span>合计：<strong>928.90元</strong></span></p>
-                        <input type="button" value="去结算" />
-                    </div>
-                    <!--------购物车暂无产品--------------->
-                    <div class="cart-not hidden">购物车中还没有商品，赶紧选购吧！</div>
+                    @if(Session::has('cart'))
+                        @if(Session::get('cart')!==[])
+                        <div class="cart-mybtn">
+                            <p>共计 {{$geshu}} 件商品<span>合计：<strong>{{$money}}元</strong></span></p>
+                            <input type="button" value="去结算" />
+                        </div>
+                        @else 
+                        <!--------购物车暂无产品--------------->
+                        <div class="cart-mybtn">购物车中还没有商品，赶紧选购吧！</div>
+                        @endif
+                    @endif
                 </div>
             </div>
         </div>
@@ -121,7 +136,7 @@
                     <a href="/list?id={{$v['cate_id']}}">{{$v['cate_name']}}</a>
                     @endforeach
                     <a href="/service">服务帮助</a>
-                    <a href="/content">评测推荐<em class="sale"></em></a>
+                    <!-- <a href="/content">评测推荐<em class="sale"></em></a> -->
                 </div>
                                                             
                 <div class="pros subpage">
@@ -161,7 +176,7 @@
 
     @show
      <!------底部-------->
-    <div class="a1">
+    <div class="footer">
         <div class="a01">
             <div class="a001">
                 <div class="a0001"><img src="/home/images/footer/01.png"><p>顺丰包邮</p></div>

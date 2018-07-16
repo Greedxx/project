@@ -1,60 +1,81 @@
 @extends('layout.main')
 @section('title', 'new Title')
 @section('content')
-    <!------------main---------------->
-    <style type="text/css">
-        *{-webkit-box-sizing: content-box;
-        box-sizing: content-box;}
 
-        .aa{
-            position: absolute;
-        }
+<style type="text/css">
 
-        #ids{
-            background-color: rgba(128, 128, 128, 0.3);
-            border-radius: 10px;
-            bottom: 15px;
-            font-size: 0;
-            height: 13px;
-            left: 50%;
-            margin-left: -39px;
-            position: absolute;
-            text-align: center;
-            padding:0px;
-        }
+    *{-webkit-box-sizing: content-box;
+    box-sizing: content-box;}
 
-        #ids li{
+    img_a{
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .aa{
+        position: absolute;
+    }
 
-            background: #aaa none repeat scroll 0 0;
-            border-radius: 50%;
-            height: 0;
-            padding-top: 8px;
-            width: 8px;
-            cursor: pointer;
-            display: inline-block;
-            margin: 3px;
-        }
+    #ids{
+        background-color: rgba(128, 128, 128, 0.3);
+        border-radius: 10px;
+        bottom: 15px;
+        font-size: 0;
+        height: 13px;
+        left: 50%;
+        margin-left: -39px;
+        position: absolute;
+        text-align: center;
+        padding:0px;
+    }
 
-        #ids .cur{
+    #ids li{
 
-            background: #ff5000 none repeat scroll 0 0;
-        }
+        background: #aaa none repeat scroll 0 0;
+        border-radius: 50%;
+        height: 0;
+        padding-top: 8px;
+        width: 8px;
+        cursor: pointer;
+        display: inline-block;
+        margin: 3px;
+    }
 
-    </style>
+    #ids .cur{
+
+        background: #ff5000 none repeat scroll 0 0;
+    }
+
+</style>
+
+
 
     <div class="main">
-        <div class="current-position"><h2><a href="#">首页</a> > <a href="/list/{{$data['cate']['cate_id']}}">{{$data['cate']['cate_name']}}</a></h2></div>
+       
+        <div class="current-position" style="margin-top:35px; ">
+            <h2 style=" font-size:16px;font-weight: bold; line-height: 16px;">路径:<a href="/">首页</a>    
+                {{--dd($arrpath)--}}  
+                @if(!empty($arrpath))     
+                    @foreach($arrpath as $k => $v)
+                        |<a href="/list?id={{$v['cate_id']}}">{{$v['cate_name']}}</a>
+                    @endforeach
+                @endif
+            </h2>
+        </div>
 
         <div class="goods-detail-info">
             <div class="left">
                 <div id="play">
                     <ul  class="img_ul aa">
                         @foreach($data['GoodsImg'] as $k =>$v)
-                        <li ><a class="img_a"><img src="{{$v->src}}" width="430px" height="430px"></a></li>
+                            @if($k<=3)
+                             <li ><a class="img_a"><img src="{{$v->src}}" width="430px" height="430px"></a></li>
+                            @endif
                         @endforeach
                         <ul id="ids">
                             @foreach($data['GoodsImg'] as $k =>$v)
-                            <li></li>
+                                @if($k<=3)
+                                <li></li>
+                                @endif
                             @endforeach
                         </ul>
                     </ul>
@@ -69,20 +90,17 @@
                     <ul class="clearfix" style="width: 328px; overflow:hidden;">
            
                         @foreach($data['GoodsImg'] as $k =>$v)
-                        <li class="on"><a class="img_a"><div class="pro-small-pic" style="background:url({{$v->src}});background-size:100% 100%;"></div></a></li>
+                            @if($k<=3)
+                            <li class="on" ><a class="img_a"><div class="pro-small-pic" style="background:url({{$v->src}});background-size:100% 100%;"></div></a></li>
+                            @endif
                         @endforeach
                   </ul>
               </div>
             </div>
-            <script type="text/javascript">
 
-              
-        
-
-            </script>
             <div class="right">
                 <!-- 商品名 -->
-                <h1>{{$data->goods_name}}</h1>
+                <h1 gid="{{$data->id}}" gsrc="{{$data->thumb}}" >{{$data->goods_name}}</h1>
                 <p class="money">¥<span>{{$data->price}}</span></p>
                 <p class="comment"><img src="/home/images/x5.gif" /><span>3266人评价<ins>|</ins>0个提问</span></p>
                 <p class="fit"><strong>适配</strong><span>{{$data->desc}}</span></p>
@@ -91,46 +109,46 @@
                     
                     
                     
-                    <ul class="style-simg">
-                        <!-- <li class="active"><a href="#"><div class="style-img" style="background:url(/home/images/pro-minsmall-pic.jpg)"></div><i></i></a></li>
+                    <ul class="style-simg" id="gcolor">
+                        <!-- <li class="active"><a href="javascript:void(0);"><div class="style-img" style="background:url(/home/images/pro-minsmall-pic.jpg)"></div><i></i></a></li>
                         <li ><a href="#"><div class="style-img" style="background:url(/home/images/pro-minsmall-pic.jpg)"></div><i></i></a></li> -->
                         @foreach($color as $k=>$v)
-                        <li class="active"><a href="#"><div class="style-title">{{$v}}</div></a><i></i></li>
+                        <li ><a href="javascript:void(0);"><div class="style-title">{{$v}}</div></a><i></i></li>
                         @endforeach
                     </ul>
                     <h2>尺寸：</h2>
-                    <ul class="style-simg">
-                        <!-- <li class="active"><a href="#"><div class="style-title">165/M</div></a><i></i></li>
-                        <li><a href="#"><div class="style-title">170/L</div></a><i></i></li> -->
+                    <ul class="style-simg " id="gsize">
+                        <!-- <li class="active"><a href="javascript:void(0);"><div class="style-title">165/M</div></a><i></i></li>
+                        <li><a href="javascript:void(0);"><div class="style-title">170/L</div></a><i></i></li> -->
                         @foreach($size as $kk=>$vv)
-                        <li class="active"><a href="#"><div class="style-title">{{$vv}}</div></a><i></i></li>
+                        <li ><a href="javascript:void(0);"><div class="style-title">{{$vv}}</div></a><i></i></li>
                         @endforeach
                     </ul>
                     
                     
                     <h2>数量：</h2>
-                    <div class="tb-amount-widget">
-                        <input type="text"  value="1" class="input-count"/>
+                    <div class="tb-amount-widget" >
+                        <input type="text"  id="gnum" value="1" readonly  class="input-count"/>
                         <div class="tb-amount-btn">
-                            <a href="javascript:;" class="add_btn"></a>
-                            <a href="javascript:;" class="min_btn"></a>
+                            <a href="javascript:void(0)" class="add_btn"></a>
+                            <a href="javascript:void(0)" class="min_btn"></a>
                         </div>
-                        <span>件 库存{{$data->count}}件</span>
+                        <span id="kucun">件 库存<b>{{$data->count}}</b>件</span>
                     </div>
                 </div>
                 <div class="pro-detai-cart">
-                    <a href="#" class="cart"><p>加入购物车</p></a>
-                    <a href="#" class="collection"></a>
+                    <a href="javascript:void(0);" class="cart"><p>加入购物车</p></a>
+                    <a href="javascript:void(0);" class="collection"></a>
                 </div>
                 <div class="service">
                     <dl>
                         <dt>享受服务</dt>
-                        <dd class="fqfk"><a href="#">分期付款</a></dd>
+                        <dd class="fqfk"><a href="javascript:void(0);">分期付款</a></dd>
                     </dl>
                     <dl style="margin-left:50px">
                         <dt>享受保障</dt>
-                        <dd class="th"><a href="#">15天退货</a></dd>
-                        <dd class="bx"><a href="#">一年保修</a></dd>
+                        <dd class="th"><a href="javascript:void(0);">15天退货</a></dd>
+                        <dd class="bx"><a href="javascript:void(0);">一年保修</a></dd>
                     </dl>
                 </div>
             </div>
@@ -146,24 +164,24 @@
             </ul>
             <div class="pro-detailed-left-c">
                 <!--------详细信息---------->
-                <div id="goodsDesc">
+                <div id="goodsDesc" class="show" >
                     {!!$data->content!!}
                 </div>
                 <!--------规格参数---------->
-                <div id="goodsParam" style="display:none;">
+                <div id="goodsParam" class="hidden">
                     <div class="title">规格参数</div>
                     <ul>
-                        <li><p><span>品牌 ： </span>MIUI/小米</p></li>
-                        <li><p><span>型号 ： </span>国产</p></li>
-                        <li><p><span>尺寸 ： </span>20厘米-29厘米</p></li>
+                        <li><p><span>型号 ： </span>{{$data->type}}</p></li>
+                        <li><p><span>内存 ： </span>@foreach($memory as $k=>$v) {{ $v }} @endforeach</p></li>
+                        <li><p><span>尺寸 ： </span>@foreach($size as $k=>$v) {{ $v }} @endforeach</p></li>
                         <li><p><span>编号 ： </span>{{$data->goods_no}}</p></li>
-                        <li><p><span>颜色分类 ： </span>红色</p></li>
-                        <li><p style="white-space:normal;"><span>适用对象 ： </span>仅适配偏震式屏幕</p></li>
+                        <li><p><span>颜色分类 ： </span>@foreach($color as $k=>$v) {{ $v }} @endforeach</p></li>
+                        <li><p style="white-space:normal;"><span>适用对象 ： </span>通用</p></li>
                     </ul>
                 </div>
                 <!--------评价晒单---------->
-                <div id="goodsComment" style="display:none;">
-                    <div class="title"><strong>用户评价</strong><p><a href="#" class="active">很有用</a>|<a href="#">最新</a></p></div>
+                <div id="goodsComment" class = "hidden">
+                    <div class="title"><strong>用户评价</strong><p><a href="javascript:void(0);" class="active">很有用</a>|<a href="javascript:void(0);">最新</a></p></div>
                     <div class="goodsComment-zj">
                         <div class="left"><p>96.1<span>%</span></p><pre>五星评价率</pre></div>
                         <div class="right">
@@ -185,7 +203,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="goodsComment-c" style="display:none;">
+                    <div class="goodsComment-c" >
                         <ul>
                             <li>
                                 <div class="tou-x"><img src="/home/images/hy.gif" width="78" height="78" /><p>行云流水SAGA</p></div>
@@ -194,7 +212,7 @@
                                     <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
                                     <div class="pl-c-3">
                                         <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="#">回复 (2)</a></strong>
+                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
                                     </div>
                                 </div>
                             </li>
@@ -206,7 +224,7 @@
                                     <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
                                     <div class="pl-c-3">
                                         <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="#">回复 (2)</a></strong>
+                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
                                     </div>
                                 </div>
                             </li>
@@ -218,7 +236,7 @@
                                     <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
                                     <div class="pl-c-3">
                                         <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="#">回复 (2)</a></strong>
+                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
                                     </div>
                                     <div class="pl-c-4">
                                         <p><span>官方回复：</span>亲~ 内存卡的换算和计算机上的换算方式是不同的呢 计算机上是按1G=1024M进制算的 而厂家在做的时候是按1G＝1000M做的 所以此类容量的一个大约的计算公式为：标称容量×0.931(单位为G)，得出的数值为一个大约量，只要差的不多均为正常。</p>
@@ -233,7 +251,7 @@
                                     <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
                                     <div class="pl-c-3">
                                         <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="#">回复 (2)</a></strong>
+                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
                                     </div>
                                 </div>
                             </li>
@@ -243,8 +261,8 @@
                     <div class="goodsComment-more"><a href="goodsComment-more.html">查看全部评价 ></a></div>
                 </div>
                 <!--------商品提问---------->
-                <div id="goodsFaq" style="display:none;">
-                    <div class="title"><strong>产品提问</strong><p><a href="#">查看全部 ></a></p></div>
+                <div id="goodsFaq" class = "hidden">
+                    <div class="title"><strong>产品提问</strong><p><a href="javascript:void(0);">查看全部 ></a></p></div>
                     <div class="goodsFaq-c">
                         <ul>
                             <li>
@@ -276,7 +294,7 @@
                     </div>
                 </div>
                 <!--------售后服务---------->
-                <div id="serQue" style="display:none;">
+                <div id="serQue" class = "hidden">
                     <div class="nTab3">
                         <!-- 标题开始 -->
                         <div class="TabTitle">
@@ -302,7 +320,7 @@
                                     <p>您可拨打小米客服中心400-100-5678与客服人员沟通，或登录小米网“我的订单” ->“订单详情”下方点击“申请售后服务”并填写相应信息，小米看到您的申请，会安排工作人员与您进行退换货质量确认并办理相关事宜.</p>
                               </div>
                               <!--售后服务-->
-                              <div id="myTab0_Content1" class="intro" style="display:none;">
+                              <div id="myTab0_Content1" class="intro" >
                                     <p>1.自签收之日起，如商品及包装保持小米出售时原状且配件齐全，七天退货，十五天换货。</p>
                                     <p> 2.退换凭证：用户提供相关订单号。</p>
                                     <p>3.非质量问题的退换，需要产品包装完好、不影响二次销售，且需用户承担退换运费；非质量问题退换次数仅限一次。</p>
@@ -324,16 +342,16 @@
             <div class="pro-detailed-right-c">
                 <ul class="browse-list">
                     @foreach($data['GoodsImg'] as $k =>$v)
-                    <li><a href="#"><img src="{{$v->src}}" width="80" height="80" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="{{$v->src}}" width="80" height="80" /></a></li>
                     @endforeach
                 </ul>
                 <h3>买过的人还买了</h3>
                 <ul class="buy-list">
-                    <li><a href="#"><img src="/home/images/g01.jpg" width="80" height="80" /></a><p><strong><a href="#">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="#"><img src="/home/images/01.jpg" width="80" height="80" /></a><p><strong><a href="#">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="#"><img src="/home/images/00.jpg" width="80" height="80" /></a><p><strong><a href="#">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="#"><img src="/home/images/big-pro2.jpg" width="80" height="80" /></a><p><strong><a href="#">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="#"><img src="/home/images/4li.jpg" width="80" height="80" /></a><p><strong><a href="#">小米120cm USB数据线</a></strong><i>15元</i></p></li>
+                    <li><a href="javascript:void(0);"><img src="/home/images/g01.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
+                    <li><a href="javascript:void(0);"><img src="/home/images/01.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
+                    <li><a href="javascript:void(0);"><img src="/home/images/00.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
+                    <li><a href="javascript:void(0);"><img src="/home/images/big-pro2.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
+                    <li><a href="javascript:void(0);"><img src="/home/images/4li.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
                 </ul>
             </div>
           </div>
@@ -346,64 +364,174 @@
 
     <script type="text/javascript">
         
-         var i = 1;
+    var i = 1;
 
-                var into = null;
+    var into = null;
 
-                function moves(){
-                    into = setInterval(function(){
+    function moves(){
+        into = setInterval(function(){
 
-                        shows(i++);
-                        if(i > 5){
+            shows(i++);
+            if(i > 4){
+                i=0;
+            }
 
-                            i=0;
-                        }
+        },2000)
+    }
 
-                    },3000)
-
-                }
-
-                    
-                moves();
+        
+    moves();
 
 
-                //函数的作用是 让第一张图片显示出来 其他的进行隐藏
-                function shows(m){
-                    $('.img_ul li').eq(m).find('img').fadeIn(600);
-                    $('.img_ul li').eq(m).siblings().find('img').fadeOut(800);
+    //函数的作用是 让第一张图片显示出来 其他的进行隐藏
+    function shows(m){
+        $('.img_ul li').eq(m).find('img').fadeIn(600);
+        $('.img_ul li').eq(m).siblings().find('img').fadeOut(800);
+        $('#ids li').eq(m).addClass('cur');
+        $('#ids li').eq(m).siblings().removeClass('cur');
+    }
+    
+    shows(0);
 
-                    $('#ids li').eq(m).addClass('cur');
-                    $('#ids li').eq(m).siblings().removeClass('cur');
-                }
-                    shows(0);
+        //点击小圆点换图片
+    $('#ids li').hover(function(){
 
-                    //点击小圆点换图片
-                    $('#ids li').hover(function(){
+        //移动到小圆点上
 
-                        //移动到小圆点上
+        //1.让定时器停止
+        clearInterval(into);
 
-                        //1.让定时器停止
-                        clearInterval(into);
+        //2.让图片显示出来
+        i = $(this).index();
 
-                        //2.让图片显示出来
-                        i = $(this).index();
-
-                        shows(i++);
+        shows(i++);
 
 
-                    },function(){
+    },function(){
 
-                        //再让图片接着走
-                        moves();
-                        if(i > 5){
+        //再让图片接着走
+        moves();
+        if(i > 4){
+            i=0;
+        }
+    });
 
-                            i=0;
-                        }
-                    })
+    $('.on').click(function(){
+
+        //2.让图片显示出来
+        i = $(this).index();
+        shows(i);
+    })
 
 
     </script>
+    <!-- 点击换图片 -->
+    <script type="text/javascript">
+        $(".pro-detailed-left-title").find('li').click(function(){
+            $(this).attr('class',"active");
+            $(this).siblings().removeAttr('class');
+            var d = $(this).index();
 
+            $(".pro-detailed-left-c").find('>div').eq(d).attr('class',"show");
+            $(".pro-detailed-left-c").find('>div').eq(d).siblings().attr('class',"hidden");
+        })
+    </script>
+
+    <!-- 购物车css -->
+    <script type="text/javascript">
+        // alert($.fn.jquery);
+        /*.add_btn+
+        .min_btn -*/
+
+        //页面数据获取
+        color =  $('#gcolor');
+        size = $('#gsize');
+        statu1 = 0;
+        statu2 = 0;
+        gscolor = '';
+        gssize = '';
+
+        num = parseInt($('#gnum').val());
+
+        $('#gcolor').find('li').click(function(){
+            $(this).attr('class','active');
+            $(this).siblings().attr('class','');
+            gscolor = $(this).find('div').text();
+            statu1 = 1;
+        });
+
+        $('#gsize').find('li').click(function(){
+            $(this).attr('class','active');
+            $(this).siblings().attr('class','');
+            gssize = $(this).find('div').text();
+            statu2 = 1;
+        });
+
+        /*添加 减少数子 add_btn min_btn input-count #kucun*/
+
+        $('.add_btn').click(function(){
+            num = parseInt($('#gnum').val());
+            // 通过库存约束最大数量 
+            kucun = parseInt($('#kucun').find('b').text());
+            // console.log(kucun);
+            if(num<kucun){  
+                num ++;
+            }
+            $('#gnum').val(num);
+            console.log(num);
+        });
+
+        $('.min_btn').click(function(){
+            num = parseInt($('#gnum').val());
+            console.log(num);
+            console.log(typeof(num));
+            if(num > 1){
+                num --;
+            } else {
+                num = 1;
+            }
+            $('#gnum').val(num);
+            // console.log(num);
+        });
+
+
+        //购物车商品的添加
+        $('.cart').click(function(){
+                     
+            if(statu1 && statu2){
+
+                goodsid = $('.right').find('h1').attr('gid');
+
+                console.log(goodsid);
+                console.log(gssize);
+                console.log(num);
+                console.log(gscolor);
+                
+                // $.ajaxSetup({
+                //     headers: {
+                //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                //     }
+                // });
+
+                //将数据发送给php处理
+                $.get('/cartadd',{gid:goodsid,num:num,color:gscolor,size:gssize},function(data){
+                   
+                    console.log(data);
+                    if(data == 1){
+                        alert('已加入购物车');
+                        window.location.reload();
+                    }else{
+                        alert('加入失败');
+                        location.reload();
+                    }
+                });
+
+
+            }
+        })
+
+
+  </script>
 @endsection
     
     

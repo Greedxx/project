@@ -4,9 +4,8 @@
     <style type="text/css">
         *{-webkit-box-sizing: content-box;
         box-sizing: content-box;}
-
     </style>
-    <?php $data = App\Models\admin\Lunbo::where('status',1)->limit(3)->get() ?>
+    <?php $data = App\Models\admin\Lunbo::where('status',1)->limit(10)->get() ?>
      
    <!------------banner---------------->
     <div id="banner">
@@ -14,14 +13,11 @@
             <div class="bd">
                 <ul>
                     @foreach ($data as $k =>$v)
-                    <li _src="url({{$v->url}})" style="background:#000 center 0 no-repeat width:1240px height:200px;"><a href="https://shop116998991.taobao.com/"></a></li>
+                    <li _src="url({{$v->url}})" style="background:#000 center 0 no-repeat width:1240px height:200px;"><a href="#"></a></li>
                      @endforeach
-
 
                      <!-- <li _src="url(/home/images/banner.jpg)" style="background:#000 center 0 no-repeat;"><a href="https://shop116998991.taobao.com/"> -->
 
-                    <!-- <li _src="url(/home/images/2.jpg)" style="background:#DED5A1 center 0 no-repeat;"><a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w5003-11903850250.1.YOZUX7&id=521221929103&scene=taobao_shop"></a></li>
-                    <li _src="url(/home/images/5.jpg)" style="background:#FEFF19 center 0 no-repeat;"><a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-11895250131.3.YOZUX7&id=521741523734"></a></li> -->
                 </ul>
             </div>
             <div class="hd"><ul></ul></div>
@@ -45,266 +41,67 @@
             	<div class="img"><a href="#"><img src="/home/images/501.gif" width="619" height="309" /></a></div>
                 <!-- 广告位置1 end -->
                 <!-- 商品填充处 -->
-               
-                <div class="img img_309"><p><strong><a href="#">小米平板冰淇淋软胶保护套</a></strong><span>59元</span></p><a href="#"><img src="/home/images/502.jpg" width="220" height="220"/></a></div>
-                <div class="img img_309"><p><strong><a href="#">小米平板冰淇淋软胶保护套</a></strong><span>59元</span></p><a href="#"><img src="/home/images/502.jpg" width="220" height="220"/></a></div>
-                <div class="img img_309"><p><strong><a href="#">小米平板冰淇淋软胶保护套</a></strong><span>59元</span></p><a href="#"><img src="/home/images/502.jpg" width="220" height="220"/></a></div>
-                <div class="img img_309"><p><strong><a href="#">小米平板冰淇淋软胶保护套</a></strong><span>59元</span></p><a href="#"><img src="/home/images/502.jpg" width="220" height="220"/></a></div>
+                @foreach($sale as $k =>$v)
+                <div class="img img_309"><p><strong><a href="/good/{{$v->id}}">{{$v->goods_name}}</a></strong><span>{{$v->price}}元</span></p><a href="#"><img src="{{$v->thumb}}" width="220" height="220"/></a></div>
+                @endforeach
                 <!-- 商品填充处 -->
             </div>
             <div class="right"> 
                 <h2><span>TOP 5</span>热销商品</h2>
                 <ul class="board-list">
+                    @foreach($top as $k =>$v)
                     <li>
-                        <span class="item-num top3">1</span>
+                        <span class="item-num top3">{{ $a=$k+1}}</span>
                         <span class="item-info">
-                            <span class="item-title"><a href="#">小米活塞耳机简装版</a></span>
-                            <span class="item-price">49元 </span>
+                            <span class="item-title"><a href="#">{{$v->goods_name}}</a></span>
+                            <span class="item-price">{{$v->price}}元 </span>
                         </span>
-                        <span class="item-thumb"><a href="#"><img src="/home/images/01.jpg" width="70" height="70" /></a></span>
+                        <span class="item-thumb"><a href="/good/{{$v->id}}"><img src="{{$v->thumb}}" width="70" height="70" /></a></span>
                     </li>
-                    <li>
-                        <span class="item-num top3">2</span>
-                        <span class="item-info">
-                            <span class="item-title"><a href="#">小米活塞耳机简装版</a></span>
-                            <span class="item-price">49元 </span>
-                        </span>
-                        <span class="item-thumb"><a href="#"><img src="/home/images/02.jpg" width="70" height="70" /></a></span>
-                    </li>
-                    <li>
-                        <span class="item-num top3">3</span>
-                        <span class="item-info">
-                            <span class="item-title"><a href="#">小米活塞耳机简装版</a></span>
-                            <span class="item-price">49元 </span>
-                        </span>
-                        <span class="item-thumb"><a href="#"><img src="/home/images/502.jpg" width="70" height="70" /></a></span>
-                    </li>
-                    <li>
-                        <span class="item-num">4</span>
-                        <span class="item-info">
-                            <span class="item-title"><a href="#">小米活塞耳机简装版</a></span>
-                            <span class="item-price">49元 </span>
-                        </span>
-                        <span class="item-thumb"><a href="#"><img src="/home/images/04.jpg" width="70" height="70" /></a></span>
-                    </li>
-                    <li>
-                        <span class="item-num">5</span>
-                        <span class="item-info">
-                            <span class="item-title"><a href="#">小米活塞耳机简装版</a></span>
-                            <span class="item-price">49元 </span>
-                        </span>
-                        <span class="item-thumb"><a href="#"><img src="/home/images/05.jpg" width="70" height="70" /></a></span>
-                    </li>
+                     @endforeach
                 </ul>
             </div>
         </div>
         <!-- 第一个广告 -->
-        <?php $data = App\Models\admin\Ad::limit(3)->get()->toArray() ?>
+        <?php $data = App\Models\admin\Ad::limit(5)->get()->toArray() ?>
         @foreach($data as $k=>$v)
-         @if($k==0)
-        <div class="list-ad1">
-           
-            <a href=""><img src="{{$v['url']}}"></a>
-           
-        </div>
-        @endif
+             @if($k==0)
+            <div class="list-ad1">
+               
+                <a href=""><img src="{{$v['url']}}"></a>
+               
+            </div>
+            @endif
         @endforeach
-        <!------热门推荐-------->
-        <div class="list-title">
-            <p><strong style="border-bottom:solid 2px #00c3d5;">环境控制</strong></p><a href="#">More</a>
-        </div>
-        <div class="list-div">
-            <ul>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-            </ul>
-        </div>
-        
-        <!------视听娱乐-------->
-        <div class="list-title">
-            <p><strong style="border-bottom:solid 2px #54cb00;">视听娱乐</strong></p><a href="#">More</a>
-        </div>
-        <div class="list-div">
-            <ul>
-                <li>
-                    <a href="#"><img src="/home/images/502.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/502.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/502.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/502.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-            </ul>
-        </div>
-        <!-- 第二个广告 -->
-        @foreach($data as $k=>$v)
-        @if($k==1)
-        <div class="list-ad1" >
-            
-            <a href=""><img src="{{$v['url']}}"></a>
-        </div>
-        @endif
+       
+        <!------遍历各分类中商品------->
+        @foreach($goods as $k=>$v)
+            @if(!empty($v['goods'])&&$v['goods']!="[]")
+                <div class="list-title">
+                    <p><strong style="border-bottom:solid 2px #54cb00; width: 160px">{{$v['cate_name']}}</strong></p><a href="/list?id={{$v->cate_id}}">More</a>
+                </div>
+                <div class="list-div">
+                    <ul>
+                        @foreach($v['goods'] as $kk =>$vv)
+                        <li>
+                            <a href="/good/{{$vv->id}}"><img src="{{$vv->thumb}}" width="220" height="220" /></a>
+                            <p><a href="/good/{{$vv->id}}"></a>{{$vv->goods_name}}</p>
+                            <pre>{{$vv->desc}}</pre>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <!-- 隔行放置广告 -->
+                <!-- 从第三张广告开始 每间隔一个分类放上一张广告 -->
+                <?php $i=$k+2;?>
+                @if(!empty($data[$i]))
+                    <div class="list-ad1" >
+                        <a href=""><img src="{{--$data[$i]['url']--}}"></a>
+                    </div>
+                @endif
+            @endif  
         @endforeach
-        <!------安全防护-------->
-        <div class="list-title">
-            <p><strong style="border-bottom:solid 2px #1d7ad9;">安全防护</strong></p><a href="#">More</a>
-        </div>
-        <div class="list-div">
-            <ul>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-            </ul>
-        </div>
-        
-        <!------信息通讯-------->
-        <div class="list-title">
-            <p><strong style="border-bottom:solid 2px #f26d7e;">信息通讯</strong></p><a href="#">More</a>
-        </div>
-        <div class="list-div">
-            <ul>
-                <li>
-                    <a href="#"><img src="/home/images/502.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/502.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/502.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/502.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-            </ul>
-        </div>
-        <!-- 第一个广告 -->
-        @foreach($data as $k=>$v)
-        @if($k == 2)
-        <div class="list-ad1">
-            
-            <a href=""><img src="{{$v['url']}}"></a>
-           
-        </div>
-        @endif
-        @endforeach
-        <!------智能设备-------->
-        <div class="list-title">
-            <p><strong style="border-bottom:solid 2px #f9ee30;">智能设备</strong></p><a href="#">More</a>
-        </div>
-        <div class="list-div">
-            <ul>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-                <li>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                    <p><a href="#">趣味防尘塞 MI标</a></p>
-                    <pre>适用于小米平板, 所有手机适用于小米平板, 所有手机</pre>
-                </li>
-            </ul>
-        </div>
-        
-        <!------特价商品-------->
-        <div class="list-title">
-            <p><strong style="border-bottom:solid 2px #dfdfdf;">特价商品</strong></p><a href="#">More</a>
-        </div>
-        <div class="list-div">
-            <ul>
-                <li>
-                    <label><a href="#">趣味防尘塞 MI标</a></label>
-                    <cite>89元<del>109元</del></cite>
-                    <dfn>省20元</dfn>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                </li>
-                <li>
-                    <label><a href="#">趣味防尘塞 MI标</a></label>
-                    <cite>89元<del>109元</del></cite>
-                    <dfn>省20元</dfn>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                </li>
-                <li>
-                    <label><a href="#">趣味防尘塞 MI标</a></label>
-                    <cite>89元<del>109元</del></cite>
-                    <dfn>省2元</dfn>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                </li>
-                <li>
-                    <label><a href="#">趣味防尘塞 MI标</a></label>
-                    <cite>89元<del>109元</del></cite>
-                    <dfn>省20元</dfn>
-                    <a href="#"><img src="/home/images/401.jpg" width="220" height="220" /></a>
-                </li>
-            </ul>
-        </div>
-        
-    </div>
+      
 
 @endsection
 

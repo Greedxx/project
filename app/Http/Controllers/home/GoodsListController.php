@@ -72,7 +72,6 @@ class GoodsListController extends Controller
         }else{
             $cateinfo['cate_id']=0;
             $cateinfo['cate_name']='已在顶级';
-            $arrpath[]=[];
         }
 
         //用于排序

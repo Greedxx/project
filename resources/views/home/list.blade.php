@@ -1,7 +1,9 @@
 @extends('layout.main')
-@section('title', 'new Title')
+@section('title', '仙女商城')
 @section('content')
  <style type="text/css">
+     *{-webkit-box-sizing: content-box;
+        box-sizing: content-box;}
     .pagination {
         height:50px;
         width:640px;
@@ -12,13 +14,12 @@
 </style>
 	<div class="main">
 
-
         <div class="big-class" style="margin-top: 20px "><h1><a href="/list/?id={{$cateinfo['cate_id']}}&sort={{$arr['sort']}}&keyword={{$arr['keyword']}}">{{$cateinfo['cate_name']}}</a></h1></div>
         
         <div class="current-position" style="font-size:20px; line-height: 20px">
             <h2>路径:<a href="/">首页</a>    
                 {{--dd($arrpath)--}}  
-                @if(empty($arrpath))     
+                @if(!empty($arrpath))     
                     @foreach($arrpath as $k => $v)
                         |<a href="/list?id={{$v['cate_id']}}&sort={{$arr['sort']}}">{{$v['cate_name']}}</a>
                     @endforeach
