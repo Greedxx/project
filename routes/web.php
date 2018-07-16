@@ -19,9 +19,15 @@
 
         //详情页
         Route::any('/good/{id?}','home\GoodsInfoController@index');
+        
+        //购物车添加
+        Route::any('/cartadd','home\GoodsInfoController@cartadd');
+        
+        //购物车删除
+        Route::any('/cartdel','home\GoodsInfoController@cartdel');
 
         //服务帮助页及其他
-        Route::any('/service/{id}','home\ServiceController@index');
+        Route::any('/service','home\ServiceController@index');
 
     });
 
