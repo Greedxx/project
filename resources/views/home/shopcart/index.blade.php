@@ -6,7 +6,7 @@
 @section('title','购物车页')
 
 @section('content')
-
+<div class="wushi"></div>
 <div class="catbox">
 	<table id="cartTable">
 		<thead>

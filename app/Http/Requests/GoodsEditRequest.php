@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GoodsRequest extends FormRequest
+class GoodsEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,9 +34,7 @@ class GoodsRequest extends FormRequest
             'count' =>'required|max:11|regex:/^([0-9]+)$/u',
             'price' =>'required|max:11|regex:/^([0-9]+)(\.([0-9]{1,2}))?$/u',
             'desc' =>'required|max:100|string',
-            'thumb'=>'required|filled|image|file',
-            'img'=>'required',
-
+            'thumb'=>'filled|image|file',
         ];
         
     }
@@ -71,8 +69,6 @@ class GoodsRequest extends FormRequest
              'price.regex'=>'@商品价格 必须数值',
 
              'thumb.filled'=>'@缩略图 必须上传', 
-             'thumb.required'=>'@缩略图 必须上传', 
-             'img.required'=>'@轮播组图 必须上传', 
              'thumb.image'=>'@缩略图上传缩略图必须是图片格式', 
              'thumb.file'=>'@缩略图 必须是完整文件',
         ];

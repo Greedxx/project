@@ -129,7 +129,7 @@
                 <div class="mws-form-row">
                     <label class="mws-form-label">商品详情</label>
                     <div class="mws-form-item">
-                        <script id="editor" name="content"  type="text/plain" style="width:900px;height:600px;">{!!$data->content!!}</script>
+                        <script id="editor" name="content"  type="text/plain" style="width:730px;height:1440px;">{!!$data->content!!}</script>
                     </div>
                 </div>
             </div>

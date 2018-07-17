@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 use Config;
 use Illuminate\Http\Request;
 use App\Http\Requests\GoodsRequest;
+use App\Http\Requests\GoodsEditRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Goods;
 use App\Models\GoodsImg;
@@ -208,14 +209,13 @@ class GoodsController extends Controller
 
         $data=goods::find($id);
 
-        $gpic = goods::find($id)->with('goodsimg')->first();
+        // $gpic = goods::find($id)->with('goodsimg')->first();
+        $gpic = GoodsImg::where('gid',$id)->get()->toArray();
+        // dump($gpic);
+     
 
-        //$arrgpic = $gpic['GoodsImg'];
-        // dd($gpic['GoodsImg']);
-        // die();
 
-
-        return view('admin.goods.edit',['title'=>'商品修改','data'=>$data,'arr'=>$gpic['GoodsImg'],'cate'=>$cate,'id'=>$id]);
+        return view('admin.goods.edit',['title'=>'商品修改','data'=>$data,'arr'=>$gpic,'cate'=>$cate,'id'=>$id]);
     }
 
     /**
@@ -225,7 +225,7 @@ class GoodsController extends Controller
      * @param  int  $id 商品id
      * @return \Illuminate\Http\Response
      */
-    public function update(GoodsRequest $request, $id)
+    public function update(GoodsEditRequest $request, $id)
     {
         //表单验证
         //     $this->validate($request, [

@@ -4,11 +4,10 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
-use Illuminate\Support\Facades\Cookie;
 use App\Http\Controllers\Controller;
 use App\Models\Goods;
 use App\Models\Cate;
+use App\Models\GoodsImg;
 
 class GoodsInfoController extends Controller
 {
@@ -75,14 +74,14 @@ class GoodsInfoController extends Controller
 
         }
 
-        // //调用对象变数组
+        //调用对象变数组
         if(!empty($values)){
             $cart=$this->object_to_array($values);
             dump($cart);
         }
        
+        $goodsimg = GoodsImg::where('gid',$id)->where('statu','1')->orderBy('sort')->get();
         
-
         $data = Goods::where('id',$id)->with('cate')->with('GoodsImg')->first();
 
         // dump($data['color']);
@@ -97,7 +96,7 @@ class GoodsInfoController extends Controller
 
         $arrpath = $this->getPath($data['cate']['cate_id']);
 
-        return view('home.good',['data'=>$data,'color'=>$color,'size'=>$size ,'memory'=>$memory,'arrpath'=>$arrpath,'cart'=>$cart]);
+        return view('home.good',['data'=>$data,'goodsimg'=>$goodsimg,'color'=>$color,'size'=>$size ,'memory'=>$memory,'arrpath'=>$arrpath,'cart'=>$cart]);
     }
 
     public function cartadd(Request $request){
