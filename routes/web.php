@@ -30,6 +30,8 @@
         //服务帮助页及其他
         Route::any('/service','home\ServiceController@index');
 
+        // 购物车
+        Route::any('/shopcart','home\ShopCartController@index');
     });
 
 

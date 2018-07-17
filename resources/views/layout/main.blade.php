@@ -22,6 +22,12 @@
 <script src="/js/footer.js" type="text/javascript"></script>
 <script src="/layer/layer.js" type="text/javascript"></script>
 
+<script type="text/javascript" src="/js/shopcart.js"></script>
+
+
+
+
+
 <link href="/css/common.css" rel="stylesheet" type="text/css" />
 <link href="/css/user_style.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/base.css" rel="stylesheet" type="text/css" />
@@ -39,10 +45,7 @@
     <!------------top---------------->
     <div class="top">
         <div class="top-c">
-            <div class="top-left">
-                <a href="javascript:;" class="collect">收藏</a>
-                <a href="javascript:;" class="wechat">微信</a>
-            </div>
+    
             <div class="top-right">
                 <p>嗨，欢迎来到仙女商城</p>
                 @if(session('userinfo'))
