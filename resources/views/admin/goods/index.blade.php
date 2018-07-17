@@ -55,10 +55,10 @@
                         商品编号:
                         <input type="text" name='goods_no' value="{{$arr['goods_no']}}" aria-controls="DataTables_Table_1">
                     </label>
-                    <label>
+                   <!--  <label>
                         厂商型号:
                         <input type="text" name='type' value="{{$arr['type']}}" aria-controls="DataTables_Table_1">
-                    </label>
+                    </label> -->
                     <label>
                         商品名称:
                         <input type="text" name='goods_name' value="{{$arr['goods_name']}}" aria-controls="DataTables_Table_1">
@@ -74,12 +74,12 @@
                 <thead>
                     <tr role="row">
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"   style="width:50px">
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"   style="width:10px">
                             ID
                         </th>
 
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:50px">
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:40px">
                             分类
                         </th>
 
@@ -88,10 +88,10 @@
                             商品编号
                         </th>
 
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                      <!--   <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                     rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width:50px">
                             厂商型号
-                        </th>
+                        </th> -->
 
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                     rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width:50px">
@@ -105,10 +105,10 @@
                             图片
                         </th>
                        
-                        <th   class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                    <!--     <th   class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                     rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:50px">
                             定价
-                        </th>
+                        </th> -->
                        
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                     rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width:50px">
@@ -154,21 +154,20 @@
                             {{$v->goods_no}}
                         </td>
 
-                        <td class="txt">
+                      <!--   <td class="txt">
                             {{$v->type}}
-                        </td>
-
+                        </td> -->
                         <td class=" txt">
                             {{$v->goods_name}}
                         </td>
                             
-                        <td class=" ">
+                        <td >
                             <center><img src="{{$v['thumb']}}" alt="{{$v['thumb']}}" width="90px"></center>
                         </td>
 
-                        <td class="txt">
+                       <!--  <td class="txt">
                             {{$v['price']}}
-                        </td>
+                        </td> -->
 
                         <td class="txt">
                             {{$v['count']}}

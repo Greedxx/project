@@ -15,6 +15,12 @@ class GoodsListController extends Controller
         *用于接收查询条件的数组
         */ 
         $arr=[];
+
+        $id = $request->input('id',0);
+
+        $arr['id'] = $id;
+
+
         $arr['keyword']='';
 
         /**
@@ -35,9 +41,6 @@ class GoodsListController extends Controller
         $cateinfo=[];
 
 
-
-        $id = $request->input('id',0);
-        $arr['id'] = $id;
 
 
 
@@ -131,7 +134,7 @@ class GoodsListController extends Controller
                 }
 
                 // dd($category_id);
-                $good=Goods::whereIn('cate_id',$category_id)->where(function($query) use($request){
+                $good=Goods::whereIn('cate_id',$category_id)->where('status',1)->where(function($query) use($request){
 
                     $keyword=$request->input('keyword','');
 
@@ -140,7 +143,11 @@ class GoodsListController extends Controller
 
 
                 })->orderBy($sort,$asc)->paginate(12)->appends($request->all()); 
+
+                // dd($good);
             } 
+
+            
 
         return view('home.list',['title'=>'仙女商城','good'=>$good,'cate'=>$cate,'arrpath'=>$arrpath,'cateinfo'=>$cateinfo,'arr'=>$arr]);
     }

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="author" content="order by dede58.com"/>
-<title>@yield('title')</title>
+<title>@yield('title','仙女商城')</title>
 
 <link href="/bs/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="/bs/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
@@ -34,6 +34,11 @@
 @show
 
 </head>
+
+<style type="text/css">
+    *{-webkit-box-sizing: content-box;
+    box-sizing: content-box;}
+</style>
 
 <body>
     <!------------top---------------->
@@ -94,7 +99,7 @@
                             <?php $money+=(int)$v['sum']; $geshu +=(int)$v['num'];$n=$n+1 ?>
                             <li>
                                 <a href="#"><img src="{{$v['thumb']}}" width="60" height="60" /></a>
-                                <p><a vid="{{$v['gid']}}" href="/good/{{$v['gid']}}">{{$v['goods_name']}} {{$v['color']}}</a></p>
+                                <p><a vid="{{$v['gid']}}" href="/good/{{$v['gid']}}">{{$v['goods_name']}} {{$v['color']}}  {{$v['size']}}</a></p>
                                 <pre>{{$v['price']}} x {{$v['num']}}</pre>
                                 <ins va={{$k}} >x</ins>
 
@@ -103,15 +108,17 @@
                         @endif
                     </ul>
                     @if(Session::has('cart'))
-                        @if(Session::get('cart')!==[])
-                        <div class="cart-mybtn">
-                            <p>共计 {{$geshu}} 件商品<span>合计：<strong>{{$money}}元</strong></span></p>
-                            <input type="button" value="去结算" />
-                        </div>
-                        @else 
-                        <!--------购物车暂无产品--------------->
+                            @if(Session::get('cart')!==[])
+                            <div class="cart-mybtn">
+                                <p>共计 {{$geshu}} 件商品<span>合计：<strong>{{$money}}元</strong></span></p>
+                                <input type="button" value="去结算" />
+                            </div>
+                            @else 
+                            <!--------购物车暂无产品--------------->
+                            <div class="cart-mybtn">购物车中还没有商品，赶紧选购吧！</div>
+                            @endif
+                        @else
                         <div class="cart-mybtn">购物车中还没有商品，赶紧选购吧！</div>
-                        @endif
                     @endif
                 </div>
             </div>

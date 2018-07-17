@@ -9,11 +9,6 @@ class IndexController extends Controller
 {
     public function index(Request $request){
 
-        $require->input('keyword','');
-
-        $arr =[];
-        $arr['keyword']= '';
-
-        return view('admin.index',['arr'=>$arr]);
+        return view('admin.index');
     }
 }

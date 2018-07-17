@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'new Title')
+@section('title', '仙女商城')
 @section('content')
 
 <style type="text/css">
@@ -66,13 +66,13 @@
             <div class="left">
                 <div id="play">
                     <ul  class="img_ul aa">
-                        @foreach($data['GoodsImg'] as $k =>$v)
+                        @foreach($goodsimg as $k =>$v)
                             @if($k<=3)
                              <li ><a class="img_a"><img src="{{$v->src}}" width="430px" height="430px"></a></li>
                             @endif
                         @endforeach
                         <ul id="ids">
-                            @foreach($data['GoodsImg'] as $k =>$v)
+                            @foreach($goodsimg as $k =>$v)
                                 @if($k<=3)
                                 <li></li>
                                 @endif
@@ -89,7 +89,7 @@
                 <div class="img_hd" style="width: 328px; overflow:hidden;">
                     <ul class="clearfix" style="width: 328px; overflow:hidden;">
            
-                        @foreach($data['GoodsImg'] as $k =>$v)
+                        @foreach($goodsimg as $k =>$v)
                             @if($k<=3)
                             <li class="on" ><a class="img_a"><div class="pro-small-pic" style="background:url({{$v->src}});background-size:100% 100%;"></div></a></li>
                             @endif
@@ -156,11 +156,11 @@
       <div class="pro-detailed">      
           <div class="pro-detailed-left">
             <ul class="pro-detailed-left-title">
-                <li class="active"><a href="#goodsDesc">详细信息</a></li>
-                <li><a href="#goodsParam">规格参数</a></li>
-                <li><a href="#goodsComment">评价晒单</a></li>
-                <li><a href="#goodsFaq">商品提问</a></li>
-                <li><a href="#serQue">售后服务</a></li>
+                <li class="active"><a href="javascript:void(0);">详细信息</a></li>
+                <li><a href="javascript:void(0);">规格参数</a></li>
+                <li><a href="javascript:void(0);">评价晒单</a></li>
+                <!-- <li><a href="#goodsFaq">商品提问</a></li> -->
+                <li><a href="javascript:void(0);">售后服务</a></li>
             </ul>
             <div class="pro-detailed-left-c">
                 <!--------详细信息---------->
@@ -260,7 +260,7 @@
                     
                     <div class="goodsComment-more"><a href="goodsComment-more.html">查看全部评价 ></a></div>
                 </div>
-                <!--------商品提问---------->
+                <!--     ------商品提问--------
                 <div id="goodsFaq" class = "hidden">
                     <div class="title"><strong>产品提问</strong><p><a href="javascript:void(0);">查看全部 ></a></p></div>
                     <div class="goodsFaq-c">
@@ -293,6 +293,7 @@
                         <button type="button">提交</button>
                     </div>
                 </div>
+                ------商品提问-------- -->
                 <!--------售后服务---------->
                 <div id="serQue" class = "hidden">
                     <div class="nTab3">
@@ -306,7 +307,7 @@
                         <!-- 内容开始 -->
                         <div class="TabContent">
                                 <!--常见问题-->
-                              <div id="myTab0_Content0" class="intro">
+                              <div id="myTab0_Content0" class="intro"  >
                                     <h2>如何挑选商品？</h2>
                                     <p>点击页面上方“加入购物车”按钮或页面下拉时顶部导航上的“加入购物车”按钮将商品加入购物车，再点击页面右上角的“购物车”前往购物车页面进行结算。</p>
                                     
@@ -341,7 +342,7 @@
             <div class="pro-detailed-right-title"><h3>最近浏览</h3></div>
             <div class="pro-detailed-right-c">
                 <ul class="browse-list">
-                    @foreach($data['GoodsImg'] as $k =>$v)
+                    @foreach($goodsimg as $k =>$v)
                     <li><a href="javascript:void(0);"><img src="{{$v->src}}" width="80" height="80" /></a></li>
                     @endforeach
                 </ul>
