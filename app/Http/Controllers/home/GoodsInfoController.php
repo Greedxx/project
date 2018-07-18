@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Goods;
 use App\Models\Cate;
 use App\Models\GoodsImg;
+use App\Models\home\Shoucang;
 
 class GoodsInfoController extends Controller
 {
