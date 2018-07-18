@@ -39,7 +39,7 @@
                 <!-- 广告位置1 end -->
                 <!-- 商品填充处 -->
                 @foreach($sale as $k =>$v)
-                <div class="img img_309"><p><strong><a href="/good/{{$v->id}}">{{$v->goods_name}}</a></strong><span>{{$v->price}}元</span></p><a href="#"><img src="{{$v->thumb}}" width="220" height="220"/></a></div>
+                <div class="img img_309"><p><strong><a href="/good/{{$v->id}}">{{$v->goods_name}}</a></strong><span>{{$v->price}}元</span></p><a href="/good/{{$v->id}}"><img src="{{$v->thumb}}" width="220" height="220"/></a></div>
                 @endforeach
                 <!-- 商品填充处 -->
             </div>
@@ -50,7 +50,7 @@
                     <li>
                         <span class="item-num top3">{{ $a=$k+1}}</span>
                         <span class="item-info">
-                            <span class="item-title"><a href="#">{{$v->goods_name}}</a></span>
+                            <span class="item-title"><a href="/good/{{$v->id}}">{{$v->goods_name}}</a></span>
                             <span class="item-price">{{$v->price}}元 </span>
                         </span>
                         <span class="item-thumb"><a href="/good/{{$v->id}}"><img src="{{$v->thumb}}" width="70" height="70" /></a></span>

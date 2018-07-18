@@ -107,7 +107,7 @@
                             @foreach($cart as $k=>$v)
                             <?php $money+=(int)$v['sum']; $geshu +=(int)$v['num'];$n=$n+1 ?>
                             <li>
-                                <a href="#"><img src="{{$v['thumb']}}" width="60" height="60" /></a>
+                                <a href="/good/{{$v['gid']}}"><img src="{{$v['thumb']}}" width="60" height="60" /></a>
                                 <p><a vid="{{$v['gid']}}" href="/good/{{$v['gid']}}">{{$v['goods_name']}} {{$v['color']}}  {{$v['size']}}</a></p>
                                 <pre>{{$v['price']}} x {{$v['num']}}</pre>
                                 <ins va={{$k}} >x</ins>
