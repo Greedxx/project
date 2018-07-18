@@ -145,6 +145,11 @@
     //前台忘记密码修改
     Route::any('home/modifypass','home\ModifypassController@index');
     Route::any('home/passedit','home\ModifypassController@passedit');
+
+
+
+    Route::get('/getdel','home\ShopCartController@getdel');
+    Route::get('/getsdel','home\ShopCartController@getsdel');
     
 
     

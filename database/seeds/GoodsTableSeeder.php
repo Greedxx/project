@@ -21,7 +21,7 @@ class GoodsTableSeeder extends Seeder
                 'desc'=>'还ok',
                 'status'=>1,
                 'price'=>8888,
-                'thumb'=>'/updata/20180707vGKfulZfS21530945513.jpg',
+                'thumb'=>'/updata/20180717ijvzJfbu8f1531798350.jpg',
                 'count'=>200,
                 'sum'=>0,
                 'size'=>'5.0',
