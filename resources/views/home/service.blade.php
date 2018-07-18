@@ -45,8 +45,14 @@
 @endsection	
 @section('js')
 <script type="text/javascript">
+    var i = 0;
+    $('.service_k_left_menu').find('li').click(function(){
+        $(this).attr('class','active');
+        i = $(this).index();
+        $(this).siblings().removeClass();
+    })
+    $('.service_k').find('service_k_right')
 
-    $()
     
 
 </script>
