@@ -284,12 +284,20 @@ class GoodsController extends Controller
             $goods = Goods::find($id);
 
             // dd($goods);
-            try{
+            // try{
                 $data = $goods->goodsimg()->createMany($gimgsnew);
                 // dd($data);
-            }catch(\Exception $e){
+                
+                $msg=[];
+                foreach($data as $k =>$v)
+                {
+                    $msg[] = GoodsImg::where('id',$v->id)->update(['sort'=>$v->id]);
+                }
+                // dd($msg);
+                
+            // }catch(\Exception $e){
                 // return back(); 错误返回不应打开
-            }
+            // }
 
             //查找id 将新数据加入 end
 
