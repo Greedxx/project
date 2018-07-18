@@ -27,7 +27,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/admins/css/hang.css">
 <link href="/css/common.css" rel="stylesheet" type="text/css" />
 <link href="/css/user_style.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/base.css" rel="stylesheet" type="text/css" />

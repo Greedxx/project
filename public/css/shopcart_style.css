@@ -26,7 +26,7 @@ clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 .count .add, .count input, .count .reduce{float:left;margin-right:-1px;position:relative;z-index:0;}
 .count .add, .count .reduce{height:23px;width:17px;border:1px solid #e5e5e5;background:#f0f0f0;text-align:center;line-height:23px;color:#444;}
 .count .add:hover, .count .reduce:hover{color:#f50;z-index:3;border-color:#f60;cursor:pointer;}
-.count input{width:35px;height:22px;line-height:15px;border:1px solid #aaa;color:#343434;text-align:center;padding:4px 0;background-color:#fff;z-index:2;}
+.count input{width:35px;height:15px;line-height:15px;border:1px solid #aaa;color:#343434;text-align:center;padding:4px 0;background-color:#fff;z-index:2;}
 .subtotal{width:150px;color:red;font-weight:bold;}
 .operation span:hover,a:hover{cursor:pointer;color:red;text-decoration:underline;}
 

@@ -137,7 +137,7 @@
                 </div>
 
                 <!--右侧记录样式-->
-                <div class="right_user_recording">
+                <!-- <div class="right_user_recording">
                     <div class="us_Record">
 
                         <div id="Record_p" class="Record_p">
@@ -304,7 +304,8 @@
                         </div>
                         <script type="text/javascript">jQuery("#Record_p").slide({ mainCell: ".bd ul", effect: "leftLoop", vis: 1, autoPlay: false });</script>
                     </div>
-                </div>
+                </div> -->
+
             </div>
         </div>
     </div>
