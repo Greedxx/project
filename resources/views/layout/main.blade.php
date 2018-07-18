@@ -22,12 +22,12 @@
 <script src="/js/footer.js" type="text/javascript"></script>
 <script src="/layer/layer.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="/js/shopcart.js"></script>
+<!-- <script type="text/javascript" src="/js/shopcart.js"></script> -->
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/admins/css/hang.css">
+
 <link href="/css/common.css" rel="stylesheet" type="text/css" />
 <link href="/css/user_style.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/base.css" rel="stylesheet" type="text/css" />
@@ -114,7 +114,7 @@
                             @if(Session::get('cart')!==[])
                             <div class="cart-mybtn">
                                 <p>共计 {{$geshu}} 件商品<span>合计：<strong>{{$money}}元</strong></span></p>
-                                <input type="button" value="去结算" />
+                                <a href="/shopcart"><input type="button" value="去查看"/></a>
                             </div>
                             @else 
                             <!--------购物车暂无产品--------------->

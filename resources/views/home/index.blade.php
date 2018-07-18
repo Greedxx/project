@@ -6,14 +6,14 @@
         box-sizing: content-box;}
     </style>
     <?php $data = App\Models\admin\Lunbo::where('status',1)->limit(10)->get() ?>
-     
+     <?php $ad = App\Models\admin\Ad::limit(5)->get()->toArray() ?>
    <!------------banner---------------->
     <div id="banner">
         <div class="fullSlide">
             <div class="bd">
                 <ul>
                     @foreach ($data as $k =>$v)
-                    <li _src="url({{$v->url}})" style="background:#000 center 0 no-repeat width:1240px height:200px;"><a href="#"></a></li>
+                    <li _src="url({{$v->url}})" style="background:#000 center 0 no-repeat width:1240px height:200px;"><a href="{{$v->lurl}}"></a></li>
                      @endforeach
 
                      <!-- <li _src="url(/home/images/banner.jpg)" style="background:#000 center 0 no-repeat;"><a href="https://shop116998991.taobao.com/"> -->
@@ -27,9 +27,6 @@
     </div>   
 
 
-</html>
-
-
     <!------------main---------------->
     <div class="main">
         <!------热门推荐-------->
@@ -38,7 +35,7 @@
             <div class="clr20"></div>
             <div class="left">
                 <!-- 广告位置1 start-->
-            	<div class="img"><a href="#"><img src="/home/images/501.gif" width="619" height="309" /></a></div>
+            	<div class="img"><a href="{{$ad[0]['aurl']}}"><img src="{{$ad[0]['url']}}" width="619" height="309" /></a></div>
                 <!-- 广告位置1 end -->
                 <!-- 商品填充处 -->
                 @foreach($sale as $k =>$v)
@@ -62,17 +59,15 @@
                 </ul>
             </div>
         </div>
-        <!-- 第一个广告 -->
-        <?php $data = App\Models\admin\Ad::limit(5)->get()->toArray() ?>
-        @foreach($data as $k=>$v)
-             @if($k==0)
+        <!-- 第二个广告 -->
+        
+     
             <div class="list-ad1">
                
-                <a href=""><img src="{{$v['url']}}"></a>
+                <a href="{{$ad[1]['aurl']}}"><img src="{{$ad[1]['url']}}"></a>
                
             </div>
-            @endif
-        @endforeach
+
        
         <!------遍历各分类中商品------->
         @foreach($goods as $k=>$v)
@@ -96,7 +91,7 @@
                 <?php $i=$k+2;?>
                 @if(!empty($data[$i]))
                     <div class="list-ad1" >
-                        <a href=""><img src="{{--$data[$i]['url']--}}"></a>
+                        <a href="{{$ad[$i]['aurl']}}"><img src="{{$ad[$i]['url']}}"></a>
                     </div>
                 @endif
             @endif  

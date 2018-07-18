@@ -23,8 +23,10 @@
                     @endforeach
                 </ul>
             </div>
+            <div>
              @foreach ($content as $k =>$v)
              @if($k == 0)
+
                 <div class="service_k_right">
                 	<div class="service_k_right_title"><h2>{{$v->title}}</h2></div>
                     <div class="service_k_right_w">
@@ -40,6 +42,7 @@
                 </div>
                 @endif   
              @endforeach
+            </div>
         </div>
     </div>
 @endsection	
@@ -50,8 +53,10 @@
         $(this).attr('class','active');
         i = $(this).index();
         $(this).siblings().removeClass();
+        $('.service_k').find('.service_k_right').eq(i).attr('style',"display: black");
+        $('.service_k').find('.service_k_right').eq(i).siblings().attr('style',"display: none");
     })
-    $('.service_k').find('service_k_right')
+  
 
     
 

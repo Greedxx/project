@@ -54,8 +54,8 @@
                     <div class="mws-form-col-2-6 " class="small">
                         <label class="mws-form-label">选择类别</label>
                         <select name='type'>
-                            <option  @if($data->type=="商品文章") selected @endif value="商品文章" >商品文章</option>
-                            <option  @if($data->type=="商品文章") selected @endif value="商品文章" >网站文章</option>
+                            <option  value="1"  @if($data->type=="1") selected @endif >服务帮助</option>
+                            <option  value="2"  @if($data->type=="2") selected @endif >商品评测</option>
                         </select>
                     </div>
                 </div>

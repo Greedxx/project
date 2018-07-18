@@ -155,7 +155,10 @@
                             {{$v->id}}
                         </td>
                         <td class="text">
-                            {{$v->type}}
+                            @if($v->type==1) 服务帮助
+                            @elseif($v->type==2) 商品推荐
+                            @else 其他
+                            @endif 
                         </td>
                         <td class="text">
                             {{$v->keywords}}
@@ -172,7 +175,7 @@
                         <td class="text">
                             {{$v->count}}
                         </td>
-                        <td class="text">
+                        <td class="text sort" >
                             {{$v->sort}}
                         </td>
                         <td  >
@@ -246,4 +249,54 @@
     </div>
 </div>
 
+@endsection
+
+@section('js')
+
+<!-- <script src="/Validate/dist/jquery.validate.min.js"></script>
+<script src="/Validate/dist/localization/messages_zh.js"></script> -->
+<script type="text/javascript">
+    $('.sort').dblclick(function(){
+        va = $(this);
+        val = $(this).html().trim();
+        console.log(val);
+        //表单验证
+        id = $(this).parent().find('td').first().text().trim();
+        console.log(id);
+        va.append('<input type="text" id="bb"  width="10px" nValidate="{number:true}"> ');
+        // $(document).ready(function(){
+            //获取添加的文本框默认获取
+             $("#bb").focus();
+             // $("#bb").select();
+        // })
+        
+
+        $("#bb").blur(function(){
+            //发送ajax 把 sort
+            val2 =$(this).val().trim();
+            //验证val2 正则匹配一下是否正确 正确的时候继续执行 不正确时候弹出输入错误
+            
+            // if(empty(val2)){
+                if(val != val2){
+                     $.get('/admin/ajaxtao/csort',{id:id,val:val2},function(data){
+                        console.log(data);
+
+                        if(data == 1){
+                            va.html(val2);
+                        }else{
+                            va.html(val);
+                        }               
+                     })
+                }else{
+                    va.html(val);
+                }
+            // }else{
+            //     va.html(val);
+            // }
+
+
+             
+        })
+    })
+</script>
 @endsection

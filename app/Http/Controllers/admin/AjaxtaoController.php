@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Goods;
 use App\Models\GoodsImg;
+use App\Models\Content;
 
 class AjaxtaoController extends Controller
 {
@@ -37,6 +38,29 @@ class AjaxtaoController extends Controller
                 echo  $status;
             }else{
                 echo 4 ;
+            }
+        // }catch(\Exception $e){
+        //     return back();
+        // }
+    }
+
+    public function csort(Request $request)
+    {
+        $id = $request->input('id');
+        $sort = $request->input('val');
+
+        // dump($id);
+        // echo $sort;
+        // die;
+        // dd($status);
+        // echo 111;
+        // try{
+            $res = Content::where('id',$id)->update(['sort'=>$sort]);
+            // $res = GoodsImg::where('id',$)->update(['statu'=>$status]);
+            if($res){
+                echo  1;
+            }else{
+                echo -1 ;
             }
         // }catch(\Exception $e){
         //     return back();
