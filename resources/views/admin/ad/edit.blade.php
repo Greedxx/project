@@ -31,7 +31,12 @@
                         <input type="text" class="small" name='adname' value="{{$res->adname}}">
                     </div>
                 </div>
-
+                 <div class="mws-form-row">
+                    <label class="mws-form-label">广告链接地址</label>
+                    <div class="mws-form-item">
+                        <input type="text" class="small" name='aurl' value="{{$res->aurl}}">
+                    </div>
+                </div>
                 <div class="mws-form-row">
                     <label class="mws-form-label">广告描述内容</label>
                         <div class="mws-form-item">
@@ -50,22 +55,7 @@
                 </div>
 
                 
-                
-                <div class="mws-form-row">
-                    <label class="mws-form-label">状态</label>
-                    <div class="mws-form-item clearfix">
-                        <ul class="mws-form-list inline">
-                            <li><input type="radio"  value='1' @if ($res->status =='1') checked ='checked'
-
-                            @endif
-                            > <label>发布</label></li>
-                            <li><input type="radio"  value='0'
-                            @if ($res->status =='1') checked ='checked')
-
-                            @endif> <label>禁用</label></li>
-                        </ul>
-                    </div>
-                </div>
+               
             </div>
             <div class="mws-button-row">
 

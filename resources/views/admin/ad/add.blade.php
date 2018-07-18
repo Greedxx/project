@@ -31,7 +31,12 @@
                         <input type="text" class="small" name='adname'>
                     </div>
                 </div>
-
+                <div class="mws-form-row">
+                    <label class="mws-form-label">广告链接地址</label>
+                    <div class="mws-form-item">
+                        <input type="text" class="small" name='aurl'>
+                    </div>
+                </div>
                 <div class="mws-form-row">
                     <label class="mws-form-label">广告描述内容</label>
                         <div class="mws-form-item">

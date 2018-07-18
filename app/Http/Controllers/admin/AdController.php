@@ -55,19 +55,22 @@ class AdController extends Controller
        // dump ($request);
         $this->validate($request, [
         'adname' => 
-        'required|regex:/\S/',
+        'required',
+        'aurl' => 
+        'required',
         'content' =>
-        'required|regex:/\S/',
-        //'url' =>
-       // 'required|regex:/\S/',
+        'required',
+        'url' =>
+       'required',
          
     ],
         [
             'adname.required'=>'广告名称不能为空',
-            //'content.regex'=>'评论格式不正确',
-            'content.required'=>'广告描述不能为空',
+        
+            'aurl.required'=>'广告链接地址不能为空',
 
-           // 'url.required'=>'广告路径不能为空'
+           'url.required'=>'广告路径不能为空',
+           'content.required'=>'广告描述不能为空',
 
         ]);
         $res = $request->except(['_token']);
@@ -87,15 +90,16 @@ class AdController extends Controller
         }
         
        // dd($res);
-   try{
+   // try{
         $data = Ad::create($res);
-        //dd($data);
+        // dd($data);
         if($data){
             return redirect('/admin/ad')->with('success','添加成功');
           }
-       }catch(\Exception $e){
-            return back()->with('error','添加失败');
-        }
+
+        //    }catch(\Exception $e){
+        //     return redirect('/admin/ad')->with('error','添加失败');
+        // }
 
     }
 
@@ -167,7 +171,7 @@ class AdController extends Controller
             return redirect('/admin/ad')->with('success','修改成功');
          }
         }catch(\Exception $e){
-           return back()->width('error');
+           return redirect('/admin/ad')->with('error','修改失败');
         }
     }
 

@@ -79,6 +79,10 @@
                            图片名称
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 126px;" aria-label="CSS grade: activate to sort column ascending">
+                           链接地址
+                        </th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 200px;" aria-label="Browser: activate to sort column ascending">
                             图片url
                         </th>
@@ -108,6 +112,9 @@
                         </td>
                         <td class="">
                             {{$v->lname}}
+                        </td>
+                        <td class="">
+                            {{$v->lurl}}
                         </td>
                          <td class="">
                             {{$v->url}}

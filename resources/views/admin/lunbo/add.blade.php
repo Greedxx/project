@@ -32,6 +32,12 @@
                     </div>
                 </div>
 
+                <div class="mws-form-row">
+                    <label class="mws-form-label">链接地址</label>
+                    <div class="mws-form-item">
+                        <input type="text" class="small" name='lurl'>
+                    </div>
+                </div>
 
                 <div class="mws-form-row">
                     <label class="mws-form-label">轮播路径</label>

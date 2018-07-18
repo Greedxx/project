@@ -25,6 +25,6 @@ class Ad extends Model
      *
      * @var array
      */
-    protected $fillable = ['adid','adname','url','content'];
+    protected $fillable = ['adid','adname','url','content','aurl'];
 }
 
