@@ -14,12 +14,19 @@
         //前台首页
         Route::any('/','home\IndexController@index');
         Route::any('/test','home\TestController@test');
+        
 
         //列表页
         Route::any('/list','home\GoodsListController@index');
 
         //详情页
         Route::any('/good/{id?}','home\GoodsInfoController@index');
+        
+        //收藏添加
+        Route::any('/shoucang/add','home\ShoucangController@add');
+        
+        //收藏删除
+        Route::any('/shoucang/del','home\ShoucangController@del');
         
         //购物车添加
         Route::any('/cartadd','home\GoodsInfoController@cartadd');
@@ -32,6 +39,8 @@
 
         // 购物车
         Route::any('/shopcart','home\ShopCartController@index');
+        
+        
     });
 
 

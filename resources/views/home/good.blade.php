@@ -138,7 +138,15 @@
                 </div>
                 <div class="pro-detai-cart">
                     <a href="javascript:void(0);" class="cart"><p>加入购物车</p></a>
-                    <a href="javascript:void(0);" class="collection"></a>
+                    <!-- 1 是添加变红 2 是删除变灰  0 是未登录 -->
+                    @if($data['status']==1)
+                    <a href="/shoucang/add?uid={{$data['uid']}}&gid={{$data['id']}}" class="collection" style="background-image: url(/home/images/a1.png)"></a>
+
+                    @elseif($data['status']==2)
+                    <a href="/shoucang/del?uid={{$data['uid']}}&gid={{$data['id']}}" class="collection" style="background-image: url(/home/images/a.png) "></a>
+                    @elseif($data['status']==0)
+                    <a href="/home/login" class="collection" style="background-image: url(/home/images/a1.png)"></a>
+                    @endif
                 </div>
                 <div class="service">
                     <dl>
@@ -532,6 +540,15 @@
         })
 
 
+  </script>
+  <script type="text/javascript">
+    $('.collection').click(function(){
+        // $(this).attr('href','shoucang/del'); 
+        // $(this).attr('background-image','url(/home/images/05.jpg)'); 
+
+        window.location.reload(true); 
+    })
+    
   </script>
 @endsection
     

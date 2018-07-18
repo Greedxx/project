@@ -54,8 +54,8 @@
                     <div class="mws-form-col-2-6 " class="small">
                         <label class="mws-form-label">选择类别</label>
                         <select name='type'>
-                            <option value="商品文章">商品文章</option>
-                            <option value="网站文章">网站文章</option>
+                            <option value="1" selected>服务指南</option>
+                            <option value="2">商品评测</option>
                         </select>
                     </div>
                 </div>

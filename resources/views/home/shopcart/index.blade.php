@@ -418,21 +418,6 @@ window.onload = function () {
 
 	
 
-
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
 	</script>
 	<!-- Js 结尾-->
 

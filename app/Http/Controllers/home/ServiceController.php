@@ -10,7 +10,7 @@ class ServiceController extends Controller
 {
     public function index(){
 
-        $content=Content::where('status','1')->orderBy('sort')->get();
+        $content=Content::where('type','1')->where('status','1')->orderBy('sort')->get();
 
         // dd($content);
         return view('home.service',['content'=>$content]);
