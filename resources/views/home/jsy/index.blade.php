@@ -3,15 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>结算页</title>
-    <link href="./css/foot.css" rel="stylesheet"  type="text/css" />
+    
     <link href="./css/jiesuanye.css" rel="stylesheet"  type="text/css" />
 
 </head>
 <body>
 	<div id='top'>
 		<div id='top-m'>
-			<span id='top-m-l'>送至：北京</span>
-			<span id='top-m-r'>景水 退出 | 我的订单 | 我的京东 | 京东会员 | 企业采购 | 手机京东 | 关注京东 | 客户服务 | 网站导航</span>
+			
+			<span id='top-m-r'>
+            
+            
+                @if(session('userinfo'))
+                    <a href="/home/users/{{session('userinfo.id')}}/edit">
+                         @if(session('userinfo.status') == 1)   
+                         <img src="/images/crown.png" /> <?php echo session('userinfo.username')   ?></a> | <a href="/home/lologin">退出</a>
+                         @endif 
+                         @if(session('userinfo.status') == 0)
+                         <?php echo session('userinfo.username')   ?></a> | <a href="/home/lologin">退出</a>
+                         @endif
+                @else
+                    <a href="/home/login">请登录</a> | <a href="/home/zhuce">免费注册</a>
+                @endif
+                    <a href="/home/user">我的订单</a> | <a href="javascript:;">服务中心</a>
+            
+            
+            </span>
 		</div>
 	</div>
 	<img id='top-img' src="./images/top.png" alt="">
@@ -25,7 +42,7 @@
 		 <span id='o-tel'>135****2258</span>
 		 <div id='o-line'></div>
 		 <span id='o-shqd'>送货清单</span>
-		 <span id='o-jgsm'>价格说明   返回修改购物车</span>
+		 <span id='o-jgsm'>价格说明   <a href="/shopcart">返回修改购物车</a></span>
 		 <div id='o-content'>
 		    
 		     	<img src="./images/pstime.png" alt="">

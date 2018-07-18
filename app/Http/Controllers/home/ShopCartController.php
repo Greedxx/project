@@ -34,8 +34,9 @@ class ShopCartController extends Controller
         Session::put(['cart'=>$arr]);
     }
 
-    public function jsy()
-    {
+    public function jsy(Request $request)
+    {   
+        
         return view('home.jsy.index');
     }
 }
