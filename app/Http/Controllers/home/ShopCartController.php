@@ -33,4 +33,9 @@ class ShopCartController extends Controller
         }
         Session::put(['cart'=>$arr]);
     }
+
+    public function jsy()
+    {
+        return view('home.jsy.index');
+    }
 }

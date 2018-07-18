@@ -166,6 +166,7 @@
     Route::get('/getdel','home\ShopCartController@getdel');
     Route::get('/getsdel','home\ShopCartController@getsdel');
     
+    Route::any('/jsy','home\ShopCartController@jsy');
 
     
  
