@@ -145,7 +145,7 @@
 
 
 
-<div class="wushi"></div>
+<div class="ershi"></div>
 
 <div class="catbox">
 	@if(session('cart'))
