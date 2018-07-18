@@ -52,7 +52,7 @@
                             <li><input type="radio" name='sex' value='0' @if($res->sex == '0') checked='checked' @endif> <label>男</label></li>
 
 
-                            <li><input type="radio" name='sex' value='1'  @if($res->sex == '1') checked='checked' @endif> <label>nv</label></li>
+                            <li><input type="radio" name='sex' value='1'  @if($res->sex == '1') checked='checked' @endif> <label>女</label></li>
 
                         </ul>
                     </div>
@@ -75,7 +75,10 @@
     						<li><input type="radio" name='status' value='1' @if($res->status == '1') checked='checked' @endif> <label>高级会员</label></li>
 
 
-    						<li><input type="radio" name='status' value='0'  @if($res->status == '0') checked='checked' @endif> <label>普通会员</label></li>
+                            <li><input type="radio" name='status' value='0'  @if($res->status == '0') checked='checked' @endif> <label>普通会员</label></li>
+                            
+
+                            <li><input type="radio" name='status' value='2'  @if($res->status == '2') checked='checked' @endif> <label>禁用</label></li>
 
     					</ul>
     				</div>

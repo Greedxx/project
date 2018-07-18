@@ -36,8 +36,11 @@ class LoginController extends Controller
           }
 
           $request->session()->put('userinfo', $userinfo);
-           
-           return redirect('/home/user');
+          if((session('userinfo.status') == '2')){
+            return back()->with('error','账户被禁用');
+          }
+             
+           return redirect('/');
    }
    
    public function lologin()

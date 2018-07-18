@@ -15,10 +15,10 @@ class LoginController extends Controller
           
           return view('admin.login.login');
       }
-    	
+      
       public function dologin(Request $request)
-    	{
-      		$res = $request->except('_token');
+      {
+          $res = $request->except('_token');
 
           $vname = Admin::where('vname',$res['vname'])->first();
 
@@ -41,14 +41,18 @@ class LoginController extends Controller
 
             return back()->with('error','验证码不正确');
           }
-
-
-          // session(['vname'=>$vname->vname]);
+         
+          $request->session()->put('admininfo', $vname);
+          
+           if ((session('admininfo.buff') == '0')) {
+                      return back()->with('error','账户被禁用');
+                    }
+          session(['vname'=>$vname->vname]);
           // session(['profile'=>$vname->profile]]);
           return redirect('/admin/admin');
 
-  	   }
-  	public function captcha()
+       }
+    public function captcha()
     {
          $phrase = new PhraseBuilder;
       // 设置验证码位数

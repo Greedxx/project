@@ -75,7 +75,7 @@
                     @foreach($res as $k => $v)
 
                     <tr class="@if($k % 2 == 1)  odd   @else even  @endif ">
-                        <td class="">
+                        <td class="vname">
                             {{$v->aid}}
                         </td>
                         <td class="vname">
@@ -83,7 +83,7 @@
                         </td>
                        
                     
-                         <td class=" ">
+                         <td class="vname">
                            @if($v->buff == '1')
                                <div class="btn btn-success kai" aid="{{$v->aid}}" value="0" >开启</div>
 
@@ -117,7 +117,7 @@
                                </script>
                             
                         </td>
-                         <td class=" ">
+                         <td class="vname">
                             <a href="/admin/admin/{{$v->aid}}/edit" class='btn btn-info'>修改</a>
                             <form action="/admin/admin/{{$v->aid}}" method='post' style='display:inline'>
                                 
@@ -135,9 +135,7 @@
                 </tbody>
             </table>
 
-            <div class="dataTables_info" id="DataTables_Table_1_info">
-                Showing 1 to 10 of 57 entries
-            </div>
+           
 
             <style>
                 .pagination li{
@@ -185,6 +183,9 @@
                 #paginate ul{
                     
                     margin:0px;
+                }
+                .vname{
+                    text-align: center;
                 }
             </style>
 

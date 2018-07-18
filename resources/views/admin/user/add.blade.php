@@ -85,7 +85,8 @@
     				<div class="mws-form-item clearfix">
     					<ul class="mws-form-list inline">
     						<li><input type="radio" name='status' value='1' > <label>高级会员</label></li>
-    						<li><input type="radio" name='status' value='0' checked='checked'> <label>普通会员</label></li>
+                            <li><input type="radio" name='status' value='0' checked='checked'> <label>普通会员</label></li>
+                            <li><input type="radio" name='status' value='2' > <label>禁用</label></li>
     					</ul>
     				</div>
     			</div>

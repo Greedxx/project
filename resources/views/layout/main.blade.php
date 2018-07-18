@@ -52,9 +52,15 @@
         <div class="top-c">
     
             <div class="top-right">
-                <p>嗨，欢迎来到仙女商城</p>
+               <p>嗨，欢迎来到仙女商城</p>
                 @if(session('userinfo'))
-                    <p><a href="/home/users/{{session('userinfo.id')}}/edit"><?php echo session('userinfo.username')   ?></a> | <a href="/home/lologin">退出</a></p>
+                    <p><a href="/home/users/{{session('userinfo.id')}}/edit">
+                         @if(session('userinfo.status') == 1)   
+                         <p><img src="/images/crown.png" /> <?php echo session('userinfo.username')   ?></a> | <a href="/home/lologin">退出</a></p>
+                         @endif 
+                         @if(session('userinfo.status') == 0)
+                         <p><?php echo session('userinfo.username')   ?></a> | <a href="/home/lologin">退出</a></p>
+                         @endif  
                 @else
                     <p><a href="/home/login">请登录</a> | <a href="/home/zhuce">免费注册</a></p>
                 @endif

@@ -153,7 +153,7 @@
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
-                        Hello, 管理员
+                        Hello, {{session('vname')}}
                     </div>
                     <ul>
                     	

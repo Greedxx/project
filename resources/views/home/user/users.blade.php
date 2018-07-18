@@ -34,7 +34,7 @@
         <dd>
       <ul>
         <li><a href="/home/users/{{session('userinfo.id')}}/edit">用户信息</a></li>
-        <li><a href="#">我的收藏</a></li>
+        <li><a href="/home/keep">我的收藏</a></li>
         <li><a href="#">我的留言</a></li>
         <li><a href="#">我的标签</a></li>
         <li><a href="#">我的推荐</a></li>
@@ -52,7 +52,7 @@
 
  <div class="right_style">
     
-    <div class="Notice"><span>系统最新公告:</span>为了更好地服务于【每日鲜】的会员朋友及读者 发表意见。</div>
+    <div class="Notice"><span>系统最新公告:</span>修改密码后需重新登录</div>
    <!--样式-->
      <div class="user_info_p_s  clearfix">
        <!--订单记录-->

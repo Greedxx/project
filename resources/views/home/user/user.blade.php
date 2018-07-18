@@ -49,7 +49,7 @@
                                     <a href="/home/users/{{session('userinfo.id')}}/edit">用户信息</a>
                                 </li>
                                 <li>
-                                    <a href="#">我的收藏</a>
+                                    <a href="/home/keep">我的收藏</a>
                                 </li>
                                 <li>
                                     <a href="#">我的留言</a>

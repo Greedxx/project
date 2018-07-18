@@ -153,13 +153,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //表单验证
+         //表单验证
 
      
         
         $res = $request->except('_token','_method','profile');
 
-        // dump($res);
+        // dd($request->hasFile('profile'));
         if($request->hasFile('profile')){
             //设置名字
             $name = str_random(10).time();
@@ -170,27 +170,38 @@ class UserController extends Controller
             //移动
             $request->file('profile')->move('./uploads/',$name.'.'.$suffix);
 
-        }
-
-      
-       //存数据表
-        $res['profile'] = Config::get('app.path').$name.'.'.$suffix;
-
-
-         //模型   出错
-        try{
-            $data = User::where('id',$id)->update($res);
-
-            if($data){
-                return redirect('/admin/user')->with('success','修改成功');
-            }
-        }catch(\Exception $e){
-
-            return back()->with('error');
+            //存数据表
+            $res['profile'] = Config::get('app.path').$name.'.'.$suffix;
 
         }
+            
+            if(!($request->hasFile('profile'))){
+                   
+                    try{
+                    $data = User::where('id',$id)->update($res);
 
+                    if($data){
+                        return redirect('/admin/user')->with('success','修改成功');
+                    }
+                }catch(\Exception $e){
 
+                    return back()->with('error');
+
+                }
+
+            }   
+
+         try{
+                $data = User::where('id',$id)->update($res);
+
+                if($data){
+                    return redirect('/admin/user')->with('success','修改成功');
+                }
+            }catch(\Exception $e){
+
+                return back()->with('error');
+
+            } 
     }
 
     /**

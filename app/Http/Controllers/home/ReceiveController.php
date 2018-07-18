@@ -82,7 +82,7 @@ class ReceiveController extends Controller
             // dump($date);
             if($data){
                 return redirect('/home/receive');
-            }
+            } 
         }catch(\Exception $e){
 
             return back();

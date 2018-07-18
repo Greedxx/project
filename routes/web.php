@@ -41,6 +41,8 @@
         Route::any('home/user','home\UserController@index');
         //收货地址
         Route::resource('home/receive','home\ReceiveController');
+        //收藏
+        Route::get('home/keep','home\KeepController@keep');
         //用户信息修改
         Route::resource('home/users','home\UsersController');
         //密码修改
@@ -51,7 +53,7 @@
     //购物车
     // Route::any('/good','home\CartController@index');
     
-    Route::group([],function(){
+    Route::group(['middleware'=>'adminLogin'],function(){
         // 后台首页
         Route::any('/admin/index','admin\IndexController@index');
         
@@ -106,8 +108,7 @@
        //修改密码
         Route::any('/admin/xian','admin\PassController@xian');
         Route::any('/admin/gai','admin\PassController@gai');
-        //登陆
-        Route::any('admin/login','Admin\LoginController@login');
+       
 
 
           //广告管理
@@ -124,10 +125,15 @@
 
     //点击修改
     Route::any('admin/ajaxkai','admin\Admincontroller@ajaxkai');
-   
+   //后台退出
     Route::any('admin/dologin','Admin\LoginController@dologin'); 
     //验证码
     Route::get('admin/captcha/','admin\LoginController@captcha');
+    //后台登陆
+    Route::any('admin/login','Admin\LoginController@login');
+
+
+
 
     //前台注册
     Route::any('/home/zhuce','home\ZhuceController@index');
