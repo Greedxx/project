@@ -35,7 +35,6 @@
       <ul>
         <li><a href="/home/users/{{session('userinfo.id')}}/edit">用户信息</a></li>
         <li><a href="/home/keep">我的收藏</a></li>
-        <li><a href="/home/keep">我的收藏</a></li>
         <li><a href="#">我的标签</a></li>
         <li><a href="#">我的推荐</a></li>
         <li><a href="#">我的评论</a></li>
@@ -65,7 +64,7 @@
         <div class="img_link"> <a href="#" class="center "><img src="products/p_4.jpg"></a></div>
         <dl class="xinxi">
          <dt><a href="#" class="name">施华蔻多效修护套包(600ml洗+600ml润+50ml膜)</a></dt>
-         <dd><span class="Price"><b>￥</b>321.00</span><span class="collect_Amount"><i class="iconfont icon-shoucang"></i>345</span></dd>         
+         <dd><span class="Price"><b>￥</b>321.00</span></dd>         
         </dl>
         </div>
        </li>
@@ -85,7 +84,7 @@
     </div>
         </ul>
         <ul class="Shops_list">
-        <div class="Number_Favorites">共收藏：23家店铺</div>
+        
         <li class="">
           <div class="shop_logo">
           

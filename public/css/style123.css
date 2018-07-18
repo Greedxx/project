@@ -42,14 +42,22 @@ body {
 h1 {
     font-size: 2.8em;
     text-align: center;
+<<<<<<< HEAD
     color: #0066cc;
+=======
+    color: #FA7DDC;
+>>>>>>> origin/xiaowang
     font-weight: 800;
     margin-bottom: 1em;
 	letter-spacing: 1px;
 }
 .login-form h2{
     font-size: 2.2em;
+<<<<<<< HEAD
     color: #0066cc;
+=======
+    color: #FA7DDC;
+>>>>>>> origin/xiaowang
     text-align: center;
     margin-bottom: 1.5em;
     line-height: 0.7em;
@@ -88,7 +96,11 @@ h1 {
     padding: .6em 1em;
     margin: 0;
     width: 100%;
+<<<<<<< HEAD
     border: 1px solid rgb(228, 36, 36);
+=======
+    border: 1px solid rgb(245,141,201);
+>>>>>>> origin/xiaowang
     -webkit-appearance: none;
     display: block;
     background: transparent;
@@ -172,9 +184,15 @@ input.checkbox:checked:after {
 /*-- //checkbox --*/
 .login-form input[type="submit"] {
     font-size: 1em;
+<<<<<<< HEAD
     color: #0066ff;
     background:#f9f1f1;
     border: 1px solid #e42424;
+=======
+    color: #FA7DDC;
+    background:#f9f1f1;
+    border: 1px solid rgb(245,141,201);
+>>>>>>> origin/xiaowang
     outline: none;
     cursor: pointer;
     padding: .6em 1em;
@@ -208,7 +226,11 @@ input.checkbox:checked:after {
     letter-spacing: 5px;
 }
 .login-agileits-bottom h6 a {
+<<<<<<< HEAD
     color: #0066cc;
+=======
+    color: #FA7DDC;
+>>>>>>> origin/xiaowang
     transition: 0.5s all ;
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
