@@ -17,10 +17,7 @@
 <head>
  <div class="top">
         <div class="top-c">
-            <div class="top-left">
-                <a href="javascript:;" class="collect">收藏</a>
-                <a href="javascript:;" class="wechat">微信</a>
-            </div>
+          
             <div class="top-right">
                 <p>嗨，欢迎来到仙女商城</p>
                 @if(session('username'))
@@ -28,7 +25,7 @@
                 @else
                     <p><a href="/home/login">请登录</a> | <a href="/home/zhuce">免费注册</a></p>
                 @endif
-                <p><a href="javascript:;">我的订单</a> | <a href="javascript:;">服务中心</a></p>
+                <p>| <a href="javascript:;">服务中心</a></p>
             </div>
         </div>
     </div>
