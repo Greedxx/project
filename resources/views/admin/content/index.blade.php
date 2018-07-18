@@ -175,7 +175,7 @@
                         <td class="text">
                             {{$v->count}}
                         </td>
-                        <td class="text sort" >
+                        <td class="text sort1" >
                             {{$v->sort}}
                         </td>
                         <td  >
@@ -256,18 +256,22 @@
 <!-- <script src="/Validate/dist/jquery.validate.min.js"></script>
 <script src="/Validate/dist/localization/messages_zh.js"></script> -->
 <script type="text/javascript">
-    $('.sort').dblclick(function(){
+    $('.sort1').unbind('dblclick').bind("dblclick",function(e){
+        // return false; 
+        // e.preventDefault();
+        // e.stopPropagation();
         va = $(this);
         val = $(this).html().trim();
         console.log(val);
         //表单验证
         id = $(this).parent().find('td').first().text().trim();
+        $(this).empty();
         console.log(id);
         va.append('<input type="text" id="bb"  width="10px" nValidate="{number:true}"> ');
         // $(document).ready(function(){
             //获取添加的文本框默认获取
              $("#bb").focus();
-             // $("#bb").select();
+             $("#bb").select();
         // })
         
 
@@ -293,6 +297,7 @@
             // }else{
             //     va.html(val);
             // }
+    
 
 
              
