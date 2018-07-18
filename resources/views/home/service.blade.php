@@ -27,15 +27,15 @@
              @foreach ($content as $k =>$v)
              @if($k == 0)
 
-                <div class="service_k_right">
-                	<div class="service_k_right_title"><h2>{{$v->title}}</h2></div>
+                <div class="service_k_right" >
+                	<div class="service_k_right_title"><h2 style="margin-left: 60px;">{{$v->title}}</h2></div>
                     <div class="service_k_right_w">
                     	{!!$v->content!!}
                     </div>
                 </div>
                 @else
                 <div class="service_k_right" style="display: none">
-                    <div class="service_k_right_title"><h2>{{$v->title}}</h2></div>
+                    <div class="service_k_right_title"><h2 style="margin-left: 60px;">{{$v->title}}</h2></div>
                     <div class="service_k_right_w">
                         {!!$v->content!!}
                     </div>
