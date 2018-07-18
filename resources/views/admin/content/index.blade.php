@@ -256,13 +256,14 @@
 <!-- <script src="/Validate/dist/jquery.validate.min.js"></script>
 <script src="/Validate/dist/localization/messages_zh.js"></script> -->
 <script type="text/javascript">
-    $('.sort1').unbind('dblclick').bind("dblclick",function(e){
+    $('.sort1').on("dblclick",function(e){
         // return false; 
         // e.preventDefault();
         // e.stopPropagation();
         va = $(this);
         val = $(this).html().trim();
         console.log(val);
+        $(this).off('dblclick');
         //表单验证
         id = $(this).parent().find('td').first().text().trim();
         $(this).empty();
@@ -280,27 +281,30 @@
             val2 =$(this).val().trim();
             //验证val2 正则匹配一下是否正确 正确的时候继续执行 不正确时候弹出输入错误
             
-            // if(empty(val2)){
+            if(!val2){
+                console.log(val);
+                 va.html(val);
+             }else{
+               
                 if(val != val2){
                      $.get('/admin/ajaxtao/csort',{id:id,val:val2},function(data){
                         console.log(data);
 
                         if(data == 1){
                             va.html(val2);
+                             $(this).bind('dblclick');
                         }else{
                             va.html(val);
+                            $(this).bind('dblclick');
                         }               
                      })
                 }else{
                     va.html(val);
+                     $(this).bind('dblclick');
                 }
-            // }else{
-            //     va.html(val);
-            // }
-    
 
+            }
 
-             
         })
     })
 </script>
