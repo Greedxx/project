@@ -73,7 +73,9 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $res = $request->except('_token','_method','profile');
+        // dd($res);
         
+
         if($request->hasFile('profile')){
             //设置名字
             $name = str_random(10).time(); 
@@ -84,16 +86,36 @@ class UsersController extends Controller
             //移动
             $request->file('profile')->move('./uploads/',$name.'.'.$suffix);
 
+             $res['profile'] = Config::get('app.path').$name.'.'.$suffix;
+
         }
 
-        $res['profile'] = Config::get('app.path').$name.'.'.$suffix;
+         if(!($request->hasFile('profile'))){
+
+                try{
+                $userinfo = User::where('id',$id)->update($res);
+                // dd($userinfo);
+                if($userinfo){
+                    $request->session()->put('userinfo', $userinfo);
+                    return redirect('/home/login');
+                }else{
+                     return back();
+                }
+
+            }catch(\Exception $e){
+                // echo "string";die;
+                return back()->with('error');
+
+             }
+
+         }
         
         try{
             $userinfo = User::where('id',$id)->update($res);
             
             if($userinfo){
                 $request->session()->put('userinfo', $userinfo);
-                return redirect('/home/login')->with('success','修改成功');
+                return redirect('/home/login');
             }
 
         }catch(\Exception $e){
