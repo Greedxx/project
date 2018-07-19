@@ -9,6 +9,8 @@ use App\Models\Goods;
 use App\Models\Cate;
 use App\Models\GoodsImg;
 use App\Models\home\Shoucang;
+use App\Models\admin\Message;
+
 
 class GoodsInfoController extends Controller
 {
@@ -118,7 +120,16 @@ class GoodsInfoController extends Controller
             $data['status']=0;
         }
         //dd($data['status']);
-        return view('home.good',['data'=>$data,'goodsimg'=>$goodsimg,'color'=>$color,'size'=>$size ,'memory'=>$memory,'arrpath'=>$arrpath,'cart'=>$cart]);
+        //查询商品评论
+        try {
+            // $data = \DB::table('message')->where('gid',$id)->get()->toArray();
+            $message = Message::where('gid',$id)->with('user')->get()->toArray();
+        } catch (Exception $e) {
+            
+        }
+
+        // dd($message);
+        return view('home.good',['data'=>$data,'goodsimg'=>$goodsimg,'color'=>$color,'size'=>$size ,'memory'=>$memory,'arrpath'=>$arrpath,'cart'=>$cart,'message'=>$message]);
     }
 
     public function cartadd(Request $request){

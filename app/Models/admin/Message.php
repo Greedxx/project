@@ -23,6 +23,15 @@ class Message extends Model
         return $this->belongsTo('App\Models\admin\Goods','gid','id');
     }
 
+    public function users()
+    {
+        return $this->belongsMany('App\Models\admin\User','uid','id');
+    }
+
+    public function goods(){
+        return $this->belongsMany('App\Models\admin\Goods','gid','id');
+    }   
+
 }
 
 

@@ -27,16 +27,6 @@
             </h2>
         </div>
         
-        <!-- <div class="current-position" style="font-size:20px; line-height: 20px">
-            <h2>路径:<a href="/">首页</a>    
-                {{--dd($arrpath)--}}  
-                @if(!empty($arrpath))     
-                    @foreach($arrpath as $k => $v)
-                        |<a href="/list?id={{$v['cate_id']}}&sort={{$arr['sort']}}">{{$v['cate_name']}}</a>
-                    @endforeach
-                @endif
-            </h2>
-        </div> -->
         <div class="small-class" style="margin-top: -25px ">
         	<p>分类：  <a href="/list" class="active">全部</a>
                     @foreach ($cate as $k => $v)
@@ -66,7 +56,7 @@
                     <div class="img" style="background:url({{$v->thumb}}) no-repeat center center ; background-size:100% 100%;"><a href="/good/{{$v->id}}"></a></div>
                     <div class="w">
                     	<div class="left"><p><a href="/good/{{$v->id}}">{{$v->goods_name}}</a></p><span>{{$v->price}}元</span></div>
-                        <div class="right"><i class="star5"></i><p>18评价</p></div>
+                        <div class="right"><i class="star5"></i><p style="white-space : normal nowrap ;"><p>{{count($v['message'])}}条评价</p></p></div>
                     </div>
                     <div class="mybtn">
                         <a href="/good/{{$v->id}}" class="mybtn1">立即购买</a>

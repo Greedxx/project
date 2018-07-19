@@ -9,6 +9,8 @@ use App\Models\Goods;
 use App\Models\Cate;
 use App\Models\GoodsImg;
 use App\Models\home\Shoucang;
+use App\Models\admin\Message;
+
 
 class GoodsInfoController extends Controller
 {
@@ -97,7 +99,7 @@ class GoodsInfoController extends Controller
 
         $arrpath = $this->getPath($data['cate']['cate_id']);
 
-        // dd(session('userinfo'));
+        //dd(session('userinfo'));
         if ($request->session()->has('userinfo')){
             if(!empty(session('userinfo'))){
                 $data['uid'] = $request->session()->get('userinfo.id');
@@ -117,8 +119,17 @@ class GoodsInfoController extends Controller
         }else{
             $data['status']=0;
         }
-        // dd($data['status']);
-        return view('home.good',['data'=>$data,'goodsimg'=>$goodsimg,'color'=>$color,'size'=>$size ,'memory'=>$memory,'arrpath'=>$arrpath,'cart'=>$cart]);
+        //dd($data['status']);
+        //查询商品评论
+        try {
+            // $data = \DB::table('message')->where('gid',$id)->get()->toArray();
+            $message = Message::where('gid',$id)->with('user')->get()->toArray();
+        } catch (Exception $e) {
+            
+        }
+
+        // dd($message);
+        return view('home.good',['data'=>$data,'goodsimg'=>$goodsimg,'color'=>$color,'size'=>$size ,'memory'=>$memory,'arrpath'=>$arrpath,'cart'=>$cart,'message'=>$message]);
     }
 
     public function cartadd(Request $request){
@@ -196,7 +207,6 @@ class GoodsInfoController extends Controller
         }
 
     }
-
 
 
 }
