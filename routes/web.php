@@ -13,6 +13,7 @@
     Route::group([],function(){
         //前台首页
         Route::any('/','home\IndexController@index');
+
         Route::any('/test','home\TestController@test');
         
 
@@ -58,6 +59,8 @@
         //密码修改
         Route::any('home/xiu','home\PassController@xiu');
         Route::any('home/gai','home\PassController@gai');
+        //密码
+        Route::any('home/success',function(){ return view('home.success');});
     }); 
 
     //购物车
@@ -103,6 +106,9 @@
 
         //ajax gpic - 图片开关
         Route::any('/admin/ajaxtao/gpicstatus','admin\AjaxtaoController@gpicstatus');
+
+        //ajax content sort - 改变文章排序
+        Route::any('/admin/ajaxtao/csort','admin\AjaxtaoController@csort');
 
 
 
@@ -167,6 +173,7 @@
     Route::get('/getdel','home\ShopCartController@getdel');
     Route::get('/getsdel','home\ShopCartController@getsdel');
     
+    Route::any('/jsy','home\ShopCartController@jsy');
 
     
  

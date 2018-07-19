@@ -175,7 +175,7 @@
                         <td class="text">
                             {{$v->count}}
                         </td>
-                        <td class="text sort" >
+                        <td class="text sort1" >
                             {{$v->sort}}
                         </td>
                         <td  >
@@ -256,46 +256,55 @@
 <!-- <script src="/Validate/dist/jquery.validate.min.js"></script>
 <script src="/Validate/dist/localization/messages_zh.js"></script> -->
 <script type="text/javascript">
-    $('.sort').dblclick(function(){
+    $('.sort1').on("dblclick",function(e){
+
         va = $(this);
+
         val = $(this).html().trim();
-        console.log(val);
-        //表单验证
+
+        $(this).off('dblclick');
+
         id = $(this).parent().find('td').first().text().trim();
-        console.log(id);
+
+        $(this).empty();
+
         va.append('<input type="text" id="bb"  width="10px" nValidate="{number:true}"> ');
-        // $(document).ready(function(){
-            //获取添加的文本框默认获取
-             $("#bb").focus();
-             // $("#bb").select();
-        // })
-        
+
+        $("#bb").focus();
+
+        $("#bb").select();
 
         $("#bb").blur(function(){
-            //发送ajax 把 sort
+            //获取输入的val2
             val2 =$(this).val().trim();
-            //验证val2 正则匹配一下是否正确 正确的时候继续执行 不正确时候弹出输入错误
-            
-            // if(empty(val2)){
-                if(val != val2){
-                     $.get('/admin/ajaxtao/csort',{id:id,val:val2},function(data){
-                        console.log(data);
 
+            //对val2判断
+            if(!val2){
+                 va.html(val);
+             }else{
+               
+                if(val != val2){
+
+                     $.get('/admin/ajaxtao/csort',{id:id,val:val2},function(data){
+                        // console.log(data);
                         if(data == 1){
                             va.html(val2);
+                             $('.sort1').bind('dblclick');
                         }else{
                             va.html(val);
+                            $('.sort1').bind('dblclick');
                         }               
                      })
+
                 }else{
+
                     va.html(val);
+                    $('.sort1').bind('dblclick');
+                    
                 }
-            // }else{
-            //     va.html(val);
-            // }
 
+            }
 
-             
         })
     })
 </script>

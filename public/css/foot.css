@@ -1,0 +1,8 @@
+/* 底 部 */
+#bottom{height:100px;background-color:#F5F5F5;}
+#b_m{margin:0px auto;width:1210px;}
+#b_m>img{float:left;margin-left:10px;margin-top:20px;margin-right:72px;}
+#footer{margin:0px auto;width:1210px;height:300px;}
+#footer dl{float:left;margin-right:120px;}
+#footer dt{height:30px;}
+#footer dd{font-size:12px;margin-left:0px;line-height:20px;}
