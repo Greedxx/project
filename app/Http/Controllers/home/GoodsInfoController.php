@@ -97,7 +97,7 @@ class GoodsInfoController extends Controller
 
         $arrpath = $this->getPath($data['cate']['cate_id']);
 
-        dd(session('userinfo'));
+        // dd(session('userinfo'));
         if ($request->session()->has('userinfo')){
             if(!empty(session('userinfo'))){
                 $data['uid'] = $request->session()->get('userinfo.id');
@@ -117,7 +117,7 @@ class GoodsInfoController extends Controller
         }else{
             $data['status']=0;
         }
-        dd($data['status']);
+        // dd($data['status']);
         return view('home.good',['data'=>$data,'goodsimg'=>$goodsimg,'color'=>$color,'size'=>$size ,'memory'=>$memory,'arrpath'=>$arrpath,'cart'=>$cart]);
     }
 
