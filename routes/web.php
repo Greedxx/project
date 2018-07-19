@@ -178,6 +178,7 @@
     Route::get('/getsdel','home\ShopCartController@getsdel');
     
     Route::any('/jsy','home\ShopCartController@jsy');
+    Route::any('/ordsuccess','home\ShopCartController@ordsuccess');
 
     //ajaxtao 默认收货地址
     Route::any('/ajaxtao/defrev','admin\AjaxtaoController@defrev');
