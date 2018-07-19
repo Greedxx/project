@@ -72,4 +72,9 @@ class Goods extends Model
     {
         return $this->belongsTo('App\Models\Cate','cate_id','cate_id');
     }
+
+    public function message()
+    {
+      return $this->hasMany('App\Models\admin\Message','gid','id');
+    }
 }

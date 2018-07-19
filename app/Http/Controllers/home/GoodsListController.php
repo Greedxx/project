@@ -142,7 +142,7 @@ class GoodsListController extends Controller
                         $arr['keyword'] = $keyword;
 
 
-                })->orderBy($sort,$asc)->paginate(12)->appends($request->all()); 
+                })->orderBy($sort,$asc)->with('message')->paginate(12)->appends($request->all()); 
 
                 // dd($good);
             } 
