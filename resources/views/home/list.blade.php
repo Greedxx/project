@@ -52,12 +52,11 @@
         <div class="products-list" id="products-list">
         	<ul>
                 @foreach($good as $k =>$v)
-                <?php dump($v['message']) ?>
                 <li >
                     <div class="img" style="background:url({{$v->thumb}}) no-repeat center center ; background-size:100% 100%;"><a href="/good/{{$v->id}}"></a></div>
                     <div class="w">
                     	<div class="left"><p><a href="/good/{{$v->id}}">{{$v->goods_name}}</a></p><span>{{$v->price}}元</span></div>
-                        <div class="right"><i class="star5"></i><p>18评价</p></div>
+                        <div class="right"><i class="star5"></i><p style="white-space : normal nowrap ;"><p>{{count($v['message'])}}条评价</p></p></div>
                     </div>
                     <div class="mybtn">
                         <a href="/good/{{$v->id}}" class="mybtn1">立即购买</a>
