@@ -37,7 +37,7 @@
         <li><a href="/home/keep">我的收藏</a></li>
         <li><a href="#">我的标签</a></li>
         <li><a href="#">我的推荐</a></li>
-        <li><a href="#">我的评论</a></li>
+        <li><a href="/home/pinglun">我的评论</a></li>
       </ul>
     </dd>
     </dl>

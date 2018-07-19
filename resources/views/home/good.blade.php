@@ -138,7 +138,7 @@
                 </div>
                 <div class="pro-detai-cart">
                     <a href="javascript:void(0);" class="cart"><p>加入购物车</p></a>
-                    <!-- 1 是添加变红 2 是删除变灰  0 是未登录 -->
+                    <!-- 1 是原来是灰色添加变红 2 是原来是红色删除变灰  0 是未登录颜色为灰色先去登陆 -->
                     @if($data['status']==1)
                     <a href="/shoucang/add?uid={{$data['uid']}}&gid={{$data['id']}}" class="collection" style="background-image: url(/home/images/a1.png)"></a>
 

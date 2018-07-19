@@ -54,6 +54,8 @@
         Route::resource('home/mo','home\ReceiveController@mo');
         //收藏
         Route::get('home/keep','home\KeepController@keep');
+        //用户评论
+        Route::get('home/pinglun','home\PinglunController@pinglun');
         //用户信息修改
         Route::resource('home/users','home\UsersController');
         //密码修改
