@@ -531,11 +531,11 @@
                     if(data == 1){
                         swal("好的!", "已加入购物车", "success");
                         //需要等待两秒
-                        setTimeout(function(){window.location.reload();},2000);
+                        setTimeout(function(){window.location.reload();});
                         
                     }else{
                         alert('加入失败');
-                        setTimeout(function(){window.location.reload();},2000);
+                        setTimeout(function(){window.location.reload();});
                     }
                 });
 
