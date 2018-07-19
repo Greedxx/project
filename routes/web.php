@@ -62,7 +62,7 @@
         Route::any('home/xiu','home\PassController@xiu');
         Route::any('home/gai','home\PassController@gai');
         //密码
-        Route::any('home/success',function(){ return view('home.success');});
+        
     }); 
 
     //购物车
@@ -175,8 +175,9 @@
     Route::get('/getdel','home\ShopCartController@getdel');
     Route::get('/getsdel','home\ShopCartController@getsdel');
     
+    // 购物车  结算成功页 
     Route::any('/jsy','home\ShopCartController@jsy');
-    Route::any('/ordsuccess','home\ShopCartController@ordsuccess');
+  
 
-    
+    Route::any('/ordsuccess','home\ShopCartController@ordsuccess');
  

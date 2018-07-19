@@ -97,7 +97,7 @@ class GoodsInfoController extends Controller
 
         $arrpath = $this->getPath($data['cate']['cate_id']);
 
-         // dd(session('userinfo'));
+        // dd(session('userinfo'));
         if ($request->session()->has('userinfo')){
             if(!empty(session('userinfo'))){
                 $data['uid'] = $request->session()->get('userinfo.id');
