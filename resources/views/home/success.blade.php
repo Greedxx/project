@@ -25,7 +25,7 @@
                     <!-- 货到付款 -->
                     <div class="fore2">货到付款：<strong class="ftx-01">799.00元</strong>
                     </div>
-                    <div class="fore3">京东快递 &nbsp; 送货时间:    <strong class="ftx-01">预计11月13日（周日）送达,双十一期间促销火爆，可能影响送货时效，请谅解。</strong>
+                    <div class="fore3">魔仙快递 &nbsp; 送货时间:    <strong class="ftx-01">预计11月13日（周日）送达,促销期间火爆，可能影响送货时效，请谅解。</strong>
                         &nbsp;</div>
                 </li>
             </ul>
@@ -48,8 +48,7 @@
             <a class="sao02" href="javascript:void(0)"></a>
         </div>
     </div>
-    <div class="o-mb">完成支付后，您可以： <a href="/" clstag="pageclick|keycount|trade_201602181|33">继续购物</a>&nbsp;&nbsp
-    </div>
+    
 </div>
 
 
