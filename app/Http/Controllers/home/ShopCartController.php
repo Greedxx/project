@@ -5,6 +5,7 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
+use App\Models\home\Receive;
 
 class ShopCartController extends Controller
 {
@@ -35,8 +36,16 @@ class ShopCartController extends Controller
     }
 
     public function jsy(Request $request)
-    {   
-        
-        return view('home.jsy.index');
+    {    
+        $uid = session('userinfo')->id;
+
+        $data = Receive::where('uid','=',$uid)->where('default','=',1)->first();
+
+        return view('home.jsy.index',['data'=>$data]);
+    }
+
+    public function ordsuccess(Request $request)
+    {
+        echo 111;
     }
 }
