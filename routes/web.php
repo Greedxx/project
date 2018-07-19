@@ -60,9 +60,13 @@
         Route::any('home/xiu','home\PassController@xiu');
         Route::any('home/gai','home\PassController@gai');
         //密码
+<<<<<<< HEAD
         Route::any('home/success',function(){ return view('home.success');});
         //订单详情
         Route::any('home/order','home\OrderController@index');    
+=======
+        
+>>>>>>> 286c358175578eb3b6eecf3378002817b3b81c49
     }); 
 
     //购物车
@@ -179,10 +183,15 @@
 
     Route::get('/getsdel','home\ShopCartController@getsdel');
     
+    // 购物车  结算成功页 
     Route::any('/jsy','home\ShopCartController@jsy');
-    Route::any('/ordsuccess','home\ShopCartController@ordsuccess');
+  
 
+<<<<<<< HEAD
     //ajaxtao 默认收货地址
     Route::any('/ajaxtao/defrev','admin\AjaxtaoController@defrev');
     
+=======
+    Route::any('/ordsuccess','home\ShopCartController@ordsuccess');
+>>>>>>> 286c358175578eb3b6eecf3378002817b3b81c49
  

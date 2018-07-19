@@ -26,6 +26,10 @@ class OrdersController extends Controller
         ->with('user','good','wuliulist')
         ->where('orders_id','like','%'.$kw.'%')
         ->paginate($num);
+
+        if(!$res){
+            echo '暂无数据';
+        }
         
         // dd($res[0]['wuliulist']->status);
         return view('admin.orders.index',['res'=>$res,'arr'=>$arr]);
