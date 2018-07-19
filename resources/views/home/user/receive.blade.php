@@ -173,7 +173,9 @@
                     <td width="110px;">
                         操作
                     </td>
-                   
+                   <td>
+                        默认
+                   </td>
                 </tr>
             </thead>
             <tbody>
@@ -210,7 +212,9 @@
 
                         </form>
                     </td>
-                   
+                   <td>
+                        <input type="radio" name="mo" sid="{{$v['sid']}}"  uid ="{{$v['uid']}}">
+                   </td>
                 </tr>
                 @endforeach
             </tbody>
@@ -225,7 +229,21 @@
 
 @section('js')
 <script>
+// alert($);
+$('[name="mo"]').change(function(){
+  // alert($);
+  sid =  $('input:checked').attr('sid');
+  uid =  $('input:checked').attr('uid');
+  console.log(uid);
+  $.get('/ajaxtao/defrev',{sid:sid,uid:uid},function(data){
+      console.log(data);
+      if(data){
+        alert('已设置');
+      }
+  });
 
+})
+// $('input:checked').
 
 
 </script>

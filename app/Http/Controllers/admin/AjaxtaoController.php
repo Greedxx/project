@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Goods;
 use App\Models\GoodsImg;
 use App\Models\Content;
+use App\Models\home\Receive;
 
 class AjaxtaoController extends Controller
 {
@@ -65,5 +66,22 @@ class AjaxtaoController extends Controller
         // }catch(\Exception $e){
         //     return back();
         // }
+    }
+
+    public function defrev(Request $request){
+
+        $uid = $request->input('uid');
+        $sid = $request->input('sid');
+
+
+        // $uaddr = Receive::where('uid',$uid)->get()->toArray();
+        // dd($uaddr);
+        $uaddr = Receive::where('uid',$uid)->update(['default'=>'0']);
+        // dump($uaddr);
+        // die;
+        $sid = Receive::where('sid',$sid)->update(['default'=>'1']);
+
+        echo 1;
+
     }
 }

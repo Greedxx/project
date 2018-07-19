@@ -14,5 +14,6 @@ class Receive extends Model
     *
     * @var 
     */ 
-    protected $fillable = ['uid','sname','area','address','code','phone']; 
+    protected $fillable = ['sid','uid','sname','area','address','code','phone','default']; 
+    // protected $guarded = []; 
 }
