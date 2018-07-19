@@ -97,6 +97,7 @@
                                     <th>数量</th>
                                     <th>状态</th>
                                     <th>操作</th>
+                                    <th>收发货</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -111,10 +112,12 @@
                                 <tr>
                                     <td>{{$v['orders_id']}}</td>
                                     <td class="img_link">
+                                    <center>
                                         <a href="#" class="img">
                                             <img src="/products/p_58.jpg" width="80" height="80">
                                         </a>
                                         <a href="#" class="title">{{$v['good']->goods_name}}</a>
+                                    </center>
                                     </td>
                                     <td>{{$v['num']}}</td>
                                     
@@ -125,7 +128,11 @@
                                     @endif
 
                                     <td>
-                                        <a href="#" class="View">查看</a>
+                                        <a href="/home/order" class="View">查看</a>
+                                    </td>
+
+                                    <td>
+                                        <a href="#" class="View">确认收货</a>
                                     </td>
                                 </tr>
                                 @endforeach

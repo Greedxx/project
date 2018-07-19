@@ -62,6 +62,9 @@
         Route::any('home/xiu','home\PassController@xiu');
         Route::any('home/gai','home\PassController@gai');
         //密码
+       
+        //订单详情
+        Route::any('home/order','home\OrderController@index');    
         
     }); 
 
@@ -82,6 +85,7 @@
         Route::any('/admin/wuliulist','admin\WuliuListController@index');
 
         Route::post('/admin/wuliulist/fahuo','admin\WuliuListController@fahuo');
+
         Route::post('/admin/wuliulist/status/','admin\WuliuListController@status');
 
         // 后台 商品评论模块
@@ -165,19 +169,25 @@
     Route::get('home/captcha/','home\ZhuceController@captcha');
      //前台忘记密码验证
     Route::any('home/nopass','home\NopassController@nopass');
+    
     Route::any('home/pass','home\NopassController@pass');
     //前台忘记密码修改
     Route::any('home/modifypass','home\ModifypassController@index');
+
     Route::any('home/passedit','home\ModifypassController@passedit');
 
 
 
     Route::get('/getdel','home\ShopCartController@getdel');
+
     Route::get('/getsdel','home\ShopCartController@getsdel');
     
     // 购物车  结算成功页 
     Route::any('/jsy','home\ShopCartController@jsy');
   
 
+    //ajaxtao 默认收货地址
+    Route::any('/ajaxtao/defrev','admin\AjaxtaoController@defrev');
+    
     Route::any('/ordsuccess','home\ShopCartController@ordsuccess');
- 
+    
