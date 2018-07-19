@@ -1,15 +1,12 @@
 @extends('layout.main')
 @section('title', '仙女商城')
 @section('content')
-
-
-
 <style type="text/css">
 
     *{-webkit-box-sizing: content-box;
     box-sizing: content-box;}
 
-    img_a{
+    .img_a{
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
     }
@@ -190,85 +187,28 @@
                     </ul>
                 </div>
                 <!--------评价晒单---------->
+
                 <div id="goodsComment" class = "hidden">
-                    <div class="title"><strong>用户评价</strong><p><a href="javascript:void(0);" class="active">很有用</a>|<a href="javascript:void(0);">最新</a></p></div>
-                    <div class="goodsComment-zj">
-                        <div class="left"><p>96.1<span>%</span></p><pre>五星评价率</pre></div>
-                        <div class="right">
-                            <ul class="star">
-                                <li><i class="star5"></i><bdo>1696人</bdo></li>
-                                <li><i class="star4"></i><bdo>90人</bdo></li>
-                                <li><i class="star3"></i><bdo>5人</bdo></li>
-                                <li><i class="star2"></i><bdo>1人</bdo></li>
-                                <li><i class="star1"></i><bdo>0人</bdo></li>
-                            </ul>
-                            <ul class="Impression">
-                                <li>支持国产机</li>
-                                <li>性价比高</li>
-                                <li>系统流畅</li>
-                                <li>功能齐全</li>
-                                <li>屏幕大</li>
-                                <li>反应快</li>
-                                <li>外观漂亮</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <div class="title"><strong>用户评价</strong><p></p></div>
                     <div class="goodsComment-c" >
                         <ul>
+                            @foreach($message as $k =>$v)
                             <li>
-                                <div class="tou-x"><img src="/home/images/hy.gif" width="78" height="78" /><p>行云流水SAGA</p></div>
+                                <div class="tou-x"><img src="{{$v['user']['profile']}}" width="78" height="78" /><p>{{$v['user']['username']}}</p></div>
                                 <div class="pl-c">
-                                    <div class="pl-c-1"><i class="star5"></i><span>2014-12-1</span></div>
-                                    <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
-                                    <div class="pl-c-3">
-                                        <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
-                                    </div>
-                                </div>
-                            </li>
-                            
-                           <li>
-                                <div class="tou-x"><img src="/home/images/hy.gif" width="78" height="78" /><p>行云流水SAGA</p></div>
-                                <div class="pl-c">
-                                    <div class="pl-c-1"><i class="star5"></i><span>2014-12-1</span></div>
-                                    <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
-                                    <div class="pl-c-3">
-                                        <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
-                                    </div>
-                                </div>
-                            </li>
-                            
-                            <li>
-                                <div class="tou-x"><img src="/home/images/hy.gif" width="78" height="78" /><p>行云流水SAGA</p></div>
-                                <div class="pl-c">
-                                    <div class="pl-c-1"><i class="star5"></i><span>2014-12-1</span></div>
-                                    <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
-                                    <div class="pl-c-3">
-                                        <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
-                                    </div>
+                                    <div class="pl-c-1"><i class="star3"></i><span>2014-12-1</span></div>
+                                    <div class="pl-c-2"><p>用户点评 : {{$v['msg']}}</p></div>
+                                    @if(empty($v['tomsg']))
                                     <div class="pl-c-4">
-                                        <p><span>官方回复：</span>亲~ 内存卡的换算和计算机上的换算方式是不同的呢 计算机上是按1G=1024M进制算的 而厂家在做的时候是按1G＝1000M做的 所以此类容量的一个大约的计算公式为：标称容量×0.931(单位为G)，得出的数值为一个大约量，只要差的不多均为正常。</p>
+                                        <p><span>官方回复：</span>{{$v['tomsg']}}</p>
                                     </div>
+                                    @endif
                                 </div>
                             </li>
-                            
-                            <li>
-                                <div class="tou-x"><img src="/home/images/hy.gif" width="78" height="78" /><p>行云流水SAGA</p></div>
-                                <div class="pl-c">
-                                    <div class="pl-c-1"><i class="star5"></i><span>2014-12-1</span></div>
-                                    <div class="pl-c-2"><p>产品质量我是说可以 但是我还是给差评 你们不知接不接纳 这个物流速度太慢了整整4天 刚刚才拿到卡 盼到我脖子长了</p></div>
-                                    <div class="pl-c-3">
-                                        <p><span>此评价是否有用？</span> <a href="javascript:;">有用(169)</a> <a href="javascript:;">没用(67)</a></p>
-                                        <strong>来自于小米网 | <a href="javascript:void(0);">回复 (2)</a></strong>
-                                    </div>
-                                </div>
-                            </li>
+                            @endforeach      
                         </ul>
                     </div>
-                    
-                    <div class="goodsComment-more"><a href="goodsComment-more.html">查看全部评价 ></a></div>
+                    <!-- <div class="goodsComment-more"><a href="goodsComment-more.html">查看全部评价 ></a></div> -->
                 </div>
                 <!--     ------商品提问--------
                 <div id="goodsFaq" class = "hidden">
@@ -353,16 +293,30 @@
             <div class="pro-detailed-right-c">
                 <ul class="browse-list">
                     @foreach($goodsimg as $k =>$v)
-                    <li><a href="javascript:void(0);"><img src="{{$v->src}}" width="80" height="80" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="{{$v->src}}" width="60" height="60" /></a></li>
                     @endforeach
                 </ul>
-                <h3>买过的人还买了</h3>
+                <h3>产品推荐</h3>
+                <?php $data = \DB::table('goods')->orderBy('count','id')->limit(5)->get();   ?>
+                <style type="text/css">
+                    .buy-list a{
+                        text-align: center;
+                    }
+
+                    .buy-list i{
+                        position: relative;
+                        overflow: hidden;
+                        padding: 0 30px;
+                        margin: 0 0 8px;
+                        text-align: center;
+                        color: #E02B41;
+                    }
+                </style>
                 <ul class="buy-list">
-                    <li><a href="javascript:void(0);"><img src="/home/images/g01.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="javascript:void(0);"><img src="/home/images/01.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="javascript:void(0);"><img src="/home/images/00.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="javascript:void(0);"><img src="/home/images/big-pro2.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
-                    <li><a href="javascript:void(0);"><img src="/home/images/4li.jpg" width="80" height="80" /></a><p><strong><a href="javascript:void(0);">小米120cm USB数据线</a></strong><i>15元</i></p></li>
+                    @foreach($data as $k =>$v)
+                    <li><a href="/good/{{$v->id}}"><img src="{{$v->thumb}}" width="80" height="80" /></a><p><strong><a href="/good/{{$v->id}}" class="gname">{{$v->goods_name}}</a></strong><i>{{$v->price}}元</i></p></li>
+                    @endforeach
+                   
                 </ul>
             </div>
           </div>

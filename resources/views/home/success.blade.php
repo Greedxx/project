@@ -14,18 +14,19 @@
             <input type="hidden" id="loadSuccessFlag" value="ok">
             <!-- 加載成功標識  -->
             <input type="hidden" id="skuIds" value="1832201">
-            <div class="btn-area mb10"> <a class="btn-ordershow" href="http://order.jd.com/center/list.action" clstag="pageclick|keycount|trade_201602181|31">查看订单</a>
-                <a class="btn-buyagain ml10" href="http://cart.jd.com/cart/dynamic/reBuyForOrderCenter.action?wids=1832201&amp;nums=1&amp;rid=1478856930554" clstag="pageclick|keycount|trade_201602181|32"> <i></i>
-                    再次购买</a>
+            <!-- 到个人中心也  -->
+            <div class="btn-area mb10"> <a class="btn-ordershow" href="/" clstag="pageclick|keycount|trade_201602181|31">查看订单</a>
+                <a class="btn-buyagain ml10" href="/" clstag="pageclick|keycount|trade_201602181|32"> <i></i>
+                    继续购物</a>
             </div>
             <ul class="list-order">
                 <li class="li-st">
-                    <div class="fore1">订单号：<a href="http://order.jd.com/center/itemPage.action?orderid=44392478919&amp;PassKey=869D978B2C2CD34F0349D28270FA8950">44392478919</a>
+                    <div class="fore1">订单号：<a href="">44392478919</a>
                     </div>
                     <!-- 货到付款 -->
-                    <div class="fore2">货到付款：<strong class="ftx-01">799.00元</strong>
+                    <div class="fore2"><strong class="ftx-01">799.00元</strong>
                     </div>
-                    <div class="fore3">京东快递 &nbsp; 送货时间:    <strong class="ftx-01">预计11月13日（周日）送达,双十一期间促销火爆，可能影响送货时效，请谅解。</strong>
+                    <div class="fore3"> &nbsp; 送货时间:    <strong class="ftx-01">三天内送达,天气原因，可能影响送货时效，请谅解。</strong>
                         &nbsp;</div>
                 </li>
             </ul>
@@ -37,7 +38,7 @@
                    重要提醒：本平台不会以
                 <span class="ftx-01">任何理由</span>
                 ，要求您点击 <span class="ftx-01">任何网址链接</span>
-                进行退款操作。点此查看京东平台“ <a class="ftx-05" target="_blank" href="http://www.jd.com/news.aspx?id=22399">谨防诈骗公告声明</a>
+                进行退款操作。点此查看谨防诈骗公告声明</a>
                 ”</span>
             </div>
         </div>
@@ -48,8 +49,7 @@
             <a class="sao02" href="javascript:void(0)"></a>
         </div>
     </div>
-    <div class="o-mb">完成支付后，您可以： <a href="/" clstag="pageclick|keycount|trade_201602181|33">继续购物</a>&nbsp;&nbsp
-    </div>
+   
 </div>
 
 

@@ -27,16 +27,6 @@
             </h2>
         </div>
         
-        <!-- <div class="current-position" style="font-size:20px; line-height: 20px">
-            <h2>路径:<a href="/">首页</a>    
-                {{--dd($arrpath)--}}  
-                @if(!empty($arrpath))     
-                    @foreach($arrpath as $k => $v)
-                        |<a href="/list?id={{$v['cate_id']}}&sort={{$arr['sort']}}">{{$v['cate_name']}}</a>
-                    @endforeach
-                @endif
-            </h2>
-        </div> -->
         <div class="small-class" style="margin-top: -25px ">
         	<p>分类：  <a href="/list" class="active">全部</a>
                     @foreach ($cate as $k => $v)
@@ -62,6 +52,7 @@
         <div class="products-list" id="products-list">
         	<ul>
                 @foreach($good as $k =>$v)
+                <?php dump($v['message']) ?>
                 <li >
                     <div class="img" style="background:url({{$v->thumb}}) no-repeat center center ; background-size:100% 100%;"><a href="/good/{{$v->id}}"></a></div>
                     <div class="w">
