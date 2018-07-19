@@ -2,6 +2,8 @@
 @section('title', '仙女商城')
 @section('content')
 
+
+
 <style type="text/css">
 
     *{-webkit-box-sizing: content-box;
@@ -166,7 +168,7 @@
             <ul class="pro-detailed-left-title">
                 <li class="active"><a href="javascript:void(0);">详细信息</a></li>
                 <li><a href="javascript:void(0);">规格参数</a></li>
-                <li><a href="javascript:void(0);">评价晒单</a></li>
+                <li><a href="javascript:void(0);">商品评价</a></li>
                 <!-- <li><a href="#goodsFaq">商品提问</a></li> -->
                 <li><a href="javascript:void(0);">售后服务</a></li>
             </ul>
@@ -527,11 +529,13 @@
                    
                     console.log(data);
                     if(data == 1){
-                        alert('已加入购物车');
-                        window.location.reload();
+                        swal("好的!", "已加入购物车", "success");
+                        //需要等待两秒
+                        setTimeout(function(){window.location.reload();},2000);
+                        
                     }else{
                         alert('加入失败');
-                        location.reload();
+                        setTimeout(function(){window.location.reload();},2000);
                     }
                 });
 

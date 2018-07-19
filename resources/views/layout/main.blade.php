@@ -21,13 +21,14 @@
 <!-- <script src="/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script> -->
 <script src="/js/footer.js" type="text/javascript"></script>
 <script src="/layer/layer.js" type="text/javascript"></script>
-
+<script src="/js/sweetalert.min.js" type="text/javascript" ></script>
 <!-- <script type="text/javascript" src="/js/shopcart.js"></script> -->
 
 
 
 
 
+<link rel="stylesheet" type="text/css" href="/css/sweetalert.css">
 <link href="/css/common.css" rel="stylesheet" type="text/css" />
 <link href="/css/user_style.css" rel="stylesheet" type="text/css" />
 <link href="/home/css/base.css" rel="stylesheet" type="text/css" />
