@@ -97,23 +97,27 @@ class GoodsInfoController extends Controller
 
         $arrpath = $this->getPath($data['cate']['cate_id']);
 
-         // dd(session('userinfo'));
+        //dd(session('userinfo'));
         if ($request->session()->has('userinfo')){
-            $data['uid'] = $request->session()->get('userinfo.id');
-            // dump($data['uid']);
-            // dd($id);
-            // dd($data);
-            $a =  Shoucang::where('gid','=',$id)->where('uid','=',$data['uid'])->first();
-            // dd($a);
-            if(empty($a)){
-                $data['status']=1;
+            if(!empty(session('userinfo'))){
+                $data['uid'] = $request->session()->get('userinfo.id');
+                // dump($data['uid']);
+                // dd($id);
+                // dd($data);
+                $a =  Shoucang::where('gid','=',$id)->where('uid','=',$data['uid'])->first();
+                // dd($a);
+                if(empty($a)){
+                    $data['status']=1;
+                }else{
+                    $data['status']=2;
+                }
             }else{
-                $data['status']=2;
+                $data['status']=0;
             }
         }else{
             $data['status']=0;
         }
-        // dd($data['status']);
+        //dd($data['status']);
         return view('home.good',['data'=>$data,'goodsimg'=>$goodsimg,'color'=>$color,'size'=>$size ,'memory'=>$memory,'arrpath'=>$arrpath,'cart'=>$cart]);
     }
 
