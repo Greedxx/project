@@ -156,5 +156,8 @@ class ReceiveController extends Controller
         }
     }
 
-   
+   public function mo()
+   {
+     echo "string";
+   }
 }

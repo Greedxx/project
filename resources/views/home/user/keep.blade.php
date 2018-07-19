@@ -51,25 +51,32 @@
  <div class="right_style">
     
     
-   <!--样式-->  <div class="Favorites_slideTxtBox">
+   <!--样式-->  
+   <div class="Favorites_slideTxtBox">
      <div class="hd"><ul><li>收藏的商品</li></ul></div>
      <div class="bd">
         <ul class="commodity_list clearfix">
          <div class="Number_Favorites">共收藏：23条</div>
+          
+
          <div class="clearfix">
+
+         @foreach($xinxi as $k=>$v)
           <li class="collect_p">
          <em class="iconfont  delete"></em>
          <a href="#" class="buy_btn">立即购买</a>
        <div class="collect_info">
-        <div class="img_link"> <a href="#" class="center "><img src="products/p_4.jpg"></a></div>
+        <div class="img_link"> <a href="/good/{{$v['id']}}" class="center "><img src="{{$v['thumb']}}"></a></div>
         <dl class="xinxi">
-         <dt><a href="#" class="name">施华蔻多效修护套包(600ml洗+600ml润+50ml膜)</a></dt>
-         <dd><span class="Price"><b>￥</b>321.00</span></dd>         
+         <dt><a href="/good/{{$v['id']}}" class="name">{{$v['goods_name']}}({{$v['desc']}})</a></dt>
+         <dd><span class="Price"><b>￥</b>321.00</span><span class="collect_Amount"><i class="iconfont icon-shoucang"></i><a style="color:red" href="/shoucang/del?gid={{$v['id']}}&uid={{session('userinfo.id')}}">取消收藏</a></span></dd>         
         </dl>
         </div>
        </li>
-        
+         @endforeach
+
        </div>
+       
        <div class="Paging">
     <div class="Pagination">
     <a href="#">首页</a>

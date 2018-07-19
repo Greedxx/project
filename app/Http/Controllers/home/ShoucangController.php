@@ -25,6 +25,7 @@ class ShoucangController extends Controller
     	$data = [];
     	$data['uid'] = $request->input('uid');
     	$data['gid'] = $request->input('gid');
+        // dd($request->input('gid'));
     	$id = Shoucang::where('uid','=',$data['uid'])->where('gid','=',$data['gid'])->select('id')->first();
     	// dd($id->id);
     	Shoucang::find($id->id)->delete();

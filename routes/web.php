@@ -50,6 +50,7 @@
         Route::any('home/user','home\UserController@index');
         //收货地址
         Route::resource('home/receive','home\ReceiveController');
+        Route::resource('home/mo','home\ReceiveController@mo');
         //收藏
         Route::get('home/keep','home\KeepController@keep');
         //用户信息修改

@@ -157,7 +157,7 @@
                     <td width="110px;">
                         收货人
                     </td>
-                    <td width="210px;">
+                    <td width="150px;">
                         所在地
                     </td>
                     <td width="250px;">
@@ -173,7 +173,7 @@
                     <td width="110px;">
                         操作
                     </td>
-                    
+                   
                 </tr>
             </thead>
             <tbody>
@@ -210,6 +210,7 @@
 
                         </form>
                     </td>
+                   
                 </tr>
                 @endforeach
             </tbody>
@@ -220,4 +221,14 @@
 </div>
 </div>
 </div>
+@endsection
+
+@section('js')
+<script>
+
+
+
+</script>
+
+
 @endsection
