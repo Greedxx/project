@@ -61,6 +61,8 @@
         Route::any('home/gai','home\PassController@gai');
         //密码
         Route::any('home/success',function(){ return view('home.success');});
+        //订单详情
+        Route::any('home/order','home\OrderController@index');    
     }); 
 
     //购物车

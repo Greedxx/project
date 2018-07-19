@@ -238,7 +238,7 @@ $('[name="mo"]').change(function(){
   $.get('/ajaxtao/defrev',{sid:sid,uid:uid},function(data){
       console.log(data);
       if(data){
-        alert('');
+        alert('已设置');
       }
   });
 
