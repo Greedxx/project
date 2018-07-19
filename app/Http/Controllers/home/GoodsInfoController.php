@@ -99,16 +99,20 @@ class GoodsInfoController extends Controller
 
          // dd(session('userinfo'));
         if ($request->session()->has('userinfo')){
-            $data['uid'] = $request->session()->get('userinfo.id');
-            // dump($data['uid']);
-            // dd($id);
-            // dd($data);
-            $a =  Shoucang::where('gid','=',$id)->where('uid','=',$data['uid'])->first();
-            // dd($a);
-            if(empty($a)){
-                $data['status']=1;
+            if(!empty(session('userinfo'))){
+                $data['uid'] = $request->session()->get('userinfo.id');
+                // dump($data['uid']);
+                // dd($id);
+                // dd($data);
+                $a =  Shoucang::where('gid','=',$id)->where('uid','=',$data['uid'])->first();
+                // dd($a);
+                if(empty($a)){
+                    $data['status']=1;
+                }else{
+                    $data['status']=2;
+                }
             }else{
-                $data['status']=2;
+                $data['status']=0;
             }
         }else{
             $data['status']=0;

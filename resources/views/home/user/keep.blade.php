@@ -56,11 +56,11 @@
      <div class="hd"><ul><li>收藏的商品</li></ul></div>
      <div class="bd">
         <ul class="commodity_list clearfix">
-         <div class="Number_Favorites">共收藏：23条</div>
+         <div class="Number_Favorites">共收藏：{{count($xinxi)}}条</div>
           
 
          <div class="clearfix">
-
+          
          @foreach($xinxi as $k=>$v)
           <li class="collect_p">
          <em class="iconfont  delete"></em>
@@ -78,7 +78,7 @@
        </div>
        
        <div class="Paging">
-    <div class="Pagination">
+    <!-- <div class="Pagination">
     <a href="#">首页</a>
      <a href="#" class="pn-prev disabled">&lt;上一页</a>
 	 <a href="#" class="on">1</a>
@@ -87,7 +87,7 @@
 	 <a href="#">4</a>
 	 <a href="#">下一页&gt;</a>
 	 <a href="#">尾页</a>	
-     </div>
+     </div> -->
     </div>
         </ul>
         <ul class="Shops_list">

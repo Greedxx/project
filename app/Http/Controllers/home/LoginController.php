@@ -46,6 +46,6 @@ class LoginController extends Controller
    public function lologin()
    {
       session(['userinfo'=>'']);
-      return redirect('/home/login');
+      return redirect('/');
    }
 }
