@@ -174,6 +174,7 @@
     Route::get('/getsdel','home\ShopCartController@getsdel');
     
     Route::any('/jsy','home\ShopCartController@jsy');
+    Route::any('/ordsuccess','home\ShopCartController@ordsuccess');
 
     
  

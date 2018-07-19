@@ -196,7 +196,7 @@
         <label class="fl select-all">
             <input type="checkbox" class="check-all check" />&nbsp;全选</label>
         <a class="fl delete" id="deleteAll" href="javascript:;">删除</a>
-        <div class="fr closing">结 算</div>
+       <a href="/jsy"> <div class="fr closing">结 算</div></a>
         <div class="fr total">合计：￥
             <span id="priceTotal">0.00</span>
         </div>
