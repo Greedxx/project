@@ -46,13 +46,38 @@
         <script>jQuery(".sideMen").slide({titCell:"dt", targetCell:"dd",trigger:"click",defaultIndex:0,effect:"slideDown",delayTime:300,returnDefault:true});</script>
       </div>
    <!--浏览记录样式-->
+    
    
-   
-     </div>
+    </div>
+    <div class="you">
+      <div class="zhengti">
+        <div class="pl">
+          <ul>
+            <li>我的评论</li>
+          </ul>
+        </div>
+        <div class="xiangxi">
+          <div class="gsc">共评论：10条</div>
+          <div class="wdpl">
+            <div class="pltp">
+              <img src="/home/images/05.jpg">
+            </div>
+            <div class="plmc">
+              cbdsuobosabv
+            </div>
+            <div class="neirong">
+              <textarea rows="4" cols="100" placeholder="请输入评论内容..."></textarea>
+              <button class="button" style="vertical-align:middle"><span>发表评论</span></button>
+              
+            </div>
+        </div>
+        </div>
+        
+      </div>
+  
+    </div>
   </div>
 </div>
-<div class="plq">
-  
-</div>
+
 
 @endsection
