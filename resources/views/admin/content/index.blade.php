@@ -78,8 +78,8 @@
                         <input type="text" name='title' value="{{$arr['title']}}" aria-controls="DataTables_Table_1">
                     </label>
                     <label>
-                        关键字:
-                        <input type="text" name='keywords' value="{{$arr['keywords']}}" aria-controls="DataTables_Table_1">
+                        小标:
+                        <input type="text" name='name' value="{{$arr['name']}}" aria-controls="DataTables_Table_1">
                     </label>
                     <button class='btn btn-info'>搜索</button>
                     <a href="/admin/content/create" class='btn btn-success'>添加文章</a>
@@ -108,7 +108,7 @@
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                     rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" class=".txt" style="width: 45px;">
-                            关键字
+                            小标
                         </th>
                          <th owspan="1" colspan="1" class=".txt" style="width:180px;">
                             标题
@@ -120,10 +120,10 @@
                             状态
                         </th>
                         
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                <!--         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                     rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending"  >
                             点击数
-                        </th>
+                        </th> -->
                      
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                     rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending"  >
@@ -131,11 +131,11 @@
                         </th>
 
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:40px">
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:67px">
                             添加时间
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:40px">
+                    rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  style="width:67px">
 
                             更新时间
                         </th>
@@ -161,7 +161,7 @@
                             @endif 
                         </td>
                         <td class="text">
-                            {{$v->keywords}}
+                            {{$v->name}}
                         </td>
                         <td class="text">
                             {{$v->title}}
@@ -172,9 +172,9 @@
                             @else  未展现
                             @endif
                         </td>
-                        <td class="text">
+                       <!--  <td class="text">
                             {{$v->count}}
-                        </td>
+                        </td> -->
                         <td class="text sort1" >
                             {{$v->sort}}
                         </td>

@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="mws-form-row">
-                    <label class="mws-form-label">作者</label>
+                    <label class="mws-form-label">原作者</label>
                     <div class="mws-form-item">
                         <input type="text" class="small" name='zuozhe'>
                     </div>
@@ -106,14 +106,14 @@
                 </div>
 
                 <div class="mws-form-row ">
-                    <label class="mws-form-label">内容描述</label>
+                    <label class="mws-form-label">内容简介</label>
                     <div class="mws-form-item">
                         <textarea name='desc' rows="2"  cols="100" ></textarea> 
                     </div>
                 </div>
             
                 <div class="mws-form-row">
-                    <label class="mws-form-label">商品详情</label>
+                    <label class="mws-form-label">信息详情</label>
                     <div class="mws-form-item">
                         <script id="editor" name="content"  type="text/plain" style="width:900px;height:600px;"></script>
                     </div>

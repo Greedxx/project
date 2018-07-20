@@ -101,7 +101,7 @@
                 <!-- 商品名 -->
                 <h1 gid="{{$data->id}}" gsrc="{{$data->thumb}}" >{{$data->goods_name}}</h1>
                 <p class="money">¥<span>{{$data->price}}</span></p>
-                <p class="comment"><img src="/home/images/x5.gif" /><span>3266人评价<ins>|</ins>0个提问</span></p>
+                <p class="comment"><img src="/home/images/x5.gif" /><span>{{count($message)}}人评价<ins>|</ins></span></p>
                 <p class="fit"><strong>适配</strong><span>{{$data->desc}}</span></p>
                 <div class="styles">
                     <h2>颜色：</h2>
@@ -196,7 +196,7 @@
                             <li>
                                 <div class="tou-x"><img src="{{$v['user']['profile']}}" width="78" height="78" /><p>{{$v['user']['username']}}</p></div>
                                 <div class="pl-c">
-                                    <div class="pl-c-1"><i class="star3"></i><span>2014-12-1</span></div>
+                                    <div class="pl-c-1"><i class="star3"></i><span>{{$v['created_at']}}</span></div>
                                     <div class="pl-c-2"><p>用户点评 : {{$v['msg']}}</p></div>
                                     @if(empty($v['tomsg']))
                                     <div class="pl-c-4">

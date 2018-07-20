@@ -28,7 +28,7 @@ class ContentController extends Controller
             //检测关键字
             $title = $request->input('title','');
             
-            $keywords = $request->input('keywords','');
+            $name = $request->input('name','');
             
 
             //如果用户名不为空
@@ -37,9 +37,9 @@ class ContentController extends Controller
             }
 
             //如果邮箱不为空
-            if(!empty($keywords)) {
+            if(!empty($name)) {
 
-                $query->where('keywords','like','%'.$keywords.'%');
+                $query->where('name','like','%'.$name.'%');
             }
 
         })->paginate($request->input('num', 10));
@@ -48,7 +48,7 @@ class ContentController extends Controller
         //定义参数数组
         $arr = [];
         $arr['title'] = $request->input('title','');
-        $arr['keywords'] = $request->input('keywords','');
+        $arr['name'] = $request->input('name','');
         $arr['num'] = $request->input('num','10');
         return view('admin.content.index',['title'=>'文章列表页','arr'=>$arr,'data'=>$data]);
     }

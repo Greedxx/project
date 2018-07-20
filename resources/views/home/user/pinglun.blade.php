@@ -43,34 +43,51 @@
       </dd>
       </dl>
       </div>
-        <script>jQuery(".sideMen").slide({titCell:"dt", targetCell:"dd",trigger:"click",defaultIndex:0,effect:"slideDown",delayTime:300,returnDefault:true});</script>
+        <!-- <script>jQuery(".sideMen").slide({titCell:"dt", targetCell:"dd",trigger:"click",defaultIndex:0,effect:"slideDown",delayTime:300,returnDefault:true});</script> -->
       </div>
    <!--浏览记录样式-->
     
    
     </div>
-    <div class="you">
-      <div class="zhengti">
+    <style type="text/css">
+      
+      .zhengti1{
+
+      }
+    </style>
+    <div class="you_pinglun">
+      <div class="zhengti1">
         <div class="pl">
           <ul>
             <li>我的评论</li>
           </ul>
         </div>
-        <div class="xiangxi">
-          <div class="gsc">共评论：10条</div>
-          <div class="wdpl">
-            <div class="pltp">
-              <img src="/home/images/05.jpg">
+          
+          <div class="xiangxi_pinglun">
+            <!-- <div class="gsc">共评论：10条</div> -->
+            @foreach($xinxi as $k =>$v)
+            <div class="wdpl">
+                <div class="pltp">
+                  <img src="{{$v['thumb']}}">
+                </div>
+                <div class="plmc">
+                  {{$v['goods_name']}}
+                </div>
+                 @if(empty($v['pinglun']))
+                  <div class="neirong">
+                  <textarea  rows="4" cols="100" placeholder="请输入评论内容..."></textarea>
+                  <button class="button pinglun" style="vertical-align:middle" uid="{{session('userinfo.id')}}" gid="{{$v['id']}}" ><span>发表评论</span></button>
+                  </div>
+                  @else
+                  <div class="neirong">
+                  <textarea rows="4" cols="100" readonly>{{$v['pinglun']['msg']}}</textarea>
+                  </div>
+                  <!-- <textarea rows="4" cols="100" readonly>{{$v['pinglun']['tomsg']}}</textarea> -->
+                  @endif
+                
             </div>
-            <div class="plmc">
-              cbdsuobosabv
-            </div>
-            <div class="neirong">
-              <textarea rows="4" cols="100" placeholder="请输入评论内容..."></textarea>
-              <button class="button" style="vertical-align:middle"><span>发表评论</span></button>
-              
-            </div>
-        </div>
+            @endforeach
+          
         </div>
         
       </div>
@@ -80,4 +97,23 @@
 </div>
 
 
+@endsection
+
+@section('js')
+<script type="text/javascript">
+
+  $('.pinglun').click(function(){
+    uid = $(this).attr('uid');
+    gid = $(this).attr('gid');
+    message = $(this).parent().find('textarea').val();
+    $.get('/ajaxtao/msgadd',{uid:uid,gid:gid,msg:message},function(data){
+      if(data==1){
+        window.location.reload();
+      }else{
+        alert('评论失败');
+      }
+    })
+  })
+
+</script>
 @endsection

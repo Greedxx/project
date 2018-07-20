@@ -8,6 +8,7 @@ use App\Models\Goods;
 use App\Models\GoodsImg;
 use App\Models\Content;
 use App\Models\home\Receive;
+use App\Models\admin\Message;
 
 class AjaxtaoController extends Controller
 {
@@ -83,5 +84,26 @@ class AjaxtaoController extends Controller
 
         echo 1;
 
+    }
+
+    public function msgadd(Request $request){
+
+        $data = [];
+
+        $data['uid'] = $request->input('uid');
+
+        $data['gid'] = $request->input('gid');
+
+        $data['msg'] = $request->input('msg');
+
+        $info = 0;
+
+        try {
+            $info = Message::create($data);
+        } catch (Exception $e) {
+            
+        }
+
+        echo '1';
     }
 }

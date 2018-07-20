@@ -51,6 +51,7 @@
         Route::any('home/user','home\UserController@index');
         //收货地址
         Route::resource('home/receive','home\ReceiveController');
+        
         Route::resource('home/mo','home\ReceiveController@mo');
         //收藏
         Route::get('home/keep','home\KeepController@keep');
@@ -188,6 +189,10 @@
 
     //ajaxtao 默认收货地址
     Route::any('/ajaxtao/defrev','admin\AjaxtaoController@defrev');
+
+    //ajaxtao 添加回复
+    Route::any('/ajaxtao/msgadd','admin\AjaxtaoController@msgadd');
+    
     
     Route::any('/ordsuccess','home\ShopCartController@ordsuccess');
     

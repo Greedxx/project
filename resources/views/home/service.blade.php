@@ -16,9 +16,9 @@
                 <ul>
                     @foreach ($content as $k =>$v)
                         @if($k == 0)
-                    	<li class="active"><p><a href="javascript:void(0);">{{$v->title}}</a></p></li>
+                    	<li class="active"><p><a href="javascript:void(0);">{{$v->name}}</a></p></li>
                         @else
-                        <li><p><a href="javascript:void(0);">{{$v->title}}</a></p></li>
+                        <li><p><a href="javascript:void(0);">{{$v->name}}</a></p></li>
                         @endif
                     @endforeach
                 </ul>

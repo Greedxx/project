@@ -439,6 +439,13 @@
 	float: left;
 	/*margin-left: 30px;*/
 }
+
+.you_pinglun{
+	width:980px;
+	background: white;
+	float: left;
+	/*margin-left: 30px;*/
+}
 .zhengti{
 	margin: 20px 0px;
 
@@ -470,6 +477,11 @@
 .xiangxi{
 	width: 980px;
 	height: 500px;
+	background: white;
+	overflow: hidden;
+}
+.xiangxi_pinglun{
+	width: 980px;
 	background: white;
 	overflow: hidden;
 }

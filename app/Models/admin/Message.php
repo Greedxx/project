@@ -9,9 +9,14 @@ class Message extends Model
     //
     protected $table = 'message';
     protected $primaryKey = 'id';
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $guarded = [];
+
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
+
+    protected $dateFormat = 'U';
 
     public function user()
     {

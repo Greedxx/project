@@ -35,7 +35,7 @@ class GoodsImgController extends Controller
 
             $query->where('src','like','%'.$search.'%');
 
-        })->where('gid','=',$gid)->paginate($req->input('num',10));
+        })->where('gid','=',$gid)->orderBy('sort')->paginate($req->input('num',10));
 
             
         $arr['num'] = $req->input('num');
