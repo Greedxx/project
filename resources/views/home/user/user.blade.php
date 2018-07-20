@@ -114,7 +114,7 @@
                                     <td class="img_link">
                                     <center>
                                         <a href="#" class="img">
-                                            <img src="/products/p_58.jpg" width="80" height="80">
+                                            <img src="{{$v['good']->thumb}}" width="80" height="80">
                                         </a>
                                         <a href="#" class="title">{{$v['good']->goods_name}}</a>
                                     </center>

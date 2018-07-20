@@ -74,7 +74,7 @@ class ShopCartController extends Controller
             $data['num'] = $v['num'];
             $data['sum'] = $v['sum'];
             $data['addr'] = $addr;
-            $data['status'] = 1;
+            $data['status'] = '1';
             
             $data['wuliu_status'] = 0;
             $data['create_time'] = $create_time;
