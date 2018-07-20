@@ -64,7 +64,9 @@
         //密码
        
         //订单详情
-        Route::any('home/order','home\OrderController@index');    
+        Route::any('home/order/{id}','home\OrderController@index');  
+        // 确认收货
+        Route::any('home/queren/{id}','home\OrderController@queren');    
         
     }); 
 

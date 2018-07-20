@@ -123,15 +123,15 @@
                                             <td colspan="5">
                                                 <span class="gap">
                                                 </span>
-                                                <span class="dealtime" title="2016-11-01 23:43:57">
-                                                    2016-11-01 23:43:57
+                                                <span class="dealtime" title="{{date('Y-m-d H:i:s',$res->create_time)}}">
+                                                    {{date('Y-m-d H:i:s',$res->create_time)}}
                                                 </span>
-                                                <input type="hidden" id="datasubmit-43244043248" value="2016-11-01 23:43:57">
+                                                <input type="hidden" id="datasubmit-43244043248" value="{{date('Y-m-d H:i:s',$res->create_time)}}">
                                                 <span class="number">
                                                     订单号：
                                                     <a name="orderIdLinks" id="idUrl43244043248" target="_blank" 
                                                     clstag="click|keycount|orderinfo|order_num">
-                                                        43244043248
+                                                        {{$res->orders_id}}
                                                     </a>
                                                 </span>
                                                 <div class="tr-operate">
@@ -149,7 +149,7 @@
                                             <td style='padding:0px;'>
                                                 <!-- 每一种商品 -->
                                                 <div style="padding:22px 0;border-collapse:collapse;">
-                                                    收货信息:
+                                                    <img src="{{$res['good']->thumb}}" width="70">
                                                 </div>
                                               
                                                
@@ -157,25 +157,25 @@
                                             <!-- 订单的其它内容 -->
                                             <td>
                                                 <div style="height:30px">
-                                                   收货人:
+                                                   收货人:{{$res['addrs']->sname}}
                                                 </div>
 
                                                 <div style="height:30px;width: 180px">
-                                                   联系方式:
+                                                   联系方式:{{$res['addrs']->phone}}
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="amount">
                                                     <span>
-                                                        总额 ￥229.70
+                                                        总额 ￥{{$res->sum}}
                                                     </span>
                                                     <br>
                                                     <strong>
-                                                        应付
+                                                    总额
                                                     </strong>
                                                     <br>
                                                     <strong>
-                                                        ￥129.70
+                                                        ￥{{$res->sum}}
                                                     </strong>
                                                     <br>
                                                    
@@ -183,13 +183,32 @@
                                             </td>
                                             <td>
                                                 <div class="status">
+
+                                                @if ($res->wuliu_status == 0)
                                                     <span class="order-status ftx-04">
-                                                        正在出库
+                                                        未发货
                                                     </span>
+                                                @elseif ($res['wuliulist']->status == 1)
+                                                        运输中
+                                                        
+                                                @elseif ($res['wuliulist']->status == 2)
+                                                        已签收,请评论
+                                                      
+                                                @elseif ($res['wuliulist']->status == 3)
+                                                        已评论
+                                                @endif
+
                                                     <br>
-                                                    <span class="order-status ftx-04">
-                                                        已支付
-                                                    </span>
+
+                                                      @if($res['status'] == 0)
+                                                      <span class="order-status ftx-04">
+                                                                未支付
+                                                            </span>
+                                                        @else
+                                                            <span class="order-status ftx-04">
+                                                                已支付
+                                                            </span>
+                                                        @endif
                                                    
                                                 </div>
                                             </td>
@@ -197,15 +216,21 @@
                                                 <div class="operate">
                                                     <div id="pay-button-43244043248" _baina="0">
                                                     </div>
-                                                    <a class="a-link order-cancel" href="javascript:void(0);" _oid="43244043248"
-                                                    _passkey="42BA3A2A715A28F4540B508F726F0E0E" _url="new/cancelOrder.html?1&amp;cancalText=0&amp;isHaveGiftOrder=0&amp;status=0">
-                                                        取消订单
-                                                    </a>
+                                                  
                                                     <br>
-                                                    <a class="J-reminder" href="https://order.jd.com/center/list.action?search=0&amp;d=1&amp;s=4096#"
-                                                    data-orderid="43244043248">
-                                                        催单
+                                                    @if ($res->wuliu_status == 0)
+                                                        请等待发货
+                                                    @elseif ($res['wuliulist']->status == 1)
+                                                    <a class="J-reminder" href="/home/queren/{{$res->id}}" >
+                                                    确认收货
                                                     </a>
+                                                    @elseif ($res['wuliulist']->status == 2)
+                                                    <a class="J-reminder" href="/home/pinglun" >
+                                                    评论
+                                                    </a>
+                                                    @elseif ($res['wuliulist']->status == 3)
+                                                    订单完成
+                                                    @endif
                                                     <br>
                                                 </div>
                                             </td>

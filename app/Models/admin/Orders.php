@@ -29,5 +29,10 @@ class Orders extends Model
         return $this->belongsTo('App\Models\admin\WuliuList','wuliu_status','id');
     }
 
+    public function addrs()
+    {
+        return $this->belongsTo('App\Models\home\Receive','addr','sid');
+    }
+
 	protected $fillable = ['orders_id','user_id','good_id','price','num','addr','msg','create_time','status','wuliu_status','sum'];
 }

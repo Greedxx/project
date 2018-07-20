@@ -128,11 +128,22 @@
                                     @endif
 
                                     <td>
-                                        <a href="/home/order" class="View">查看</a>
+                                        <a href="/home/order/{{$v->id}}" class="View">查看</a>
                                     </td>
 
                                     <td>
-                                        <a href="#" class="View">确认收货</a>
+                                    @if ($v->wuliu_status == 0)
+                                        未发货
+                                    @elseif ($v['wuliulist']->status == 1)
+                                        运输中
+                                         <a href="/home/queren/{{$v->id}}" class="View">确认收货</a>
+                                    @elseif ($v['wuliulist']->status == 2)
+                                        已签收,请评论
+                                        <a href="/home/pinglun" class="View">评论</a>
+                                     @elseif ($v['wuliulist']->status == 3)
+                                        已评论
+                                        @endif
+                                       
                                     </td>
                                 </tr>
                                 @endforeach
