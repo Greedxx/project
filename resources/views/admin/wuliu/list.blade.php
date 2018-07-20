@@ -174,11 +174,10 @@
                         @elseif ($v['wuliulist']->status == 1)
                             运输中
                         @elseif ($v['wuliulist']->status == 2)
-                            已签收
+                            已签收,未评论
                         @elseif ($v['wuliulist']->status == 3)
-                            未评论
-                        @elseif ($v['wuliulist']->status == 4)
                             已评论
+                            
                         @endif
 
 

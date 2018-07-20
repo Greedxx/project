@@ -19,8 +19,7 @@ class UserController extends Controller
 
         $id = session('userinfo.id');
 
-        $res = Orders::Where('user_id',$id)->With('user','good')->get();
-
+        $res = Orders::Where('user_id',$id)->With('user','good','wuliulist')->get();
         
 
         return view('home.user.user',['title'=>'用户中心','res'=>$res]);
@@ -56,6 +55,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
+    
     }
 
     /**

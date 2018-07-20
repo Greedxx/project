@@ -102,11 +102,10 @@
 				@elseif ($res[0]['wuliulist']->status == 1)
 					运输中
 				@elseif ($res[0]['wuliulist']->status == 2)
-					已签收
+					已签收,未评论
 				@elseif ($res[0]['wuliulist']->status == 3)
-					未评论
-				@elseif ($res[0]['wuliulist']->status == 4)
 					已评论
+				
 				@endif
 			</span>
 		</div>
