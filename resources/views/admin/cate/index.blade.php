@@ -51,14 +51,14 @@
                             显示
                             <select name="num" size="1" >
 
-                                <option value="10" @if($data['num'] == 10)   selected="selected" @endif>
-                                    10
-                                </option>
-                                <option value="20" @if($data['num'] == 20)   selected="selected" @endif>
-                                    20
-                                </option>
                                 <option value="30" @if($data['num'] == 30)   selected="selected" @endif>
                                     30
+                                </option>
+                                <option value="50" @if($data['num'] == 50)   selected="selected" @endif>
+                                    50
+                                </option>
+                                <option value="100" @if($data['num'] == 100)   selected="selected" @endif>
+                                    100
                                 </option>
                                 
                             </select>

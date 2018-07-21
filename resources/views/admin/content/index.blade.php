@@ -110,10 +110,9 @@
                     rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" class=".txt" style="width: 45px;">
                             小标
                         </th>
-                         <th owspan="1" colspan="1" class=".txt" style="width:180px;">
+                         <th owspan="1" colspan="1" class="txt" style="width:180px;">
                             标题
                         </th>
-
 
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                     rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending"  >
@@ -201,45 +200,6 @@
 
             </table>
 
-
-            <!-- <style>
-             .pagination {
-                clear: both;
-                color: #7d7d7d;
-                font-size: 12px;
-                overflow: hidden;
-                padding-top: 0px;
-                padding-bottom: 0px;
-                border-top: 1px #dfdfdf solid;
-                FONT-FAMILY: "Microsoft Yahei";
-                float: right;
-                list-style: none;
-                margin:0px;
-             }
-            .pagination li{
-                float: left;
-                color: #7d7d7d;
-                font-size: 12px;
-                font-weight: bold;
-                padding: 7px 12px;
-                margin-right: 8px;
-
-             }
-             .pagination li:hover{
-                cursor: pointer;
-             }
-            .pagination .active{
-                background-color: #88a9eb;
-                color: #323232;
-                border: none;
-                background-image: none;
-                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
-            }
-            .pagination .disabled{
-                    color: #666666;
-                    cursor: default;
-            }
-            </style> -->
 
             <div class="dataTables_paginate paging_full_numbers" style="" id="paginate">
                 {{ $data->appends($arr)->links() }}

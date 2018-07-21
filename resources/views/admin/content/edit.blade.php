@@ -91,12 +91,12 @@
                     </div>
                 </div>
 
-                <div class="mws-form-row">
+          <!--       <div class="mws-form-row">
                     <label class="mws-form-label">作者</label>
                     <div class="mws-form-item">
                         <input type="text" class="small" name='zuozhe' value="{{$data->zuozhe}}">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="mws-form-row">
                     <label class="mws-form-label">编辑人</label>
@@ -106,7 +106,7 @@
                 </div>
 
                 <div class="mws-form-row ">
-                    <label class="mws-form-label">内容描述</label>
+                    <label class="mws-form-label">内容简介</label>
                     <div class="mws-form-item">
                         <textarea name='desc' rows="2"  cols="100" >{{$data->desc}}</textarea> 
                     </div>

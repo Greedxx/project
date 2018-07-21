@@ -25,7 +25,7 @@ class CateRequest extends FormRequest
     {
         return [
             //
-            'cate_name' => 'required|regex:/^[\x{4e00}-\x{9fa5}]{1,5}$/u'
+            'cate_name' => 'required|regex:/^[\x{4e00}-\x{9fa5}A-Za-z0-9_\-]{1,12}$/u'
         ];
     }
 
@@ -33,7 +33,7 @@ class CateRequest extends FormRequest
     {
         return [
             'cate_name.required'=> '填写不能为空',
-            'cate_name.regex'=> '请填写中文'
+            'cate_name.regex'=> '格式不匹配'
         ];
     }
 }

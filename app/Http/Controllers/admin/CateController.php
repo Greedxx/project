@@ -19,7 +19,7 @@ class CateController extends Controller
         
         $name = $request->input('cate_name');
 
-        $cate = cate::select(\DB::raw('*,concat(path,cate_id) as paths '))->where('cate_name','like',"%$name%")->orderBy('paths')->paginate($request->input('num',10));
+        $cate = cate::select(\DB::raw('*,concat(path,cate_id) as paths '))->where('cate_name','like',"%$name%")->orderBy('paths')->paginate($request->input('num',30));
 
         $data=['cate_name'=>$request->input('cate_name'),'num'=>$request->input('num')];
 
