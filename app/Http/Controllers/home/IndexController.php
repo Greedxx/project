@@ -14,7 +14,7 @@ class IndexController extends Controller
 
          
         //商品的查询1 热门商品 5
-        $sale = Goods::orderBy('goods_name')->limit(4)->get();
+        $sale = Goods::orderBy('id')->limit(4)->get();
 
 
         //商品查询2  热销商品 top5
