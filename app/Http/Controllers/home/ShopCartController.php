@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Session;
 use App\Models\home\Receive;
 use App\Models\admin\Orders;
+use App\Models\Goods;
 
 class ShopCartController extends Controller
 {
@@ -55,10 +56,6 @@ class ShopCartController extends Controller
         $uid = session('userinfo')->id;
         $addr = Receive::where('uid','=',$uid)->where('default','=',1)->first()->sid;
 
-
-
-       
-
         
         $sums = 0;
         $order_id = date('YmdHis',time()).rand(1,999);
@@ -81,13 +78,16 @@ class ShopCartController extends Controller
             // dd($data);
             try{
                 Orders::create($data);
+                Goods::decrement('count',$v['num']);
+                Goods::increment('sum',$v['num']);
             }catch(\Exception $e){
                 return back();
             }
           
         }
+
         session(['cart'=>null]);
-        
+       
         return view('home.jsy.ordsuccess',['sums'=>$sums,'order_id'=>$order_id]);
     }
     

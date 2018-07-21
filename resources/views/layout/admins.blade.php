@@ -252,13 +252,7 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="#"><i class="icon-cord"></i>支付接口管理</a>
-                        <ul class='closed'>
-                            <li><a href="/admin/cate/create">添加接口</a></li>
-                            <li><a href="/admin/cate">管理接口</a></li>
-                        </ul>
-                    </li>
+               
                     <li>
                         <a href="#"><i class="icon-IE"></i>友情链接</a>
                         <ul class='closed'>
