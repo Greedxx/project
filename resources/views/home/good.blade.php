@@ -102,7 +102,7 @@
                 <h1 gid="{{$data->id}}" gsrc="{{$data->thumb}}" >{{$data->goods_name}}</h1>
                 <p class="money">¥<span>{{$data->price}}</span></p>
                 <p class="comment"><img src="/home/images/x5.gif" /><span>{{count($message)}}人评价<ins>|</ins></span></p>
-                <p class="fit"><strong>适配</strong><span>{{$data->desc}}</span></p>
+                <p class="fit"><strong>描述</strong><span>{{$data->desc}}</span></p>
                 <div class="styles">
                     <h2>颜色：</h2>
                     
