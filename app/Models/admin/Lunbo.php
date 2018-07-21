@@ -24,5 +24,5 @@ class Lunbo extends Model
      *
      * @var array
      */
-    protected $fillable = ['lid','lname','url','status'];
+    protected $fillable = ['lid','lname','url','status','lurl'];
 }

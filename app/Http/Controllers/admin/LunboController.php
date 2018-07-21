@@ -51,10 +51,9 @@ class LunboController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->input());
-        //echo 111;
+        //dd($request->input());
          $res = $request->except(['_token']);
-        //dd($res);
+        // dd($res);
         //url
         if ($request->hasFile('url')){
 
@@ -70,14 +69,13 @@ class LunboController extends Controller
         }
         
        // dd($res);
-   try{
-        $data = Lunbo::create($res);
-        // dd($data);
-        if($data){
-            return redirect('/admin/lunbo')->with('success','添加成功');
-          }
-       }catch(\Exception $e){
-            return back()->with('error','添加失败');
+        try{
+            $data = Lunbo::create($res);
+            if($data){
+                return redirect('/admin/lunbo')->with('success','添加成功');
+              }
+           }catch(\Exception $e){
+                return back()->with('error','添加失败');
         }
 
     }

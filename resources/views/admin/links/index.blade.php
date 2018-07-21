@@ -32,8 +32,6 @@
                         显示
                         <select name="num" size="1" aria-controls="DataTables_Table_1">
 
-                        
-
                             <option value="10" @if($request->num == 10)   selected="selected" @endif>
                                 10
                             </option>
@@ -59,8 +57,6 @@
                     <button class='btn btn-info'>搜索</button>
                 </div>
             </form>
-
-
 
             <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
             aria-describedby="DataTables_Table_1_info">
@@ -117,7 +113,7 @@
                         </td>
                      
                          <td class=" ">
-                            <a href="/admin/links/{{$v->lid}}" class='btn btn-info'>修改</a>
+                            <a href="/admin/links/{{$v->lid}}/edit" class='btn btn-info'>修改</a>
 
                             <form action="/admin/links/{{$v->lid}}" method='post' style='display:inline'>
                                 
@@ -152,9 +148,6 @@
                     cursor: pointer;
                     outline: none;
                     background-color: #444444;
-
-
-                  
                     text-decoration: none;
                     border-right: 1px solid #232323;
                     border-left: 1px solid #666666;

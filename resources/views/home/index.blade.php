@@ -5,8 +5,8 @@
         *{-webkit-box-sizing: content-box;
         box-sizing: content-box;}
     </style>
-    <?php $data = App\Models\admin\Lunbo::where('status',1)->limit(10)->get() ?>
-     <?php $ad = App\Models\admin\Ad::limit(5)->get()->toArray() ?>
+    <?php $data = App\Models\admin\Lunbo::where('status',1)->limit(10)->get(); ?>
+     <?php $ad = App\Models\admin\Ad::limit(5)->get()->toArray(); $num = count($ad);  ?>
    <!------------banner---------------->
     <div id="banner">
         <div class="fullSlide">
@@ -35,7 +35,11 @@
             <div class="clr20"></div>
             <div class="left">
                 <!-- 广告位置1 start-->
-            	<div class="img"><a href="{{$ad[0]['aurl']}}"><img src="{{$ad[0]['url']}}" width="619" height="309" /></a></div>
+                @if($num>=1)
+                <div class="img"><a href="{{$ad[0]['aurl']}}"><img src="{{$ad[0]['url']}}" width="619" height="309" /></a></div>
+                @else
+                <div class="img"><a href="#"><img src="/home/images/nopic.jpg" width="619" height="309" /></a></div>
+                @endif
                 <!-- 广告位置1 end -->
                 <!-- 商品填充处 -->
                 @foreach($sale as $k =>$v)
@@ -63,13 +67,15 @@
         
      
             <div class="list-ad1">
-               
+                @if($num>=2)
                 <a href="{{$ad[1]['aurl']}}"><img src="{{$ad[1]['url']}}"></a>
-               
+                @else
+                <a href="#"><img src="/home/images/nopic.jpg"></a>
+                @endif
             </div>
 
        
-        <!------遍历各分类中商品------->
+
         @foreach($goods as $k=>$v)
             @if(!empty($v['goods'])&&$v['goods']!="[]")
                 <div class="list-title">
@@ -91,7 +97,9 @@
                 <?php $i=$k+2;?>
                 @if(!empty($data[$i]))
                     <div class="list-ad1" >
+                        @if($num>=($i+1))
                         <a href="{{$ad[$i]['aurl']}}"><img src="{{$ad[$i]['url']}}"></a>
+                        @endif
                     </div>
                 @endif
             @endif  
