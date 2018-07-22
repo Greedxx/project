@@ -91,7 +91,7 @@
                     </div>
                 </div>
 
-             <!--    <div class="mws-form-row">
+                <!--    <div class="mws-form-row">
                     <label class="mws-form-label">原作者</label>
                     <div class="mws-form-item">
                         <input type="text" class="small" name='zuozhe'>
@@ -99,7 +99,7 @@
                 </div> -->
 
                 <div class="mws-form-row">
-                    <label class="mws-form-label">编辑人</label>
+                    <label class="mws-form-label">编辑</label>
                     <div class="mws-form-item">
                         <input type="text" class="small" name='editor'>
                     </div>

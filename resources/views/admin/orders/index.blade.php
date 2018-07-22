@@ -151,15 +151,12 @@
                     </td>
                     <td class=" ">
                         <center>
-                       @if ($v->wuliu_status == 0)
+                        @if ($v->wuliu_status == 0)
                             未发货
                         @elseif ($v['wuliulist']->status == 1)
                             运输中
                         @elseif ($v['wuliulist']->status == 2)
-                            已签收,为评论
-                        @elseif ($v['wuliulist']->status == 3)
-                            已评论
-                     
+                            交易完成
                         @endif
                         </center>
                     </td>

@@ -79,6 +79,11 @@ class ReceiveController extends Controller
           
         try{
             $data = Receive::create($res);
+
+            $uaddr = Receive::where('uid', $res['uid'])->update(['default'=>'0']);
+            // dump($uaddr);
+            // die;
+            $sid = Receive::where('sid',$data->sid)->update(['default'=>'1']);
             // dump($date);
             if($data){
                 return redirect('/home/receive');
@@ -146,6 +151,8 @@ class ReceiveController extends Controller
      */
     public function destroy($id)
     {
+
+       // dd($id);
        $res = Receive::where('sid',$id)->delete();
         //第二种
         // $res = Receive::destroy($id);

@@ -10,13 +10,41 @@
 | contains the "web" middleware group. Now create something great!
 |
 */  
+
+
+    //前台注册
+    Route::any('/home/zhuce','home\ZhuceController@index');
+    //前台执行注册
+    Route::any('/home/dozhuce','home\ZhuceController@dozhuce');
+
+    //前台登录
+    Route::any('/home/login','home\LoginController@login');
+
+    //验证码
+    Route::get('home/captcha/','home\ZhuceController@captcha');
+     //前台忘记密码验证
+    Route::any('home/nopass','home\NopassController@nopass');
+    
+    Route::any('home/pass','home\NopassController@pass');
+    //前台忘记密码修改
+    Route::any('home/modifypass','home\ModifypassController@index');
+
+    Route::any('home/passedit','home\ModifypassController@passedit');
+
+    Route::get('/getdel','home\ShopCartController@getdel');
+
+    Route::get('/getsdel','home\ShopCartController@getsdel');
+
+
     Route::group([],function(){
         //前台首页
         Route::any('/','home\IndexController@index');
 
         Route::any('/test','home\TestController@test');
-        
 
+        //前台执行登陆
+        Route::any('/home/dologin','home\LoginController@dologin');
+        
         //列表页
         Route::any('/list','home\GoodsListController@index');
 
@@ -45,29 +73,52 @@
     });
 
 
-    //前台
-    Route::group([],function(){
+    //前台加中间件
+    Route::group(['middleware'=>'homeLogin'],function(){
+
+
+        //前台退出
+        Route::any('home/lologin','home\LoginController@lologin');
+
         //用户中心
         Route::any('home/user','home\UserController@index');
+
         //收货地址
         Route::resource('home/receive','home\ReceiveController');
         
         Route::resource('home/mo','home\ReceiveController@mo');
         //收藏
         Route::get('home/keep','home\KeepController@keep');
+
         //用户评论
         Route::get('home/pinglun','home\PinglunController@pinglun');
+
         //用户信息修改
         Route::resource('home/users','home\UsersController');
+
         //密码修改
         Route::any('home/xiu','home\PassController@xiu');
+        //密码修改
         Route::any('home/gai','home\PassController@gai');
-        //密码
        
         //订单详情
         Route::any('home/order/{id}','home\OrderController@index');  
+
         // 确认收货
         Route::any('home/queren/{id}','home\OrderController@queren');    
+
+        // 购物车  结算成功页 
+        Route::any('/jsy','home\ShopCartController@jsy');
+
+        // 购物车 订单成功页
+        Route::any('/ordsuccess','home\ShopCartController@ordsuccess');
+
+        //ajaxtao 默认收货地址
+        Route::any('/ajaxtao/defrev','admin\AjaxtaoController@defrev');
+
+        //ajaxtao 添加回复
+        Route::any('/ajaxtao/msgadd','admin\AjaxtaoController@msgadd');
+    
         
     }); 
 
@@ -120,26 +171,27 @@
         Route::any('/admin/ajaxtao/csort','admin\AjaxtaoController@csort');
 
 
-
         //用户管理
         Route::resource('/admin/user','admin\UserController');
 
         //管理员
         Route::resource('/admin/admin','admin\AdminController');
-        //
-        Route::resource('admin/admin','admin\AdminController');
+
         //退出
-       Route::any('/admin/logout','admin\LoginController@logout');
-       //修改密码
+        Route::any('/admin/logout','admin\LoginController@logout');
+
+        //修改密码
         Route::any('/admin/xian','admin\PassController@xian');
+
+        //修改密码
         Route::any('/admin/gai','admin\PassController@gai');
        
-
-
-          //广告管理
+        //广告管理
         Route::resource('admin/ad','admin\AdController');
+
         //links 友情链接
         Route::resource('admin/links','admin\LinksController');
+
         //轮播管理
         Route::resource('admin/lunbo','admin\LunboController');
 
@@ -160,41 +212,9 @@
 
 
 
-    //前台注册
-    Route::any('/home/zhuce','home\ZhuceController@index');
-    Route::any('/home/dozhuce','home\ZhuceController@dozhuce');
-    //前台登录
-    Route::any('/home/login','home\LoginController@login');
-    Route::any('/home/dologin','home\LoginController@dologin');
-    //前台退出
-    Route::any('home/lologin','home\LoginController@lologin');
-    //验证码
-    Route::get('home/captcha/','home\ZhuceController@captcha');
-     //前台忘记密码验证
-    Route::any('home/nopass','home\NopassController@nopass');
+
     
-    Route::any('home/pass','home\NopassController@pass');
-    //前台忘记密码修改
-    Route::any('home/modifypass','home\ModifypassController@index');
 
-    Route::any('home/passedit','home\ModifypassController@passedit');
-
-
-
-    Route::get('/getdel','home\ShopCartController@getdel');
-
-    Route::get('/getsdel','home\ShopCartController@getsdel');
     
-    // 购物车  结算成功页 
-    Route::any('/jsy','home\ShopCartController@jsy');
-  
 
-    //ajaxtao 默认收货地址
-    Route::any('/ajaxtao/defrev','admin\AjaxtaoController@defrev');
-
-    //ajaxtao 添加回复
-    Route::any('/ajaxtao/msgadd','admin\AjaxtaoController@msgadd');
-    
-    
-    Route::any('/ordsuccess','home\ShopCartController@ordsuccess');
     

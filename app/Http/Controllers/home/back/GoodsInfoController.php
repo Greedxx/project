@@ -83,9 +83,21 @@ class GoodsInfoController extends Controller
             dump($cart);
         }
        
-        $goodsimg = GoodsImg::where('gid',$id)->where('statu','1')->orderBy('sort')->get();
+       
+
+        try {
+
+            $goodsimg = GoodsImg::where('gid',$id)->where('statu','1')->orderBy('sort')->get();
+
+            $data = Goods::where('id',$id)->with('cate')->with('GoodsImg')->first();
+            
+        } catch (Exception $e) {
+            return back();
+        }
         
-        $data = Goods::where('id',$id)->with('cate')->with('GoodsImg')->first();
+        
+
+
 
         // dump($data['color']);
 

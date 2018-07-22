@@ -69,23 +69,32 @@ class GoodsInfoController extends Controller
 
         $values = null ;
         $cart = [];
-        if(isset($_COOKIE["cart"])){
 
-            $tt=$_COOKIE["cart"];
+        //判断cookie或session中是否有值
+        // if(isset($_COOKIE["cart"])){
 
-            $values =  json_decode($tt);
+        //     $tt=$_COOKIE["cart"];
 
-        }
+        //     $values =  json_decode($tt);
 
-        //调用对象变数组
-        if(!empty($values)){
-            $cart=$this->object_to_array($values);
-            dump($cart);
-        }
+        // }
+
+        // //调用对象变数组
+        // if(!empty($values)){
+
+        //     $cart=$this->object_to_array($values);
+
+        //     dump($cart);
+        // }
        
         $goodsimg = GoodsImg::where('gid',$id)->where('statu','1')->orderBy('sort')->get();
         
-        $data = Goods::where('id',$id)->with('cate')->with('GoodsImg')->first();
+        $data = Goods::where('id',$id)->where('status',1)->with('cate')->with('GoodsImg')->first();
+
+        // dd ($data);
+        if(empty($data)){
+            return back();
+        }
 
         // dump($data['color']);
 

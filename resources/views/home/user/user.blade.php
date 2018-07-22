@@ -52,15 +52,6 @@
                                     <a href="/home/keep">我的收藏</a>
                                 </li>
                                 <li>
-                                    <a href="#">我的留言</a>
-                                </li>
-                                <li>
-                                    <a href="#">我的标签</a>
-                                </li>
-                                <li>
-                                    <a href="#">我的推荐</a>
-                                </li>
-                                <li>
                                     <a href="/home/pinglun">我的评论</a>
                                 </li>
                             </ul>
@@ -138,11 +129,9 @@
                                         运输中
                                          <a href="/home/queren/{{$v->id}}" class="View">确认收货</a>
                                     @elseif ($v['wuliulist']->status == 2)
-                                        已签收,请评论
+                                        已签收
                                         <a href="/home/pinglun" class="View">评论</a>
-                                     @elseif ($v['wuliulist']->status == 3)
-                                        已评论
-                                        @endif
+                                    @endif
                                        
                                     </td>
                                 </tr>

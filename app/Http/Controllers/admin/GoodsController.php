@@ -52,6 +52,8 @@ class GoodsController extends Controller
         })
         ->with('cate')->paginate($request->input('num', '10'));
 
+
+
          // dd($data); //检测数据是否查询出
          
         //生成参数数组返还给appends

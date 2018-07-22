@@ -174,10 +174,7 @@
                         @elseif ($v['wuliulist']->status == 1)
                             运输中
                         @elseif ($v['wuliulist']->status == 2)
-                            已签收,未评论
-                        @elseif ($v['wuliulist']->status == 3)
-                            已评论
-                            
+                            交易完成 
                         @endif
 
 
